@@ -1,0 +1,88 @@
+@media screen and (min-width: 900px) {
+   
+    
+    
+    .Header {
+    
+      width: 100vw; 
+      height: 25vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      
+    
+    }
+    
+    .logocontainer{
+      
+      width: 20vw;
+    }
+    
+    .logoB{
+      width: 40vw;
+    }
+    
+    .logo {
+      
+      width: 20vw;
+      height: 25vh;
+    
+    }
+    
+    .Banderolle{
+      width: 40vw;
+    }
+    
+    .Menu {
+      border: 1px solid black;
+      width: 5vw;
+      height: 10vh;
+    }
+  }
+  
+  
+  @media screen and (max-width: 900px) {
+    
+      
+      
+      
+      .Header {
+      
+        width: 100vw; 
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      
+      }
+      
+      .logocontainer{
+        
+        width: 20vw;
+      }
+      
+      .logoB{
+        width: 40vw;
+      }
+      
+      .logo {
+        
+        width: 35vw;
+        height: 30vh;
+      
+      }
+      
+      .Banderolle{
+        width: 40vw;
+        display: none;
+      }
+      
+      .Menu {
+        border: 1px solid black;
+        width: 10vw;
+        height: 10vh;
+        display: none;
+      }
+    }
