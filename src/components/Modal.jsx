@@ -14,6 +14,8 @@ function MyVerticallyCenteredModal(props) {
 
   const [rollBacklist, setRollBackList] =useState([]);
 
+  const [objetSelection, setObjetSelection] = useState([]);
+
   const [rollBackTitre, setRollBackTitre] = useState('');
 
   const [rollBackTestText, setRollBackTestText] = useState('');
@@ -32,106 +34,296 @@ function MyVerticallyCenteredModal(props) {
     setBoutonSel(id);
     if (id==1) {
       MedecinGy();
+      AjoutSelection({id: 1, name : "Médecin gynécologue/Chirurgien obstéstrique" })
       
     }
     else if (id==4) {
       MedecinGyConventionOUi();
+      AjoutSelection({id : 4 , name : "Oui"})
       
     }
     else if (id==5) {
       MedecinGyConventionNon();
+      AjoutSelection({id : 5 , name : "Non"})
     }
 
     else if (id==8||id==9||id==28||id==29||id==30) {
       MedecinGyConventionOUiPatiente();
+      if (id==8) {
+        AjoutSelection({id : 8, name : "Première consultation préalable à l'ivg/Premier contact médical"})
+        
+      }
+      else if (id==9) {
+        AjoutSelection({id : 9, name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"},)
+        
+      }
+      else if (id==28) {
+        AjoutSelection({id : 28, name : "Premier temps de consultation pour prise médicamenteuse"})
+        
+      }
+      else if (id==29) {
+        AjoutSelection({id : 29, name : "Deuxième temps de consultation pour prise médicamenteuse (facultative)"})
+        
+      }
+      else if (id==30) {
+        AjoutSelection({id : 30, name : "Troisième temps de consultation: consultation de suivi"})
+        
+      }
     }
     else if (id==6) {
       MedecinGyConventionNonConsultationOUi();
+      AjoutSelection({id : 6 , name : "Oui"})
       
     }
     else if (id==7) {
       MedecinGyConventionNonConsultationNon();
+      AjoutSelection({id : 7 , name : "Non"})
       
     }
     else if (id==12 || id==13) {
       MedecinGyConventionNonConsultationOUiMajeure();
+      if (id==12) {
+        AjoutSelection({id : 12 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
+        
+      }
+      else if (id==13) {
+        AjoutSelection({id : 13 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
+        
+      }
       
     }
     else if (id==14 || id ==15) {
       MedecinGyConventionNonConsultationOUiFin();
+      if (id==14) {
+        AjoutSelection({id : 14 , name : "Patiente majeure"})
+        
+      }
+      else if (id==15) {
+        AjoutSelection({id : 15 , name : "Patiente mineure"})
+        
+      }
       
     }
     else if (id==2 || id==3) {
       SageFemmeMedecinGeneraliste();
+      if (id==2) {
+        AjoutSelection({id : 2, name : "Médecin généraliste"})
+        
+      }
+      else if (id==3) {
+        AjoutSelection({id : 3, name : "Sage-femme"})
+        
+      }
       
     }
     else if (id==19) {
       SageFemmeMedecinGeneralisteAttestationNon();
+      AjoutSelection({id : 19 , name : "Non"})
       
     }
     else if (id==20) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUi();
+      AjoutSelection({id : 20 , name : "Oui"})
       
     }
     else if (id==21){
       SageFemmeMedecinGeneralisteAttestationNonConsulationNon();
+      AjoutSelection({id : 21 , name : "Non"})
     }
 
     else if (id==22||id==23) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeure();
+      if (id==22) {
+        AjoutSelection({id : 22 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
+        
+      }
+      else if (id==23) {
+        AjoutSelection({id : 23 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
+        
+      }
       
     }
     else if (id==24||id==25) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeureAnonyme();
+      if (id==24) {
+        AjoutSelection({id : 24 , name : "Patiente majeure"})
+        
+      }
+      else if (id==25) {
+        AjoutSelection({id : 25 , name : "patiente mineure"})
+        
+      }
       
     }
     else if (id==10||id==11) {
       MedecinGyConventionOUiPatienteMajeure();
+      if (id==10) {
+        AjoutSelection({id : 10 , name : "Patiente anonyme"})
+        
+      }
+      else if (id==11) {
+        AjoutSelection({id : 11 , name : "Patiente non-anonyme"})
+        
+      }
     }
     else if (id==18) {
       SageFemmeMedecinGeneralisteAttestationOui()
+      AjoutSelection({id : 18 , name : "Oui"})
       
     }
     else if (id==33) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionOui();
+      AjoutSelection({id : 33 , name : "Oui"})
       
     }
     else if (id==35||id==36||id==37||id==38||id==39) {
       SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeure();
+      if (id==35) {
+        AjoutSelection({id : 35, name : "Première consultation préalable à l'ivg/Premier contact médical"})
+        
+      }
+      else if (id==36) {
+        AjoutSelection({id : 36, name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
+        
+      }
+      else if (id==37) {
+        AjoutSelection({id : 37, name : "Premier temps de consultation pour prise médicamenteuse"})
+        
+      }
+      else if (id==38) {
+        AjoutSelection({id : 38, name : "Deuxième temps de consultation pour prise médicamenteuse (facultative)"})
+        
+      }
+      else if (id==39) {
+        AjoutSelection({id : 39, name : "Troisième temps de consultation: consultation de suivi"})
+        
+      }
       
     }
     else if (id==40||id==41) {
       SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeureAnonyme();
+      if (id==40) {
+        AjoutSelection({id : 40 , name : "Patiente majeure"})
+        
+      }
+      else if (id==41) {
+        AjoutSelection({id : 41 , name : "patiente mineure"})
+        
+      }
       
     }
 
     else if (id==34) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNon();
+      AjoutSelection({id : 34 , name : "Non"})
       
     }
 
     else if (id==45) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationNon();
+      AjoutSelection({id : 45 , name : "Non"})
       
     }
     else if (id==44) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOui();
+      AjoutSelection({id : 44 , name : "Oui"})
       
     }
     else if (id==46||id==47) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeure();
+      if (id==46) {
+        AjoutSelection({id : 46 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
+        
+      }
+      else if (id==47) {
+        AjoutSelection({id : 47 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
+        
+      }
       
     }
     else if (id==48||id==49) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeureAnonyme();
+      if (id==48) {
+        AjoutSelection({id : 48 , name : "Patiente majeure"})
+        
+      }
+      else if (id==49) {
+        AjoutSelection({id : 49 , name : "Patiente mineure"})
+        
+      }
       
     }
+
+    else if (id==32) {
+      AjoutSelection({id : 32 , name : "Patiente mineure"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,32);
+      
+    }
+
+    else if (id==17) {
+      AjoutSelection({id : 17 , name : "Patiente non-anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,17);
+      
+    }
+
+    else if (id==16) {
+      AjoutSelection({id : 16 , name : "Patiente anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,16);
+      
+    }
+
+    else if (id==31) {
+      AjoutSelection({id : 31 , name : "Patiente majeure"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,31);
+      
+    }
+
+    else if (id==42) {
+      AjoutSelection({id : 42 , name : "Patiente Anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,42);
+      
+    }
+
+    else if (id==43) {
+      AjoutSelection({id : 43 , name : "Patiente non-anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,43);
+      
+    }
+
+    else if (id==26) {
+      AjoutSelection({id : 26 , name : "Patiente anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,26);
+      
+    }
+
+    else if (id==27) {
+      AjoutSelection({id : 27 , name : "patiente non-anonyme"});
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,27);
+      
+    }
+
+    
+    
 
     
   };
 
 
-  
+  const AjoutSelection = (objet) => {
+    let liste = objetSelection;
+    liste.push(objet);
+    setObjetSelection(liste);
+    console.log(liste);
+    
+  }
  
 
   
@@ -198,7 +390,7 @@ function MyVerticallyCenteredModal(props) {
     setRollBackTitre(Titre);
     let nouvelleListeMedecin = [
       {id : 31 , name : "Patiente majeure"},
-      {id : 32 , name : "Patiente mineure"}
+      {id : 32 , name : "Patiente mineure"} ///6556    5444444444444444444444444444444444444444
     ];
     setRollBackList(newListeRadio);
     setRollBackTitre(Titre);

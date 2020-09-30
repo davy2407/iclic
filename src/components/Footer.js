@@ -24,12 +24,7 @@ function Footer (){
       );
    
 
-  
-    
-    
-   
 
-   
         return (
         <div className="SponsorContainer">
 

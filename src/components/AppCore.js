@@ -20,7 +20,26 @@ function AppCore () {
 
         const [ nombreBouton, setNombreBouton] = useState(
         2
-        ); 
+        );
+
+        const [listeObjetConsulation, setlisteObjetConsulation] = useState(
+          [{name : "test1test1111", id : 16},
+          {name : "test1test2222", id : 17},
+          {name : "test1test333", id : 27},
+          {name : "test1test4444", id : 26},
+          {name : "test1test55555", id : 31},
+          {name : "test1test6666", id : 32},
+          {name : "test1test7777", id : 42},
+          {name : "test1test8888", id : 43}]
+        )
+
+
+      
+      
+
+       const [objetConsultationAffiche, setObjetConsultationAffiche] = useState(
+         []
+       )
         
         
         const [listeBouton, setListeBouton] = useState(
@@ -41,9 +60,81 @@ function AppCore () {
           );
 
 
+          const [ selection, setSelection] = useState(
+            []
+          );
+
+
           const [ statut, setStatut ] = useState(
             false
           )
+
+          const modifierObjet = (id) => {
+            console.log("dans modifier objet");
+            let identifiant = id;
+            let liste = listeObjetConsulation;
+            console.log(identifiant);
+            console.log(liste);
+
+            if (identifiant==16) {
+              setObjetConsultationAffiche([liste[0]])
+              
+            }
+
+            else if (identifiant==17) {
+              setObjetConsultationAffiche([liste[1]])
+              
+            }
+
+            else if (identifiant==26) {
+              setObjetConsultationAffiche([liste[2]])
+              
+            }
+
+            else if (identifiant==27) {
+              setObjetConsultationAffiche([liste[3]])
+              
+            }
+
+            else if (identifiant==31) {
+              setObjetConsultationAffiche([liste[4]])
+              
+            }
+
+            else if (identifiant==32) {
+              setObjetConsultationAffiche([liste[5]])
+              
+            }
+
+            else if (identifiant==42) {
+              setObjetConsultationAffiche([liste[6]])
+              
+            }
+
+            else if (identifiant==43) {
+              setObjetConsultationAffiche([liste[7]])
+              
+            }
+            
+          }
+
+          const AffichageDonnee = (listeDonnee,id) => {
+            let liste = listeDonnee;
+            let texte = [];
+            for (let index = 0; index < liste.length; index++) {
+              console.log(listeDonnee[index].name);
+              texte.push(liste[index].name+'     ')
+              
+            }
+           
+            
+            setTexteDemarrage(texte);
+            setListeBouton([]);
+            setNombreBouton(0);
+            setSelection(liste);
+            modifierObjet(id);
+            
+          }
 
 
           const Non = () => {
@@ -52,6 +143,13 @@ function AppCore () {
             setListeBouton([]);
             setNombreBouton(0)
           };
+
+          const Oui = () =>{
+            let texte = "Info Utilisateur";
+            setTexteDemarrage(texte);
+            setListeBouton([]);
+            setNombreBouton(0)
+          }
 
           const changeStatut = () => {
             setListeBouton([]);
@@ -99,11 +197,12 @@ function AppCore () {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   listeRadio = {listeBoutonRadio}
+                  onFonctionAffichage = {AffichageDonnee}
 
                   >
 
                   </MyVerticallyCenteredModal>
-                <p>{texteDemarrage}</p>
+                {/* <p>{texteDemarrage}</p> */}
                 {listeBouton.map((btn)=>{
                     if (btn.id===2) {
                         return <Bouton
@@ -118,10 +217,13 @@ function AppCore () {
                     </Bouton>
                         
                     } else if (btn.id === 1) {
-                        return  <button
+                        return   <button
 
-                        onClick = {handleChange}
+                        onClick = {()=>{handleChange();Oui()
+                        }}
+                        
                         >{btn.txt}</button>
+                        
                         
                     }
                     
@@ -132,6 +234,23 @@ function AppCore () {
                     
 
                 })}
+
+                <div className="Newtest">
+
+                <p>{texteDemarrage}</p>
+                {objetConsultationAffiche.map((objet)=>{
+                  return <div onDataObjet={objet}>
+
+                <p>{objet.name}</p>
+
+                    
+
+
+                        </div>
+                })}
+
+
+                </div>
                 
               
                
