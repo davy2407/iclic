@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './AppCore.css';
 import Bouton from './Bouton';
-import pConsultation from './pConsultation';
+import pConsultation from './PConsultation';
 
 
 
