@@ -22,7 +22,7 @@ function App () {
           
           ></MidSection>
 
-        <Footer ></Footer>
+        <Footer className="FooterTest" ></Footer>
 
 
 

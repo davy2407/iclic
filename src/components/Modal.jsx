@@ -9,26 +9,38 @@ function MyVerticallyCenteredModal(props) {
   let liste = props.listeRadio;
 
   const [Titre, setTitre] = useState(
+    /// titre premiere question modal
     'Proffession'
   )
 
   const [rollBacklist, setRollBackList] =useState([]);
+  /// mes debut de travail pour tenter de eprmettre un retour en arriere
 
   const [objetSelection, setObjetSelection] = useState([]);
+  /// satte contenant la liste des choix choisis par l'utilisateur
 
   const [rollBackTitre, setRollBackTitre] = useState('');
+  /// censé permettre laffichage du titre modal en cas de retour en arriere
 
   const [rollBackTestText, setRollBackTestText] = useState('');
+  /// censé permettre laffichage du text modal en cas de retour en arriere
 
   const [newListeRadio,setNewListeRadio] = useState(liste);
+  /// state contenant les boutons à afficher
 
   const [boutonSel, setBoutonSel] = useState('');
+  /// je vais check mais surement inutile
 
   const [testText, setTestText] = useState('');
+  /// je vais check mais surement inutile
 
 
   
   const recupIdBoutton = event => {
+    /// la function censé recup l'id du derniers bouton selectionné et appelé les function permettant 
+    /// l'affichage des prochains choix et aussi appel la function qui ajoute l'info selectionné par 
+    /// l'utilisateur dans le state objetSelection[] 
+    /// chaque bouton a un id qui est recup lors de l'appel de la function
     let id = event.target.id;
     console.log(id);
     setBoutonSel(id);
@@ -318,6 +330,7 @@ function MyVerticallyCenteredModal(props) {
 
 
   const AjoutSelection = (objet) => {
+    /// function qui prend en parametre lobjet boutons cliqué et ajoute son contenu à la liste des objets choisis
     let liste = objetSelection;
     liste.push(objet);
     setObjetSelection(liste);
@@ -329,11 +342,14 @@ function MyVerticallyCenteredModal(props) {
   
 
   const RollBack = () => {
+    /// censé gérer le retour en arrière, jai fait ca un speed et cest full bug
     setTitre(rollBackTitre);
     setNewListeRadio(rollBacklist);
     setTestText(rollBackTestText);
   };
 
+
+  /// toutes les fuctions contextuelles appelaient en fonction du derniers boutons cliqué
   const MedecinGy = () => {
     let nouvelleListeMedecin = [
       {id : 4 , name : "Oui"},

@@ -1,16 +1,26 @@
 
 
 .AppContainer{
-    width: 60vw;
+    /* width: 60vw;
     height: 100%;
-    display: flex;
+    display: bloc;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    width: 100%;
+ height: 100%;
+ overflow: auto;
+ padding-right: 15px;
 }
 
 
 
 .AppContainer p{
     font-size: 2rem;
+}
+
+
+.blocConsultation {
+    border: 1px solid black;
+    height: 10vh;
 }

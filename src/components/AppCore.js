@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './AppCore.css';
 import Bouton from './Bouton';
+import pConsultation from './pConsultation';
 
 
 
@@ -13,6 +14,7 @@ import MyVerticallyCenteredModal from './Modal';
 
 
 function AppCore () {
+  /// State gérant le texte à afficher au démmarage 
         const [texteDemarrage, setTexteDemarrage] = useState(
         "Etes vous professionel de santé ?"
         );
@@ -23,14 +25,15 @@ function AppCore () {
         );
 
         const [listeObjetConsulation, setlisteObjetConsulation] = useState(
-          [{name : "test1test1111", id : 16},
-          {name : "test1test2222", id : 17},
-          {name : "test1test333", id : 27},
-          {name : "test1test4444", id : 26},
-          {name : "test1test55555", id : 31},
-          {name : "test1test6666", id : 32},
-          {name : "test1test7777", id : 42},
-          {name : "test1test8888", id : 43}]
+          /// state servant à faire les test de recup dinfos pour traiter ou non l'envoie d'une consultation 
+          [{name : "test1test1111", id : 16 , objet : pConsultation},
+          {name : "test1test2222", id : 17, objet : pConsultation},
+          {name : "test1test333", id : 27, objet : pConsultation},
+          {name : "test1test4444", id : 26, objet : pConsultation},
+          {name : "test1test55555", id : 31, objet : pConsultation},
+          {name : "test1test6666", id : 32, objet : pConsultation},
+          {name : "test1test7777", id : 42, objet : pConsultation},
+          {name : "test1test8888", id : 43, objet : pConsultation}]
         )
 
 
@@ -38,6 +41,7 @@ function AppCore () {
       
 
        const [objetConsultationAffiche, setObjetConsultationAffiche] = useState(
+         /// state censé contenir l'objet consultation ou la feuille d'informations à afficher 
          []
        )
         
@@ -51,6 +55,9 @@ function AppCore () {
 
 
           const [listeBoutonRadio, setListeBoutonRadio] = useState(
+            /// state contenant les 3 premiers boutons du modal 
+            /// ( il pourrait être rassemblé dans un state contenant tout les autres boutons ,
+            /// actuellement dans le modal)
             [
               {id: 1, name : "Médecin gynécologue/Chirurgien obstéstrique" },
               {id : 2, name : "Médecin généraliste"},
@@ -61,15 +68,21 @@ function AppCore () {
 
 
           const [ selection, setSelection] = useState(
+            /// je vais faire un check mais surement inutile
             []
           );
 
 
           const [ statut, setStatut ] = useState(
+            /// je vais faire un check mais surement inutile
             false
           )
 
           const modifierObjet = (id) => {
+            /// fonction censer gérer l'affichage du futur objet consultation ou information à la femreture du modal
+            /// elle prend un parametre id permettant d'identifier de quel provenance vient la requete
+            /// je vais check mais il me semble qu'elle nest pas complete et quil manque quelques boutons de fin de parcours dans le modal
+            /// qui ne sont pas traçés 
             console.log("dans modifier objet");
             let identifiant = id;
             let liste = listeObjetConsulation;
@@ -119,11 +132,47 @@ function AppCore () {
           }
 
           const AffichageDonnee = (listeDonnee,id) => {
+            /// fonction qui me permettait de faire des test sur les infos récup dans le modal. 
+            /// elle recup la liste des infos selectionné dans le modal ainsi que l'id du derniers bouton
+            /// actuellement elle gères l'affichage du futur objet consultation ou info, ainsi que quelques function annexe ( voir fin de function )
+            /// cette function pourrait éventuellement être gardé pour fair un affichage recap des infos deja selectionné
             let liste = listeDonnee;
+            console.log(liste);
             let texte = [];
             for (let index = 0; index < liste.length; index++) {
               console.log(listeDonnee[index].name);
-              texte.push(liste[index].name+'     ')
+              if (listeDonnee[index].id==4||listeDonnee[index].id==5) {
+                texte.push('convention :  '+liste[index].name+'    ')
+                
+              }
+
+              else if (listeDonnee[index].id==6||listeDonnee[index].id==7) {
+
+                texte.push('Consultation préalable IVG :  '+liste[index].name+'    ')
+                
+              }
+
+              else if (listeDonnee[index].id==18||listeDonnee[index].id==19) {
+                texte.push('Attestation justificative de formation IVG :  '+liste[index].name+'    ')
+                
+              }
+
+              else if (listeDonnee[index].id==33||listeDonnee[index].id==34) {
+                texte.push('Convention centre de référence  :  '+liste[index].name+'    ')
+                
+              }
+
+              else if (listeDonnee[index].id==20||listeDonnee[index].id==21) {
+                texte.push('Consultation préalable IVG :  '+liste[index].name+'    ')
+                
+              }
+
+              
+
+              else {
+                texte.push(liste[index].name+'     ')
+              }
+              
               
             }
            
@@ -138,6 +187,7 @@ function AppCore () {
 
 
           const Non = () => {
+            /// function censé gérer laffichage si lutilisateur nest pas un pro de santé
             let texte = "Ce site est à destination des professionnels de santé uniquement à finir";
             setTexteDemarrage(texte);
             setListeBouton([]);
@@ -145,6 +195,7 @@ function AppCore () {
           };
 
           const Oui = () =>{
+            /// je vais faire un check mais surement inutile
             let texte = "Info Utilisateur";
             setTexteDemarrage(texte);
             setListeBouton([]);
@@ -152,18 +203,21 @@ function AppCore () {
           }
 
           const changeStatut = () => {
+            /// je vais faire un check mais surement inutile
             setListeBouton([]);
             setNombreBouton(0);
             setStatut(true)
           }
 
           const [modalShow, setModalShow] = useState(false);
+          /// affichage modal
 
 
           
           
 
           const handleChange = () => {
+            /// affichage modal
               setModalShow(true);
               setListeBouton([]);
             setNombreBouton(0);
@@ -194,6 +248,9 @@ function AppCore () {
             
             <div className="AppContainer">
                 <MyVerticallyCenteredModal 
+                /// modal les props son les function permettant laffichage ou non du modal ainsi que la liste 
+                /// de boutons ( à la base radio ^^) et la fonction affichagedonnée qui sera appelée dans certains cas par la fonction
+                /// recupIdbouton du modal 
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   listeRadio = {listeBoutonRadio}
@@ -236,17 +293,21 @@ function AppCore () {
                 })}
 
                 <div className="Newtest">
+                {/* partie censé gérer laffichage de la consultaion ou du bloc info à presenter  */}
 
-                <p>{texteDemarrage}</p>
+                
                 {objetConsultationAffiche.map((objet)=>{
-                  return <div onDataObjet={objet}>
+                  
+                  return <objet.objet 
+                  onTexte ={objet.name}
+                  onRecap ={texteDemarrage}>
 
-                <p>{objet.name}</p>
+                
 
                     
 
 
-                        </div>
+                        </objet.objet>
                 })}
 
 
