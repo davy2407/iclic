@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import Sponsor from "./Sponsor";
-import Un from "../assets/images/Un.svg";
-import Deux from "../images/Deux.svg";
-import Trois from "../images/Trois.svg";
-import Quatre from "../images/Quatre.svg";
-import Cinq from "../images/Cinq.svg";
-import Six from "../images/Six.svg";
-import Sept from "../images/Sept.svg";
 import "./Footer.css";
+
+import Sponsor from "@components/Sponsor";
+
+import Un from "@assets/images/Un.svg";
+import Deux from "@assets/images/Deux.svg";
+import Trois from "@assets/images/Trois.svg";
+import Quatre from "@assets/images/Quatre.svg";
+import Cinq from "@assets/images/Cinq.svg";
+import Six from "@assets/images/Six.svg";
+import Sept from "@assets/images/Sept.svg";
 
 function Footer() {
   const [listeSponsor, setListeSponsor] = useState([
@@ -30,4 +32,3 @@ function Footer() {
 }
 
 export default Footer;
-
