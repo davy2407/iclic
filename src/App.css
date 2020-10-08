@@ -1,27 +1,18 @@
-
-
-
-
-
 @media screen and (min-width: 900px) {
   .App {
     text-align: center;
     /* width: 100vw;
     height: 100vh; */
-    background-color: #F2DBED;
+    background-color: #f2dbed;
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 1%;
     height: 100%;
- width: 100%;
- overflow: hidden;
-   
-    
-  
+    width: 100%;
+    overflow: hidden;
   }
-
 
   /* .FooterTest{
     position: absolute;
@@ -29,28 +20,17 @@
     border: 4px solid green;
   }
    */
-  
-  
 }
 
-
 @media screen and (max-width: 900px) {
-  
-    .App {
-      text-align: center;
-      width: 100vw;
-      height: 100vh;
-      background-color: #F2DBED;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      
-    
-    }
-    
-    
-    
+  .App {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f2dbed;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-  
-
+}
