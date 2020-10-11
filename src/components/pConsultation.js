@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import LightOn from "../images/lightOn.svg";
 import LightOff from "../images/lightOff.svg";
+import GuideIVG from "./GuideIvgPatiente.pdf";
 import './pConsultation.css';
 
 
@@ -15,7 +16,7 @@ function PConsultation(props){
 
         /// texte info IST 
         const [ txtIST, setTxtIST] = useState(
-            "La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes consultant pour une IVG, sans limite d’âge."
+            "Faire apparaître la mention « échographie de datation à réaliser en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué, (Index pour radiologue IPE)."
         )
 
         const [currentInfoIST, setCurrentInfoIST] = useState(
@@ -29,30 +30,61 @@ function PConsultation(props){
             setTxtIST(txtAEnlever);
         }
 
-        const [logoAffiche, setLogoAffiche] = useState(
+        const [logoAfficheIST, setLogoAfficheIST] = useState(
             LightOff
 
         )
 
-        const [logoNonAffiche, setLogoNonAffiche] = useState(
+        const [logoNonAfficheIST, setLogoNonAfficheIST] = useState(
             LightOn
         )
-        const [ logoLampe,setLogoLampe]= useState(
-            {
-                on : LightOn,
-                off : LightOff
-            }
-        )
+        
 
-        const changementCouleurSVG = () => {
-            let currentLampe = logoAffiche;
-            let currentCache = logoNonAffiche;
-            setLogoNonAffiche(currentLampe);
-            setLogoAffiche(currentCache);
+        const changementCouleurSVGIST = () => {
+            let currentLampe = logoAfficheIST;
+            let currentCache = logoNonAfficheIST;
+            setLogoNonAfficheIST(currentLampe);
+            setLogoAfficheIST(currentCache);
             affichageTxtIST();
             
 
         }
+        ///Bloc prescription echographie
+        const [ txtEcho, setTxtEcho] = useState(
+            "La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes consultant pour une IVG, sans limite d’âge."
+        )
+
+        const [currentInfoEcho, setCurrentInfoEcho] = useState(
+            ""
+        )
+
+        const affichageTxtEcho = () => {
+            let txtAEnlever = currentInfoEcho;
+            let txtAAfficher = txtEcho;
+            setCurrentInfoEcho(txtAAfficher);
+            setTxtEcho(txtAEnlever);
+        }
+        const [logoAfficheEcho, setLogoAfficheEcho] = useState(
+            LightOff
+
+        )
+
+        const [logoNonAfficheEcho, setLogoNonAfficheEcho] = useState(
+            LightOn
+        )
+        const changementCouleurSVGEcho = () => {
+            let currentLampe = logoAfficheEcho;
+            let currentCache = logoNonAfficheEcho;
+            setLogoNonAfficheEcho(currentLampe);
+            setLogoAfficheEcho(currentCache);
+            affichageTxtEcho();
+            
+
+        }
+        
+
+
+
 
         const [valueDecouverteGro, setDecouverteGro] = useState(
         /// state bouton select ( ne fonctionne pas comme value de base actuellement )
@@ -60,7 +92,7 @@ function PConsultation(props){
         )
         
 
-        /// Bloc consultation psychosocial 
+        /// Bloc consultation Biopsychosocial 
         const [consultationPsychoSo,setConsultationPsychoSo] = useState(
             {
                 texte : "consultation psychosociale proposée",
@@ -78,7 +110,68 @@ function PConsultation(props){
             setAffichageWarningConsultation(consultationPsychoSo)
         }
 
+        /// Consultation psychosociale
+        const returnInfo = () => {
+            return (
+            <div>
+            <p>  Elle n’est pas obligatoire pour les personnes majeures. 
+                            Il existe l’obligation légale de le proposer.  La patiente a un délai de
+                             48h de réflexion avant de signer le consentement après cette consultation.
+                            
+                        </p>
+                        <br></br>
+                        <p>Elle peut avoir lieu : </p>
+                        <br></br>
+                        <ul>
+                            <li>dans un établissement d’information, de consultation ou de conseil familial </li>
+                            <li>dans un centre de planification ou d’éducation familiale</li>
+                            <li>dans un service social ou un autre organisme agréé</li>
+                        </ul>
+                        <br></br>
+                        </div>
+            )
+                
+            
+        }
 
+        
+        const [ txtPsycho, setTxtPsycho] = useState(()=>returnInfo()
+           
+        )
+
+        const [currentInfoPsycho, setCurrentInfoPsycho] = useState(
+            ""
+        )
+
+        const affichageTxtPsycho = () => {
+            let txtAEnlever = currentInfoPsycho;
+            let txtAAfficher = txtPsycho;
+            setCurrentInfoPsycho(txtAAfficher);
+            setTxtPsycho(txtAEnlever);
+        }
+
+        const [logoAffichePsycho, setLogoAffichePsycho] = useState(
+            LightOff
+
+        )
+
+        const [logoNonAffichePsycho, setLogoNonAffichePsycho] = useState(
+            LightOn
+        )
+        
+
+        const changementCouleurSVGPsycho = () => {
+            let currentLampe = logoAffichePsycho;
+            let currentCache = logoNonAffichePsycho;
+            setLogoNonAffichePsycho(currentLampe);
+            setLogoAffichePsycho(currentCache);
+            affichageTxtPsycho();
+            
+
+        }
+        
+
+        ///
         const handleChange = (event) => {
         /// gère le bouton select 
         console.log(event.target.value)
@@ -87,10 +180,136 @@ function PConsultation(props){
         }
 
         ///BLoc DDR
+        let newDate = new Date();
+        console.log(newDate);
         const [recuptDateDDR,setRecuptDateDDR ] = useState(
-            {}
+            newDate
+            
 
         )
+
+        const changeDate = () => {
+            let NDate = new Date();
+            setRecuptDateDDR(NDate);
+            console.log(NDate);
+        }
+
+        const [dateDDR,setDateDDR] = useState(
+            {}
+        )
+
+
+
+        /// Bloc information contraception post IVG
+
+
+
+        const returnInfoPostIVG = () => {
+            return (
+            <div>
+             <p> Il est nécessaire d’aborder dès cette consultation,
+                             les différentes modalités contraceptives. Site possible
+                              d’information à transmettre à la patiente : 
+                              Lien <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">choisirsacontraception.com</a></p>
+                              <br></br>
+                        </div>
+            )
+                
+            
+        }
+
+        
+        const [ txtPostIVG, setTxtPostIVG] = useState(()=>returnInfoPostIVG()
+           
+        )
+
+        const [currentInfoPostIVG, setCurrentInfoPostIVG] = useState(
+            ""
+        )
+
+        const affichageTxtPostIVG = () => {
+            let txtAEnlever = currentInfoPostIVG;
+            let txtAAfficher = txtPostIVG;
+            setCurrentInfoPostIVG(txtAAfficher);
+            setTxtPostIVG(txtAEnlever);
+        }
+
+        const [logoAffichePostIVG, setLogoAffichePostIVG] = useState(
+            LightOff
+
+        )
+
+        const [logoNonAffichePostIVG, setLogoNonAffichePostIVG] = useState(
+            LightOn
+        )
+        
+
+        const changementCouleurSVGPostIVG = () => {
+            let currentLampe = logoAffichePostIVG;
+            let currentCache = logoNonAffichePostIVG;
+            setLogoNonAffichePostIVG(currentLampe);
+            setLogoAffichePostIVG(currentCache);
+            affichageTxtPostIVG();
+            
+
+        }
+
+
+        /// Bloc frotti 
+
+        const returnInfoFrotti = () => {
+            return (
+            <div>
+             <p> Le plan de dépistage national s’applique,
+                             pour toute femme immunocompétente de 25 à 65 ans.
+                        </p>
+                        <a href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage
+                        </a>
+                        </div>
+            )
+                
+            
+        }
+
+        
+        const [ txtFrotti, setTxtFrotti] = useState(()=>returnInfoFrotti()
+           
+        )
+
+        const [currentInfoFrotti, setCurrentInfoFrotti] = useState(
+            ""
+        )
+
+        const affichageTxtFrotti = () => {
+            let txtAEnlever = currentInfoFrotti;
+            let txtAAfficher = txtFrotti;
+            setCurrentInfoFrotti(txtAAfficher);
+            setTxtFrotti(txtAEnlever);
+        }
+
+        const [logoAfficheFrotti, setLogoAfficheFrotti] = useState(
+            LightOff
+
+        )
+
+        const [logoNonAfficheFrotti, setLogoNonAfficheFrotti] = useState(
+            LightOn
+        )
+        
+
+        const changementCouleurSVGFrotti = () => {
+            let currentLampe = logoAfficheFrotti;
+            let currentCache = logoNonAfficheFrotti;
+            setLogoNonAfficheFrotti(currentLampe);
+            setLogoAfficheFrotti(currentCache);
+            affichageTxtFrotti();
+            
+
+        }
+
+        
+
+
         
 
 
@@ -137,6 +356,7 @@ Majeure Anonyme </h1>
                             type="radio"
                             name="incertaine"
                             id="incertaine"
+                            defaultValue={recuptDateDDR}
                             >
                         </input>
 
@@ -172,39 +392,35 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                          en rouge pour prescription échographie de datation si entre 7 et 9 SA ou si
                           case incertaine.
                         </p>
-
+                        <input onClick={changementCouleurSVGEcho} className="Lampe" type="image" src={logoAfficheEcho} />
                         <p>
-                        + ? : « Faire apparaître la mention « échographie de datation à réaliser
-                         en urgence pour IVG » sur votre ordonnance afin que le forfait IVG 
-                         soit appliqué, (Index pour radiologue IPE). » 
+                        {currentInfoEcho} 
                         </p>
                         <br></br>
 
                         <h2>Personne accompagnante</h2>
-                        <label for="accaompagnanteOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="accaompagnanteOui"
-                            id="accaompagnanteOui">
-                        </input>
-                        <br></br>
-                        <label for="accaompagnanteNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="accaompagnanteNon"
-                            id="accaompagnanteNon">
-                        </input>
+                        <label> 
+                        Personne accompagnante
+                        <button>Oui</button>
+                        
+                         
+                        <button>Non</button>
+                        </label>
                         <br></br>
                         <h2>Mode de découverte de la grossesse </h2>
                         <br></br>
                         <label>
                             Mode de découverte de la grossesse :
-                            <select defaultValue={valueDecouverteGro} id="decouverteGro" onChange={handleChange}>
+                            <button>Test urinaire</button>
+                            <button>Test sanguin</button>
+                            <button>Échographie</button>
+                            <button>Clinique</button>
+                            {/* <select defaultValue={valueDecouverteGro} id="decouverteGro" onChange={handleChange}>
                                 <option value="Test urinaire">Test urinaire</option>
                                 <option value="Test sanguin">Test sanguin</option>
                                 <option value="Échographie">Échographie</option>
                                 <option value="Clinique">Clinique</option>
-                            </select>
+                            </select> */}
                         </label>
                         <h2>Contexte biopsychosocial favorable :</h2>
                         {/* Bloc a finir  */}
@@ -220,21 +436,14 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
 
                         <h2>Recherche IST +/- antibio-prophylaxie</h2>
                         <br></br>
-                        <label for="rchISTOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="rchISTOui"
-                            id="rchISTOui">
-                        </input>
+                        <label>
+                        Recherche IST +/- antibio-prophylaxie
+                        <button>Oui</button>
+                        <button>Non</button>
+
+                        </label>
                         <br></br>
-                        <label for="rchISTNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="rchISTNon"
-                            id="rchISTNon">
-                        </input>
-                        <br></br>
-                        <input onClick={changementCouleurSVG} className="Lampe" type="image" src={logoAffiche} />
+                        <input onClick={changementCouleurSVGIST} className="Lampe" type="image" src={logoAfficheIST} />
                         <p>  {currentInfoIST}
                         </p>
                         {/* Bloc a finir */}
@@ -251,108 +460,59 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
 
                         <h2>Dossier guide IVG remis :</h2>
                         <br></br>
-                        <label for="dossierIVGOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="dossierIVGOui"
-                            id="dossierIVGOui">
-                        </input>
-                        <br></br>
-                        <label for="dossierIVGNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="dossierIVGNon"
-                            id="dossierIVGNon">
-                        </input>
+                        <label>
+                        Dossier guide IVG remis :
+                        <button>Oui</button>
+                        <button>Non</button>
+
+                        </label>
                         <br></br>
 
 
-                        <p>Lien dossier guide IVG PDF</p>
-                        {/* lien à créer */}
+                        <a href = {GuideIVG} target = "_blank">PDF Guide IVG</a>
 
 
                         <h2>Consultation psychosociale proposée</h2>
                         <br></br>
-                        <label for="consultationOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="consultationOui"
-                            id="consultationOui">
-                        </input>
-                        <br></br>
-                        <label for="consultationNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="consultationNon"
-                            id="consultationNon">
-                        </input>
-                        <br></br>
-                        <p>ontexte biopsychosocial favorable : si réponse « non » précédemment 
-                             faire apparaître « consultation psychosociale proposée » en rouge.
-                             {/* Bloc a finir */}
+                        <label>
+                        Consultation psychosociale proposée : 
+                        <button>Oui</button>
+                        <button>Non</button>
+
+                        </label>
+                        <p className={affichageWarningConsultation.className}>
+                           {affichageWarningConsultation.texte} 
                         </p>
                         <br></br>
-                        <p>? : « Elle n’est pas obligatoire pour les personnes majeures. 
-                            Il existe l’obligation légale de le proposer.  La patiente a un délai de
-                             48h de réflexion avant de signer le consentement après cette consultation.
-                             {/* bulle information a faire  */}
-                        </p>
+                        <input onClick={changementCouleurSVGPsycho} className="Lampe" type="image" src={logoAffichePsycho} />
                         <br></br>
-                        <p>Elle peut avoir lieu : </p>
-                        <br></br>
-                        <ul>
-                            <li>dans un établissement d’information, de consultation ou de conseil familial </li>
-                            <li>dans un centre de planification ou d’éducation familiale</li>
-                            <li>dans un service social ou un autre organisme agréé</li>
-                        </ul>
+                        <div>{currentInfoPsycho}</div>
                         <br></br>
                         <h2>Information contraception post-IVG</h2>
                         <br></br>
-                        <label for="infoContraOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="infoContraOui"
-                            id="infoContraOui">
-                        </input>
+                        <label>
+                        Information contraception post-IVG
+                        <button>Oui</button>
+                        <button>Non</button>
+
+                        </label>
                         <br></br>
-                        <label for="infoContraNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="infoContraNon"
-                            id="infoContraNon">
-                        </input>
+                        <input onClick={changementCouleurSVGPostIVG} className="Lampe" type="image" src={logoAffichePostIVG} />
                         <br></br>
-                        <p>? : « Il est nécessaire d’aborder dès cette consultation,
-                             les différentes modalités contraceptives. Site possible
-                              d’information à transmettre à la patiente : 
-                              Lien <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">choisirsacontraception.com</a></p>
-                        
+                        <div>{currentInfoPostIVG}</div>
                         
 
                      
                      <br></br>
                      <h2>Frottis à jour </h2>
                      <br></br>
-                        <label for="frottiOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="frottiOui"
-                            id="frottiOui">
-                        </input>
-                        <br></br>
-                        <label for="frottiNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="frottiNon"
-                            id="frottiNon">
-                        </input>
-                        <br></br>
-                        <label for="nonConcerNon">  NON CONCERNEE  </label>
-                        <input
-                            type="radio"
-                            nom="nonConcerNon"
-                            id="nonConcerNon">
-                        </input>
+                        <label>
+                            Frotti à jour :
+                            <button>Oui</button>
+                            <button>Non</button>
+                            <button>Non Concernée</button>
+                        </label>
+                        
                         <br></br>
                         <label for="dateFrotti">Date : </label>
                         <input
@@ -362,27 +522,17 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
 
                         </input>
                         <br></br>
-                        <p>? « Le plan de dépistage national s’applique,
-                             pour toute femme immunocompétente de 25 à 65 ans.
-                        </p>
-                        <a href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage
-                        </a>
+                        <input onClick={changementCouleurSVGFrotti} className="Lampe" type="image" src={logoAfficheFrotti} />
+                        <br></br>
+                        <div>{currentInfoFrotti}</div>
+                        
                         <br></br>
                         <h2>Tabac :</h2>
                         <br></br>
-                        <label for="tabacOui">  OUI  </label>
-                        <input
-                            type="radio"
-                            nom="tabacOui"
-                            id="tabacOui">
-                        </input>
-                        <br></br>
-                        <label for="tabacNon">  NON  </label>
-                        <input
-                            type="radio"
-                            nom="tabacNon"
-                            id="tabacNon">
-                        </input>
+                        <label>
+                            <button>Oui</button>
+                            <button>Non</button>
+                        </label>
                         <br></br>
                         <label for="nbPAquet">  Nombre paquets   </label>
                         <input
