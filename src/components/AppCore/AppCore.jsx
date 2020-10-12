@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./AppCore.css";
-import Bouton from "./Bouton";
-import pConsultation from "./pConsultation";
 
-import MyVerticallyCenteredModal from "./Modal";
+import Bouton from "@components/Bouton";
+import pConsultation from "@components/pConsultation";
+import MyVerticallyCenteredModal from "@components/Modal";
 
 function AppCore() {
   /// State gérant le texte à afficher au démmarage

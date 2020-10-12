@@ -1,6 +1,7 @@
 import React from "react";
 import "./MidSection.css";
-import AppCore from "./AppCore";
+
+import AppCore from "@components/AppCore";
 
 function MidSection() {
   /// Midsection est un composant surement inutile, il contient un texte qui doit disparaitre quand le modal se ferme.
@@ -48,4 +49,3 @@ function MidSection() {
 }
 
 export default MidSection;
-
