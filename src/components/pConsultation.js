@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Button from 'react-bootstrap/Button';
 import LightOn from "../images/lightOn.svg";
 import LightOff from "../images/lightOff.svg";
 import GuideIVG from "./GuideIvgPatiente.pdf";
@@ -13,6 +14,65 @@ import './pConsultation.css';
 
 
 function PConsultation(props){
+
+        /// Bloc Fonctionnel 
+
+        const [ couleurBouttonBase, setCouleurBouttonBase] = useState("secondary");
+
+
+        const [ couleurBouttonSel, setCouleurBouttonSel] = useState("danger");
+
+        
+
+        const changeCouleurBoutton = e  => {
+            e.preventDefault();
+            console.log(e.target.variant)
+            
+            let couleurAfficher = e.target.variant;
+            if (couleurAfficher=="secondary") {
+                
+
+                e.target.variant = "danger";
+                
+            }
+            else {
+                e.target.variant = "secondary";
+            }
+        }
+
+
+        ///
+
+
+        /// Bloc contenant les state à récupérer à la fin de la consultation 
+
+        const [dateDDRFin, setDateDDRFin] = useState({});
+
+        const [personneAccFin,setPersonneAccFin] = useState({});
+
+        const [modeDecouverteFin,setModeDecouverte] = useState({});
+
+        const [constexteBioPsyFin, setContexteBioPsyFin] = useState({});
+
+        const [rechercheIstFin, setRechercheIstFin] = useState({});
+
+        const [groupeSanguinFin, setGroupeSanguinFin] = useState({});
+
+        const [guideIVGFin, setGuideIVGFin] = useState({});
+
+        const [consultationPsyFin, setConsultationPsyFin] = useState({});
+
+        const [contraPostIVGFin, setContraPostIVGFin] = useState({});
+
+        const [frottiFin, setFrottiFin] = useState({});
+
+        const [dateFrottiFin, setDateFrottiFin] = useState({});
+
+        const [tabacFin, setTabacFin] = useState({});
+
+        const [nBTabacFin, setNbTabacFin] = useState({});
+
+        ///
 
         /// texte info IST 
         const [ txtIST, setTxtIST] = useState(
@@ -337,28 +397,25 @@ Majeure Anonyme </h1>
                       assure la dispense
                      d’avance des frais permet de garantir un véritable anonymat de l’intervention ». Lien n°12</p>
                      <br></br>
-                     <form
-                     onClick={(e)=>{
-                        e.preventDefault()
-        
-                      }}>
+                     <div>
                          <h2>DDR</h2>
                         <label for="DDR">DDR « date des dernières règles » : </label>
                         <input
                             type="date"
                             name="DDR"
-                            id="DDR">
+                            id="DDR"
+                            defaultValue={recuptDateDDR}
+                            >
+                                
 
                         </input>
                         <br></br>
-                        <label for="incertaine">Cocher si date incertaine </label>
-                        <input
-                            type="radio"
-                            name="incertaine"
-                            id="incertaine"
-                            defaultValue={recuptDateDDR}
-                            >
-                        </input>
+                       
+                       <label>
+                        Date incertaine ? 
+                        <Button variant="secondary">Oui</Button>
+                       </label>
+                       <br></br>
 
                         <p>
                             {/* Je n'ai pas encore fait la fonction qui recup la valeur de 
@@ -401,20 +458,20 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <h2>Personne accompagnante</h2>
                         <label> 
                         Personne accompagnante
-                        <button>Oui</button>
+                        <Button variant="secondary">Oui</Button>
                         
                          
-                        <button>Non</button>
+                        <Button variant="secondary">Non</Button>
                         </label>
                         <br></br>
                         <h2>Mode de découverte de la grossesse </h2>
                         <br></br>
                         <label>
                             Mode de découverte de la grossesse :
-                            <button>Test urinaire</button>
-                            <button>Test sanguin</button>
-                            <button>Échographie</button>
-                            <button>Clinique</button>
+                            <Button variant="secondary">Test urinaire</Button>
+                            <Button variant="secondary">Test sanguin</Button>
+                            <Button variant="secondary">Échographie</Button>
+                            <Button variant="secondary">Clinique</Button>
                             {/* <select defaultValue={valueDecouverteGro} id="decouverteGro" onChange={handleChange}>
                                 <option value="Test urinaire">Test urinaire</option>
                                 <option value="Test sanguin">Test sanguin</option>
@@ -425,10 +482,10 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <h2>Contexte biopsychosocial favorable :</h2>
                         {/* Bloc a finir  */}
                         <br></br>
-                       <button>Oui</button>
+                       <Button variant="secondary">Oui</Button>
                         <br></br>
                         
-                        <button onClick={afficheConsultation} >Non</button>
+                        <Button variant="secondary" onClick={afficheConsultation} >Non</Button>
                         <br></br>
                         <p className={affichageWarningConsultation.className}>
                            {affichageWarningConsultation.texte} 
@@ -438,8 +495,8 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <br></br>
                         <label>
                         Recherche IST +/- antibio-prophylaxie
-                        <button>Oui</button>
-                        <button>Non</button>
+                        <Button variant="secondary">Oui</Button>
+                        <Button variant="secondary">Non</Button>
 
                         </label>
                         <br></br>
@@ -462,22 +519,22 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <br></br>
                         <label>
                         Dossier guide IVG remis :
-                        <button>Oui</button>
-                        <button>Non</button>
+                        <Button variant="secondary">Oui</Button>
+                        <Button variant="secondary">Non</Button>
 
                         </label>
                         <br></br>
 
 
-                        <a href = {GuideIVG} target = "_blank">PDF Guide IVG</a>
+                        <a href = {GuideIVG} target ="_blank">PDF Guide IVG</a>
 
 
                         <h2>Consultation psychosociale proposée</h2>
                         <br></br>
                         <label>
                         Consultation psychosociale proposée : 
-                        <button>Oui</button>
-                        <button>Non</button>
+                        <Button variant="secondary">Oui</Button>
+                        <Button variant="secondary">Non</Button>
 
                         </label>
                         <p className={affichageWarningConsultation.className}>
@@ -492,8 +549,8 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <br></br>
                         <label>
                         Information contraception post-IVG
-                        <button>Oui</button>
-                        <button>Non</button>
+                        <Button variant="secondary">Oui</Button>
+                        <Button variant="secondary">Non</Button>
 
                         </label>
                         <br></br>
@@ -508,9 +565,9 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                      <br></br>
                         <label>
                             Frotti à jour :
-                            <button>Oui</button>
-                            <button>Non</button>
-                            <button>Non Concernée</button>
+                            <Button variant="secondary">Oui</Button>
+                            <Button variant="secondary">Non</Button>
+                            <Button variant="secondary">Non Concernée</Button>
                         </label>
                         
                         <br></br>
@@ -530,8 +587,8 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <h2>Tabac :</h2>
                         <br></br>
                         <label>
-                            <button>Oui</button>
-                            <button>Non</button>
+                            <Button variant="secondary">Oui</Button>
+                            <Button variant="secondary">Non</Button>
                         </label>
                         <br></br>
                         <label for="nbPAquet">  Nombre paquets   </label>
@@ -540,7 +597,11 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                             nom="nbPAquet"
                             id="nbPAquet">
                         </input>
-                        </form>
+                        <br></br>
+                        <br></br>
+
+                        <Button onClick={(e)=>{changeCouleurBoutton(e)}} variant={couleurBouttonBase}>Valider</Button>{' '}
+                        </div>
                         
             
           </div>

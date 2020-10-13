@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './AppCore.css';
 import Bouton from './Bouton';
 import pConsultation from './PConsultation';
+import PriseMediMajeure from './PriseMediPatienteMajeure';
 
 
 
@@ -30,7 +31,7 @@ function AppCore () {
           {name : "test1test2222", id : 17, objet : pConsultation},
           {name : "test1test333", id : 27, objet : pConsultation},
           {name : "test1test4444", id : 26, objet : pConsultation},
-          {name : "test1test55555", id : 31, objet : pConsultation},
+          {name : "test1test55555", id : 31, objet : PriseMediMajeure},
           {name : "test1test6666", id : 32, objet : pConsultation},
           {name : "test1test7777", id : 42, objet : pConsultation},
           {name : "test1test8888", id : 43, objet : pConsultation}]
