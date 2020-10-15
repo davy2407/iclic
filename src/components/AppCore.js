@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import './AppCore.css';
 import Bouton from './Bouton';
-import pConsultation from './PConsultation';
+import pConsultation from './pConsultation';
 import PriseMediMajeure from './PriseMediPatienteMajeure';
+import PremierConsultationTroisC from './PremierConsultationTroisC';
+import PremierConsultationTroisD from './PremierConsultationTroisD';
 
 
 
@@ -30,10 +32,10 @@ function AppCore () {
           [{name : "test1test1111", id : 16 , objet : pConsultation},
           {name : "test1test2222", id : 17, objet : pConsultation},
           {name : "test1test333", id : 27, objet : pConsultation},
-          {name : "test1test4444", id : 26, objet : pConsultation},
+          {name : "Premiere consultation Majeure Non Anonyme", id : 26, objet : pConsultation},
           {name : "Prise medicamentMajeureNonAnonyme", id : 31, objet : PriseMediMajeure},
-          {name : "test1test6666", id : 32, objet : pConsultation},
-          {name : "test1test7777", id : 42, objet : pConsultation},
+          {name : "premiere consultation patiente majeure anonyme 3c", id : 32, objet : PremierConsultationTroisC},
+          {name : "premiere consultation patiente majeure anonyme 3d", id : 42, objet : PremierConsultationTroisD},
           {name : "test1test8888", id : 43, objet : pConsultation}]
         )
 
@@ -84,12 +86,14 @@ function AppCore () {
             /// elle prend 3 parametre qui permette l'identification 
             /// si idMajeure = 1 >> patiente majeure ( 0 = patiente mineure)
             /// si idAnonyme = 1 >> patiente non anonyme ( 0 = patiente anonyme)
-            ///5 possiblité idConsultation
+            ///7 possiblité idConsultation
             /// 1 Première consultation préalable à l'ivg/Premier contact médical
             /// 2 Deuxième conssultation préalable à l'ivg/Recueil de consentement
             /// 3 Premier temps de consultation pour prise médicamenteuse
             /// 4 Deuxième temps de consultation pour prise médicamenteuse (facultative)
             /// 5 Troisième temps de consultation: consultation de suivi
+            /// 6 Première consultation préalable à l'ivg/Premier contact médical sans attestation
+            /// 7 Deuxième conssultation préalable à l'ivg/Recueil de consentement sans attestation
             console.log("dans modifier objet");
             let identifiantConsultation = idTypeConsultation;
             let idMajeureOuNon =  idMajeure;
@@ -102,8 +106,25 @@ function AppCore () {
               setObjetConsultationAffiche([liste[4]])
               
             }
+            else if (identifiantConsultation==6&&idMajeureOuNon==1&&idAnonymeOuNon==0) {
+              /// afficher composant "adresser patiente"
+              setObjetConsultationAffiche([liste[5]])
+              
+            }
+
+            else if (identifiantConsultation==1&&idMajeureOuNon==1&&idAnonymeOuNon==0) {
+              /// afficher composant "adresser patiente"
+              setObjetConsultationAffiche([liste[6]])
+              
+            }
+
+            else if (identifiantConsultation==1&&idMajeureOuNon==1&&idAnonymeOuNon==1||identifiantConsultation==6&&idMajeureOuNon==1&&idAnonymeOuNon==1) {
+              /// afficher composant "adresser patiente"
+              setObjetConsultationAffiche([liste[3]])
+              
+            }
             else {
-              setObjetConsultationAffiche([liste[3]]);
+              setObjetConsultationAffiche([liste[0]]);
             }
 
           

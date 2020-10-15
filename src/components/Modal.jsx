@@ -100,12 +100,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==12 || id==13) {
       MedecinGyConventionNonConsultationOUiMajeure();
       if (id==12) {
-        AjoutTypeConsultation(1);
+        AjoutTypeConsultation(6);
         AjoutSelection({id : 12 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==13) {
-        AjoutTypeConsultation(2);
+        AjoutTypeConsultation(7);
         AjoutSelection({id : 13 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -155,12 +155,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==22||id==23) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeure();
       if (id==22) {
-        AjoutTypeConsultation(1);
+        AjoutTypeConsultation(6);
         AjoutSelection({id : 22 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==23) {
-        AjoutTypeConsultation(2);
+        AjoutTypeConsultation(7);
         AjoutSelection({id : 23 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -266,12 +266,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==46||id==47) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeure();
       if (id==46) {
-        AjoutTypeConsultation(1);
+        AjoutTypeConsultation(6);
         AjoutSelection({id : 46 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==47) {
-        AjoutTypeConsultation(2);
+        AjoutTypeConsultation(7);
         AjoutSelection({id : 47 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -344,7 +344,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 26 , name : "Patiente anonyme"});
       AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,26,patienteMajeure,0);
+      props.onFonctionAffichage(objetSelection,26,patienteMajeure,0,typeConsultation);
       
     }
 
