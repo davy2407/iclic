@@ -129,15 +129,29 @@ function AppCore () {
               setObjetConsultationAffiche([liste[7]])
               
             }
+
+            else if (identifiant==51) {
+              setObjetConsultationAffiche([liste[7]])
+
+            }
+
+            else if (identifiant==50) {
+              setObjetConsultationAffiche([liste[7]])
+
+            }
             
           }
 
-          const AffichageDonnee = (listeDonnee,id) => {
+          const AffichageDonnee = (listeDonnee,id,idPatienteMajeureMineure,idPatienteAnonyme) => {
             /// fonction qui me permettait de faire des test sur les infos récup dans le modal. 
             /// elle recup la liste des infos selectionné dans le modal ainsi que l'id du derniers bouton
             /// actuellement elle gères l'affichage du futur objet consultation ou info, ainsi que quelques function annexe ( voir fin de function )
             /// cette function pourrait éventuellement être gardé pour fair un affichage recap des infos deja selectionné
             let liste = listeDonnee;
+            let idMajMin = idPatienteMajeureMineure;
+            let idAnonyme = idPatienteAnonyme;
+            console.log("id patiente = "+idMajMin);
+            console.log("id patiente anonyme = "+idAnonyme);
             console.log(liste);
             let texte = [];
             for (let index = 0; index < liste.length; index++) {

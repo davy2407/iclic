@@ -397,7 +397,7 @@ Majeure Anonyme </h1>
                       assure la dispense
                      d’avance des frais permet de garantir un véritable anonymat de l’intervention ». Lien n°12</p>
                      <br></br>
-                     <div>
+                     
                          <h2>DDR</h2>
                         <label for="DDR">DDR « date des dernières règles » : </label>
                         <input
@@ -601,7 +601,7 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <br></br>
 
                         <Button onClick={(e)=>{changeCouleurBoutton(e)}} variant={couleurBouttonBase}>Valider</Button>{' '}
-                        </div>
+                        
                         
             
           </div>

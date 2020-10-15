@@ -470,8 +470,20 @@ Patiente majeure NA</h1>
             <input onClick={changementCouleurSVGPriseDesang} className="Lampe" type="image" src={logoAffichePriseDeSang} />
             <div>{currentInfoPriseDesang}</div> 
             <br></br>
-            <h3>Dosage -HCG :</h3> 
-            <h3>Groupe sanguin : </h3> 
+            <label>
+                <h3>Dosage -HCG :</h3>
+                <input type="text"></input>
+                <Button variant="danger">Valider</Button>
+
+
+            </label>
+            <br></br>
+            <label>
+                <h3>Groupe sanguin : </h3>
+                <input type="text"></input>
+                <Button variant="danger">Valider</Button>
+            </label>
+             
             <h3>Personne accompagnante :</h3>
             <br></br>
             <Button variant="secondary" >Oui</Button>

@@ -107,10 +107,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==14 || id ==15) {
       MedecinGyConventionNonConsultationOUiFin();
       if (id==14) {
+        AjoutPatienteMajeure(1);
         AjoutSelection({id : 14 , name : "Patiente majeure"})
         
       }
       else if (id==15) {
+        AjoutPatienteMajeure(0);
         AjoutSelection({id : 15 , name : "Patiente mineure"})
         
       }
@@ -158,10 +160,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==24||id==25) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeureAnonyme();
       if (id==24) {
+        AjoutPatienteMajeure(1);
         AjoutSelection({id : 24 , name : "Patiente majeure"})
         
       }
       else if (id==25) {
+        AjoutPatienteMajeure(0);
         AjoutSelection({id : 25 , name : "patiente mineure"})
         
       }
@@ -171,10 +175,12 @@ function MyVerticallyCenteredModal(props) {
       MedecinGyConventionOUiPatienteMajeure();
       if (id==10) {
         AjoutSelection({id : 10 , name : "Patiente anonyme"})
+        AjoutPatienteAnonyme(0);
         
       }
       else if (id==11) {
         AjoutSelection({id : 11 , name : "Patiente non-anonyme"})
+        AjoutPatienteAnonyme(1);
         
       }
     }
@@ -215,10 +221,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==40||id==41) {
       SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeureAnonyme();
       if (id==40) {
+        AjoutPatienteMajeure(1);
         AjoutSelection({id : 40 , name : "Patiente majeure"})
         
       }
       else if (id==41) {
+        AjoutPatienteMajeure(0);
         AjoutSelection({id : 41 , name : "patiente mineure"})
         
       }
@@ -256,10 +264,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==48||id==49) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeureAnonyme();
       if (id==48) {
+        AjoutPatienteMajeure(1);
         AjoutSelection({id : 48 , name : "Patiente majeure"})
         
       }
       else if (id==49) {
+        AjoutPatienteMajeure(0);
         AjoutSelection({id : 49 , name : "Patiente mineure"})
         
       }
@@ -268,57 +278,81 @@ function MyVerticallyCenteredModal(props) {
 
     else if (id==32) {
       AjoutSelection({id : 32 , name : "Patiente mineure"});
+      AjoutPatienteMajeure(0)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,32);
+      props.onFonctionAffichage(objetSelection,32,0,patienteAnonyme);
       
     }
 
     else if (id==17) {
       AjoutSelection({id : 17 , name : "Patiente non-anonyme"});
+      AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,17);
+      props.onFonctionAffichage(objetSelection,17,patienteMajeure,1);
       
     }
 
     else if (id==16) {
       AjoutSelection({id : 16 , name : "Patiente anonyme"});
+      AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,16);
+      props.onFonctionAffichage(objetSelection,16,patienteMajeure,0);
       
     }
 
     else if (id==31) {
       AjoutSelection({id : 31 , name : "Patiente majeure"});
+      AjoutPatienteMajeure(1)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,31);
+      props.onFonctionAffichage(objetSelection,31,1,patienteAnonyme);
       
     }
 
     else if (id==42) {
       AjoutSelection({id : 42 , name : "Patiente Anonyme"});
+      AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,42);
+      props.onFonctionAffichage(objetSelection,42,patienteMajeure,0);
       
     }
 
     else if (id==43) {
       AjoutSelection({id : 43 , name : "Patiente non-anonyme"});
+      AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,43);
+      props.onFonctionAffichage(objetSelection,43,patienteMajeure,1);
       
     }
 
     else if (id==26) {
       AjoutSelection({id : 26 , name : "Patiente anonyme"});
+      AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,26);
+      props.onFonctionAffichage(objetSelection,26,patienteMajeure,0);
       
     }
 
     else if (id==27) {
       AjoutSelection({id : 27 , name : "patiente non-anonyme"});
+      AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,27);
+      props.onFonctionAffichage(objetSelection,27,patienteMajeure,1);
+      
+    }
+
+    else if (id==50) {
+      AjoutSelection({id : 50 , name : "Patiente anonyme"});
+      AjoutPatienteAnonyme(0)
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,50,patienteMajeure,0);
+      
+    }
+
+    else if (id==51) {
+      AjoutSelection({id : 51 , name : "Patiente non-anonyme"});
+      AjoutPatienteAnonyme(1)
+      props.onHide();
+      props.onFonctionAffichage(objetSelection,51,patienteMajeure,1);
       
     }
 
@@ -337,6 +371,28 @@ function MyVerticallyCenteredModal(props) {
     console.log(liste);
     
   }
+
+  const [patienteMajeure, setPatienteMajeure] = useState(2);
+  ///sate 0 = patiente mineure
+  /// state 1 = majeure
+
+  const AjoutPatienteMajeure = (objet) => {
+    let id = objet;
+    setPatienteMajeure(id);
+    
+  }
+
+  const [patienteAnonyme, setPatienteAnonyme] = useState(2);
+  ///sate 0 = patiente anonyme
+  /// state 1 = non anonyme
+
+  const AjoutPatienteAnonyme= (objet) => {
+    let id = objet;
+    setPatienteAnonyme(id);
+    
+  }
+  
+
  
 
   
