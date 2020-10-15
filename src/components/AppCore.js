@@ -31,7 +31,7 @@ function AppCore () {
           {name : "test1test2222", id : 17, objet : pConsultation},
           {name : "test1test333", id : 27, objet : pConsultation},
           {name : "test1test4444", id : 26, objet : pConsultation},
-          {name : "test1test55555", id : 31, objet : PriseMediMajeure},
+          {name : "Prise medicamentMajeureNonAnonyme", id : 31, objet : PriseMediMajeure},
           {name : "test1test6666", id : 32, objet : pConsultation},
           {name : "test1test7777", id : 42, objet : pConsultation},
           {name : "test1test8888", id : 43, objet : pConsultation}]
@@ -79,79 +79,65 @@ function AppCore () {
             false
           )
 
-          const modifierObjet = (id) => {
-            /// fonction censer gérer l'affichage du futur objet consultation ou information à la femreture du modal
-            /// elle prend un parametre id permettant d'identifier de quel provenance vient la requete
-            /// je vais check mais il me semble qu'elle nest pas complete et quil manque quelques boutons de fin de parcours dans le modal
-            /// qui ne sont pas traçés 
+          const modifierObjet = (idMajeure, idAnonyme, idTypeConsultation) => {
+            ///function permettant de savoir d'où provient la demande et quelle consultation a afficher 
+            /// elle prend 3 parametre qui permette l'identification 
+            /// si idMajeure = 1 >> patiente majeure ( 0 = patiente mineure)
+            /// si idAnonyme = 1 >> patiente non anonyme ( 0 = patiente anonyme)
+            ///5 possiblité idConsultation
+            /// 1 Première consultation préalable à l'ivg/Premier contact médical
+            /// 2 Deuxième conssultation préalable à l'ivg/Recueil de consentement
+            /// 3 Premier temps de consultation pour prise médicamenteuse
+            /// 4 Deuxième temps de consultation pour prise médicamenteuse (facultative)
+            /// 5 Troisième temps de consultation: consultation de suivi
             console.log("dans modifier objet");
-            let identifiant = id;
+            let identifiantConsultation = idTypeConsultation;
+            let idMajeureOuNon =  idMajeure;
+            let idAnonymeOuNon = idAnonyme;
             let liste = listeObjetConsulation;
-            console.log(identifiant);
-            console.log(liste);
+            
+          
 
-            if (identifiant==16) {
-              setObjetConsultationAffiche([liste[0]])
-              
-            }
-
-            else if (identifiant==17) {
-              setObjetConsultationAffiche([liste[1]])
-              
-            }
-
-            else if (identifiant==26) {
-              setObjetConsultationAffiche([liste[2]])
-              
-            }
-
-            else if (identifiant==27) {
-              setObjetConsultationAffiche([liste[3]])
-              
-            }
-
-            else if (identifiant==31) {
+            if (identifiantConsultation==3&&idMajeureOuNon==1&&idAnonymeOuNon==1) {
               setObjetConsultationAffiche([liste[4]])
               
             }
+            else {
+              setObjetConsultationAffiche([liste[3]]);
+            }
 
-            else if (identifiant==32) {
-              setObjetConsultationAffiche([liste[5]])
+          
               
-            }
+           
 
-            else if (identifiant==42) {
-              setObjetConsultationAffiche([liste[6]])
-              
-            }
 
-            else if (identifiant==43) {
-              setObjetConsultationAffiche([liste[7]])
-              
-            }
-
-            else if (identifiant==51) {
-              setObjetConsultationAffiche([liste[7]])
-
-            }
-
-            else if (identifiant==50) {
-              setObjetConsultationAffiche([liste[7]])
-
-            }
+            
             
           }
 
-          const AffichageDonnee = (listeDonnee,id,idPatienteMajeureMineure,idPatienteAnonyme) => {
+          const AffichageDonnee = (listeDonnee,id,idPatienteMajeureMineure,idPatienteAnonyme,idTypeConsultation) => {
             /// fonction qui me permettait de faire des test sur les infos récup dans le modal. 
             /// elle recup la liste des infos selectionné dans le modal ainsi que l'id du derniers bouton
             /// actuellement elle gères l'affichage du futur objet consultation ou info, ainsi que quelques function annexe ( voir fin de function )
             /// cette function pourrait éventuellement être gardé pour fair un affichage recap des infos deja selectionné
+            /// la fonction recupere different parametre :
+            /// la liste de donnes global
+            /// l'id du dernier bouton cliqué ds le modal
+            /// un id patiente majeure ou mineure, si id = 1 > patiente majeure ; si id = 0 > patiente mineure 
+            /// un id patiente anonyme ou non, si id = 1 > patiente non anonyme ; si id = 0 > patiente anonyme
+            /// id type de consultation 5 possible :
+            /// 1 Première consultation préalable à l'ivg/Premier contact médical
+            /// 2 Deuxième conssultation préalable à l'ivg/Recueil de consentement
+            /// 3 Premier temps de consultation pour prise médicamenteuse
+            /// 4 Deuxième temps de consultation pour prise médicamenteuse (facultative)
+            /// 5 Troisième temps de consultation: consultation de suivi
             let liste = listeDonnee;
             let idMajMin = idPatienteMajeureMineure;
             let idAnonyme = idPatienteAnonyme;
+            let idConsultation = idTypeConsultation;
             console.log("id patiente = "+idMajMin);
             console.log("id patiente anonyme = "+idAnonyme);
+            console.log("id type consultation = " + idConsultation);
             console.log(liste);
             let texte = [];
             for (let index = 0; index < liste.length; index++) {
@@ -196,7 +182,7 @@ function AppCore () {
             setListeBouton([]);
             setNombreBouton(0);
             setSelection(liste);
-            modifierObjet(id);
+            modifierObjet(idMajMin, idAnonyme, idConsultation);
             
           }
 

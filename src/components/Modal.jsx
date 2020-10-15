@@ -62,22 +62,27 @@ function MyVerticallyCenteredModal(props) {
     else if (id==8||id==9||id==28||id==29||id==30) {
       MedecinGyConventionOUiPatiente();
       if (id==8) {
+        AjoutTypeConsultation(1);
         AjoutSelection({id : 8, name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==9) {
+        AjoutTypeConsultation(2);
         AjoutSelection({id : 9, name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"},)
         
       }
       else if (id==28) {
+        AjoutTypeConsultation(3);
         AjoutSelection({id : 28, name : "Premier temps de consultation pour prise médicamenteuse"})
         
       }
       else if (id==29) {
+        AjoutTypeConsultation(4);
         AjoutSelection({id : 29, name : "Deuxième temps de consultation pour prise médicamenteuse (facultative)"})
         
       }
       else if (id==30) {
+        AjoutTypeConsultation(5);
         AjoutSelection({id : 30, name : "Troisième temps de consultation: consultation de suivi"})
         
       }
@@ -95,10 +100,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==12 || id==13) {
       MedecinGyConventionNonConsultationOUiMajeure();
       if (id==12) {
+        AjoutTypeConsultation(1);
         AjoutSelection({id : 12 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==13) {
+        AjoutTypeConsultation(2);
         AjoutSelection({id : 13 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -148,10 +155,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==22||id==23) {
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeure();
       if (id==22) {
+        AjoutTypeConsultation(1);
         AjoutSelection({id : 22 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==23) {
+        AjoutTypeConsultation(2);
         AjoutSelection({id : 23 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -197,22 +206,27 @@ function MyVerticallyCenteredModal(props) {
     else if (id==35||id==36||id==37||id==38||id==39) {
       SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeure();
       if (id==35) {
+        AjoutTypeConsultation(1);
         AjoutSelection({id : 35, name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==36) {
+        AjoutTypeConsultation(2);
         AjoutSelection({id : 36, name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
       else if (id==37) {
+        AjoutTypeConsultation(3);
         AjoutSelection({id : 37, name : "Premier temps de consultation pour prise médicamenteuse"})
         
       }
       else if (id==38) {
+        AjoutTypeConsultation(4);
         AjoutSelection({id : 38, name : "Deuxième temps de consultation pour prise médicamenteuse (facultative)"})
         
       }
       else if (id==39) {
+        AjoutTypeConsultation(5);
         AjoutSelection({id : 39, name : "Troisième temps de consultation: consultation de suivi"})
         
       }
@@ -252,10 +266,12 @@ function MyVerticallyCenteredModal(props) {
     else if (id==46||id==47) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeure();
       if (id==46) {
+        AjoutTypeConsultation(1);
         AjoutSelection({id : 46 , name : "Première consultation préalable à l'ivg/Premier contact médical"})
         
       }
       else if (id==47) {
+        AjoutTypeConsultation(2);
         AjoutSelection({id : 47 , name : "Deuxième conssultation préalable à l'ivg/Recueil de consentement"})
         
       }
@@ -280,7 +296,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 32 , name : "Patiente mineure"});
       AjoutPatienteMajeure(0)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,32,0,patienteAnonyme);
+      props.onFonctionAffichage(objetSelection,32,0,patienteAnonyme,typeConsultation);
       
     }
 
@@ -288,7 +304,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 17 , name : "Patiente non-anonyme"});
       AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,17,patienteMajeure,1);
+      props.onFonctionAffichage(objetSelection,17,patienteMajeure,1,typeConsultation);
       
     }
 
@@ -296,7 +312,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 16 , name : "Patiente anonyme"});
       AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,16,patienteMajeure,0);
+      props.onFonctionAffichage(objetSelection,16,patienteMajeure,0,typeConsultation);
       
     }
 
@@ -304,7 +320,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 31 , name : "Patiente majeure"});
       AjoutPatienteMajeure(1)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,31,1,patienteAnonyme);
+      props.onFonctionAffichage(objetSelection,31,1,patienteAnonyme,typeConsultation);
       
     }
 
@@ -312,7 +328,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 42 , name : "Patiente Anonyme"});
       AjoutPatienteAnonyme(0);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,42,patienteMajeure,0);
+      props.onFonctionAffichage(objetSelection,42,patienteMajeure,0,typeConsultation);
       
     }
 
@@ -320,7 +336,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 43 , name : "Patiente non-anonyme"});
       AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,43,patienteMajeure,1);
+      props.onFonctionAffichage(objetSelection,43,patienteMajeure,1,typeConsultation);
       
     }
 
@@ -336,7 +352,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 27 , name : "patiente non-anonyme"});
       AjoutPatienteAnonyme(1);
       props.onHide();
-      props.onFonctionAffichage(objetSelection,27,patienteMajeure,1);
+      props.onFonctionAffichage(objetSelection,27,patienteMajeure,1,typeConsultation);
       
     }
 
@@ -344,7 +360,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 50 , name : "Patiente anonyme"});
       AjoutPatienteAnonyme(0)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,50,patienteMajeure,0);
+      props.onFonctionAffichage(objetSelection,50,patienteMajeure,0,typeConsultation);
       
     }
 
@@ -352,7 +368,7 @@ function MyVerticallyCenteredModal(props) {
       AjoutSelection({id : 51 , name : "Patiente non-anonyme"});
       AjoutPatienteAnonyme(1)
       props.onHide();
-      props.onFonctionAffichage(objetSelection,51,patienteMajeure,1);
+      props.onFonctionAffichage(objetSelection,51,patienteMajeure,1,typeConsultation);
       
     }
 
@@ -390,6 +406,19 @@ function MyVerticallyCenteredModal(props) {
     let id = objet;
     setPatienteAnonyme(id);
     
+  }
+
+
+  const [typeConsultation, setTypeConsultation] = useState(6);
+  /// state 1 Première consultation préalable à l'ivg/Premier contact médical
+  /// state 2
+  /// state 3
+  /// state 4
+  /// state 5
+
+  const AjoutTypeConsultation = (objet)=> {
+    let id = objet;
+    setTypeConsultation(id);
   }
   
 
