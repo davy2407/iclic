@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 // import iclic components
 import Bouton from "@components/Bouton";
 import pConsultation from "@components/pConsultation";
@@ -19,9 +20,27 @@ function AppCore() {
   );
 
   const [nombreBouton, setNombreBouton] = useState(2);
+  const [stateGlobalPremiereConsulte,setStateGlobalPremiereConsulte] = useState([]);
+  const recupPremiereConsulte = (liste)=> {
+    
+    let newData = [...liste];
+    setStateGlobalPremiereConsulte(newData);
+    console.log('DANS LAPP CORE')
+    for (let i = 0; i < newData.length; i++) {
+      console.log(newData[i].titre);
+      console.log(newData[i].value);
+
+      
+    }
+
+  }
 
   /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
   /// au composant resumé consultation
+
+  const recupDoneePourResume = () => {
+
+  }
 
   const [listeObjetConsulation, setlisteObjetConsulation] = useState(
     /// state servant à faire les test de recup dinfos pour traiter ou non l'envoie d'une consultation
@@ -37,6 +56,7 @@ function AppCore() {
         name: "Premiere consultation Majeure Non Anonyme",
         id: 26,
         objet: pConsultation,
+        fonction : recupPremiereConsulte
       },
       {
         name: "Prise medicamentMajeureNonAnonyme",
@@ -87,6 +107,8 @@ function AppCore() {
     /// je vais faire un check mais surement inutile
     false
   );
+
+  
 
   const modifierObjet = (idMajeure, idAnonyme, idTypeConsultation) => {
     ///function permettant de savoir d'où provient la demande et quelle consultation a afficher
@@ -280,6 +302,7 @@ function AppCore() {
             <objet.objet
               onTexte={objet.name}
               onRecap={texteDemarrage}
+              onRecup={objet.recupData}
             ></objet.objet>
           );
         })}

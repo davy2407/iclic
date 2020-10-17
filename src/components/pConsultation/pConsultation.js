@@ -17,21 +17,31 @@ function PConsultation(props) {
 
   const [couleurBouttonSel, setCouleurBouttonSel] = useState("danger");
 
-  const changeCouleurBoutton = (e) => {
-    e.preventDefault();
-    console.log(e.target.variant);
 
-    let couleurAfficher = e.target.variant;
-    if (couleurAfficher == "secondary") {
-      e.target.variant = "danger";
-    } else {
-      e.target.variant = "secondary";
-    }
-  };
+  /// function permettant la liaison avec la function onProps qui remonte les donnees au composant parent.
+  /// liste des differents state , manque ddr et echographie
+  /// personneAccFin,modeDecouverteFin,constexteBioPsyFin,rechercheIstFin,bilanSanguinFin
+  ///,guideIVGFin,consultationPsyFin,contraPostIVGFin,frottiFin,dateFrottiFin,tabacFin,nBTabacFin,infoSupp
+  ///ORDRE DES PARAMETRES DONNE CI DESSUS
+  const liaison = () => {
 
-  ///
+
+  }
+
 
   /// Bloc contenant les state à récupérer à la fin de la consultation
+  const [globalStateFin,setGlobalStateFin] =useState([]);
+  
+  const afficheStateFin = () => {
+    console.log("state de fin va suivre");
+    for (let index = 0; index < globalStateFin.length; index++) {
+      console.log(globalStateFin[index]);
+      
+    }
+    props.onRecup(globalStateFin);
+
+  }
+
 
   const [dateDDRFin, setDateDDRFin] = useState({});
 
@@ -39,47 +49,236 @@ function PConsultation(props) {
 
   const recupAccompagnant = (e) => {
     e.preventDefault();
-    let reponse = e.target.value;
+    let reponse = {
+      titre : "accompagant",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
     setPersonneAccFin(reponse);
-    console.log("accompagnant " + reponse);
-    console.log("accompagnant state " + personneAccFin);
+    console.log("accompagnant " + reponse.value);
+    
+    
   };
 
   const [modeDecouverteFin, setModeDecouverte] = useState({});
 
   const recupModeDecouverte = (e) => {
     e.preventDefault();
-    let reponse = e.target.value;
+    let reponse = {
+      titre : "Mode Decouverte",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
     setModeDecouverte(reponse);
-    console.log("accompagnant " + reponse);
+    
+    
   };
 
   const [constexteBioPsyFin, setContexteBioPsyFin] = useState({});
 
+  const recupContexteBio = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Contexte Bio",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setContexteBioPsyFin(reponse);
+    console.log("Contexte Bio " + reponse.value);
+  };
+
   const [rechercheIstFin, setRechercheIstFin] = useState({});
 
-  const [groupeSanguinFin, setGroupeSanguinFin] = useState({});
+  const recupIST = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "rch IST",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setRechercheIstFin(reponse);
+    console.log("IST " + reponse.value);
+  };
+
+  const [bilanSanguinFin, setBilanSanguinFin] = useState({});
+
+  const recupBilan = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Bilan Sanguin",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setBilanSanguinFin(reponse);
+    console.log("Bilan sanguin " + reponse.value);
+  };
 
   const [guideIVGFin, setGuideIVGFin] = useState({});
 
+  const recupInfoGuideIVG = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "contexte IVG",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setGuideIVGFin(reponse);
+    console.log("contexte de l'IVG evoqué : " + reponse.value);
+  };
+
+
+
   const [consultationPsyFin, setConsultationPsyFin] = useState({});
+
+  const recupConsultationPsy = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Consultation proposé",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setConsultationPsyFin(reponse);
+    console.log("consultation proposé " + reponse.value);
+  };
 
   const [contraPostIVGFin, setContraPostIVGFin] = useState({});
 
+  const recupinfoPostIVG = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "info post IVG",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setContraPostIVGFin(reponse);
+    console.log("info post ivg " + reponse.value);
+  };
+
   const [frottiFin, setFrottiFin] = useState({});
+
+  const recupFrotti = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Type Frotti",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setFrottiFin(reponse);
+    console.log("type frotti " + reponse.value);
+  };
 
   const [dateFrottiFin, setDateFrottiFin] = useState({});
 
+  const handleChange = (e) => {
+    /// recup date frotti
+    let reponse = {
+      titre : "Date Frotti",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+
+    console.log("date frotti : "+reponse.value);
+    setDateFrottiFin(reponse);
+    
+  };
+
   const [tabacFin, setTabacFin] = useState({});
+  const recupTabac = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Tabac",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setTabacFin(reponse);
+    console.log("Fumeuse : " + reponse.value);
+  };
 
   const [nBTabacFin, setNbTabacFin] = useState({});
 
-  ///
+  const recupNombre = (e) => {
+    let reponse = {
+      titre : "nbPaquet",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    console.log("test nb : "+nBTabacFin.value);
+
+    console.log("nb paquet : "+reponse.value);
+    setNbTabacFin(reponse);
+
+  }
+
+  const [infoSupp, setInfoSupp] = useState({});
+
+  const recupInfoSupp = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "InfoSupple",
+      value : e.target.value
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setInfoSupp(reponse);
+    console.log("info supp : " + reponse.value);
+
+  }
+
+  /// info IST
+  const returnInfoIST = () => {
+    return (
+      <div>
+        <p>
+          La HAS recommande un dépistage opportuniste ciblé à toutes les
+           femmes enceintes consultant pour une IVG, sans limite d’âge.
+        </p>
+        <br></br>
+        <p>
+          De nombreuses sources numériques existent pour l’information aux patient(es)
+           des IST ainsi que de ces risques<a href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles" target="_blank">Ameli IST</a>, <a href="http://www.info-ist.fr/index.html" target="_blank">ISt-info</a>.
+        </p>
+        <br></br>
+
+        <label>
+          Vous desirez plus d'informations à transmettre ? 
+          <Button variant="secondary" value="Oui" onClick={(e)=>{recupInfoSupp(e);}}>Oui</Button>
+          <Button variant="secondary" value="Non" onClick={(e)=>{recupInfoSupp(e);}}>Non</Button>
+        </label>
+        
+        <br></br>
+        
+        <br></br>
+      </div>
+    );
+  };
 
   /// texte info IST
-  const [txtIST, setTxtIST] = useState(
-    "Faire apparaître la mention « échographie de datation à réaliser en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué, (Index pour radiologue IPE)."
-  );
+  const [txtIST, setTxtIST] = useState(() => returnInfoIST());
 
   const [currentInfoIST, setCurrentInfoIST] = useState("");
 
@@ -195,12 +394,7 @@ function PConsultation(props) {
   };
 
   ///
-  const handleChange = (event) => {
-    /// gère le bouton select
-    console.log(event.target.value);
-    let test = event.target.value;
-    setDecouverteGro({ value: test });
-  };
+  
 
   ///BLoc DDR
   let newDate = new Date();
@@ -440,9 +634,14 @@ function PConsultation(props) {
       <h2>Contexte biopsychosocial favorable :</h2>
       {/* Bloc a finir  */}
       <br></br>
-      <Button variant="secondary">Oui</Button>
+      <Button variant="secondary"
+      value="Oui"
+      onClick={(e) => {
+        recupContexteBio(e);
+      }}>Oui</Button>
       <br></br>
-      <Button variant="secondary" onClick={afficheConsultation}>
+      <Button value="Non" variant="secondary" onClick={(e)=>{afficheConsultation();
+      recupContexteBio(e);}}>
         Non
       </Button>
       <br></br>
@@ -453,8 +652,11 @@ function PConsultation(props) {
       <br></br>
       <label>
         Recherche IST +/- antibio-prophylaxie
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        <Button value="Oui" variant="secondary"
+      onClick={(e) => {
+        recupIST(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e)=>{recupIST(e);}}>Non</Button>
       </label>
       <br></br>
       <input
@@ -463,26 +665,28 @@ function PConsultation(props) {
         type="image"
         src={logoAfficheIST}
       />
-      <p>  {currentInfoIST}</p>
+      <div>  {currentInfoIST}</div>
       {/* Bloc a finir */}
       <br></br>
       <h2>
         Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
-        quantitatif)
+        quantitatif) 
       </h2>
       <br></br>
-      <p>
-        ? : « 2 typages de groupe sanguin sont nécessaires avant toute IVG
-        médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h
-        avant l’acte si négatif jusqu'alors. A noter qu’une injection
-        d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant
-        toute IVG ou dans les 72h suivant tout saignement. »
-      </p>
+      <label>
+        préscrir :
+        <Button value="Oui" variant="secondary"
+      onClick={(e) => {
+        recupBilan(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e)=>{recupBilan(e);}}>Non</Button>
+      </label>
+      <br></br>
       <h2>Dossier guide IVG remis :</h2>
       <br></br>
       <label>
-        Dossier guide IVG remis :<Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        Dossier guide IVG remis :<Button value="Oui" variant="secondary" onClick={(e)=>{recupInfoGuideIVG(e);}}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e)=>{recupInfoGuideIVG(e);}}>Non</Button>
       </label>
       <br></br>
       <a href={GuideIVG} target="_blank">
@@ -491,9 +695,12 @@ function PConsultation(props) {
       <h2>Consultation psychosociale proposée</h2>
       <br></br>
       <label>
-        Consultation psychosociale proposée :
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+      Consultation proposée :
+        <Button value="Oui" variant="secondary"
+      onClick={(e) => {
+        recupConsultationPsy(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e)=>{recupConsultationPsy(e);}}>Non</Button>
       </label>
       <p className={affichageWarningConsultation.className}>
         {affichageWarningConsultation.texte}
@@ -511,9 +718,12 @@ function PConsultation(props) {
       <h2>Information contraception post-IVG</h2>
       <br></br>
       <label>
-        Information contraception post-IVG
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+       Information contraception post-IVG
+        <Button value="Oui" variant="secondary"
+      onClick={(e) => {
+        recupinfoPostIVG(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e)=>{recupinfoPostIVG(e);}}>Non</Button>
       </label>
       <br></br>
       <input
@@ -528,13 +738,19 @@ function PConsultation(props) {
       <h2>Frottis à jour </h2>
       <br></br>
       <label>
-        Frotti à jour :<Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
-        <Button variant="secondary">Non Concernée</Button>
+        Frotti à jour :<Button value="Oui" variant="secondary" onClick={(e) => {
+        recupFrotti(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e) => {
+        recupFrotti(e);
+      }}>Non</Button>
+        <Button value="Non Concernée" variant="secondary" onClick={(e) => {
+        recupFrotti(e);
+      }}>Non Concernée</Button>
       </label>
       <br></br>
       <label for="dateFrotti">Date : </label>
-      <input type="date" name="dateFrotti" id="dateFrotti"></input>
+      <input type="date" name="dateFrotti" id="dateFrotti" onChange={(e)=>{handleChange(e);}}></input>
       <br></br>
       <input
         onClick={changementCouleurSVGFrotti}
@@ -548,18 +764,20 @@ function PConsultation(props) {
       <h2>Tabac :</h2>
       <br></br>
       <label>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        <Button value="Oui" variant="secondary" onClick={(e) => {
+        recupTabac(e);
+      }}>Oui</Button>
+        <Button value="Non" variant="secondary" onClick={(e) => {
+        recupTabac(e);
+      }}>Non</Button>
       </label>
       <br></br>
       <label for="nbPAquet"> Nombre paquets </label>
-      <input type="text" nom="nbPAquet" id="nbPAquet"></input>
+      <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input>
       <br></br>
       <br></br>
       <Button
-        onClick={(e) => {
-          changeCouleurBoutton(e);
-        }}
+        onClick={afficheStateFin}
         variant={couleurBouttonBase}
       >
         Valider
