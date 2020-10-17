@@ -50,7 +50,27 @@ function PConsultation(props){
 
         const [personneAccFin,setPersonneAccFin] = useState({});
 
+        const recupAccompagnant = (e) => {
+            e.preventDefault();
+            let reponse = e.target.value;
+            setPersonneAccFin(reponse);
+            console.log("accompagnant "+reponse);
+            console.log("accompagnant state "+ personneAccFin);
+
+
+        };
+
         const [modeDecouverteFin,setModeDecouverte] = useState({});
+
+        const recupModeDecouverte = (e) => {
+            e.preventDefault();
+            let reponse = e.target.value;
+            setModeDecouverte(reponse);
+            console.log("accompagnant "+reponse);
+            
+
+
+        };
 
         const [constexteBioPsyFin, setContexteBioPsyFin] = useState({});
 
@@ -458,20 +478,20 @@ Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait donc 38 jours soit 5 semai
                         <h2>Personne accompagnante</h2>
                         <label> 
                         Personne accompagnante
-                        <Button variant="secondary">Oui</Button>
+                        <Button variant="secondary" value="Oui" onClick={(e) => {recupAccompagnant(e)}}>Oui</Button>
                         
                          
-                        <Button variant="secondary">Non</Button>
+                        <Button variant="secondary" value="Non" onClick={(e) => {recupAccompagnant(e)}}>Non</Button>
                         </label>
                         <br></br>
                         <h2>Mode de découverte de la grossesse </h2>
                         <br></br>
                         <label>
                             Mode de découverte de la grossesse :
-                            <Button variant="secondary">Test urinaire</Button>
-                            <Button variant="secondary">Test sanguin</Button>
-                            <Button variant="secondary">Échographie</Button>
-                            <Button variant="secondary">Clinique</Button>
+                            <Button value="Test Urinaire" variant="secondary" onClick={(e) => {recupModeDecouverte(e)}}>Test urinaire</Button>
+                            <Button value="Test Sanguin" variant="secondary" onClick={(e) => {recupModeDecouverte(e)}}>Test sanguin</Button>
+                            <Button  value="Échographie" variant="secondary" onClick={(e) => {recupModeDecouverte(e)}}>Échographie</Button>
+                            <Button value="Clinique" variant="secondary" onClick={(e) => {recupModeDecouverte(e)}}>Clinique</Button>
                             {/* <select defaultValue={valueDecouverteGro} id="decouverteGro" onChange={handleChange}>
                                 <option value="Test urinaire">Test urinaire</option>
                                 <option value="Test sanguin">Test sanguin</option>

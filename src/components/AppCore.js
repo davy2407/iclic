@@ -5,6 +5,7 @@ import pConsultation from './pConsultation';
 import PriseMediMajeure from './PriseMediPatienteMajeure';
 import PremierConsultationTroisC from './PremierConsultationTroisC';
 import PremierConsultationTroisD from './PremierConsultationTroisD';
+import ContreIndication from './PriseMediContreIndication';
 
 
 
@@ -27,9 +28,12 @@ function AppCore () {
         2
         );
 
+        /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
+        /// au composant resumé consultation
+
         const [listeObjetConsulation, setlisteObjetConsulation] = useState(
           /// state servant à faire les test de recup dinfos pour traiter ou non l'envoie d'une consultation 
-          [{name : "test1test1111", id : 16 , objet : pConsultation},
+          [{name : "Prise de Medicament Contre Indication Medical", id : 16 , objet : ContreIndication},
           {name : "test1test2222", id : 17, objet : pConsultation},
           {name : "test1test333", id : 27, objet : pConsultation},
           {name : "Premiere consultation Majeure Non Anonyme", id : 26, objet : pConsultation},

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
 import LightOn from "../images/lightOn.svg";
 import LightOff from "../images/lightOff.svg";
+import FicheVidalMiso from './FicheVidalMisoprostol.pdf';
+import FicheVidalMife from './FicheVidalMifepristone.pdf';
+import InfoPatiente from './InfoPatiente.docx';
 
 
 import "./PriseMediContreIndication.css";
@@ -309,8 +312,8 @@ Le degré d’urgence est à établir selon les signes cliniques ou l’âge ges
             <Button variant="secondary">Non</Button>
             
         </label>
-        <input onClick={changementCouleurSVGPresci} className="Lampe" type="image" src={logoAffichePrescri} />
-        <div>{currentInfoPrescri}</div>
+        <input onClick={changementCouleurSVGPresci} className="Lampe" type="image" src={logoAffichePresci} />
+        <div>{currentInfoPresci}</div>
         <br></br>
         <label>
             <h3>information claires et établies des effets secondaires possibles des traitements :</h3>
@@ -328,6 +331,18 @@ Le degré d’urgence est à établir selon les signes cliniques ou l’âge ges
             <div>{currentInfoVerrouUn}</div>
 
         </label>
+
+        <br></br>
+        <br></br>
+        <h3>Fiche VIDAL traitement misoprostol : </h3>
+        <a href={FicheVidalMiso} target="_blank">télécharger PDF</a>
+        <br></br>
+        <h3>Fiche VIDAL traitement mifépristone :</h3>
+        <a href={FicheVidalMife} target="_blank">télécharger PDF</a>
+        <br></br>
+        <h3>Fiche patient traitement :</h3>
+        <a href={InfoPatiente} target="_blank">télécharger PDF</a>
+        
        
 
 
