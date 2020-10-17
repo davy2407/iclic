@@ -1,0 +1,3 @@
+import ResumePremiereConsultationMajeureNonAnonyme from "./ResumePremiereConsultationMajeureNonAnonyme";
+
+export default ResumePremiereConsultationMajeureNonAnonyme;
