@@ -1,38 +1,14 @@
-import React, {  useState } from 'react';
+import React from "react";
+import "./App.css";
 
-import './App.css';
+import Home from "@views/Home";
 
-
-
-import Footer from './components/Footer';
-import Header from './components/Header';
-import MidSection from './components/MidSection';
-
-function App () {
-
-
-
-  
-    return (
-      <div className="App">
-        <Header></Header>
-
-        <MidSection 
-          
-          
-          ></MidSection>
-
-        <Footer className="FooterTest" ></Footer>
-
-
-
-      </div>
-    )
-
-  
+function App() {
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
 }
 
-
 export default App;
-
-
