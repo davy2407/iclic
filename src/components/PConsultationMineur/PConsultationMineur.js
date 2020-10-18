@@ -627,6 +627,9 @@ const recupTabac = (e) => {
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupConsultation(e);}}>Oui</Button>
         <Button variant="secondary" value="Non" onClick={(e)=>{recupConsultation(e);}}>Non</Button>
       </label>
+      <p className={affichageWarningConsultation.className}>
+        {affichageWarningConsultation.texte}
+      </p>
       <input
         onClick={changementCouleurSVGConsultation}
         className="Lampe"

@@ -236,10 +236,16 @@ function AppCore() {
     /// 6 Première consultation préalable à l'ivg/Premier contact médical sans attestation
     /// 7 Deuxième conssultation préalable à l'ivg/Recueil de consentement sans attestation
     console.log("dans modifier objet");
+    
     let identifiantConsultation = idTypeConsultation;
     let idMajeureOuNon = idMajeure;
     let idAnonymeOuNon = idAnonyme;
     let liste = listeObjetConsulation;
+    console.log("id Consulte :  " + identifiantConsultation);
+    console.log("id MAJMIN :  " + idMajeure);
+    console.log("id A/NA :  " + idAnonyme);
+    
+
 
     if (
       identifiantConsultation == 3 &&
@@ -276,9 +282,18 @@ function AppCore() {
       idMajeureOuNon == 0 &&
       idAnonymeOuNon == 1 )||
       (
+        identifiantConsultation== 6 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+      ) || (
         identifiantConsultation== 1 &&
         idMajeureOuNon == 0 &&
         idAnonymeOuNon == 0
+
+      ) || (
+        identifiantConsultation== 6 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 1
       )
 
       ) {
