@@ -9,15 +9,23 @@ import PremierConsultationTroisC from "@components/PremierConsultationTroisC";
 import PremierConsultationTroisD from "@components/PremierConsultationTroisD";
 import ContreIndication from "@components/PriseMediContreIndication";
 import MyVerticallyCenteredModal from "@components/Modal";
+import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
+import TarificationPremiereConsulte from "@components/TarificationPremierContactMajeureNonAnonyme";
 
 //import style
 import "./AppCore.css";
+import TarificationPremierContactMNA from "../TarificationPremierContactMajeureNonAnonyme/TarificationPremierContactMajeureNonAnonyme";
 
 function AppCore() {
   /// State gérant le texte à afficher au démmarage
   const [texteDemarrage, setTexteDemarrage] = useState(
     "Etes vous professionel de santé ?"
   );
+
+  const test = () => {
+    let liste = [...stateGlobalPremiereConsulte];
+    
+  }
 
   const [nombreBouton, setNombreBouton] = useState(2);
   const [stateGlobalPremiereConsulte,setStateGlobalPremiereConsulte] = useState([]);
@@ -32,7 +40,11 @@ function AppCore() {
 
       
     }
+    
 
+  }
+  const modifierObjetTarifPremiereConsulte = () =>{
+    setObjetConsultationAffiche([listeObjetConsulation[8]]);
   }
 
   /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
@@ -47,33 +59,79 @@ function AppCore() {
     [
       {
         name: "Prise de Medicament Contre Indication Medical",
-        id: 16,
+        id: 0,
         objet: ContreIndication,
+        fonction : {
+          recupInfo : recupPremiereConsulte,
+          afficheSuite : modifierObjetTarifPremiereConsulte
+        }
       },
-      { name: "test1test2222", id: 17, objet: pConsultation },
-      { name: "test1test333", id: 27, objet: pConsultation },
+      { 
+        name: "test1test2222",
+         id: 1,
+          objet: pConsultation,
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulte
+          }
+     },
+      { name: "test1test333", id: 2, objet: pConsultation,fonction : {
+        recupInfo : recupPremiereConsulte,
+        afficheSuite : modifierObjetTarifPremiereConsulte
+      } },
       {
         name: "Premiere consultation Majeure Non Anonyme",
-        id: 26,
+        id: 3,
         objet: pConsultation,
-        fonction : recupPremiereConsulte
+        fonction : {
+          recupInfo : recupPremiereConsulte,
+          afficheSuite : modifierObjetTarifPremiereConsulte
+        }
       },
       {
         name: "Prise medicamentMajeureNonAnonyme",
-        id: 31,
+        id: 4,
         objet: PriseMediMajeure,
+        fonction : {
+          recupInfo : recupPremiereConsulte,
+          afficheSuite : modifierObjetTarifPremiereConsulte
+        }
       },
       {
         name: "premiere consultation patiente majeure anonyme 3c",
-        id: 32,
+        id: 5,
         objet: PremierConsultationTroisC,
+        fonction : {
+          recupInfo : recupPremiereConsulte,
+          afficheSuite : modifierObjetTarifPremiereConsulte
+        }
       },
       {
         name: "premiere consultation patiente majeure anonyme 3d",
-        id: 42,
+        id: 6,
         objet: PremierConsultationTroisD,
+        fonction : {
+          recupInfo : recupPremiereConsulte,
+          afficheSuite : modifierObjetTarifPremiereConsulte
+        }
       },
-      { name: "test1test8888", id: 43, objet: pConsultation },
+      { name: "resume premiere consultation majeure non anonyme", id: 7, objet: resumePremiereConsulteMNA,
+      fonction : {
+        recupInfo : recupPremiereConsulte,
+        afficheSuite : modifierObjetTarifPremiereConsulte
+      } },
+      {
+        name : "tarif premiere consulte majeure non anonyme" ,
+         id :8 , objet : TarificationPremiereConsulte ,
+          data : {
+            donnee : stateGlobalPremiereConsulte,
+            telechargement : resumePremiereConsulteMNA
+          },
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulte
+          }
+      }
     ]
   );
 
@@ -302,7 +360,9 @@ function AppCore() {
             <objet.objet
               onTexte={objet.name}
               onRecap={texteDemarrage}
-              onRecup={objet.recupData}
+              onRecup={objet.fonction.recupInfo}
+              onData={objet.data}
+              onSuite={objet.fonction.afficheSuite}
             ></objet.objet>
           );
         })}

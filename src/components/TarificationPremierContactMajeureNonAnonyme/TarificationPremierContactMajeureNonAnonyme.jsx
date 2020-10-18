@@ -1,11 +1,18 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
 
 import "./TarificationPremierContactMajeureNonAnonyme.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 
-function TarificationPremierContactMNA() {
+function TarificationPremierContactMNA(props) {
+
+
+  const testProps = ()=> {
+    let info = props.onData.donnee;
+    console.log("dans tarif "+ info)
+  }
   return (
     <div>
       <h1>Tarification et Conclusion de consultation : </h1>
@@ -44,6 +51,17 @@ function TarificationPremierContactMNA() {
       <a href="#">Lien ouavorter.com</a>
       {/* lien a finir  */}
 
+      <p>Test Info</p>
+  <div>{props.onData.donnee.map((objet)=>{
+    return (
+      <div>
+        <h4>{objet.titre}</h4>
+        <p>{objet.value}</p>
+      </div>
+    )
+  })}</div>
+  
+
       <Form>
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check
@@ -72,9 +90,14 @@ function TarificationPremierContactMNA() {
           La 2ème consultation préalable à l’IVG peut être effectuée par le
           professionnel de santé effectuant l’IVG ou non.
         </p>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={(e) => {
+            e.preventDefault();
+            testProps();
+            
+          }}>
           Submit
         </Button>
+        
       </Form>
     </div>
   );

@@ -780,8 +780,12 @@ function PConsultation(props) {
         onClick={afficheStateFin}
         variant={couleurBouttonBase}
       >
-        Valider
+        Valider mes choix
       </Button>{" "}
+      <Button variant="danger" onClick={props.onSuite}>
+        Tarification
+
+      </Button>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import Logo from "@assets/images/LOGO_IVG.svg";
 
-import "@components/ResumePremiereConsultationMajeureNonAnonyme.css";
+import "./ResumePremiereConsultationMajeureNonAnonyme.css";
 
-function ResumePremiereConsultationMNA(props) {
+function ResumePremiereConsultationMNA() {
   return (
     <div>
       <img src={Logo} className="logo"></img>
