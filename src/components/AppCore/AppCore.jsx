@@ -12,6 +12,7 @@ import ContreIndication from "@components/PriseMediContreIndication";
 import MyVerticallyCenteredModal from "@components/Modal";
 import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
 import TarificationPremiereConsulte from "@components/TarificationPremierContactMajeureNonAnonyme";
+import pConsultationMineure from "@components/PConsultationMineur";
 
 //import style
 import {Button} from "react-bootstrap";
@@ -171,6 +172,15 @@ function AppCore() {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulte
           }
+      },
+      {
+        name : "Première consultation mineure A/NA" ,
+         id :9 , objet : pConsultationMineure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulte
+          }
       }
     ]
   );
@@ -261,7 +271,22 @@ function AppCore() {
     ) {
       /// afficher composant "adresser patiente"
       setObjetConsultationAffiche([liste[3]]);
-    } else {
+    } else if ((
+      identifiantConsultation== 1 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 1 )||
+      (
+        identifiantConsultation== 1 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+      )
+
+      ) {
+        setObjetConsultationAffiche([liste[9]]);
+      
+    }
+    
+    else {
       setObjetConsultationAffiche([liste[0]]);
     }
   };

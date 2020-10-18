@@ -308,7 +308,7 @@ function PConsultation(props) {
         <p>
         En pratique sur une grossesse a priori toute débutante, 
         attendre le résultat des ß-HCG (dans la journée ou le lendemain)
-         pour programmer l’échographie (œuf visualisé si ß-HCG > 1000-1500 UI/L)
+         pour programmer l’échographie (œuf visualisé si ß-HCG supérieur 1000-1500 UI/L)
           afin qu’elle ne soit pas répétée inutilement. Il existe la possibilité d’attendre
            la 2ème consultation préalable à l’IVG afin de programmer l’échographie de datation
             en fonction du résultat sanguin.
@@ -638,7 +638,7 @@ function PConsultation(props) {
         Non
       </Button>
       <br></br>
-      <p className={affichageWarningConsultation.className}>
+      <p className={affichageWarningConsultation.className}>  
         {affichageWarningConsultation.texte}
       </p>
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
