@@ -92,6 +92,7 @@ function MyVerticallyCenteredModal(props) {
       }
     } else if (id == 6) {
       MedecinGyConventionNonConsultationOUi();
+      affichageTxtModal();
       AjoutSelection({ id: 6, name: "Oui" });
     } else if (id == 7) {
       MedecinGyConventionNonConsultationNon();
@@ -415,6 +416,52 @@ function MyVerticallyCenteredModal(props) {
     setTitre(rollBackTitre);
     setNewListeRadio(rollBacklist);
     setTestText(rollBackTestText);
+  };
+
+  /// fonction contenant le texte pour consultation IVG sans attestion ou convention
+
+  const textSansConvention = ()=>{
+    return (
+      <div>
+        <p>
+        l est obligatoire de justifier d’une attestation de compétence ainsi que 
+        d’une convention avec un centre agrée afin de pratiquer l’IVG médicamenteuse en ville. 
+        </p>
+        <p>
+        n revanche, il existe 2 consultations préalables à l’IVG pouvant être effectués
+         par un médecin ou une sage-femme sans attestation ou convention. Ce professionnel 
+         de santé devra orienter la patiente vers un(e) confrère qualifié(e) pour la prise
+          du médicament. 
+        </p>
+        <p>
+        Tout médecin ou sage femme doit répondre à une demande d’IVG et « ils restituent 
+        à la femme sa demande pour que celle-ci soit remise au médecin ou à la sage-femme
+         choisis par elle et lui délivrent un certificat attestant qu'ils se sont conformés
+          aux articles <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930122&cidTexte=LEGITEXT000006072665&dateTexte=20160128" target="_blank">L. 2212-3</a> et<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018156675&cidTexte=LEGITEXT000006070633&dateTexte=20080222" target="_blank"> L. 2212-5</a>
+        </p>
+        <p>
+        D’après l’article 18 du code de déontologie article R4127-18
+         « un médecin … ; … est toujours libre de s’y refuser et doit en informer l’intéressée dans
+          les conditions et délais prévus par la loi » <a href="14) https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>
+        </p>
+        <p>
+        En poursuivant la suite du questionnaire,  le certificat sera disponible en téléchargement. 
+Ce site n’enregistre aucune information personnelle, l’identité de la patiente et du praticien sont 
+à compléter après impression du document.
+        </p>
+        <p>lien a faire</p>
+      </div>
+    )
+  }
+
+  const [consultationSansConvention, setConsultationSansConvention]= useState(() => textSansConvention());
+
+  const [currentInfoModal, setCurrentInfoModal] = useState("");
+  const affichageTxtModal = () => {
+    let txtAEnlever = currentInfoModal;
+    let txtAAfficher = consultationSansConvention;
+    setCurrentInfoModal(txtAAfficher);
+    setConsultationSansConvention(txtAEnlever);
   };
 
   /// toutes les fuctions contextuelles appelaient en fonction du derniers boutons cliqué
@@ -789,20 +836,22 @@ function MyVerticallyCenteredModal(props) {
           onClick={(e) => {
             e.preventDefault();
           }}
-        >
+        > <div>
           <h1>{Titre}</h1>
+        <div>{currentInfoModal}</div>
+          </div>
 
           {newListeRadio.map((type) => (
             <div>
-              <button onClick={recupIdBoutton} id={type.id} key={type.id}>
+              <Button variant="danger" onClick={recupIdBoutton} id={type.id} key={type.id}>
                 {type.name}
-              </button>
+              </Button>
               <hr></hr>
             </div>
           ))}
           <p>{testText}</p>
         </Form>
-        <button onClick={RollBack}>retour</button>
+        <Button variant="secondary" onClick={RollBack}>retour</Button>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

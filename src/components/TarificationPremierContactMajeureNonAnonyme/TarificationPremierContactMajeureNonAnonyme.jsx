@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
 import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
-
+import TestPrint from '@components/TestPrint';
 import "./TarificationPremierContactMajeureNonAnonyme.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
+import Certificat from "@assets/pdf/IvgCertifPremier.pdf";
+
+
 
 function TarificationPremierContactMNA(props) {
+  /// test impression
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
+  ///
 
 
-  const testProps = ()=> {
-    let info = props.onData.donnee;
-    console.log("dans tarif "+ info)
-  }
+ 
   return (
     <div>
       <h1>Tarification et Conclusion de consultation : </h1>
@@ -51,15 +59,15 @@ function TarificationPremierContactMNA(props) {
       <a href="#">Lien ouavorter.com</a>
       {/* lien a finir  */}
 
-      <p>Test Info</p>
-  <div>{props.onData.donnee.map((objet)=>{
+      {/* <p>Test Info</p>
+  <div>{props.onData.map((objet)=>{
     return (
       <div>
         <h4>{objet.titre}</h4>
         <p>{objet.value}</p>
       </div>
     )
-  })}</div>
+  })}</div> */}
   
 
       <Form>
@@ -70,12 +78,7 @@ function TarificationPremierContactMNA(props) {
           />
         </Form.Group>
 
-        <a href="#" target="_blank">
-          Certificat de 1ère consultation PDF
-        </a>
-        <a href="#" target="_blank">
-          Résumé de 1ère consultation PDF
-        </a>
+        
         <br></br>
         <p>
           Il est confraternel de faire suivre le résumé et de la remettre en
@@ -90,15 +93,20 @@ function TarificationPremierContactMNA(props) {
           La 2ème consultation préalable à l’IVG peut être effectuée par le
           professionnel de santé effectuant l’IVG ou non.
         </p>
-        <Button variant="primary" type="submit" onClick={(e) => {
-            e.preventDefault();
-            testProps();
-            
-          }}>
-          Submit
-        </Button>
+        <br></br>
+        <br></br>
+        <h2>Voir bas de page pour impression docs</h2>
+        
         
       </Form>
+      <div>
+      <TestPrint ref={componentRef} data={props.onData}  />
+      <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
+      <br></br>
+      <a href={Certificat} target="_blank">
+          Certificat de 1ère consultation PDF à compléter
+        </a>
+    </div>
     </div>
   );
 }
