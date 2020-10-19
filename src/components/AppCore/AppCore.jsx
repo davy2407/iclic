@@ -10,14 +10,13 @@ import PremierConsultationTroisC from "@components/PremierConsultationTroisC";
 import PremierConsultationTroisD from "@components/PremierConsultationTroisD";
 import ContreIndication from "@components/PriseMediContreIndication";
 import MyVerticallyCenteredModal from "@components/Modal";
-import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
 import TarificationPremiereConsulte from "@components/TarificationPremierContactMajeureNonAnonyme";
 import pConsultationMineure from "@components/PConsultationMineur";
+import TarifPremiereMineureANA from "@components/TarifPremiereMineureANA";
 
 //import style
 import {Button} from "react-bootstrap";
 import "./AppCore.css";
-import TarificationPremierContactMNA from "../TarificationPremierContactMajeureNonAnonyme/TarificationPremierContactMajeureNonAnonyme";
 
 function AppCore() {
   /// State gérant le texte à afficher au démmarage
@@ -87,16 +86,23 @@ function AppCore() {
 
   }
   const modifierObjetTarifPremiereConsulte = () =>{
+    /// fonction qui affiche la tarification apres premiere consulte majeure non anonyme
+    /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[8]]);
+    setObjetConsultationAffiche([]);
+  }
+
+  const modifierObjetTarifPremiereConsulteMineur = () =>{
+    /// fonction qui affiche la tarification apres premiere consulte Mineure A/NA
+     /// et stop laffichage du composant consultation
+    setObjetTarrificationAffiche([listeObjetConsulation[10]]);
     setObjetConsultationAffiche([]);
   }
 
   /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
   /// au composant resumé consultation
 
-  const recupDoneePourResume = () => {
-
-  }
+  
 
   const [listeObjetConsulation, setlisteObjetConsulation] = useState(
     /// state servant à faire les test de recup dinfos pour traiter ou non l'envoie d'une consultation
@@ -159,7 +165,7 @@ function AppCore() {
           afficheSuite : modifierObjetTarifPremiereConsulte
         }
       },
-      { name: "resume premiere consultation majeure non anonyme", id: 7, objet: resumePremiereConsulteMNA,
+      { name: "resume premiere consultation majeure non anonyme", id: 7, objet: PremierConsultationTroisD,
       fonction : {
         recupInfo : recupPremiereConsulte,
         afficheSuite : modifierObjetTarifPremiereConsulte
@@ -179,7 +185,16 @@ function AppCore() {
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulte
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarif Première consultation mineure A/NA" ,
+         id :10 , objet : TarifPremiereMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
           }
       }
     ]

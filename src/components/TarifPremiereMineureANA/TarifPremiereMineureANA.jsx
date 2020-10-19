@@ -1,15 +1,15 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
-import TestPrint from '@components/TestPrint';
-import "./TarificationPremierContactMajeureNonAnonyme.css";
+import ResumePremiereConsultationMineureANA from '@components/ResumePremiereConsultationMineureANA';
+import "./TarifPremiereMineureANA.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import Certificat from "@assets/pdf/IvgCertifPremier.pdf";
 
 
 
-function TarificationPremierContactMNA(props) {
+function TarifPremiereMineureANA(props) {
   /// test impression
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -24,24 +24,35 @@ function TarificationPremierContactMNA(props) {
     <div>
       <h1>Tarification et Conclusion de consultation : </h1>
       <br></br>
-      <h2>Tarification :</h2>
+      
       <p>
-        La 1ère consultation préalable/de 1er contact médical ne fait pas partie
-        du tarif forfaitaire IVG hors établissement de santé. Cette consultation
-        est tarifiée selon la cotation habituelle. Sa tarification peut être
-        faite électroniquement ou par format papier.
+      L’IVG est prise en charge à 100% dans le cadre d’un tarif forfaitaire avec dispense totale 
+      d’avance de frais pour :
       </p>
-      <p>
-        Pour rappel, cette consultation est prise en charge à 100% avec
-        exonération du ticket modérateur pour :
-      </p>
+     
       <ul>
+          <li>Les jeunes filles mineures non émancipées sans consentement parental </li>
         <li>Les femmes bénéficiaires de la CMU complémentaire</li>
         <li>Les femmes bénéficiaires de l’aide médicale de l’État (AME).</li>
       </ul>
+      <p>
+      La jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses
+       de sécurité sociale, d’ores et déjà applicables,
+        (<a target="_blank" href="20) https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la Sécurité Sociale 32). 
+      </p>
+      <p>
+      Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent :
+       le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit
+        indiquer un NIR spécifique (2 55 55 55 +code caisse +030).
+         La facturation électronique est exclue dans ce seul cas de figure.
+      </p>
+      <p>
+      Dans le cas d’une jeune fille mineure avec consentement parental,
+       en dehors des alinéas sus mentionnés, la 1ère consultation préalable
+        à l’IVG ne fait pas partie du tarif forfaitaire IVG hors établissement de santé.
+         Cette consultation est tarifiée selon la cotation habituelle. 
+      </p>
 
-      <br></br>
-      <br></br>
       <p>Lien guide IVG ministère :</p>
       <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
@@ -99,7 +110,7 @@ function TarificationPremierContactMNA(props) {
         
       </Form>
       <div>
-      <TestPrint ref={componentRef} data={props.onData}  />
+      <ResumePremiereConsultationMineureANA ref={componentRef} data={props.onData}  />
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
       <br></br>
       <a href={Certificat} target="_blank">
@@ -110,4 +121,4 @@ function TarificationPremierContactMNA(props) {
   );
 }
 
-export default TarificationPremierContactMNA;
+export default TarifPremiereMineureANA;

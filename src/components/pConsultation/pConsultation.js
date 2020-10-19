@@ -232,6 +232,32 @@ function PConsultation(props) {
     setNbTabacFin(reponse);
 
   }
+  
+  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+ 
+
+  const handleChangePaquet = event => {
+    setNouvelleRecherchePaquet(event.currentTarget.value);
+  };
+const handleSubmitPaquet = event => {
+  event.preventDefault();
+  let reponse = {
+    titre : "Nombre Paquet : ",
+    value : event.currentTarget.value
+  };
+  let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+   
+
+    console.log("nb paquet : "+reponse.value);
+    setNbTabacFin(reponse);
+  
+
+  
+  
+  setNouvelleRecherchePaquet(0);
+};
 
   const [infoSupp, setInfoSupp] = useState({});
 
@@ -766,7 +792,18 @@ function PConsultation(props) {
       </label>
       <br></br>
       <label for="nbPAquet"> Nombre paquets </label>
-      <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input>
+      {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
+      <form >
+            <input
+                value={nouvelleRecherchePaquet}
+                onChange={handleChangePaquet}
+                type="text"
+                placeholder="Paquet/année"
+            />
+            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+              handleSubmitPaquet(e)
+            }}>Confirmer</Button>
+        </form>
       <br></br>
       <br></br>
       <Button
