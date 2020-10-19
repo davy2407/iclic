@@ -1,5 +1,7 @@
 import React from 'react';
+import {Button} from "react-bootstrap";
 import './Bouton.css';
+
 
 
 
@@ -8,14 +10,14 @@ function Bouton(props){
     return(
         
         
-    <button
+    <Button variant="secondary"
         onClick={()=>{
             if (props.onClick) {
                 props.onClick();
                 
             }
             props.onEffet();
-        }}>{props.TextB}</button>
+        }}>{props.TextB}</Button>
         
     )
 }

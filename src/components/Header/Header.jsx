@@ -6,12 +6,12 @@ import Logo from "@assets/images/LOGO_IVG.svg";
 function Header() {
   return (
     <div className="Header">
-      <div className="Menu"></div>
+      
       {/* <div className="Banderolle">
               <img src={Banniere} className="logoB"></img>
             </div> */}
       <div className="logoContainer">
-        <img src={Logo} className="logo"></img>
+        <img src={Logo} className="logoH"></img>
       </div>
     </div>
   );

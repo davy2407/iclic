@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 // import iclic components
 import Bouton from "@components/Bouton";
+
 import pConsultation from "@components/pConsultation";
 import PriseMediMajeure from "@components/PriseMediPatienteMajeure";
 import PremierConsultationTroisC from "@components/PremierConsultationTroisC";
@@ -11,16 +12,57 @@ import ContreIndication from "@components/PriseMediContreIndication";
 import MyVerticallyCenteredModal from "@components/Modal";
 import resumePremiereConsulteMNA from "@components/ResumePremiereConsultationMajeureNonAnonyme";
 import TarificationPremiereConsulte from "@components/TarificationPremierContactMajeureNonAnonyme";
+import pConsultationMineure from "@components/PConsultationMineur";
 
 //import style
+import {Button} from "react-bootstrap";
 import "./AppCore.css";
 import TarificationPremierContactMNA from "../TarificationPremierContactMajeureNonAnonyme/TarificationPremierContactMajeureNonAnonyme";
 
 function AppCore() {
   /// State gérant le texte à afficher au démmarage
-  const [texteDemarrage, setTexteDemarrage] = useState(
-    "Etes vous professionel de santé ?"
-  );
+  const accueil =()=> {
+    return (
+      <div>
+        <div className="BlocInfoApp">
+        <p>
+          Ce site a été créé à destination de tout professionnel de santé
+          prenant en charge l'interruption volontaire de grossesse
+          médicamenteuse afin d'apporter une aide dans sa protocolisation en
+          médecine ambulatoire.
+        </p>
+
+        <p>
+          Cet outil met à disposition de fiches d'information à destination des
+          patientes et assure un suivi de l'acte selon les recommandations
+          actuelles en France. Aucune donnée personnelle n'est enregistrée, un
+          résumé imprimable vous est proposé à la fin de la saisie de chaque
+          consultation
+        </p>
+
+        <p>
+          L'IVG médicamenteuse se décompose en cinq consultaions, les deux
+          premières ("préalables") pouvant être effectuées par un médecin ou
+          sage femme ne pratiquant pas lui même l'acte.
+        </p>
+
+        <p>
+          Le contenu de ce site ne se substitue pas à la responsabilité de
+          décision et de prescription du médecin
+        </p>
+
+        <p>
+          L'interruption volontaire de grossesse est autorisé en France depuis
+          la loi Veil du 17 Janvier 1975 , elle est gratuite et accessible à
+          toute femme en France selon les délais légaux de la loi 2001-588 du 4
+          Juillet 2001
+        </p>
+        <h1>Etes vous professionel de santé ?</h1>
+      </div>
+      </div>
+    )
+  }
+  const [texteDemarrage, setTexteDemarrage] = useState(()=>accueil());
 
   const test = () => {
     let liste = [...stateGlobalPremiereConsulte];
@@ -29,6 +71,7 @@ function AppCore() {
 
   const [nombreBouton, setNombreBouton] = useState(2);
   const [stateGlobalPremiereConsulte,setStateGlobalPremiereConsulte] = useState([]);
+  /// state recuperant les données du composant enfant pConsultation
   const recupPremiereConsulte = (liste)=> {
     
     let newData = [...liste];
@@ -44,7 +87,8 @@ function AppCore() {
 
   }
   const modifierObjetTarifPremiereConsulte = () =>{
-    setObjetConsultationAffiche([listeObjetConsulation[8]]);
+    setObjetTarrificationAffiche([listeObjetConsulation[8]]);
+    setObjetConsultationAffiche([]);
   }
 
   /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
@@ -123,10 +167,16 @@ function AppCore() {
       {
         name : "tarif premiere consulte majeure non anonyme" ,
          id :8 , objet : TarificationPremiereConsulte ,
-          data : {
-            donnee : stateGlobalPremiereConsulte,
-            telechargement : resumePremiereConsulteMNA
-          },
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulte
+          }
+      },
+      {
+        name : "Première consultation mineure A/NA" ,
+         id :9 , objet : pConsultationMineure ,
+          
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulte
@@ -139,6 +189,10 @@ function AppCore() {
     /// state censé contenir l'objet consultation ou la feuille d'informations à afficher
     []
   );
+
+  const [objetTarrificationAffiche, setObjetTarrificationAffiche] = useState(
+    []
+  )
 
   const [listeBouton, setListeBouton] = useState([
     { txt: "Oui", value: true, id: 1 },
@@ -182,10 +236,16 @@ function AppCore() {
     /// 6 Première consultation préalable à l'ivg/Premier contact médical sans attestation
     /// 7 Deuxième conssultation préalable à l'ivg/Recueil de consentement sans attestation
     console.log("dans modifier objet");
+    
     let identifiantConsultation = idTypeConsultation;
     let idMajeureOuNon = idMajeure;
     let idAnonymeOuNon = idAnonyme;
     let liste = listeObjetConsulation;
+    console.log("id Consulte :  " + identifiantConsultation);
+    console.log("id MAJMIN :  " + idMajeure);
+    console.log("id A/NA :  " + idAnonyme);
+    
+
 
     if (
       identifiantConsultation == 3 &&
@@ -217,7 +277,31 @@ function AppCore() {
     ) {
       /// afficher composant "adresser patiente"
       setObjetConsultationAffiche([liste[3]]);
-    } else {
+    } else if ((
+      identifiantConsultation== 1 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 1 )||
+      (
+        identifiantConsultation== 6 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+      ) || (
+        identifiantConsultation== 1 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+
+      ) || (
+        identifiantConsultation== 6 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 1
+      )
+
+      ) {
+        setObjetConsultationAffiche([liste[9]]);
+      
+    }
+    
+    else {
       setObjetConsultationAffiche([liste[0]]);
     }
   };
@@ -332,6 +416,7 @@ function AppCore() {
         listeRadio={listeBoutonRadio}
         onFonctionAffichage={AffichageDonnee}
       ></MyVerticallyCenteredModal>
+      <div>{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}
       {listeBouton.map((btn) => {
         if (btn.id === 2) {
@@ -340,14 +425,15 @@ function AppCore() {
           );
         } else if (btn.id === 1) {
           return (
-            <button
+            <Button
+            variant="secondary"
               onClick={() => {
                 handleChange();
                 Oui();
               }}
             >
               {btn.txt}
-            </button>
+            </Button>
           );
         }
       })}
@@ -362,6 +448,21 @@ function AppCore() {
               onRecap={texteDemarrage}
               onRecup={objet.fonction.recupInfo}
               onData={objet.data}
+              onSuite={objet.fonction.afficheSuite}
+            ></objet.objet>
+          );
+        })}
+      </div>
+      <div className="Newtest">
+        {/* partie censé gérer laffichage de la tarification  */}
+
+        {objetTarrificationAffiche.map((objet) => {
+          return (
+            <objet.objet
+              onTexte={objet.name}
+              onRecap={texteDemarrage}
+              onRecup={objet.fonction.recupInfo}
+              onData={stateGlobalPremiereConsulte}
               onSuite={objet.fonction.afficheSuite}
             ></objet.objet>
           );

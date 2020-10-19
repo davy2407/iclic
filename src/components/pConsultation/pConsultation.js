@@ -55,8 +55,8 @@ function PConsultation(props) {
   const recupModeDecouverte = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Mode Decouverte",
-      value: e.target.value,
+      titre : "Mode de découverte de la grossesse :",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -76,7 +76,7 @@ function PConsultation(props) {
     liste.push(reponse);
     setGlobalStateFin(liste);
     setContexteBioPsyFin(reponse);
-    console.log("Contexte Bio " + reponse.value);
+    console.log("Contexte biopsychosocial favorable :" + reponse.value);
   };
 
   const [rechercheIstFin, setRechercheIstFin] = useState({});
@@ -84,8 +84,8 @@ function PConsultation(props) {
   const recupIST = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "rch IST",
-      value: e.target.value,
+      titre : "Recherche IST : ",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -106,7 +106,7 @@ function PConsultation(props) {
     liste.push(reponse);
     setGlobalStateFin(liste);
     setBilanSanguinFin(reponse);
-    console.log("Bilan sanguin " + reponse.value);
+    console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
   };
 
   const [guideIVGFin, setGuideIVGFin] = useState({});
@@ -114,8 +114,8 @@ function PConsultation(props) {
   const recupInfoGuideIVG = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "contexte IVG",
-      value: e.target.value,
+      titre : "Contexte de l’IVG évoqués :",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -129,8 +129,8 @@ function PConsultation(props) {
   const recupConsultationPsy = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Consultation proposé",
-      value: e.target.value,
+      titre : "Consultation psychosociale proposée :",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -144,8 +144,8 @@ function PConsultation(props) {
   const recupinfoPostIVG = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "info post IVG",
-      value: e.target.value,
+      titre : "Information contraception postIVG : ",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -159,8 +159,8 @@ function PConsultation(props) {
   const recupFrotti = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Type Frotti",
-      value: e.target.value,
+      titre : "Frottis à jour :",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -203,8 +203,8 @@ function PConsultation(props) {
 
   const recupNombre = (e) => {
     let reponse = {
-      titre: "nbPaquet",
-      value: e.target.value,
+      titre : "Nombre Paquet",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -220,8 +220,8 @@ function PConsultation(props) {
   const recupInfoSupp = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "InfoSupple",
-      value: e.target.value,
+      titre : "Si ressource cochée oui :",
+      value : e.target.value
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -309,9 +309,27 @@ function PConsultation(props) {
     affichageTxtIST();
   };
   ///Bloc prescription echographie
-  const [txtEcho, setTxtEcho] = useState(
-    "La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes consultant pour une IVG, sans limite d’âge."
-  );
+
+  const echographie = () => {
+    return (
+      <div>
+        <p>
+        En pratique sur une grossesse a priori toute débutante, 
+        attendre le résultat des ß-HCG (dans la journée ou le lendemain)
+         pour programmer l’échographie (œuf visualisé si ß-HCG supérieur 1000-1500 UI/L)
+          afin qu’elle ne soit pas répétée inutilement. Il existe la possibilité d’attendre
+           la 2ème consultation préalable à l’IVG afin de programmer l’échographie de datation
+            en fonction du résultat sanguin.
+        </p>
+        <p>
+        Faire apparaître la mention « échographie de datation à réaliser 
+        en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué,
+         (Index pour radiologue IPE).
+        </p>
+      </div>
+    )
+  }
+  const [txtEcho, setTxtEcho] = useState(() => echographie());
 
   const [currentInfoEcho, setCurrentInfoEcho] = useState("");
 
@@ -501,7 +519,7 @@ function PConsultation(props) {
       <h1>1ère consultation préalable/1er contact médical Majeure Anonyme </h1>
       <p>{props.onTexte}</p>
       <br></br>
-      <p>{props.onRecap}</p>
+      
       <br></br>
       <p>
         Pour les femmes majeures, l’avortement anonyme est relatif. En effet,
@@ -526,40 +544,15 @@ function PConsultation(props) {
         Date incertaine ?<Button variant="secondary">Oui</Button>
       </label>
       <br></br>
-      <p>
-        {/* Je n'ai pas encore fait la fonction qui recup la valeur de 
-                            linput date DDR et qui fait la conversion
-                            Pareil pour l'ensemble du bloc text qui suit  */}
-        Soit … SA + … jours Ex : DDR : 1/08/2019, on est le 8/09/2019, ça fait
-        donc 38 jours soit 5 semaines + 3 jours. Donc + 14 jours ou +2
-        semaines : 7SA+3 jours.
-      </p>
-      <p>
-        + Si entre 5 et 7 SA : faire apparaître « (en urgence) » entre
-        parenthèse et en rouge pour prescription échographie de datation à
-        l’étape d’après. + Si 7SA.  Verrou 1 (voir feuille correspondante). +
-        Si case « incertaine » cochée : 1/ faire apparaître « (en urgence) »
-        entre parenthèse et en rouge pour prescription échographie de datation à
-        l’étape d’après 2/Avec ? : Faire apparaitre « La DDR étant incertaine,
-        il est nécessaire de s’assurer de la datation exacte rapidement afin de
-        ne pas dépasser le terme légal pour une interruption de grossesse par
-        voie médicamenteuse. »
-      </p>
+      
       <br></br>
       <h2>Prescription échographie de datation</h2>
-      <p>
-        1/ ?  « En pratique sur une grossesse a priori toute débutante, attendre
-        le résultat des ß-HCG (dans la journée ou le lendemain) pour programmer
-        l’échographie (œuf visualisé si ß-HCG 1000-1500 UI/L) afin qu’elle ne
-        soit pas répétée inutilement. Il existe la possibilité d’attendre la
-        2ème consultation préalable à l’IVG afin de programmer l’échographie de
-        datation en fonction du résultat sanguin. »
-      </p>
-      <p>
-        Comme vu précédemment : Faire apparaître « (en urgence) » entre
-        parenthèse et en rouge pour prescription échographie de datation si
-        entre 7 et 9 SA ou si case incertaine.
-      </p>
+      <label>
+        Prescription :
+        <Button variant="secondary" value="Oui">Oui</Button>
+        <Button variant="secondary" value="Non">Non</Button>
+      </label>
+      
       <input
         onClick={changementCouleurSVGEcho}
         className="Lampe"
@@ -662,7 +655,7 @@ function PConsultation(props) {
         Non
       </Button>
       <br></br>
-      <p className={affichageWarningConsultation.className}>
+      <p className={affichageWarningConsultation.className}>  
         {affichageWarningConsultation.texte}
       </p>
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
