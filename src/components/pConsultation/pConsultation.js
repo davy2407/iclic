@@ -17,49 +17,37 @@ function PConsultation(props) {
 
   const [couleurBouttonSel, setCouleurBouttonSel] = useState("danger");
 
-
   /// function permettant la liaison avec la function onProps qui remonte les donnees au composant parent.
   /// liste des differents state , manque ddr et echographie
   /// personneAccFin,modeDecouverteFin,constexteBioPsyFin,rechercheIstFin,bilanSanguinFin
   ///,guideIVGFin,consultationPsyFin,contraPostIVGFin,frottiFin,dateFrottiFin,tabacFin,nBTabacFin,infoSupp
   ///ORDRE DES PARAMETRES DONNE CI DESSUS
-  const liaison = () => {
-
-
-  }
-
+  const liaison = () => {};
 
   /// Bloc contenant les state à récupérer à la fin de la consultation
-  const [globalStateFin,setGlobalStateFin] =useState([]);
-  
+  const [globalStateFin, setGlobalStateFin] = useState([]);
+
   const afficheStateFin = () => {
     console.log("state de fin va suivre");
     for (let index = 0; index < globalStateFin.length; index++) {
       console.log(globalStateFin[index]);
-      
     }
     props.onRecup(globalStateFin);
-
-  }
-
-
-  const [dateDDRFin, setDateDDRFin] = useState({});
+  };
 
   const [personneAccFin, setPersonneAccFin] = useState({});
 
   const recupAccompagnant = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "accompagant",
-      value : e.target.value
+      titre: "accompagant",
+      value: e.target.value,
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
     setPersonneAccFin(reponse);
     console.log("accompagnant " + reponse.value);
-    
-    
   };
 
   const [modeDecouverteFin, setModeDecouverte] = useState({});
@@ -74,8 +62,6 @@ function PConsultation(props) {
     liste.push(reponse);
     setGlobalStateFin(liste);
     setModeDecouverte(reponse);
-    
-    
   };
 
   const [constexteBioPsyFin, setContexteBioPsyFin] = useState({});
@@ -83,8 +69,8 @@ function PConsultation(props) {
   const recupContexteBio = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Contexte Bio",
-      value : e.target.value
+      titre: "Contexte Bio",
+      value: e.target.value,
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -113,8 +99,8 @@ function PConsultation(props) {
   const recupBilan = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Bilan Sanguin",
-      value : e.target.value
+      titre: "Bilan Sanguin",
+      value: e.target.value,
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -137,8 +123,6 @@ function PConsultation(props) {
     setGuideIVGFin(reponse);
     console.log("contexte de l'IVG evoqué : " + reponse.value);
   };
-
-
 
   const [consultationPsyFin, setConsultationPsyFin] = useState({});
 
@@ -190,24 +174,23 @@ function PConsultation(props) {
   const handleChange = (e) => {
     /// recup date frotti
     let reponse = {
-      titre : "Date Frotti",
-      value : e.target.value
+      titre: "Date Frotti",
+      value: e.target.value,
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
 
-    console.log("date frotti : "+reponse.value);
+    console.log("date frotti : " + reponse.value);
     setDateFrottiFin(reponse);
-    
   };
 
   const [tabacFin, setTabacFin] = useState({});
   const recupTabac = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Tabac",
-      value : e.target.value
+      titre: "Tabac",
+      value: e.target.value,
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
@@ -226,9 +209,9 @@ function PConsultation(props) {
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
-    console.log("test nb : "+nBTabacFin.value);
+    console.log("test nb : " + nBTabacFin.value);
 
-    console.log("nb paquet : "+reponse.value);
+    console.log("nb paquet : " + reponse.value);
     setNbTabacFin(reponse);
 
   }
@@ -272,32 +255,58 @@ const handleSubmitPaquet = event => {
     setGlobalStateFin(liste);
     setInfoSupp(reponse);
     console.log("info supp : " + reponse.value);
-
-  }
+  };
 
   /// info IST
   const returnInfoIST = () => {
     return (
       <div>
         <p>
-          La HAS recommande un dépistage opportuniste ciblé à toutes les
-           femmes enceintes consultant pour une IVG, sans limite d’âge.
+          La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
+          enceintes consultant pour une IVG, sans limite d’âge.
         </p>
         <br></br>
         <p>
-          De nombreuses sources numériques existent pour l’information aux patient(es)
-           des IST ainsi que de ces risques<a href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles" target="_blank">Ameli IST</a>, <a href="http://www.info-ist.fr/index.html" target="_blank">ISt-info</a>.
+          De nombreuses sources numériques existent pour l’information aux
+          patient(es) des IST ainsi que de ces risques
+          <a
+            href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+            target="_blank"
+          >
+            Ameli IST
+          </a>
+          ,{" "}
+          <a href="http://www.info-ist.fr/index.html" target="_blank">
+            ISt-info
+          </a>
+          .
         </p>
         <br></br>
 
         <label>
-          Vous desirez plus d'informations à transmettre ? 
-          <Button variant="secondary" value="Oui" onClick={(e)=>{recupInfoSupp(e);}}>Oui</Button>
-          <Button variant="secondary" value="Non" onClick={(e)=>{recupInfoSupp(e);}}>Non</Button>
+          Vous desirez plus d'informations à transmettre ?
+          <Button
+            variant="secondary"
+            value="Oui"
+            onClick={(e) => {
+              recupInfoSupp(e);
+            }}
+          >
+            Oui
+          </Button>
+          <Button
+            variant="secondary"
+            value="Non"
+            onClick={(e) => {
+              recupInfoSupp(e);
+            }}
+          >
+            Non
+          </Button>
         </label>
-        
+
         <br></br>
-        
+
         <br></br>
       </div>
     );
@@ -438,7 +447,6 @@ const handleSubmitPaquet = event => {
   };
 
   ///
-  
 
   ///BLoc DDR
   let newDate = new Date();
@@ -653,14 +661,24 @@ const handleSubmitPaquet = event => {
       <h2>Contexte biopsychosocial favorable :</h2>
       {/* Bloc a finir  */}
       <br></br>
-      <Button variant="secondary"
-      value="Oui"
-      onClick={(e) => {
-        recupContexteBio(e);
-      }}>Oui</Button>
+      <Button
+        variant="secondary"
+        value="Oui"
+        onClick={(e) => {
+          recupContexteBio(e);
+        }}
+      >
+        Oui
+      </Button>
       <br></br>
-      <Button value="Non" variant="secondary" onClick={(e)=>{afficheConsultation();
-      recupContexteBio(e);}}>
+      <Button
+        value="Non"
+        variant="secondary"
+        onClick={(e) => {
+          afficheConsultation();
+          recupContexteBio(e);
+        }}
+      >
         Non
       </Button>
       <br></br>
@@ -671,11 +689,24 @@ const handleSubmitPaquet = event => {
       <br></br>
       <label>
         Recherche IST +/- antibio-prophylaxie
-        <Button value="Oui" variant="secondary"
-      onClick={(e) => {
-        recupIST(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e)=>{recupIST(e);}}>Non</Button>
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupIST(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupIST(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <br></br>
       <input
@@ -689,23 +720,53 @@ const handleSubmitPaquet = event => {
       <br></br>
       <h2>
         Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
-        quantitatif) 
+        quantitatif)
       </h2>
       <br></br>
       <label>
         préscrir :
-        <Button value="Oui" variant="secondary"
-      onClick={(e) => {
-        recupBilan(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e)=>{recupBilan(e);}}>Non</Button>
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupBilan(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupBilan(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <br></br>
       <h2>Dossier guide IVG remis :</h2>
       <br></br>
       <label>
-        Dossier guide IVG remis :<Button value="Oui" variant="secondary" onClick={(e)=>{recupInfoGuideIVG(e);}}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e)=>{recupInfoGuideIVG(e);}}>Non</Button>
+        Dossier guide IVG remis :
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupInfoGuideIVG(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupInfoGuideIVG(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <br></br>
       <a href={GuideIVG} target="_blank">
@@ -714,12 +775,25 @@ const handleSubmitPaquet = event => {
       <h2>Consultation psychosociale proposée</h2>
       <br></br>
       <label>
-      Consultation proposée :
-        <Button value="Oui" variant="secondary"
-      onClick={(e) => {
-        recupConsultationPsy(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e)=>{recupConsultationPsy(e);}}>Non</Button>
+        Consultation proposée :
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupConsultationPsy(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupConsultationPsy(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <p className={affichageWarningConsultation.className}>
         {affichageWarningConsultation.texte}
@@ -737,12 +811,25 @@ const handleSubmitPaquet = event => {
       <h2>Information contraception post-IVG</h2>
       <br></br>
       <label>
-       Information contraception post-IVG
-        <Button value="Oui" variant="secondary"
-      onClick={(e) => {
-        recupinfoPostIVG(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e)=>{recupinfoPostIVG(e);}}>Non</Button>
+        Information contraception post-IVG
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupinfoPostIVG(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupinfoPostIVG(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <br></br>
       <input
@@ -757,19 +844,45 @@ const handleSubmitPaquet = event => {
       <h2>Frottis à jour </h2>
       <br></br>
       <label>
-        Frotti à jour :<Button value="Oui" variant="secondary" onClick={(e) => {
-        recupFrotti(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e) => {
-        recupFrotti(e);
-      }}>Non</Button>
-        <Button value="Non Concernée" variant="secondary" onClick={(e) => {
-        recupFrotti(e);
-      }}>Non Concernée</Button>
+        Frotti à jour :
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Non
+        </Button>
+        <Button
+          value="Non Concernée"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Non Concernée
+        </Button>
       </label>
       <br></br>
       <label for="dateFrotti">Date : </label>
-      <input type="date" name="dateFrotti" id="dateFrotti" onChange={(e)=>{handleChange(e);}}></input>
+      <input
+        type="date"
+        name="dateFrotti"
+        id="dateFrotti"
+        onChange={(e) => {
+          handleChange(e);
+        }}
+      ></input>
       <br></br>
       <input
         onClick={changementCouleurSVGFrotti}
@@ -783,12 +896,24 @@ const handleSubmitPaquet = event => {
       <h2>Tabac :</h2>
       <br></br>
       <label>
-        <Button value="Oui" variant="secondary" onClick={(e) => {
-        recupTabac(e);
-      }}>Oui</Button>
-        <Button value="Non" variant="secondary" onClick={(e) => {
-        recupTabac(e);
-      }}>Non</Button>
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupTabac(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupTabac(e);
+          }}
+        >
+          Non
+        </Button>
       </label>
       <br></br>
       <label for="nbPAquet"> Nombre paquets </label>
@@ -806,15 +931,11 @@ const handleSubmitPaquet = event => {
         </form>
       <br></br>
       <br></br>
-      <Button
-        onClick={afficheStateFin}
-        variant={couleurBouttonBase}
-      >
+      <Button onClick={afficheStateFin} variant={couleurBouttonBase}>
         Valider mes choix
       </Button>{" "}
       <Button variant="danger" onClick={props.onSuite}>
         Tarification
-
       </Button>
     </div>
   );
