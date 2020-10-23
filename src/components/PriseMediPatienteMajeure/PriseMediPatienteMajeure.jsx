@@ -120,7 +120,7 @@ function PriseMediPatienteMajeure(props) {
       <div>
         <p>IVG chirurgical seulement en centre de référence</p>
         <br></br>
-        <h1 className="Verrou1">VERROU :</h1>
+        <h1 className="Verrou1">VERROU : </h1>
         <br></br>
         <p className="Verrou1">
           Dans le cadre de l’interruption volontaire de grossesse, votre réponse

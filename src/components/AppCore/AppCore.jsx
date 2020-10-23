@@ -13,6 +13,9 @@ import MyVerticallyCenteredModal from "@components/Modal";
 import TarificationPremiereConsulte from "@components/TarificationPremierContactMajeureNonAnonyme";
 import pConsultationMineure from "@components/PConsultationMineur";
 import TarifPremiereMineureANA from "@components/TarifPremiereMineureANA";
+import DeuxiemeAnonymeC from "@components/DeuxiemeAnonymeC";
+import DeuxiemeAnonymeD from "@components/DeuxiemeAnonymeD";
+import DeuxiemeConsultationMajeureNA from "@components/DeuxiemeConsultationMajeureNA";
 
 //import style
 import {Button} from "react-bootstrap";
@@ -117,15 +120,15 @@ function AppCore() {
         }
       },
       { 
-        name: "test1test2222",
+        name: "DeuxiemeAnonymeC",
          id: 1,
-          objet: pConsultation,
+          objet: DeuxiemeAnonymeC,
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulte
           }
      },
-      { name: "test1test333", id: 2, objet: pConsultation,fonction : {
+      { name: "DeuxiemeAnonymeD", id: 2, objet: DeuxiemeAnonymeD,fonction : {
         recupInfo : recupPremiereConsulte,
         afficheSuite : modifierObjetTarifPremiereConsulte
       } },
@@ -196,7 +199,16 @@ function AppCore() {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulteMineur
           }
-      }
+      },
+      {
+        name : "Deuxieme consultation Majeure Non Anonyme" ,
+         id :11 , objet : DeuxiemeConsultationMajeureNA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
     ]
   );
 
@@ -313,6 +325,38 @@ function AppCore() {
 
       ) {
         setObjetConsultationAffiche([liste[9]]);
+      
+    }
+    else if (
+      identifiantConsultation== 7 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 0
+
+    ) {
+      setObjetConsultationAffiche([liste[1]]);
+      
+    }
+    else if (
+      identifiantConsultation== 2 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 0
+
+    ) {
+      setObjetConsultationAffiche([liste[2]]);
+      
+    }
+    else if ((
+      identifiantConsultation== 2 &&
+      idMajeureOuNon == 1 &&
+      idAnonymeOuNon == 1 )||
+      (
+        identifiantConsultation== 7 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 1
+      ) 
+
+      ) {
+        setObjetConsultationAffiche([liste[11]]);
       
     }
     

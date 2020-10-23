@@ -9,9 +9,21 @@ import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 // import css
 import "./pConsultation.css";
 
+/// service 
+
+
+
 /// feuille de premiere consultation, patiente majeure non anonyme ne venant pas du 3d
 function PConsultation(props) {
   /// Bloc Fonctionnel
+
+
+
+
+  
+  
+
+  ///////////////////////////
 
   const [couleurBouttonBase, setCouleurBouttonBase] = useState("secondary");
 
@@ -173,11 +185,24 @@ function PConsultation(props) {
 
   const handleChange = (e) => {
     /// recup date frotti
+    let myDate = new Date(e.target.valueAsDate);
+    console.log(myDate);
+    
+    
     let reponse = {
       titre: "Date Frotti",
       value: e.target.value,
     };
     let liste = [...globalStateFin];
+    for (let i = 0; i < liste.length; i++) {
+      if (
+        liste[i].titre == reponse.titre
+      ) {
+        liste.splice(i, 1);
+        
+      }
+      
+    }
     liste.push(reponse);
     setGlobalStateFin(liste);
 
@@ -336,6 +361,18 @@ const handleSubmitPaquet = event => {
     affichageTxtIST();
   };
   ///Bloc prescription echographie
+  const recupEcho = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Echographie :",
+      value: e.target.value,
+    };
+    let liste = [...globalStateFin];
+    liste.push(reponse);
+    setGlobalStateFin(liste);
+    setPersonneAccFin(reponse);
+    console.log("Echographie :" + reponse.value);
+  };
 
   const echographie = () => {
     return (
@@ -449,17 +486,235 @@ const handleSubmitPaquet = event => {
   ///
 
   ///BLoc DDR
-  let newDate = new Date();
-  console.log(newDate);
-  const [recuptDateDDR, setRecuptDateDDR] = useState(newDate);
+  
 
-  const changeDate = () => {
-    let NDate = new Date();
-    setRecuptDateDDR(NDate);
-    console.log(NDate);
+  // const handleSubmitDDR = (e) => {
+  //   /// recup date frotti
+    
+  //   let myDate = new Date(valueDDR.valueAsDate);
+  //   console.log(myDate);
+    
+  //   e.preventDefault();
+    
+  //   let reponse = {
+  //     titre: "Date DDR",
+  //     value: e.target.value,
+  //   };
+    
+  //   let liste = [...globalStateFin];
+  //   for (let i = 0; i < liste.length; i++) {
+  //     if (
+  //       liste[i].titre == reponse.titre
+  //     ) {
+  //       liste.splice(i, 1);
+        
+  //     }
+      
+  //   }
+  //   liste.push(reponse);
+  //   setGlobalStateFin(liste);
+
+  //   console.log("date DDR : " + reponse.value);
+    
+  // };
+
+  const [valueDDRday, setValueDDRday] = useState();
+
+  const [valueDDRweek, setValueDDRweek] = useState();
+  
+
+  const DDR = (e) => {
+    
+    let dateDDR = new Date(e);
+    const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+  const today = new Date();
+  const todayInUTC = Date.UTC(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
+  const dateDDRInUTC = Date.UTC(
+    dateDDR.getFullYear(),
+    dateDDR.getMonth(),
+    dateDDR.getDate()
+  );
+  console.log(todayInUTC);
+  console.log(dateDDRInUTC);
+
+
+  const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
+  const semaineSAInDays = diffInDays + 14;
+
+  const semaineSA = {
+    weeks: Math.round(semaineSAInDays /7),
+    days: semaineSAInDays % 7,
+  };
+  
+  let reponse = {
+    titre : "Nombre semaines SA : ",
+    value : semaineSA.weeks.toString()
+
+  };
+  let reponse2 = {
+    titre : "+ jour : ",
+    value : semaineSA.days.toString()
+
+  };
+  console.log(reponse2);
+  setValueDDRday(reponse2);
+  setValueDDRweek(reponse);
+  
+  
+ 
+  setDateDDR(Math.round(semaineSA.weeks))
+  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<=7) {
+    affichageTxtUrgence();
+    
+  }
+  else if (Math.round(semaineSA.weeks)>7) {
+    affichageVerrou();
+    
+  }
+  else if (Math.round(semaineSA.weeks)<5) {
+    setCurrentTextUrgence("");
+    
+  }
+
+  
+  }
+
+  const transmissionDDR = () => {
+    let jour = valueDDRday;
+    let semaineSA = valueDDRweek;
+    let liste = [...globalStateFin];
+    liste.push(semaineSA);
+    liste.push(jour);
+    console.log(liste);
+    setGlobalStateFin(liste);
+  }
+
+
+
+  //// test 
+
+  const textDDRIncertaine = ()=>{
+    return (
+      <div>
+        <p>
+        La DDR étant incertaine, il est nécessaire de s’assurer de la datation exacte
+         rapidement afin de ne pas dépasser le terme légal pour une interruption de
+          grossesse par voie médicamenteuse.
+        </p>
+      </div>
+    )
+  }
+
+
+  const [DateIncertaine, setDateIncertaine] = useState(()=> textDDRIncertaine);
+
+  const [currentIncertaine, setCurrentIncertaine] = useState("");
+
+  const affichageDateIncertaine = ()=>{
+    let txtAEnlever = currentIncertaine;
+    let txtAAfficher = DateIncertaine;
+    setCurrentIncertaine(txtAAfficher);
+
+  }
+
+  const clicDateIncertaine = () => {
+    affichageTxtUrgence();
+    affichageDateIncertaine();
+    
+  }
+  
+
+  const verrou = () => {
+    /// retourne le texte mois de 7 semaines si >12
+    return (
+      <div>
+        
+        
+        <h1 className="Verrou1">VERROU : </h1>
+        <br></br>
+        <p className="Verrou1">
+          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
+          va à l’encontre des recommandations établies actuellement en vigueur
+          en France.
+        </p>
+        <p className="Verrou1">
+          Il est nécessaire d’adresser votre patiente vers le centre de
+          référence duquel dépend la patiente (à défaut aux urgences spécialisés
+          le plus proche). Le degré d’urgence est à établir selon les signes
+          cliniques ou l’âge gestationnel estimé.
+        </p>
+        <br></br>
+        <br></br>
+        <a href="#">Informations et orientation de la patiente.</a>
+        {/* /// liens à finir */}
+        <br></br>
+        <a href="#">Retour vers la page d’accueil.</a>
+        <br></br>
+      </div>
+    );
   };
 
+  const [Verrou,setVerrou] = useState(()=> verrou());
+
+
+ 
+
+  const [currentVerrou, setCurrentVerrou] = useState("");
+
+  const affichageVerrou = () => {
+    let txtAEnlever = currentVerrou;
+    let txtAAfficher = Verrou;
+    setCurrentVerrou(txtAAfficher);
+    
+  };
+
+
+
+  // const [txtMoinsDeSeptSA, setTxtMoinsDeSeptSA] = useState(
+  //   () => plusDeDouzetSemaines()
+  //   /// state contenant la fonction retournant le texte plus de 12 semaines
+  // );
+
+  // const [currentInfoNbSAplusDouze, setcurrentInfoNbSAplusDouze] = useState(
+  //   /// texte vide affichage de base
+  //   ""
+  // );
+  //////////////////////////////
+
+  
+ 
+
+  
+
   const [dateDDR, setDateDDR] = useState({});
+
+  const Urgence = ()=> {
+    return (
+      <div>
+        <p className="red" >
+          Urgence
+        </p>
+      </div>
+    )
+  }
+
+  const [txtUrgence, setTxtUrgence] = useState(()=> Urgence());
+
+  const [currentTextUrgence, setCurrentTextUrgence] = useState("");
+
+  const affichageTxtUrgence = () => {
+   
+    let txtAAfficher = txtUrgence;
+    setCurrentTextUrgence(txtAAfficher);
+    
+  };
+
 
   /// Bloc information contraception post IVG
 
@@ -559,25 +814,49 @@ const handleSubmitPaquet = event => {
       </p>
       <br></br>
       <h2>DDR</h2>
-      <label for="DDR">DDR « date des dernières règles » : </label>
+      {/* <form >
+            <input
+                value={nouvelleRecherchePaquet}
+                onChange={handleChangePaquet}
+                type="text"
+                placeholder="Paquet/année"
+            />
+            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+              handleSubmitPaquet(e)
+            }}>Confirmer</Button>
+        </form>
+       */}
+      
+      
+      <form>
       <input
         type="date"
         name="DDR"
         id="DDR"
-        defaultValue={recuptDateDDR}
+        onChange={(e)=> {
+          let myDate = new Date(e.target.valueAsDate);
+          DDR(myDate)}}
+        
+        
       ></input>
+      <Button  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
+      </form>
+      
       <br></br>
       <label>
-        Date incertaine ?<Button variant="secondary">Oui</Button>
+        Date incertaine ?<Button variant="secondary" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
       </label>
+      <div>{currentVerrou}</div>
+      <div>{currentIncertaine}</div>
       <br></br>
       
       <br></br>
       <h2>Prescription échographie de datation</h2>
       <label>
         Prescription :
-        <Button variant="secondary" value="Oui">Oui</Button>
-        <Button variant="secondary" value="Non">Non</Button>
+      <div className="Red">{currentTextUrgence}</div>
+        <Button variant="secondary" value="Prescrite" onClick={(e)=>{recupEcho(e)}}>Oui</Button>
+        <Button variant="secondary" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
       </label>
       
       <input
@@ -841,7 +1120,7 @@ const handleSubmitPaquet = event => {
       <br></br>
       <div>{currentInfoPostIVG}</div>
       <br></br>
-      <h2>Frottis à jour </h2>
+      <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <label>
         Frotti à jour :

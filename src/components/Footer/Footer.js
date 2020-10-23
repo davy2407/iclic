@@ -13,13 +13,13 @@ import Sept from "@assets/images/Sept.svg";
 
 function Footer() {
   const [listeSponsor, setListeSponsor] = useState([
-    { nom: 1, backgroundImage: Un },
-    { nom: 2, backgroundImage: Deux },
-    { nom: 3, backgroundImage: Trois },
-    { nom: 4, backgroundImage: Quatre },
-    { nom: 5, backgroundImage: Cinq },
-    { nom: 6, backgroundImage: Six },
-    { nom: 7, backgroundImage: Sept },
+    // { nom: 1, backgroundImage: Un },
+    // { nom: 2, backgroundImage: Deux },
+    // { nom: 3, backgroundImage: Trois },
+    // { nom: 4, backgroundImage: Quatre },
+    { nom: 5, backgroundImage: Cinq }
+    // { nom: 6, backgroundImage: Six },
+    // { nom: 7, backgroundImage: Sept },
   ]);
 
   return (

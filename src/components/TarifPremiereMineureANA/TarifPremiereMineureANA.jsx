@@ -5,7 +5,7 @@ import ResumePremiereConsultationMineureANA from '@components/ResumePremiereCons
 import "./TarifPremiereMineureANA.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/pdf/IvgCertifPremier.pdf";
+import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 
 
 

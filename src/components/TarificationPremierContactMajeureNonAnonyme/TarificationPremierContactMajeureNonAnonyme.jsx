@@ -5,7 +5,7 @@ import TestPrint from '@components/TestPrint';
 import "./TarificationPremierContactMajeureNonAnonyme.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/pdf/IvgCertifPremier.pdf";
+import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 
 
 
@@ -93,7 +93,7 @@ function TarificationPremierContactMNA(props) {
           professionnel de santé effectuant l’IVG ou non.
         </p>
         <br></br>
-        <br></br>
+        
         <h2>Voir bas de page pour impression docs</h2>
         
         
