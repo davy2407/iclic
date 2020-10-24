@@ -16,6 +16,10 @@ import TarifPremiereMineureANA from "@components/TarifPremiereMineureANA";
 import DeuxiemeAnonymeC from "@components/DeuxiemeAnonymeC";
 import DeuxiemeAnonymeD from "@components/DeuxiemeAnonymeD";
 import DeuxiemeConsultationMajeureNA from "@components/DeuxiemeConsultationMajeureNA";
+import DeuxiemeMineureANA from "@components/DeuxiemeMineureANA";
+import DeuxiemeMediMajeureNA from "@components/DeuxiemeMediMajeureNA";
+import DeuxiemePriseMajeureA from "@components/DeuxiemePriseMajeureA";
+import DeuxiemeMediMineureANA from "@components/DeuxiemeMediMineureANA";
 
 //import style
 import {Button} from "react-bootstrap";
@@ -209,6 +213,42 @@ function AppCore() {
             afficheSuite : modifierObjetTarifPremiereConsulteMineur
           }
       },
+      {
+        name : "Deuxieme consultation Mineure A/NA" ,
+         id :12 , objet : DeuxiemeMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Deuxieme prise médicament Majeure NA" ,
+         id :13 , objet : DeuxiemeMediMajeureNA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Deuxieme prise médicament Majeure A" ,
+         id :14 , objet : DeuxiemePriseMajeureA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Deuxieme prise médicament Mineure A/NA" ,
+         id :15 , objet : DeuxiemeMediMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      }
     ]
   );
 
@@ -358,10 +398,64 @@ function AppCore() {
       ) {
         setObjetConsultationAffiche([liste[11]]);
       
+    } else if ((
+      identifiantConsultation== 2 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 1 )||
+      (
+        identifiantConsultation== 7 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+      ) || (
+        identifiantConsultation== 2 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+
+      ) || (
+        identifiantConsultation== 7 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 1
+      )
+
+      ) {
+        setObjetConsultationAffiche([liste[12]]);
+      
+    } 
+    else if (
+      identifiantConsultation== 4 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 1
+
+    ) {
+      setObjetConsultationAffiche([liste[13]]);
+      
     }
+    else if (
+      identifiantConsultation== 4 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 0
+
+    ) {
+      setObjetConsultationAffiche([liste[14]]);
+      
+    }
+    else if ((
+      identifiantConsultation== 4 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 1 )||
+      (
+        identifiantConsultation== 4 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 0
+      ) 
+
+      ) {
+        setObjetConsultationAffiche([liste[15]]);
+      
+    } 
     
     else {
-      setObjetConsultationAffiche([liste[0]]);
+      setObjetConsultationAffiche([liste[4]]);
     }
   };
 

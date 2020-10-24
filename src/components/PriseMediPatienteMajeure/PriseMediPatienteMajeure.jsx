@@ -403,7 +403,7 @@ function PriseMediPatienteMajeure(props) {
       <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
         Non
       </Button>
-      <p>{currentInfoVerrouDeux}</p>
+      <div>{currentInfoVerrouDeux}</div>
       <br></br>
       <h3>Attestation consultation psychosociale :</h3>
       <br></br>
@@ -429,7 +429,7 @@ function PriseMediPatienteMajeure(props) {
         Non
       </Button>
       <br></br>
-      <p>{currentInfoVerrouDeux}</p>
+      <div>{currentInfoVerrouDeux}</div>
       <input
         onClick={changementCouleurSVGPriseDesang}
         className="Lampe"
