@@ -1,0 +1,3 @@
+import TarificationPremierePriseMedicamentMajeure from "./TarificationPremierePriseMedicamentMajeure";
+
+export default TarificationPremierePriseMedicamentMajeure;

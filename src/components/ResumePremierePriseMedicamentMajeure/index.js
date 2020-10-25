@@ -1,0 +1,3 @@
+import ResumePremierePriseMedicamentMajeure from "./ResumePremierePriseMedicamentMajeure";
+
+export default ResumePremierePriseMedicamentMajeure;

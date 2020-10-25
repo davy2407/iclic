@@ -810,7 +810,7 @@ const handleSubmitPaquet = event => {
 
         <br></br>
         <Button>Valider mes choix</Button>
-        <Button>Tarification</Button>
+        <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
       
         
 

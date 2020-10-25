@@ -23,6 +23,7 @@ import DeuxiemeMediMineureANA from "@components/DeuxiemeMediMineureANA";
 import PremiereMediMineureANA from "@components/PremiereMediMineureANA";
 import PremierePriseMediMajeureA from "@components/PremierePriseMediMajeureA";
 import PremierePriseMajeureMineure from "@components/PremierePriseMajeureMineure";
+import TarificationPremierePriseMedicamentMajeure from "@components/TarificationPremierePriseMedicamentMajeure";
 
 
 //import style
@@ -135,6 +136,12 @@ function AppCore() {
      /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[10]]);
     setObjetConsultationAffiche([]);
+  }
+
+  const afficheTarifPremierPriseMediMajeure = () =>{
+    setObjetTarrificationAffiche([listeObjetConsulation[19]]);
+    setObjetConsultationMediAffiche([]);
+
   }
 
   ////////// premiere prise medi
@@ -338,6 +345,15 @@ function AppCore() {
       {
         name : "Premiere prise médicament Majeure/Mineure >> Consultation" ,
          id :18 , objet : PremierePriseMajeureMineure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : afficheTarifPremierPriseMediMajeure
+          }
+      },
+      {
+        name : "Tarification Premiere Prise medicament Majeure NA" ,
+         id :19 , objet : TarificationPremierePriseMedicamentMajeure ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
