@@ -6,8 +6,7 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 
-function PriseMediPatienteMajeure(props) {
-  ///Bloc fonctionnel
+function PremiereMediMineureANA(props) {
 
   const [globalStateFin, setGlobalStateFin] = useState([]);
 
@@ -18,6 +17,7 @@ function PriseMediPatienteMajeure(props) {
     }
     props.onRecup(globalStateFin);
   };
+  ///Bloc fonctionnel
 
   const [
     saisieUtilisateurNbSemaineSA,
@@ -32,7 +32,7 @@ function PriseMediPatienteMajeure(props) {
 
   const recupSaisieUtilisateurNbSemaine = (event) => {
     event.preventDefault();
-    let nb = saisieUtilisateurNbSemaineSA;
+    const nb = saisieUtilisateurNbSemaineSA;
     if (nb < 7) {
       affichageMoinsDeSept();
     } else if (nb > 7 && nb < 12) {
@@ -40,16 +40,6 @@ function PriseMediPatienteMajeure(props) {
     } else if (nb > 12) {
       affichagePlusDouze();
     }
-    let reponse = {
-      titre: "Echographie de datation/Age gestationnel : ",
-      value: nb,
-    };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-   
-    console.log("Echographie de datation/Age gestationnel : " + nb);
- 
 
     setSaisieUtilisateurNbSemaineSA(0);
   };
@@ -240,7 +230,7 @@ function PriseMediPatienteMajeure(props) {
 
   /// Attestation consultation psychosocial
   const [txtPsy, setTxtPsy] = useState(
-    "Non obligatoire pour les femmes majeures"
+    "L’attestation est obligatoire avec un délai de 48h pour les jeunes filles mineurs, anonyme ou non. "
   );
 
   const [currentInfoPsy, setCurrentInfoPsy] = useState("");
@@ -346,11 +336,52 @@ function PriseMediPatienteMajeure(props) {
     affichageTxtPriseDeSang();
   };
 
+
+  /// Bloc Personne accompagnante majeure ou consentement parental 
+
+  const TxtAcc = () => {
+    return (
+      <div>
+        Dans le cas d’une jeune fille avec personne majeure accompagnante différente des parents
+         ou du représentant légal, il convient de prévenir de la nécessité d’accompagnement
+          par la même personne de son choix au cours des différentes consultations afin de
+           permettre un soutien moral efficient.
+      </div>
+    )
+  }
+  const [txtAccMajeure, setTxtAccMajeure] = useState(() => TxtAcc());
+
+  const [currentTxtAccMajeure, setCurrentTxtAccMajeure] = useState("");
+
+  const affichageTxtAccMajeure = () => {
+    let txtAEnlever = currentTxtAccMajeure;
+    let txtAAfficher = txtAccMajeure;
+    setCurrentTxtAccMajeure(txtAAfficher);
+    setTxtAccMajeure(txtAEnlever);
+  };
+
+  const [logoAfficheAccMajeure, setLogoAfficheAccMajeure] = useState(
+    LightOff
+  );
+
+  const [logoNonAfficheAccMajeure, setLogoNonAfficheAccMajeure] = useState(
+    LightOn
+  );
+
+  const changementCouleurSVGAccMajeure = () => {
+    let currentLampe = logoAfficheAccMajeure;
+    let currentCache = logoNonAfficheAccMajeure;
+    setLogoNonAfficheAccMajeure(currentLampe);
+    setLogoAfficheAccMajeure(currentCache);
+    affichageTxtAccMajeure();
+  };
+
   return (
     <div>
-      <h1>Consultation IVG : 1ere prise médicamenteuse. Patiente majeure NA</h1>
+      <h1>Consultation IVG : 1ere prise médicamenteuse.
+Patiente mineure A/NA.</h1>
 
-      <br></br>
+      
       <label>
         Consultation faite dans le cadre des dispositions du Covid valable
         jusqu’au 31 octobre 2020 : oui/non Si oui :
@@ -416,23 +447,23 @@ function PriseMediPatienteMajeure(props) {
       <div>{currentInfoNbSAmoinsSept}</div>
       <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
       <div>{currentInfoNbSAplusDouze}</div>
-      <br></br>
+   
+
       <h3>Consentement à l’IVG signé :</h3>
-      <br></br>
+      
       <Button variant="secondary">Oui</Button>
       <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
         Non
       </Button>
       <div>{currentInfoVerrouDeux}</div>
       <br></br>
-      <h3>Attestation consultation psychosociale :</h3>
-      <br></br>
-      <Button variant="secondary" onClick={clicOuiConsultation}>
-        Oui
+
+      <h2>Consultation psycho-sociale réalisée :</h2>
+      <Button variant="secondary">Oui</Button>
+      <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
+        Non
       </Button>
-      <Button variant="secondary">Non</Button>
-      <br></br>
-      <div>{currentConsultationAttestation}</div>
+      <div>{currentInfoVerrouDeux}</div>
       <input
         onClick={changementCouleurSVGPsy}
         className="Lampe"
@@ -440,15 +471,14 @@ function PriseMediPatienteMajeure(props) {
         src={logoAffichePsy}
       />
       <div>{currentInfoPsy}</div>
-      <br></br>
-      <br></br>
+
       <h3>Prise de sang effectuée :</h3>
       <br></br>
       <Button variant="secondary">Oui</Button>
       <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
         Non
       </Button>
-      <br></br>
+      
       <div>{currentInfoVerrouDeux}</div>
       <input
         onClick={changementCouleurSVGPriseDesang}
@@ -470,10 +500,33 @@ function PriseMediPatienteMajeure(props) {
         <Button variant="danger">Valider</Button>
       </label>
 
-      <h3>Personne accompagnante :</h3>
+      <h3>Personne accompagnante majeure ou consentement parental :</h3>
       <br></br>
       <Button variant="secondary">Oui</Button>
       <Button variant="secondary">Non</Button>
+      <input
+        onClick={changementCouleurSVGAccMajeure}
+        className="Lampe"
+        type="image"
+        src={logoAfficheAccMajeure}
+      />
+      <div>{currentTxtAccMajeure}</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+      
+
+      
 
       <br></br>
       <ul>
@@ -492,10 +545,11 @@ function PriseMediPatienteMajeure(props) {
         </li>
       </ul>
 
+
       <Button onClick={afficheStateFin} >Valider mes choix</Button>
       <Button variant="danger" onClick={props.onSuite}>Suite</Button>
     </div>
   );
 }
 
-export default PriseMediPatienteMajeure;
+export default PremiereMediMineureANA;

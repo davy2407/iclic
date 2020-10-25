@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+/// finir PremiereMediMineureANA , texte a changer etc voir signes ///
 
 // import iclic components
 import Bouton from "@components/Bouton";
@@ -20,6 +20,10 @@ import DeuxiemeMineureANA from "@components/DeuxiemeMineureANA";
 import DeuxiemeMediMajeureNA from "@components/DeuxiemeMediMajeureNA";
 import DeuxiemePriseMajeureA from "@components/DeuxiemePriseMajeureA";
 import DeuxiemeMediMineureANA from "@components/DeuxiemeMediMineureANA";
+import PremiereMediMineureANA from "@components/PremiereMediMineureANA";
+import PremierePriseMediMajeureA from "@components/PremierePriseMediMajeureA";
+import PremierePriseMajeureMineure from "@components/PremierePriseMajeureMineure";
+
 
 //import style
 import {Button} from "react-bootstrap";
@@ -77,6 +81,8 @@ function AppCore() {
 
   const [nombreBouton, setNombreBouton] = useState(2);
   const [stateGlobalPremiereConsulte,setStateGlobalPremiereConsulte] = useState([]);
+
+  const [stateGlobalContreindication, setStateGlobalContreIndication] = useState([]);
   /// state recuperant les données du composant enfant pConsultation
   const recupPremiereConsulte = (liste)=> {
     
@@ -92,6 +98,31 @@ function AppCore() {
     
 
   }
+
+  const recupPremiereContreIndi = (liste)=> {
+    
+    let newData = [...liste];
+    
+    
+    
+    setStateGlobalPremiereConsulte(newData);
+    console.log('DANS LAPP CORE consultation + Contre Indication')
+    for (let i = 0; i < newData.length; i++) {
+      console.log(newData[i].titre);
+      console.log(newData[i].value);
+
+      
+    }
+    
+
+  }
+
+
+  const afficheStates = () => {
+    console.log("affichage multiple liste")
+    console.log(stateGlobalPremiereConsulte);
+    console.log(stateGlobalContreindication);
+  }
   const modifierObjetTarifPremiereConsulte = () =>{
     /// fonction qui affiche la tarification apres premiere consulte majeure non anonyme
     /// et stop laffichage du composant consultation
@@ -106,8 +137,44 @@ function AppCore() {
     setObjetConsultationAffiche([]);
   }
 
-  /// a faire fonction recuperant les infos ( state de fin ) entrée dans consultation pour les transmettre
-  /// au composant resumé consultation
+  ////////// premiere prise medi
+
+  const afficheContreIndication = () => {
+    /// function permettant l'affichage du composant contrre indication medical et stop laffichage consulte 
+    setObjetTarrificationAffiche([listeObjetConsulation[0]]);
+    setObjetConsultationAffiche([]);
+
+  }
+
+  const afficheConsultationMedi = () => {
+    setObjetConsultationMediAffiche([listeObjetConsulation[18]]);
+    setObjetTarrificationAffiche([]);
+
+  }
+
+  const recupPremierePriseMedi = (liste)=> {
+    
+    let newData = [...liste];
+    
+    setStateGlobalPremiereConsulte(newData);
+    console.log('DANS LAPP CORE premiere prise medi')
+    for (let i = 0; i < newData.length; i++) {
+      console.log(newData[i].titre);
+      console.log(newData[i].value);
+
+      
+    }
+    
+
+  }
+
+
+  
+
+
+  ////////////////////////////////////////////////////////////////////////
+
+
 
   
 
@@ -119,9 +186,10 @@ function AppCore() {
         id: 0,
         objet: ContreIndication,
         fonction : {
-          recupInfo : recupPremiereConsulte,
-          afficheSuite : modifierObjetTarifPremiereConsulte
+          recupInfo : recupPremiereContreIndi,
+          afficheSuite : afficheConsultationMedi
         }
+        
       },
       { 
         name: "DeuxiemeAnonymeC",
@@ -150,8 +218,8 @@ function AppCore() {
         id: 4,
         objet: PriseMediMajeure,
         fonction : {
-          recupInfo : recupPremiereConsulte,
-          afficheSuite : modifierObjetTarifPremiereConsulte
+          recupInfo : recupPremierePriseMedi,
+          afficheSuite : afficheContreIndication
         }
       },
       {
@@ -248,6 +316,33 @@ function AppCore() {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulteMineur
           }
+      },
+      {
+        name : "Première prise médicament Mineure A/NA" ,
+         id :16 , objet : PremiereMediMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremierePriseMedi,
+            afficheSuite : afficheContreIndication
+          }
+      },
+      {
+        name : "Premiere prise médicament Majeure A" ,
+         id :17 , objet : PremierePriseMediMajeureA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Premiere prise médicament Majeure/Mineure >> Consultation" ,
+         id :18 , objet : PremierePriseMajeureMineure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
       }
     ]
   );
@@ -259,7 +354,13 @@ function AppCore() {
 
   const [objetTarrificationAffiche, setObjetTarrificationAffiche] = useState(
     []
-  )
+  );
+
+  const [objetConsultationMediAffiche, setObjetConsultationMediAffiche] = useState([]);
+
+  const [objetContreIndicationAffiche, setObjetContreIndictionAffiche] = useState(
+    []
+  );
 
   const [listeBouton, setListeBouton] = useState([
     { txt: "Oui", value: true, id: 1 },
@@ -453,9 +554,41 @@ function AppCore() {
         setObjetConsultationAffiche([liste[15]]);
       
     } 
+    else if (
+      identifiantConsultation== 3 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 1
+
+    ) {
+      setObjetConsultationAffiche([liste[4]]);
+      
+    }
+    else if ((
+      identifiantConsultation== 3 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 1
+
+    )||
+    (
+      identifiantConsultation== 3 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 0
+    )) {
+      setObjetConsultationAffiche([liste[16]]);
+      
+    }
+    else if (
+      identifiantConsultation== 3 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 0
+
+    ) {
+      setObjetConsultationAffiche([liste[17]]);
+      
+    }
     
     else {
-      setObjetConsultationAffiche([liste[4]]);
+      setObjetConsultationAffiche([liste[0]]);
     }
   };
 
@@ -606,7 +739,46 @@ function AppCore() {
           );
         })}
       </div>
-      <div className="Newtest">
+
+      <div className="Contre">
+        {/* partie censé gérer laffichage de la contre indication médicale  */}
+
+        {objetContreIndicationAffiche.map((objet) => {
+          return (
+            <objet.objet
+              onTexte={objet.name}
+              onRecap={texteDemarrage}
+              onRecup={objet.fonction.recupInfo}
+              onData={stateGlobalPremiereConsulte}
+              onSuite={objet.fonction.afficheSuite}
+            ></objet.objet>
+          );
+        })}
+      </div>
+
+      <div className="Consultation MEdi">
+        {/* partie censé gérer laffichage de la consultation prise medicament médicale  */}
+
+        {objetConsultationMediAffiche.map((objet) => {
+          return (
+            <objet.objet
+              onTexte={objet.name}
+              onRecap={texteDemarrage}
+              onRecup={objet.fonction.recupInfo}
+              onData={stateGlobalPremiereConsulte}
+              onSuite={objet.fonction.afficheSuite}
+              onTest={afficheStates}
+            ></objet.objet>
+          );
+        })}
+      </div>
+
+
+
+
+
+
+      <div className="Tarif">
         {/* partie censé gérer laffichage de la tarification  */}
 
         {objetTarrificationAffiche.map((objet) => {

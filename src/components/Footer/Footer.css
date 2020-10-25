@@ -15,7 +15,7 @@
 @media screen and (min-width: 600px) {
     .SponsorContainer {
         width: 100vw;
-        height: 15vh;
+        height: 10vh;
         display: flex;
         justify-content: center;
         background-color: white;

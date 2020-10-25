@@ -226,20 +226,7 @@ function PConsultation(props) {
 
   const [nBTabacFin, setNbTabacFin] = useState({});
 
-  const recupNombre = (e) => {
-    let reponse = {
-      titre : "Nombre Paquet",
-      value : e.target.value
-    };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    console.log("test nb : " + nBTabacFin.value);
-
-    console.log("nb paquet : " + reponse.value);
-    setNbTabacFin(reponse);
-
-  }
+  
   
   const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
  

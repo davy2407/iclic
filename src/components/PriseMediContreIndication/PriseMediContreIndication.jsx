@@ -8,7 +8,17 @@ import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 
 import "./PriseMediContreIndication.css";
 
-function PriseMediContreindication() {
+function PriseMediContreindication(props) {
+  
+  const [globalStateContre, setGlobalStateContre] = useState(props.onData);
+
+  const afficheStateFin = () => {
+    console.log("state de fin va suivre");
+    for (let index = 0; index < globalStateContre.length; index++) {
+      console.log(globalStateContre[index]);
+    }
+    props.onRecup(globalStateContre);
+  };
   /// Verrou
   const verrouUn = () => {
     /// retourne le texte verrou 1
@@ -96,6 +106,9 @@ function PriseMediContreindication() {
     setLogoAfficheMife(currentCache);
     affichageTxtMife();
   };
+
+
+  
   /// Bloc Misoprostol
 
   const Misoprostol = () => {
@@ -229,6 +242,19 @@ function PriseMediContreindication() {
     affichageTxtInfoEffet();
   };
 
+  const recupEffet = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : ",
+      value: e.target.value,
+    };
+    let liste = [...globalStateContre];
+    liste.push(reponse);
+    setGlobalStateContre(liste);
+   
+    console.log("Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : " + reponse.value);
+  };
+
   return (
     <div>
       <h1>Consultation 1ere prise médicamenteuse Contre-indication </h1>
@@ -286,8 +312,8 @@ function PriseMediContreindication() {
           information claires et établies des effets secondaires possibles des
           traitements :
         </h3>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        <Button variant="secondary" value="Oui" onClick={(e)=>{recupEffet(e)}}>Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupEffet(e)}}>Non</Button>
       </label>
       <input
         onClick={changementCouleurSVGInfoEffet}
@@ -322,6 +348,15 @@ function PriseMediContreindication() {
       <a href={InfoPatiente} target="_blank">
         télécharger PDF
       </a>
+
+
+      <Button onClick={afficheStateFin} variant="danger">
+        Valider mes choix
+      </Button>{" "}
+      <br></br>
+      <Button variant="danger" onClick={props.onSuite}>
+        Consultation
+      </Button>
     </div>
   );
 }
