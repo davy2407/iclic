@@ -6,7 +6,9 @@ import "./TarificationPremierePriseMedicamentMajeure.css";
 
 import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
-
+import InfoPatiente from "@assets/docx/InfoPatiente.docx";
+import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
+import FicheConseil from "@assets/docx/FicheConseilSurveillance.docx";
 
 
 function TarificationPremierePriseMedicamentMajeure(props) {
@@ -67,10 +69,14 @@ Dans cette hypothèse, vous établissez une ordonnance comportant
       La consultation de suivi sera donc établie par téléconsultation.
        Lors de l’envoi à l’officine de l’ordonnance, il peut être ajouté un autotest
         urinaire BhCG, celui-ci est alors prise en charge par le laboratoire par
-         l’intermédiaire d’un accord avec l’ANCIC et le CNGOF 
+         l’intermédiaire d’un accord avec l’ANCIC et le CNGOF
+         <a target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">LegiFrance</a>
+      <a target="_blank" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">ameli.fr</a>
+      <a target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">SYNGOF PDF</a>
+      <a target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">SYNGOF ressources utiles</a>
       </p>
-
-      {/* a finir //////////////////////////////////////////////////////// */}
+    
+    
       
 
       <p>Lien guide IVG ministère :</p>
@@ -86,55 +92,30 @@ Dans cette hypothèse, vous établissez une ordonnance comportant
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href="#">Lien ouavorter.com</a>
-      {/* lien a finir  */}
-
-      {/* <p>Test Info</p>
-  <div>{props.onData.map((objet)=>{
-    return (
-      <div>
-        <h4>{objet.titre}</h4>
-        <p>{objet.value}</p>
-      </div>
-    )
-  })}</div> */}
+      <a href={InfoPatiente} target="_blank">Fiche info patient traitement</a>
+      
   
 
-      <Form>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="Certificat de 1ère consultation remise à la patiente :"
-          />
-        </Form.Group>
-
-        
-        <br></br>
-        <p>
-          Il est confraternel de faire suivre le résumé et de la remettre en
-          main de la patiente.
-        </p>
-        <p>
-          La patiente dispose d’un délai de 48h entre la consultation
-          psychosociale (si choisie) et la deuxième consultation préalable à
-          l’IVG.
-        </p>
-        <p>
-          La 2ème consultation préalable à l’IVG peut être effectuée par le
-          professionnel de santé effectuant l’IVG ou non.
-        </p>
-        <br></br>
-        <br></br>
-        <h2>Voir bas de page pour impression docs</h2>
-        
-        
-      </Form>
+      
       <div>
-      <ResumePremierePriseMedicamentMajeure ref={componentRef} data={props.onData}  />
-      <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
+        <div style={{display:'none'}}>
+        <ResumePremierePriseMedicamentMajeure ref={componentRef} data={props.onData}  />
+
+        </div>
+      <Button variant="danger" onClick={handlePrint}>Fiche de liaison première prise médicamenteuse</Button>
+      <br></br>
+      <a target="_blank" href={LiaisonHAS}>Fiche de liaison HAS à télécharger</a>
+      <br></br>
+      <a target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
       <br></br>
       
     </div>
+    <p>
+    Il est obligatoire de transmettre la fiche de liaison selon des modalités de
+     transmission préétabli avec votre centre de référence afin de suivre les règles
+      préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
+    Un exemplaire doit être remis à la patiente. 
+    </p>
     </div>
   );
 }

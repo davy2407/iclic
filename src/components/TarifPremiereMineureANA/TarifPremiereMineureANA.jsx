@@ -105,12 +105,15 @@ function TarifPremiereMineureANA(props) {
         </p>
         <br></br>
         <br></br>
-        <h2>Voir bas de page pour impression docs</h2>
+        
         
         
       </Form>
       <div>
-      <ResumePremiereConsultationMineureANA ref={componentRef} data={props.onData}  />
+        <div style={{display:'none'}}>
+        <ResumePremiereConsultationMineureANA ref={componentRef} data={props.onData}  />
+
+        </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
       <br></br>
       <a href={Certificat} target="_blank">

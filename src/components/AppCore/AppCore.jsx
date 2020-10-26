@@ -24,6 +24,9 @@ import PremiereMediMineureANA from "@components/PremiereMediMineureANA";
 import PremierePriseMediMajeureA from "@components/PremierePriseMediMajeureA";
 import PremierePriseMajeureMineure from "@components/PremierePriseMajeureMineure";
 import TarificationPremierePriseMedicamentMajeure from "@components/TarificationPremierePriseMedicamentMajeure";
+import TarifDeuxiemePriseMediMajeureNA from "@components/TarifDeuxiemePriseMediMajeureNA";
+import TarifDeuxiemePriseMineureANA from "@components/TarifDeuxiemePriseMineureANA";
+import PostIVGMajeureNA from "@components/PostIVGMajeureNA";
 
 
 //import style
@@ -141,6 +144,20 @@ function AppCore() {
   const afficheTarifPremierPriseMediMajeure = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[19]]);
     setObjetConsultationMediAffiche([]);
+
+  }
+
+  const afficheTarifdeuxiemeMediMajeureNA = () =>{
+    setObjetTarrificationAffiche([listeObjetConsulation[20]]);
+    setObjetConsultationAffiche([]);
+
+
+  }
+
+
+  const afficheTarifDeuxiemeMineureANA = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[21]]);
+    setObjetConsultationAffiche([]);
 
   }
 
@@ -303,7 +320,7 @@ function AppCore() {
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+            afficheSuite : afficheTarifdeuxiemeMediMajeureNA
           }
       },
       {
@@ -321,7 +338,7 @@ function AppCore() {
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+            afficheSuite : afficheTarifDeuxiemeMineureANA
           }
       },
       {
@@ -354,6 +371,33 @@ function AppCore() {
       {
         name : "Tarification Premiere Prise medicament Majeure NA" ,
          id :19 , objet : TarificationPremierePriseMedicamentMajeure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarification Deuxieme Prise medicament Majeure NA" ,
+         id :20 , objet : TarifDeuxiemePriseMediMajeureNA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarification Deuxieme Prise medicament Mineure A NA" ,
+         id :21 , objet : TarifDeuxiemePriseMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Consultation POst IVG Majeure Non Anonyme" ,
+         id :22 , objet : PostIVGMajeureNA ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
@@ -600,6 +644,14 @@ function AppCore() {
 
     ) {
       setObjetConsultationAffiche([liste[17]]);
+      
+    }
+    else if (
+      identifiantConsultation== 5 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 1
+    ) {
+      setObjetConsultationAffiche([liste[22]]);
       
     }
     

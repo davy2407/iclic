@@ -10,7 +10,7 @@ function MyVerticallyCenteredModal(props) {
 
   const [Titre, setTitre] = useState(
     /// titre premiere question modal
-    "Proffession"
+    "Profession"
   );
 
   const [rollBacklist, setRollBackList] = useState([]);
@@ -68,7 +68,7 @@ function MyVerticallyCenteredModal(props) {
         AjoutSelection({
           id: 9,
           name:
-            "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+            "Deuxième consultation préalable à l'ivg/Recueil de consentement",
         });
       } else if (id == 28) {
         AjoutTypeConsultation(3);
@@ -111,7 +111,7 @@ function MyVerticallyCenteredModal(props) {
         AjoutSelection({
           id: 13,
           name:
-            "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+            "Deuxième consultation préalable à l'ivg/Recueil de consentement",
         });
       }
     } else if (id == 14 || id == 15) {
@@ -153,7 +153,7 @@ function MyVerticallyCenteredModal(props) {
         AjoutSelection({
           id: 23,
           name:
-            "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+            "Deuxième consultation préalable à l'ivg/Recueil de consentement",
         });
       }
     } else if (id == 24 || id == 25) {
@@ -194,7 +194,7 @@ function MyVerticallyCenteredModal(props) {
         AjoutSelection({
           id: 36,
           name:
-            "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+            "Deuxième consultation préalable à l'ivg/Recueil de consentement",
         });
       } else if (id == 37) {
         AjoutTypeConsultation(3);
@@ -248,7 +248,7 @@ function MyVerticallyCenteredModal(props) {
         AjoutSelection({
           id: 47,
           name:
-            "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+            "Deuxième consultation préalable à l'ivg/Recueil de consentement",
         });
       }
     } else if (id == 48 || id == 49) {
@@ -486,7 +486,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       {
         id: 9,
         name:
-          "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+          "Deuxième consultation préalable à l'ivg/Recueil de consentement",
       },
       {
         id: 28,
@@ -554,7 +554,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       {
         id: 13,
         name:
-          "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+          "Deuxième consultation préalable à l'ivg/Recueil de consentement",
       },
     ];
     setRollBackList(newListeRadio);
@@ -636,7 +636,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       {
         id: 23,
         name:
-          "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+          "Deuxième consultation préalable à l'ivg/Recueil de consentement",
       },
     ];
     setRollBackList(newListeRadio);
@@ -704,7 +704,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       {
         id: 36,
         name:
-          "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+          "Deuxième consultation préalable à l'ivg/Recueil de consentement",
       },
       {
         id: 37,
@@ -785,7 +785,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       {
         id: 47,
         name:
-          "Deuxième conssultation préalable à l'ivg/Recueil de consentement",
+          "Deuxième consultation préalable à l'ivg/Recueil de consentement",
       },
     ];
     setRollBackList(newListeRadio);

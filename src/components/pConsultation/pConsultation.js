@@ -251,7 +251,7 @@ const handleSubmitPaquet = event => {
 
   
   
-  setNouvelleRecherchePaquet(0);
+  
 };
 
   const [infoSupp, setInfoSupp] = useState({});
@@ -1182,7 +1182,7 @@ const handleSubmitPaquet = event => {
         </Button>
       </label>
       <br></br>
-      <label for="nbPAquet"> Nombre paquets </label>
+      
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
       <form >
             <input

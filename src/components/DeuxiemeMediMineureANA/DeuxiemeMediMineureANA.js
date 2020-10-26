@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
+import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
+
 
 
 import "./DeuxiemeMediMineureANA.css";
@@ -49,9 +51,11 @@ function DeuxiemeMediMineureANA(props) {
             <h2>Contraception choisie par la patiente :</h2>
             <Button variant="secondary" value="Oui">Oui</Button>
             <Button variant="secondary" value="Non">Non</Button>
+            <a target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
 
 
             <Button variant="danger">Valider mes choix</Button>
+            <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
 
 
         </div>
