@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
+
+import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
+
 import "./Modal.css";
 
 // todo list créer objet contenant tout les bouttons existant avec leur texte et ID
@@ -10,7 +13,7 @@ function MyVerticallyCenteredModal(props) {
 
   const [Titre, setTitre] = useState(
     /// titre premiere question modal
-    "Profession"
+    "Vous êtes professionnel de santé : "
   );
 
   const [rollBacklist, setRollBackList] = useState([]);
@@ -134,6 +137,7 @@ function MyVerticallyCenteredModal(props) {
       SageFemmeMedecinGeneralisteAttestationNon();
       AjoutSelection({ id: 19, name: "Non" });
     } else if (id == 20) {
+      affichageTxtModal();
       SageFemmeMedecinGeneralisteAttestationNonConsulationOUi();
       AjoutSelection({ id: 20, name: "Oui" });
     } else if (id == 21) {
@@ -232,6 +236,7 @@ function MyVerticallyCenteredModal(props) {
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationNon();
       AjoutSelection({ id: 45, name: "Non" });
     } else if (id == 44) {
+      affichageTxtModal();
       SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOui();
       AjoutSelection({ id: 44, name: "Oui" });
     } else if (id == 46 || id == 47) {
@@ -418,6 +423,39 @@ function MyVerticallyCenteredModal(props) {
     setTestText(rollBackTestText);
   };
 
+  const txtConventionOK = () => {
+    return (
+      <div>
+        <p>
+        J’atteste sur l’honneur être formé pour pratiquer l’interruption volontaire
+         de grossesse conformément à la <a
+         target="_blank"
+         href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665.">loi L2212</a> du Code de la Santé Publique
+           ainsi que d’avoir signé une convention avec :
+        </p>
+        <p>
+        Lien centres de référence/de rattachement
+        </p>
+        <h3>Covid et IVG : </h3>
+        <p>
+        Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation. 
+Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultative.
+
+        </p>
+        <p>
+        Ces consultations sont prises en charge à 100% par l’assurance maladie. 
+Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. 
+Pour en savoir plus : 
+        </p>
+        <p>
+          <a target="_blank" href={GuideIVG} >
+          Guide IVG hors établissement de santé praticien
+          </a>
+        </p>
+      </div>
+    )
+  }
+
   /// fonction contenant le texte pour consultation IVG sans attestion ou convention
 
   const textSansConvention = ()=>{
@@ -442,7 +480,7 @@ function MyVerticallyCenteredModal(props) {
         <p>
         D’après l’article 18 du code de déontologie article R4127-18
          « un médecin … ; … est toujours libre de s’y refuser et doit en informer l’intéressée dans
-          les conditions et délais prévus par la loi » <a href="14) https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>
+          les conditions et délais prévus par la loi » <a href="https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>
         </p>
         <p>
         En poursuivant la suite du questionnaire,  le certificat sera disponible en téléchargement. 
@@ -458,10 +496,10 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
 
   const [currentInfoModal, setCurrentInfoModal] = useState("");
   const affichageTxtModal = () => {
-    let txtAEnlever = currentInfoModal;
+    
     let txtAAfficher = consultationSansConvention;
     setCurrentInfoModal(txtAAfficher);
-    setConsultationSansConvention(txtAEnlever);
+    
   };
 
   /// toutes les fuctions contextuelles appelaient en fonction du derniers boutons cliqué
@@ -505,7 +543,8 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setRollBackList(newListeRadio);
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
-    setTitre("Attestation");
+    setTitre("Attestation et convention signées : ");
+    setTestText(txtConventionOK());
   };
 
   const MedecinGyConventionNon = () => {
@@ -536,7 +575,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setRollBackTitre(Titre);
     let nouvelleListeMedecin = [
       { id: 31, name: "Patiente majeure" },
-      { id: 32, name: "Patiente mineure" }, ///6556    5444444444444444444444444444444444444444
+      { id: 32, name: "Patiente mineure" }, ///6556    
     ];
     setRollBackList(newListeRadio);
     setRollBackTitre(Titre);
@@ -596,9 +635,29 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setNewListeRadio(nouvelleListeMedecin);
     setTitre(" Centre rattachement");
     setTestText(
-      "Il est obligatoire selon l'article L2212-2 et L2212-9 de justifier etc ...."
+      pasConventionConsulte()
     );
   };
+  const pasConventionConsulte = () => {
+    return (
+      <div>
+        <p>
+        Il est obligatoire selon <a target="_blank" href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665."> l’article L2212-2 et L2212-9</a> de justifier d’une
+         convention signée entre le praticien et un établissement de santé
+          public ou privée pour la/les consultations IVG de prise des médicaments.
+           Cette convention est obligatoire afin de s’approvisionner en médicament
+            nécessaire à la réalisation d’une interruption volontaire de grossesse
+             selon l’article R2212-16. 
+        </p>
+
+        <p>
+          <a href="#">
+            Convention type à télécharger :
+          </a>
+        </p>
+      </div>
+    )
+  }
 
   const SageFemmeMedecinGeneraliste = () => {
     setRollBackTitre(Titre);
@@ -654,9 +713,43 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Info Formation");
     setTestText(
-      "Selon l'article R2212-11 , il est nécessaire d'avoir une attestation de compétence afin de pratiquer etc ...."
+      PasAttestationConvention()
     );
   };
+
+  const PasAttestationConvention = () => {
+    return (
+      <div>
+        
+        <p>
+        Selon <a
+        target="_blank"
+        href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006911489&cidTexte=LEGITEXT000006072665&dateTexte=20030527"
+        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de
+         compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse.
+          Cette compétence peut être acquise à travers une formation universitaire pour
+           les médecins et les sages-femmes. Elle peut être reconnue lors des études
+            universitaires en justifiant d’une qualification ou d’une pratique régulière.
+             L’attestation de formation est alors délivrée par le directeur de l’établissement.
+Des structures privées proposent par ailleurs une formation qualifiante selon les régions. 
+        </p>
+        <p>
+        Les centres de références (CHU, centres universitaires régionaux),
+         le planning familial, le conseil de l’ordre des médecins de votre
+          département peuvent vous renseigner. 
+        </p>
+        <p>
+          <a target="_blank" href="http://revho.fr/">Lien site REVHO</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://www.sftg.eu/formations/liste-formations/833-ivg-medicamenteuse.html">Lien SFTG</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://www.ogdpc.fr/organismes">Lien OGPDC</a>
+        </p>
+      </div>
+    )
+  }
 
   const SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeure = () => {
     setRollBackTitre(Titre);
@@ -724,6 +817,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation et convention signé");
+    setTestText(txtConventionOK());
   };
 
   const SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeure = () => {
@@ -771,7 +865,7 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Centre de rattachement");
     setTestText(
-      "Il est obligatoire selon l'article L2212-2 et L2212-9 de justifier etc ...."
+      pasConventionConsulte()
     );
   };
 
@@ -833,9 +927,9 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       </Modal.Header>
       <Modal.Body>
         <Form
-          onClick={(e) => {
-            e.preventDefault();
-          }}
+          // onClick={(e) => {
+          //   e.preventDefault();
+          // }}
         > <div>
           <h1>{Titre}</h1>
         <div>{currentInfoModal}</div>

@@ -155,8 +155,10 @@ function PConsultationMineur(props) {
         return (
             <div>
                 <p>
-                La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes
-                 consultant pour une IVG, sans limite d’âge. 
+                La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année), changement de partenaire récent, individus ou partenaires diagnostiqués avec une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium), antécédents d’IST, personnes en situation de prostitution, après un viol. 
+                </p>
+                <p>
+                De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives.
                 </p>
             </div>
         )
@@ -338,6 +340,10 @@ const txtIVG = () => {
             choisirsacontraception.com
           </a>
         </p>
+        <p>
+        Toute mineure depuis le 1er janvier 2020 peut bénéficier d'une contraception gratuite. Quel que soit son âge, elle bénéficie d'une prise en charge complète par l'Assurance Maladie et sans avance de frais.
+
+        </p>
         <br></br>
       </div>
         
@@ -459,6 +465,269 @@ const recupTabac = (e) => {
 };
 
 
+/////// bloc DDR 
+const [valueDDRday, setValueDDRday] = useState();
+
+const [valueDDRweek, setValueDDRweek] = useState();
+const [dateDDR, setDateDDR] = useState({});
+
+  const Urgence = ()=> {
+    return (
+      <div>
+        <p className="red" >
+          Urgence
+        </p>
+      </div>
+    )
+  }
+
+  const [txtUrgence, setTxtUrgence] = useState(()=> Urgence());
+
+  const [currentTextUrgence, setCurrentTextUrgence] = useState("");
+
+  const affichageTxtUrgence = () => {
+   
+    let txtAAfficher = txtUrgence;
+    setCurrentTextUrgence(txtAAfficher);
+    
+  };
+
+  const verrou = () => {
+    /// retourne le texte mois de 7 semaines si >12
+    return (
+      <div>
+        
+        
+        <h1 className="Verrou1">VERROU : </h1>
+        <br></br>
+        <p className="Verrou1">
+          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
+          va à l’encontre des recommandations établies actuellement en vigueur
+          en France.
+        </p>
+        <p className="Verrou1">
+          Il est nécessaire d’adresser votre patiente vers le centre de
+          référence duquel dépend la patiente (à défaut aux urgences spécialisés
+          le plus proche). Le degré d’urgence est à établir selon les signes
+          cliniques ou l’âge gestationnel estimé.
+        </p>
+        <br></br>
+        <br></br>
+        <a href="#">Informations et orientation de la patiente.</a>
+        {/* /// liens à finir */}
+        <br></br>
+        <a href="#">Retour vers la page d’accueil.</a>
+        <br></br>
+      </div>
+    );
+  };
+
+  const [Verrou,setVerrou] = useState(()=> verrou());
+ 
+
+const [currentVerrou, setCurrentVerrou] = useState("");
+
+const affichageVerrou = () => {
+    let txtAEnlever = currentVerrou;
+    let txtAAfficher = Verrou;
+    setCurrentVerrou(txtAAfficher);
+    
+  };
+  
+
+
+const DDR = (e) => {
+  
+  let dateDDR = new Date(e);
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+const today = new Date();
+const todayInUTC = Date.UTC(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate()
+);
+
+const dateDDRInUTC = Date.UTC(
+  dateDDR.getFullYear(),
+  dateDDR.getMonth(),
+  dateDDR.getDate()
+);
+console.log(todayInUTC);
+console.log(dateDDRInUTC);
+
+
+const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
+const semaineSAInDays = diffInDays + 14;
+
+const semaineSA = {
+  weeks: Math.round(semaineSAInDays /7),
+  days: semaineSAInDays % 7,
+};
+
+let reponse = {
+  titre : "Nombre semaines SA : ",
+  value : semaineSA.weeks.toString()
+
+};
+let reponse2 = {
+  titre : "+ jour : ",
+  value : semaineSA.days.toString()
+
+};
+console.log(reponse2);
+setValueDDRday(reponse2);
+setValueDDRweek(reponse);
+
+
+
+setDateDDR(Math.round(semaineSA.weeks))
+if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<=7) {
+  affichageTxtUrgence();
+  
+}
+else if (Math.round(semaineSA.weeks)>7) {
+  affichageVerrou();
+  
+}
+else if (Math.round(semaineSA.weeks)<5) {
+  setCurrentTextUrgence("");
+  
+}
+
+
+}
+
+const transmissionDDR = () => {
+  let jour = valueDDRday;
+  let semaineSA = valueDDRweek;
+  let liste = [...stateGlobal];
+  liste.push(semaineSA);
+  liste.push(jour);
+  console.log(liste);
+  setStateGlobal(liste);
+}
+
+
+
+//// test 
+
+const textDDRIncertaine = ()=>{
+  return (
+    <div>
+      <p>
+      La DDR étant incertaine, il est nécessaire de s’assurer de la datation exacte
+       rapidement afin de ne pas dépasser le terme légal pour une interruption de
+        grossesse par voie médicamenteuse.
+      </p>
+    </div>
+  )
+}
+
+
+const [DateIncertaine, setDateIncertaine] = useState(()=> textDDRIncertaine);
+
+const [currentIncertaine, setCurrentIncertaine] = useState("");
+
+const affichageDateIncertaine = ()=>{
+  let txtAEnlever = currentIncertaine;
+  let txtAAfficher = DateIncertaine;
+  setCurrentIncertaine(txtAAfficher);
+
+}
+
+const clicDateIncertaine = () => {
+  affichageTxtUrgence();
+  affichageDateIncertaine();
+  
+}
+const recupEcho = (e) => {
+  e.preventDefault();
+  let reponse = {
+    titre: "Echographie :",
+    value: e.target.value,
+  };
+  let liste = [...stateGlobal];
+  liste.push(reponse);
+  setStateGlobal(liste);
+  
+  console.log("Echographie :" + reponse.value);
+};
+
+const echographie = () => {
+  return (
+    <div>
+      <p>
+      En pratique sur une grossesse a priori toute débutante, 
+      attendre le résultat des ß-HCG (dans la journée ou le lendemain)
+       pour programmer l’échographie (œuf visualisé si ß-HCG supérieur 1000-1500 UI/L)
+        afin qu’elle ne soit pas répétée inutilement. Il existe la possibilité d’attendre
+         la 2ème consultation préalable à l’IVG afin de programmer l’échographie de datation
+          en fonction du résultat sanguin.
+      </p>
+      <p>
+      Faire apparaître la mention « échographie de datation à réaliser 
+      en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué,
+       (Index pour radiologue IPE).
+      </p>
+    </div>
+  )
+}
+const [txtEcho, setTxtEcho] = useState(() => echographie());
+
+const [currentInfoEcho, setCurrentInfoEcho] = useState("");
+
+const affichageTxtEcho = () => {
+  let txtAEnlever = currentInfoEcho;
+  let txtAAfficher = txtEcho;
+  setCurrentInfoEcho(txtAAfficher);
+  setTxtEcho(txtAEnlever);
+};
+const [logoAfficheEcho, setLogoAfficheEcho] = useState(LightOff);
+
+const [logoNonAfficheEcho, setLogoNonAfficheEcho] = useState(LightOn);
+const changementCouleurSVGEcho = () => {
+  let currentLampe = logoAfficheEcho;
+  let currentCache = logoNonAfficheEcho;
+  setLogoNonAfficheEcho(currentLampe);
+  setLogoAfficheEcho(currentCache);
+  affichageTxtEcho();
+};
+
+////////////////////////////////////////////////////////////////////
+
+
+////////// nb tabac
+
+const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+ 
+
+  const handleChangePaquet = event => {
+    setNouvelleRecherchePaquet(event.currentTarget.value);
+  };
+const handleSubmitPaquet = event => {
+  event.preventDefault();
+  let reponse = {
+    titre : "Nombre Paquet : ",
+    value : event.currentTarget.value
+  };
+  let liste = [...stateGlobal];
+    liste.push(reponse);
+    setStateGlobal(liste);
+   
+
+    console.log("nb paquet : "+reponse.value);
+   
+  
+
+  
+  
+  
+};
+
+//////////////////////////////////////////////////////////////////
+
+
 
 
 
@@ -519,6 +788,68 @@ const recupTabac = (e) => {
       <div>{currentTxtAcc}</div>
 
       <br></br>
+      <h2>DDR</h2>
+      {/* <form >
+            <input
+                value={nouvelleRecherchePaquet}
+                onChange={handleChangePaquet}
+                type="text"
+                placeholder="Paquet/année"
+            />
+            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+              handleSubmitPaquet(e)
+            }}>Confirmer</Button>
+        </form>
+       */}
+      
+      
+      <form>
+      <input
+        type="date"
+        name="DDR"
+        id="DDR"
+        onChange={(e)=> {
+          let myDate = new Date(e.target.valueAsDate);
+          DDR(myDate)}}
+        
+        
+      ></input>
+      <Button  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
+      </form>
+      
+      <br></br>
+      <label>
+        Date incertaine ?<Button variant="secondary" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
+      </label>
+      <div>{currentVerrou}</div>
+      <div>{currentIncertaine}</div>
+      <br></br>
+      <h2>Prescription échographie de datation</h2>
+      <label>
+        Prescription :
+      <div className="Red">{currentTextUrgence}</div>
+        <Button variant="secondary" value="Prescrite" onClick={(e)=>{recupEcho(e)}}>Oui</Button>
+        <Button variant="secondary" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
+      </label>
+      
+      <input
+        onClick={changementCouleurSVGEcho}
+        className="Lampe"
+        type="image"
+        src={logoAfficheEcho}
+      />
+      <p>{currentInfoEcho}</p>
+
+
+
+
+
+
+
+
+
+
+
       <h2>Mode de découverte de la grossesse :</h2>
 
       <label>
@@ -591,7 +922,7 @@ const recupTabac = (e) => {
 
 
 
-      <h2>Prise de sang (Groupe sanguin 2 déterminations, RAI, HCG quantitatif)</h2>
+      <h2>Prise de sang (Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</h2>
 
       <label>
           Prise de sang :
@@ -685,6 +1016,17 @@ const recupTabac = (e) => {
         <Button variant="secondary" value="Non" onClick={(e)=>{recupTabac(e);}}>Non</Button>
 
       </label>
+      <form >
+            <input
+                value={nouvelleRecherchePaquet}
+                onChange={handleChangePaquet}
+                type="text"
+                placeholder="Paquet/année"
+            />
+            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+              handleSubmitPaquet(e)
+            }}>Confirmer</Button>
+        </form>
 
 
       <a href={ConsentementMineur} target="_blank ">consentement Mineure pdf</a>

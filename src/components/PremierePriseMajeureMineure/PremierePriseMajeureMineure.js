@@ -703,7 +703,7 @@ const handleSubmitPaquet = event => {
       />
       <div>{currentInfoDelivranceMiso}</div>
 
-      <img src={Image} className="Image"></img>
+     
 
 
       <h2>Arrêt de travail prescrit pour la prise médicamenteuse :</h2>

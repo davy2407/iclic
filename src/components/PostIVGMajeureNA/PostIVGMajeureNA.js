@@ -44,7 +44,7 @@ function PostIVGMajeureNA(props) {
         const afficheResultat = (initial,jour) => {
             let dosageIni = initial;
             let dosageJour = jour;
-            let resultat = ( ( dosageJour - dosageIni ) / dosageJour ) * 100;
+            let resultat =( ( ( dosageJour - dosageIni ) / dosageIni ) * 100 ) ;
             let txt = "";
             if (resultat>-80) {
                 txt = "Échec de la méthode selon l’analyse du pourcentage." 

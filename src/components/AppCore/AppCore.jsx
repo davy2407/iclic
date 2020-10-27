@@ -27,6 +27,7 @@ import TarificationPremierePriseMedicamentMajeure from "@components/Tarification
 import TarifDeuxiemePriseMediMajeureNA from "@components/TarifDeuxiemePriseMediMajeureNA";
 import TarifDeuxiemePriseMineureANA from "@components/TarifDeuxiemePriseMineureANA";
 import PostIVGMajeureNA from "@components/PostIVGMajeureNA";
+import TarifDeuxiemeConsulteMajeureNA from "@components/TarifDeuxiemeConsulteMajeureNA";
 
 
 //import style
@@ -40,24 +41,17 @@ function AppCore() {
       <div>
         <div className="BlocInfoApp">
         <p>
-          Ce site a été créé à destination de tout professionnel de santé
-          prenant en charge l'interruption volontaire de grossesse
-          médicamenteuse afin d'apporter une aide dans sa protocolisation en
-          médecine ambulatoire.
+        Ce site à été créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé afin d’apporter une aide et un accompagnement dans sa protocolisation.
+Il est conçu selon une navigation simple, suivant le principe que toute question doit avoir une réponse.
         </p>
 
         <p>
-          Cet outil met à disposition de fiches d'information à destination des
-          patientes et assure un suivi de l'acte selon les recommandations
-          actuelles en France. Aucune donnée personnelle n'est enregistrée, un
-          résumé imprimable vous est proposé à la fin de la saisie de chaque
-          consultation
+        Cet outil met à disposition des fiches d’information à destination des patientes et assure un suivi de l’acte selon les recommandations actuelles en France. 
+Aucune donnée personnelle n’est enregistrée, un résumé imprimable vous est proposé à la fin de la saisie de chaque consultation. 
         </p>
 
         <p>
-          L'IVG médicamenteuse se décompose en cinq consultaions, les deux
-          premières ("préalables") pouvant être effectuées par un médecin ou
-          sage femme ne pratiquant pas lui même l'acte.
+        L’IVG médicamenteuse se décompose en 5 consultations, les 2 premières (« préalables ») pouvant être effectuées par un médecin ou sage femme ne pratiquant pas lui même l’acte. 
         </p>
 
         <p>
@@ -68,8 +62,28 @@ function AppCore() {
         <p>
           L'interruption volontaire de grossesse est autorisé en France depuis
           la loi Veil du 17 Janvier 1975 , elle est gratuite et accessible à
-          toute femme en France selon les délais légaux de la loi 2001-588 du 4
-          Juillet 2001
+          toute femme en France selon les délais légaux de la loi <a target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000222631&categorieLien=id"> 2001-588 du 4
+          Juillet 2001</a>,<a
+          target="_blank"
+          href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027221802&categorieLien=id"
+          >Loi avortement du 25 mars 2013 </a>
+         
+        </p>
+        <br></br>
+        <h3>COVID et IVG : </h3>
+        
+        <p>
+        Arret de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)
+Durant la crise sanitaire du covid-19, une IVG médicamenteuse, à domicile,
+ pouvait être réalisée jusqu’à la fin de la 7ème semaine de grossesse
+  (soit 9 semaines après la date des dernières règles). Ce délai a été rabattu
+   à la fin de la 5ème semaine de grossesse (soit 7 semaines après la date des
+    dernières règles) depuis le 11 juillet 2020
+
+        </p>
+        <p>
+        Cependant, la prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
+Les spécificités sont rappelées lors de chaque étape du site. 
         </p>
         <h1>Etes vous professionel de santé ?</h1>
       </div>
@@ -139,6 +153,12 @@ function AppCore() {
      /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[10]]);
     setObjetConsultationAffiche([]);
+  }
+
+  const afficheTarifDeuxiemeConsulteMajeureNA = () =>{
+    setObjetTarrificationAffiche([listeObjetConsulation[23]]);
+    setObjetConsultationAffiche([]);
+
   }
 
   const afficheTarifPremierPriseMediMajeure = () =>{
@@ -302,7 +322,7 @@ function AppCore() {
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+            afficheSuite : afficheTarifDeuxiemeConsulteMajeureNA
           }
       },
       {
@@ -398,6 +418,15 @@ function AppCore() {
       {
         name : "Consultation POst IVG Majeure Non Anonyme" ,
          id :22 , objet : PostIVGMajeureNA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarification deuxième consultation Majeure NA" ,
+         id :23 , objet : TarifDeuxiemeConsulteMajeureNA ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
@@ -725,11 +754,44 @@ function AppCore() {
     modifierObjet(idMajMin, idAnonyme, idConsultation);
   };
 
+  const txtNon = ()=> {
+    return (
+      <div>
+        <h1>Vous n’êtes pas professionnel de santé :</h1>
+        <p>
+        Ce site est à destination des professionnels de santé uniquement. 
+Des liens internet d’information sur les modalités d’accès à l’IVG ainsi que
+ les structures médicales pouvant vous accueillir se trouvent sur cette page. 
+        </p>
+        <p>
+        Si vous pensez avoir besoin d’un recours à une interruption volontaire de
+         grossesse, un médecin généraliste, sage-femme ou tout autre professionnel de
+          santé peut vous guider. Le planning familial le plus proche de chez vous
+           peut vous renseigner et vous accompagner dans votre démarche.
+        </p>
+        <p>
+        Un numéro vert gratuit est accessible 7j/7 24h/24 pour toute information au 0800 202 205.
+        </p>
+        <p>
+          <a target="_blank" href="https://www.ivg.net/">Liens IVG.net</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://www.ivglesadresses.org/">Liens ivglesadresses.org</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://www.ivginfo.com/">Liens ivginfo.com</a>
+        </p>
+        <p>
+          <a target="_blank" href="http://www.avortementancic.net/IMG/pdf/guide_ivg_2017-2.pdf">Lien dossier guide ivg</a>
+        </p>
+      </div>
+    )
+  }
+
   const Non = () => {
     /// function censé gérer laffichage si lutilisateur nest pas un pro de santé
-    let texte =
-      "Ce site est à destination des professionnels de santé uniquement à finir";
-    setTexteDemarrage(texte);
+    
+    setTexteDemarrage(txtNon());
     setListeBouton([]);
     setNombreBouton(0);
   };

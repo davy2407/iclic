@@ -66,7 +66,7 @@ function TarifPremiereMineureANA(props) {
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href="#">Lien ouavorter.com</a>
+      <a target="_blank" href="https://ivg.gouv.fr/ou-avorter.html">Lien ou-avorter.gouv</a>
       {/* lien a finir  */}
 
       {/* <p>Test Info</p>
@@ -78,6 +78,10 @@ function TarifPremiereMineureANA(props) {
       </div>
     )
   })}</div> */}
+  <p className="Red">
+  En rouge : Un délai de 48h est nécessaire entre la consultation psychosociale et la deuxième consultation préalable à l’IVG.
+
+  </p>
   
 
       <Form>

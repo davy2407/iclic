@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-// import assets
+// import assets ß
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
@@ -52,7 +52,7 @@ function PConsultation(props) {
   const recupAccompagnant = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "accompagant",
+      titre: "Accompagnant(e)",
       value: e.target.value,
     };
     let liste = [...globalStateFin];
@@ -81,7 +81,7 @@ function PConsultation(props) {
   const recupContexteBio = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Contexte Bio",
+      titre: "Contexte Biopsychosocial favorable : ",
       value: e.target.value,
     };
     let liste = [...globalStateFin];
@@ -111,7 +111,7 @@ function PConsultation(props) {
   const recupBilan = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Bilan Sanguin",
+      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
       value: e.target.value,
     };
     let liste = [...globalStateFin];
@@ -141,7 +141,7 @@ function PConsultation(props) {
   const recupConsultationPsy = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Consultation psychosociale proposée :",
+      titre : "Consultation psychosociale proposée : ",
       value : e.target.value
     };
     let liste = [...globalStateFin];
@@ -171,7 +171,7 @@ function PConsultation(props) {
   const recupFrotti = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Frottis à jour :",
+      titre : "Frottis à jour (ou test HPV) : ",
       value : e.target.value
     };
     let liste = [...globalStateFin];
@@ -214,7 +214,7 @@ function PConsultation(props) {
   const recupTabac = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Tabac",
+      titre: "Tabac : ",
       value: e.target.value,
     };
     let liste = [...globalStateFin];
@@ -259,14 +259,14 @@ const handleSubmitPaquet = event => {
   const recupInfoSupp = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Si ressource cochée oui :",
-      value : e.target.value
+      titre : "Si ressource cochée oui : ",
+      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
     };
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
     setInfoSupp(reponse);
-    console.log("info supp : " + reponse.value);
+    console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };
 
   /// info IST
@@ -274,10 +274,17 @@ const handleSubmitPaquet = event => {
     return (
       <div>
         <p>
-          La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-          enceintes consultant pour une IVG, sans limite d’âge.
+         La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
+         enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de
+          risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année),
+           changement de partenaire récent, individus ou partenaires diagnostiqués avec
+            une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium),
+             antécédents d’IST, personnes en situation de prostitution, après un viol.
         </p>
-        <br></br>
+        <p>
+        De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives. 
+        </p>
+        
         <p>
           De nombreuses sources numériques existent pour l’information aux
           patient(es) des IST ainsi que de ces risques
@@ -357,7 +364,7 @@ const handleSubmitPaquet = event => {
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
-    setPersonneAccFin(reponse);
+    
     console.log("Echographie :" + reponse.value);
   };
 
@@ -504,6 +511,44 @@ const handleSubmitPaquet = event => {
   //   console.log("date DDR : " + reponse.value);
     
   // };
+
+
+  /////// bloc prise de sang 
+  const returnInfoSang = () => {
+    return (
+      <div>
+        <p>
+        2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors.  A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant toute IVG ou dans les 72h suivant tout saignement.
+        </p>
+        
+      </div>
+    );
+  };
+
+  const [txtSang, setTxtSang] = useState(() => returnInfoSang());
+
+  const [currentInfoSang, setCurrentInfoSang] = useState("");
+
+  const affichageTxtSang = () => {
+    let txtAEnlever = currentInfoSang;
+    let txtAAfficher = txtSang;
+    setCurrentInfoSang(txtAAfficher);
+    setTxtSang(txtAEnlever);
+  };
+
+  const [logoAfficheSang, setLogoAfficheSang] = useState(LightOff);
+
+  const [logoNonAfficheSang, setLogoNonAfficheSang] = useState(LightOn);
+
+  const changementCouleurSVGSang = () => {
+    let currentLampe = logoAfficheSang;
+    let currentCache = logoNonAfficheSang;
+    setLogoNonAfficheSang(currentLampe);
+    setLogoAfficheSang(currentCache);
+    affichageTxtSang();
+  };
+
+  ////////////////////////////////////////////////////////////
 
   const [valueDDRday, setValueDDRday] = useState();
 
@@ -750,12 +795,24 @@ const handleSubmitPaquet = event => {
     return (
       <div>
         <p>
-           Le plan de dépistage national s’applique, pour toute femme
-          immunocompétente de 25 à 65 ans.
+         Le plan de dépistage national s’applique : 
         </p>
-        <a href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">
-          https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage
+        <ul>
+          <li>
+            <p>
+            entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
+            </p>
+          </li>
+          <li>
+            <p>
+            le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+            <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
+          lien info
         </a>
+            </p>
+          </li>
+        </ul>
+       
       </div>
     );
   };
@@ -785,20 +842,12 @@ const handleSubmitPaquet = event => {
 
   return (
     <div className="consultationContainer">
-      <h1>1ère consultation préalable/1er contact médical Majeure Anonyme </h1>
+      <h1>1ère consultation préalable/1er contact médical Majeure Non Anonyme </h1>
       <p>{props.onTexte}</p>
       <br></br>
       
       <br></br>
-      <p>
-        Pour les femmes majeures, l’avortement anonyme est relatif. En effet,
-        seules les IVG réalisées en établissement de santé pratiquant le tiers
-        payant peuvent être pratiquées de manière confidentielle. La loi
-        relative à l’interruption volontaire de grossesse dispose que : « Seule
-        la réalisation d’une IVG dans un établissement de santé qui assure la
-        dispense d’avance des frais permet de garantir un véritable anonymat de
-        l’intervention ». Lien n°12
-      </p>
+      
       <br></br>
       <h2>DDR</h2>
       {/* <form >
@@ -951,6 +1000,16 @@ const handleSubmitPaquet = event => {
       <p className={affichageWarningConsultation.className}>  
         {affichageWarningConsultation.texte}
       </p>
+      <h2>Violences subies en rapport ou non avec l’acte :</h2>
+      <Button variant="secondary">Oui</Button>
+      <Button variant="secondary">Non</Button>
+      {/* ///////////////////// */}
+            {/* //////////// a finir bulle info ///////// */}
+
+      {/* ///////////////////// */}
+
+      {/* ///////////////////// */}
+
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
@@ -990,7 +1049,7 @@ const handleSubmitPaquet = event => {
       </h2>
       <br></br>
       <label>
-        préscrir :
+        
         <Button
           value="Oui"
           variant="secondary"
@@ -1010,6 +1069,15 @@ const handleSubmitPaquet = event => {
           Non
         </Button>
       </label>
+      <input
+        onClick={changementCouleurSVGSang}
+        className="Lampe"
+        type="image"
+        src={logoAfficheSang}
+      />
+      <br></br>
+      <div>{currentInfoSang}</div>
+
       <br></br>
       <h2>Dossier guide IVG remis :</h2>
       <br></br>
