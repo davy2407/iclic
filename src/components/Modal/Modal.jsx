@@ -462,11 +462,11 @@ Pour en savoir plus :
     return (
       <div>
         <p>
-        l est obligatoire de justifier d’une attestation de compétence ainsi que 
+        Il est obligatoire de justifier d’une attestation de compétence ainsi que 
         d’une convention avec un centre agrée afin de pratiquer l’IVG médicamenteuse en ville. 
         </p>
         <p>
-        n revanche, il existe 2 consultations préalables à l’IVG pouvant être effectués
+        En revanche, il existe 2 consultations préalables à l’IVG pouvant être effectués
          par un médecin ou une sage-femme sans attestation ou convention. Ce professionnel 
          de santé devra orienter la patiente vers un(e) confrère qualifié(e) pour la prise
           du médicament. 

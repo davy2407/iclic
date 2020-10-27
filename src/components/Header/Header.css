@@ -5,35 +5,33 @@
     .Header {
     
       width: 100vw; 
-      height: 15vh;
+      height: 20vh;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       
-    
-    }
-    
-    .logocontainer{
       
-      width: 20vw;
+    
+    }
+    .Banniere{
+      width: 45vw;
+      height: 15vh;
     }
     
-    .logoB{
-      width: 40vw;
-    }
+   
+    
+    
     
     .logoH {
       
-      width: 20vw;
-      height: 15vh;
+      width: 25vw;
+      height: 20vh;
       
     
     }
     
-    .Banderolle{
-      width: 40vw;
-    }
+    
     
     .Menu {
       border: 1px solid black;

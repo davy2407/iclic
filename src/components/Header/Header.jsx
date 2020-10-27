@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 
 import Logo from "@assets/images/LOGO_IVG.svg";
+import Banniere from "@assets/images/Banniere.svg";
 
 function Header() {
   return (
@@ -10,9 +11,11 @@ function Header() {
       {/* <div className="Banderolle">
               <img src={Banniere} className="logoB"></img>
             </div> */}
-      <div className="logoContainer">
+      
+          
+        <img src={Banniere} className="Banniere"></img>
         <img src={Logo} className="logoH"></img>
-      </div>
+      
     </div>
   );
 }

@@ -220,7 +220,7 @@ function PConsultation(props) {
     let liste = [...globalStateFin];
     liste.push(reponse);
     setGlobalStateFin(liste);
-    setTabacFin(reponse);
+    
     console.log("Fumeuse : " + reponse.value);
   };
 
@@ -756,8 +756,8 @@ const handleSubmitPaquet = event => {
         <p>
            Il est nécessaire d’aborder dès cette consultation, les différentes
           modalités contraceptives. Site possible d’information à transmettre à
-          la patiente : Lien{" "}
-          <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
+          la patiente : 
+          <a target="_blank" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
             choisirsacontraception.com
           </a>
         </p>

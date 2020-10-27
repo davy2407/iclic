@@ -121,6 +121,277 @@ const handleSubmitPaquet = event => {
 };
 
       /////////////////////////////////////////////////////////////////////////////
+
+
+      ////// accompagnant 
+      const recupAccompagnant = (e) => {
+        e.preventDefault();
+        let reponse = {
+          titre: "Personne accompagnante majeurs ou consentement parental : ",
+          value: e.target.value,
+        };
+        let liste = [...globalStateFin];
+        liste.push(reponse);
+        setGlobalStateFin(liste);
+        
+        console.log("Personne accompagnante majeurs ou consentement parental : " + reponse.value);
+      };
+
+      const accompagnant = () => {
+        return (
+          <div>
+            <p>
+            Dans le cas d’une jeune fille avec personne majeure accompagnante
+             différente des parents ou du représentant légal, il convient
+              de prévenir de la nécessité d’accompagnement par la même personne
+               de son choix au cours des différentes consultations afin de 
+               permettre un soutien moral efficient.          
+            </p>
+            
+          </div>
+        )
+      }
+      const [txtAccompagnant, setTxtAccompagnant] = useState(() => accompagnant());
+    
+      const [currentInfoAccompagnant, setCurrentInfoAccompagnant] = useState("");
+    
+      const affichageTxtAccompagnant = () => {
+        let txtAEnlever = currentInfoAccompagnant;
+        let txtAAfficher = txtAccompagnant;
+        setCurrentInfoAccompagnant(txtAAfficher);
+        setTxtAccompagnant(txtAEnlever);
+      };
+      const [logoAfficheAccompagnant, setLogoAfficheAccompagnant] = useState(LightOff);
+    
+      const [logoNonAfficheAccompagnant, setLogoNonAfficheAccompagnant] = useState(LightOn);
+      
+      const changementCouleurSVGAccompagnant = () => {
+        let currentLampe = logoAfficheAccompagnant;
+        let currentCache = logoNonAfficheAccompagnant;
+        setLogoNonAfficheAccompagnant(currentLampe);
+        setLogoAfficheAccompagnant(currentCache);
+        affichageTxtAccompagnant();
+      };
+
+      ////////////////////////////////////////////////////////////////////////////////
+
+
+      ///////////// attesatation psy
+
+      const recupAttestation = (e) => {
+        e.preventDefault();
+        let reponse = {
+          titre: "Attestation 1ere consultation préalable en main de la patiente : ",
+          value: e.target.value,
+        };
+        let liste = [...globalStateFin];
+        liste.push(reponse);
+        setGlobalStateFin(liste);
+        
+        console.log("Attestation 1ere consultation préalable en main de la patiente :" + reponse.value);
+      };
+
+      const attestation = () => {
+        return (
+          <div>
+            <p>
+            L’attestation est obligatoire avec un délai de 48h pour les jeunes
+             filles mineurs, anonyme ou non.         
+            </p>
+            
+          </div>
+        )
+      }
+      const [txtAttestation, setTxtAttestation] = useState(() => attestation());
+    
+      const [currentInfoAttestation, setCurrentInfoAttestation] = useState("");
+    
+      const affichageTxtAttestation = () => {
+        let txtAEnlever = currentInfoAttestation;
+        let txtAAfficher = txtAttestation;
+        setCurrentInfoAttestation(txtAAfficher);
+        setTxtAttestation(txtAEnlever);
+      };
+      const [logoAfficheAttestation, setLogoAfficheAttestation] = useState(LightOff);
+    
+      const [logoNonAfficheAttestation, setLogoNonAfficheAttestation] = useState(LightOn);
+      
+      const changementCouleurSVGAttestation = () => {
+        let currentLampe = logoAfficheAttestation;
+        let currentCache = logoNonAfficheAttestation;
+        setLogoNonAfficheAttestation(currentLampe);
+        setLogoAfficheAttestation(currentCache);
+        affichageTxtAttestation();
+      };
+      
+      /////////////////////////////////////////////////////////////////////////////
+
+
+      //////////: age gestationel 
+
+      const [
+        saisieUtilisateurNbSemaineSA,
+        setSaisieUtilisateurNbSemaineSA,
+      ] = useState(0);
+    
+      const handleChangeSA = (event) => {
+        setSaisieUtilisateurNbSemaineSA(event.currentTarget.value);
+      };
+    
+      /// Bloc nombre de semaines SA
+    
+      const recupSaisieUtilisateurNbSemaine = (event) => {
+        event.preventDefault();
+        let nb = saisieUtilisateurNbSemaineSA;
+        if (nb < 7) {
+          affichageMoinsDeSept();
+        } else if (nb > 7 && nb < 12) {
+          affichagePlusDeSeptMoinsDouze();
+        } else if (nb > 12) {
+          affichagePlusDouze();
+        }
+        let reponse = {
+          titre: "Echographie de datation/Age gestationnel : ",
+          value: nb,
+        };
+        let liste = [...globalStateFin];
+        liste.push(reponse);
+        setGlobalStateFin(liste);
+       
+        console.log("Echographie de datation/Age gestationnel : " + nb);
+     
+    
+        setSaisieUtilisateurNbSemaineSA(0);
+      };
+      const moinsDeSeptSemaines = () => {
+        /// retourne le texte mois de 7 semaines si <7
+        return (
+          <div>
+            <p>IVG médicamenteuse et chirurgical possible</p>
+          </div>
+        );
+      };
+      const [txtMoinsDeSeptSA, setTxtMoinsDeSeptSA] = useState(
+        () => moinsDeSeptSemaines()
+        /// state contenant la fonction retournant le texte moins de 7 semaines
+      );
+    
+      const [currentInfoNbSAmoinsSept, setCurrentInfoNbSAmoinsSept] = useState(
+        /// texte vide affichage de base
+        ""
+      );
+    
+      const affichageMoinsDeSept = () => {
+        /// gère laffichage du texte - de 7 semaines
+        let txtAEnlever = currentInfoNbSAmoinsSept;
+        let txtAAfficher = txtMoinsDeSeptSA;
+        setCurrentInfoNbSAmoinsSept(txtAAfficher);
+        setTxtMoinsDeSeptSA(txtAEnlever);
+      };
+    
+      ///
+    
+      const plusDeSeptMoinsDouzeSemaines = () => {
+        /// retourne le texte plus de 7 semaines moins de 12 si >7 <12
+        return (
+          <div>
+            <p>
+              IVG médicamenteuse et chirurgical possible mais en centre de référence
+              seulement.
+            </p>
+            <br></br>
+            <h1 className="Verrou1">VERROU :</h1>
+            <br></br>
+            <p className="Verrou1">
+              Dans le cadre de l’interruption volontaire de grossesse, votre réponse
+              va à l’encontre des recommandations établies actuellement en vigueur
+              en France.
+            </p>
+            <p className="Verrou1">
+              Il est nécessaire d’adresser votre patiente vers le centre de
+              référence duquel dépend la patiente (à défaut aux urgences spécialisés
+              le plus proche). Le degré d’urgence est à établir selon les signes
+              cliniques ou l’âge gestationnel estimé.
+            </p>
+            <br></br>
+            <br></br>
+            <a href="#">Informations et orientation de la patiente.</a>
+            {/* /// liens à finir */}
+            <br></br>
+            <a href="#">Retour vers la page d’accueil.</a>
+            <br></br>
+          </div>
+        );
+      };
+      const [txtPlusDeSeptSAmoinsDouze, settxtPlusDeSeptSAmoinsDouze] = useState(
+        () => plusDeSeptMoinsDouzeSemaines()
+        /// state contenant la fonction retournant le texte plus de 7 semaines moins 12
+      );
+    
+      const [
+        currentInfoNbSAplusSeptMoinsDouze,
+        setcurrentInfoNbSAplusSeptMoinsDouze,
+      ] = useState(
+        /// texte vide affichage de base
+        ""
+      );
+    
+      const affichagePlusDeSeptMoinsDouze = () => {
+        /// gère laffichage du texte + de 7 semaines -12
+        let txtAEnlever = currentInfoNbSAplusSeptMoinsDouze;
+        let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
+        setcurrentInfoNbSAplusSeptMoinsDouze(txtAAfficher);
+        settxtPlusDeSeptSAmoinsDouze(txtAEnlever);
+      };
+    
+      const plusDeDouzetSemaines = () => {
+        /// retourne le texte mois de 7 semaines si >12
+        return (
+          <div>
+            <p>IVG chirurgical seulement en centre de référence</p>
+            <br></br>
+            <h1 className="Verrou1">VERROU : </h1>
+            <br></br>
+            <p className="Verrou1">
+              Dans le cadre de l’interruption volontaire de grossesse, votre réponse
+              va à l’encontre des recommandations établies actuellement en vigueur
+              en France.
+            </p>
+            <p className="Verrou1">
+              Il est nécessaire d’adresser votre patiente vers le centre de
+              référence duquel dépend la patiente (à défaut aux urgences spécialisés
+              le plus proche). Le degré d’urgence est à établir selon les signes
+              cliniques ou l’âge gestationnel estimé.
+            </p>
+            <br></br>
+            <br></br>
+            <a href="#">Informations et orientation de la patiente.</a>
+            {/* /// liens à finir */}
+            <br></br>
+            <a href="#">Retour vers la page d’accueil.</a>
+            <br></br>
+          </div>
+        );
+      };
+      const [txtPlusDeDouzeSA, settxtPlusDeDouzeSA] = useState(
+        () => plusDeDouzetSemaines()
+        /// state contenant la fonction retournant le texte plus de 12 semaines
+      );
+    
+      const [currentInfoNbSAplusDouze, setcurrentInfoNbSAplusDouze] = useState(
+        /// texte vide affichage de base
+        ""
+      );
+    
+      const affichagePlusDouze = () => {
+        /// gère laffichage du texte + 12
+        let txtAEnlever = currentInfoNbSAplusDouze;
+        let txtAAfficher = txtPlusDeDouzeSA;
+        setcurrentInfoNbSAplusDouze(txtAAfficher);
+        settxtPlusDeDouzeSA(txtAEnlever);
+      };
+    
+      //////////////////////////////////////////////////////////////////////////////
   
     return (
         <div>
@@ -158,14 +429,31 @@ const handleSubmitPaquet = event => {
             </p>
 
             <h2>Personne accompagnante majeure ou consentement parental : </h2>
-            <Button variant="secondary" value="Oui">Oui</Button>
-            <Button variant="secondary" value="Non">Non</Button>
+            <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
+            <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+            <input
+        onClick={changementCouleurSVGAccompagnant}
+        className="Lampe"
+        type="image"
+        src={logoAfficheAccompagnant}
+      />
+      <div>  {currentInfoAccompagnant}</div>
 
 
             <h2>Attestation consultation psychosociale :</h2>
-            <Button variant="secondary" value="Oui">Oui</Button>
+            <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
             {/* Attestion a faire */}
-            <Button variant="secondary" value="Non">Non</Button>
+            <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
+
+            <input
+        onClick={changementCouleurSVGAttestation}
+        className="Lampe"
+        type="image"
+        src={logoAfficheAttestation}
+      />
+      <div>  {currentInfoAttestation}</div>
+
+            <h3></h3>
 
             <h2>Grossesse intra-utérine confirmée :</h2>
             <Button variant="secondary" value="Oui">Oui</Button>
@@ -174,18 +462,20 @@ const handleSubmitPaquet = event => {
 
             <h2>Age gestationnel : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
-            <form >
             <input
-                value={ageGestationel}
-                onChange={handleChangeGesta}
-                type="text"
-                placeholder="age gestationnel"
-            />
-            <Button value={ageGestationel} variant="secondary" onClick={(e)=> {
-              handleSubmitGesta(e)
-            }}>Confirmer</Button>
-            {/* affichage conditionnel a finir */}
-        </form>
+        type="number"
+        name="name"
+        value={saisieUtilisateurNbSemaineSA}
+        onChange={handleChangeSA}
+      />
+      <Button variant="danger" onClick={recupSaisieUtilisateurNbSemaine}>
+        Valider
+      </Button>
+      <br></br>
+      <div>{currentInfoNbSAmoinsSept}</div>
+      <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
+      <div>{currentInfoNbSAplusDouze}</div>
+      <br></br>
 
 
 

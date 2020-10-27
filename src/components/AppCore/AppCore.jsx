@@ -85,12 +85,13 @@ Durant la crise sanitaire du covid-19, une IVG médicamenteuse, à domicile,
         Cependant, la prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
 Les spécificités sont rappelées lors de chaque étape du site. 
         </p>
-        <h1>Etes vous professionel de santé ?</h1>
       </div>
       </div>
     )
   }
   const [texteDemarrage, setTexteDemarrage] = useState(()=>accueil());
+
+  const [txtQuestion, setTxtQuestion] = useState("Etes vous professionel de santé ?")
 
   const test = () => {
     let liste = [...stateGlobalPremiereConsulte];
@@ -832,12 +833,15 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         listeRadio={listeBoutonRadio}
         onFonctionAffichage={AffichageDonnee}
       ></MyVerticallyCenteredModal>
-      <div>{texteDemarrage}</div>
+      <div className="Container">
+      <div className="txtDebu">{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}
+      <div className="Question">
+  <h1>{txtQuestion}</h1>
       {listeBouton.map((btn) => {
         if (btn.id === 2) {
           return (
-            <Bouton TextB={btn.txt} value={btn.value} onEffet={Non}></Bouton>
+            <Bouton TextB={btn.txt} value={btn.value} onEffet={Non} onClick={()=>{setTxtQuestion("");}}></Bouton>
           );
         } else if (btn.id === 1) {
           return (
@@ -846,6 +850,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
               onClick={() => {
                 handleChange();
                 Oui();
+                setTxtQuestion("");
               }}
             >
               {btn.txt}
@@ -853,6 +858,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
           );
         }
       })}
+      </div>
 
       <div className="Newtest">
         {/* partie censé gérer laffichage de la consultaion ou du bloc info à presenter  */}
@@ -922,6 +928,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
             ></objet.objet>
           );
         })}
+      </div>
       </div>
     </div>
   );
