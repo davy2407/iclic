@@ -8,6 +8,7 @@ import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 
 // import css
 import "./pConsultation.css";
+import { useReactToPrint } from "react-to-print";
 
 /// service 
 
@@ -41,11 +42,60 @@ function PConsultation(props) {
 
   const afficheStateFin = () => {
     console.log("state de fin va suivre");
-    for (let index = 0; index < globalStateFin.length; index++) {
-      console.log(globalStateFin[index]);
-    }
-    props.onRecup(globalStateFin);
+    let liste = [];
+    liste.push(currentDDRSA);
+    liste.push(currentDDRDay);
+    liste.push(currentEcho);
+    liste.push(currentAcc);
+    liste.push(currentMode);
+    liste.push(currentContext);
+    liste.push(currentIST);
+    liste.push(currentSang);
+    liste.push(currentDossier);
+    liste.push(currentConsultation);
+    liste.push(currentInfo);
+    liste.push(currentHPV);
+    liste.push(currentDateHPV);
+    liste.push(currentTabac);
+    liste.push(currentNbTabac);
+
+
+    props.onRecup(liste);
   };
+  /// current reponse
+  const [currentDDRSA, setCurrentDDRSA] = useState();
+
+  const [currentDDRDay, setCurrentDDRDay] =useState();
+
+  const [currentEcho, setCurrentEcho] = useState();
+
+  const [ currentAcc, setCurrentAcc] =useState();
+
+  const [currentMode, setCurrentMode] = useState();
+
+  const [currentContext, setCurrentContext] = useState();
+
+  const [currentIST, setCurrentIST] = useState();
+
+  const [currentSang, setCurrentSang] = useState();
+
+  const [currentDossier, setCurrentDossier] = useState();
+
+  const [ currentConsultation, setCurrentConsultation] = useState();
+
+  const [ currentInfo, setCurrentInfo]= useState();
+
+  const [ currentHPV, setCurrentHPV] = useState();
+
+  const [currentDateHPV, setCurrentDateHPV]= useState();
+
+  const [currentTabac, setCurrentTabac]= useState();
+
+  const [ currentNbTabac, setCurrentNbTabac] = useState();
+
+
+
+  /////////////////////////////////////////////////////////////
 
   const [personneAccFin, setPersonneAccFin] = useState({});
 
@@ -55,10 +105,8 @@ function PConsultation(props) {
       titre: "Accompagnant(e)",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setPersonneAccFin(reponse);
+    setCurrentAcc(reponse);
+    
     console.log("accompagnant " + reponse.value);
   };
 
@@ -70,9 +118,7 @@ function PConsultation(props) {
       titre : "Mode de découverte de la grossesse :",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    setCurrentMode(reponse);
     setModeDecouverte(reponse);
   };
 
@@ -84,9 +130,7 @@ function PConsultation(props) {
       titre: "Contexte Biopsychosocial favorable : ",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    setCurrentContext(reponse);
     setContexteBioPsyFin(reponse);
     console.log("Contexte biopsychosocial favorable :" + reponse.value);
   };
@@ -99,10 +143,7 @@ function PConsultation(props) {
       titre : "Recherche IST : ",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setRechercheIstFin(reponse);
+    setCurrentIST(reponse);
     console.log("IST " + reponse.value);
   };
 
@@ -114,10 +155,7 @@ function PConsultation(props) {
       titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setBilanSanguinFin(reponse);
+    setCurrentSang(reponse);
     console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
   };
 
@@ -129,10 +167,7 @@ function PConsultation(props) {
       titre : "Contexte de l’IVG évoqués :",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setGuideIVGFin(reponse);
+    setCurrentDossier(reponse);
     console.log("contexte de l'IVG evoqué : " + reponse.value);
   };
 
@@ -144,10 +179,7 @@ function PConsultation(props) {
       titre : "Consultation psychosociale proposée : ",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setConsultationPsyFin(reponse);
+    setCurrentConsultation(reponse);
     console.log("consultation proposé " + reponse.value);
   };
 
@@ -159,10 +191,7 @@ function PConsultation(props) {
       titre : "Information contraception postIVG : ",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setContraPostIVGFin(reponse);
+    setCurrentInfo(reponse);
     console.log("info post ivg " + reponse.value);
   };
 
@@ -174,10 +203,7 @@ function PConsultation(props) {
       titre : "Frottis à jour (ou test HPV) : ",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    setFrottiFin(reponse);
+    setCurrentHPV(reponse);
     console.log("type frotti " + reponse.value);
   };
 
@@ -193,18 +219,7 @@ function PConsultation(props) {
       titre: "Date Frotti",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    for (let i = 0; i < liste.length; i++) {
-      if (
-        liste[i].titre == reponse.titre
-      ) {
-        liste.splice(i, 1);
-        
-      }
-      
-    }
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+   setCurrentDateHPV(reponse);
 
     console.log("date frotti : " + reponse.value);
     setDateFrottiFin(reponse);
@@ -217,9 +232,7 @@ function PConsultation(props) {
       titre: "Tabac : ",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    setCurrentTabac(reponse);
     
     console.log("Fumeuse : " + reponse.value);
   };
@@ -240,10 +253,7 @@ const handleSubmitPaquet = event => {
     titre : "Nombre Paquet : ",
     value : event.currentTarget.value
   };
-  let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-   
+ setCurrentNbTabac(reponse);
 
     console.log("nb paquet : "+reponse.value);
     setNbTabacFin(reponse);
@@ -361,9 +371,8 @@ const handleSubmitPaquet = event => {
       titre: "Echographie :",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    
+    setCurrentEcho(reponse);
     
     console.log("Echographie :" + reponse.value);
   };
@@ -621,10 +630,9 @@ const handleSubmitPaquet = event => {
     let jour = valueDDRday;
     let semaineSA = valueDDRweek;
     let liste = [...globalStateFin];
-    liste.push(semaineSA);
-    liste.push(jour);
-    console.log(liste);
-    setGlobalStateFin(liste);
+    setCurrentDDRDay(jour);
+    setCurrentDDRSA(semaineSA);
+    
   }
 
 

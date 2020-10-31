@@ -5,6 +5,14 @@ import Logo from "@assets/images/LOGO_IVG.svg";
 import Banniere from "@assets/images/Banniere.svg";
 
 function Header() {
+
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+
+
   return (
     <div className="Header">
       
@@ -13,7 +21,7 @@ function Header() {
             </div> */}
       
           
-        <img src={Banniere} className="Banniere"></img>
+        <img onClick={refreshPage} src={Banniere} className="Banniere"></img>
         <img src={Logo} className="logoH"></img>
       
     </div>
