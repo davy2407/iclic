@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
@@ -11,12 +11,129 @@ import ProtocolHAS from "@assets/pdf/ProtocoleIVGHASBonUsageMedicament.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
 
 
-import Image from "@assets/images/imageClic.png";
+
 
 function PremierePriseMajeureMineure(props) {
 
     const [globalStateFin, setGlobalStateFin] = useState(props.onData);
+
+    const afficheStateFin = () => {
+      console.log("state de fin va suivre");
+      let liste = [...globalStateFin];
+      liste.push(currentDateInjection);
+      liste.push(currentDateMife);
+      liste.push(currentDateMiso);
+      liste.push(currentArret);
+      liste.push(currentContra);
+      liste.push(currentTypeContra);
+      liste.push(currentIst);
+      liste.push(currentInfoSupp);
+      liste.push(currentHPV);
+      liste.push(currentDateHPV);
+      liste.push(currentTabac);
+      liste.push(currentNbTabac);
+      for (let index = 0; index < liste.length; index++) {
+        if (liste[index].titre=="Pas de réponses") {
+          alert("Vous n'avez pas répondu à toutes les questions")
+          
+        }
+        else  {
+          console.log("OK");
+        }
+        
+      }
+  
+  
+      props.onRecup(liste);
+    };
   ///Bloc fonctionnel
+
+
+  //// state 
+  const [ currentInjection, setCurrentInjection] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [ currentDateInjection, setCurrentDateInjection] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+ 
+
+  const [currentPriseMife, setCurrentpriseMife ] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [ currentDateMife, setCurrentDateMife] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentPriseMiso, setCurrentPriseMiso] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [ currentDateMiso, setCurrentDateMiso] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentArret, setCurrentArret]= useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentContra, setCurrentContra] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentTypeContra, setCurrentTypeContra] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [currentDosage, setCurrentDosage] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [ currentIst, setCurrentIst]= useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentInfoSupp, setCurrentInfoSupp] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [ currentHPV, setCurrentHPV] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentDateHPV, setCurrentDateHPV] = useState({
+    titre : "",
+    value : ""
+  });
+
+  const [currentTabac, setCurrentTabac]= useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentNbTabac, setCurrentNbTabac] = useState({
+    titre : "",
+    value : ""
+  });
+
+
+  ///////////////////////////////////////////////////////////////
   /// Bloc disposition covid
   const covidIVGOui = ()=> {
       return (
@@ -151,17 +268,33 @@ signature du praticien ainsi que la date
     setGlobalStateFin(liste);
     console.log(liste);
   };
+  const handleChangeInj = (e) => {
+    /// recup date frotti
+    
+    
+    
+    
+    let reponse = {
+      titre: "Date de l’injection de gammaglobuline antiD si incompatibilité Rhesus negatif : ",
+      value: e.target.value,
+    };
+   setCurrentDateInjection(reponse);
+
+    console.log("Date de l’injection de gammaglobuline antiD si incompatibilité Rhesus negatif : " + reponse.value);
+    
+  };
 
   const dateIG = () => {
       return (
           <div>
-              <label>
-                  Date : 
-                  <input
-                  type="date">
-                  </input>
-              </label>
-              <Button>Valider Date</Button>
+               <input
+        type="date"
+        name="dateIG"
+        id="dateIG"
+        onChange={(e) => {
+          handleChangeInj(e);
+        }}
+      ></input>
           </div>
       )
   }
@@ -227,6 +360,22 @@ signature du praticien ainsi que la date
 
   //// Bloc Remise et prise de mifépristone :
 
+  const handleChangeMife = (e) => {
+    /// recup date frotti
+    
+    
+    
+    
+    let reponse = {
+      titre: "Date de prise de la mifépristone : ",
+      value: e.target.value,
+    };
+   setCurrentDateMife(reponse);
+
+    console.log("Date de prise de la mifépristone : " + reponse.value);
+    
+  };
+
   const priseMife = () => {
     return (
       <div>
@@ -275,6 +424,24 @@ signature du praticien ainsi que la date
 
 
   ///// Bloc Délivrance du misoprostol : 
+
+  
+
+  const handleChangeMiso = (e) => {
+    //
+    
+    
+    
+    
+    let reponse = {
+      titre: "Date de prise du misoprotol :  ",
+      value: e.target.value,
+    };
+   setCurrentDateMiso(reponse);
+
+    console.log("Date de prise du misoprotol :  " + reponse.value);
+    
+  };
 
   const delivranceMiso = () => {
     return (
@@ -332,6 +499,18 @@ signature du praticien ainsi que la date
 
   //// Bloc Arrêt de travail prescrit pour la prise médicamenteuse :
 
+  const recupArret = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Arrêt de travail prescrit : ",
+      value: e.target.value,
+    };
+    
+    setCurrentArret(reponse);
+    
+    console.log("Arrêt de travail prescrit : " + reponse.value);
+  };
+
   const arretTravail = () => {
     return (
       <div>
@@ -382,16 +561,55 @@ signature du praticien ainsi que la date
   //////////////////////////////////////////////////////////////////////////////
 
   ////// bloc Contraception choisie par la patiente :
+
+
+  const recupContra = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Contraception choisie par la patiente : ",
+      value: e.target.value,
+    };
+    
+    setCurrentContra(reponse);
+    
+    console.log("Contraception choisie par la patiente : " + reponse.value);
+  };
+
+  const handleTypeContra = (e) => {
+    /// recup date frotti
+   
+    
+    
+    let reponse = {
+      titre: "Type contraception : ",
+      value: e.target.value,
+    };
+   setCurrentTypeContra(reponse);
+  
+    console.log("Type contraception : " + reponse.value);
+    
+  };
+
   const typeContraception = () => {
     return (
         <div>
-            <label>
-                Type : 
-                <input
-                type="text">
-                </input>
-            </label>
-            <Button>Valider</Button>
+            <Form.Group>
+  <Form.Control as="select" size="lg" onChange={(e) => {
+          handleTypeContra(e);
+        }}>
+    <option value="implant">implant</option>
+    <option value="pilule">pilule</option>
+    <option value="patch">patch</option>
+    <option value="anneau vaginal">anneau vaginal</option>
+    <option value="cape cervicale">cape cervicale</option>
+    <option value="diaphragme">diaphragme</option>
+    <option value="préservatif féminin">préservatif féminin</option>
+    <option value="DIU hormonal et DIU au cuivre">DIU hormonal et DIU au cuivre</option>
+    <option value="stérilisation">stérilisation</option>
+    <option value="spermicides">spermicides</option>
+    <option value="contraceptifs injectables">contraceptifs injectables</option>
+  </Form.Control>
+  </Form.Group>
         </div>
     )
 }
@@ -538,6 +756,29 @@ L’autotest urinaire peut également être utilisé pour juger le succès
 
 
   //// Bloc IST
+  const recupIST = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Recherche IST : ",
+      value: e.target.value,
+    };
+    
+    setCurrentIst(reponse);
+    
+    console.log("Recherche IST : " + reponse.value);
+  };
+
+  const recupInfoSupp = () => {
+    
+    let reponse = {
+      titre : "Si ressource cochée oui : ",
+      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+    };
+    
+    setCurrentInfoSupp(reponse);
+    console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
+  };
+
 
   const HAS = () => {
       return (
@@ -580,6 +821,30 @@ L’autotest urinaire peut également être utilisé pour juger le succès
   ///////////////////////////////////////////////////////////////////////////////////////
 
   //// Bloc frotti
+  const recupFrotti = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre : "Frottis à jour (ou test HPV) : ",
+      value : e.target.value
+    };
+    setCurrentHPV(reponse);
+    console.log("type frotti " + reponse.value);
+  };
+
+  const handleChangeFrotti = (e) => {
+    /// recup date frotti
+   
+    
+    
+    let reponse = {
+      titre: "Date Frotti",
+      value: e.target.value,
+    };
+   setCurrentDateHPV(reponse);
+
+    console.log("date frotti (ou Test HPV) : " + reponse.value);
+    
+  };
 
   const Frotti = () => {
     return (
@@ -619,31 +884,41 @@ affichageFrotti();
 
 
   //////////// Tabac
+
+  const recupTabac = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Tabac : ",
+      value: e.target.value,
+    };
+    setCurrentTabac(reponse);
+    
+    console.log("Fumeuse : " + reponse.value);
+  };
+
+  const handleSubmitPaquet = event => {
+    event.preventDefault();
+    let reponse = {
+      titre : "Nombre Paquet : ",
+      value : event.currentTarget.value
+    };
+   setCurrentNbTabac(reponse);
+  
+      console.log("nb paquet : "+reponse.value);
+      
+    
+  
+    
+    
+    
+  };
   const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
  
 
   const handleChangePaquet = event => {
     setNouvelleRecherchePaquet(event.currentTarget.value);
   };
-const handleSubmitPaquet = event => {
-  event.preventDefault();
-  let reponse = {
-    titre : "Nombre Paquet : ",
-    value : event.currentTarget.value
-  };
-  let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-   
 
-    console.log("nb paquet : "+reponse.value);
-    
-  
-
-  
-  
-  setNouvelleRecherchePaquet(0);
-}; 
 
   ///////////////////////////////////////////////////////////////////////////////
   return (
@@ -688,6 +963,14 @@ const handleSubmitPaquet = event => {
         type="image"
         src={logoAffichePriseMife}
       />
+      <input
+        type="date"
+        name="dateMife"
+        id="dateMife"
+        onChange={(e) => {
+          handleChangeMife(e);
+        }}
+      ></input>
       <div>{currentInfoPriseMife}</div>
 
 
@@ -695,6 +978,14 @@ const handleSubmitPaquet = event => {
       <h2>Délivrance du misoprostol : </h2>
       <Button variant="secondary" value="Oui" >Oui</Button>
         <Button variant="secondary" value="Non" >Non</Button>
+        <input
+        type="date"
+        name="dateMiso"
+        id="dateMiso"
+        onChange={(e) => {
+          handleChangeMiso(e);
+        }}
+      ></input>
         <input
         onClick={changementCouleurSVGDelivranceMiso}
         className="Lampe"
@@ -707,8 +998,8 @@ const handleSubmitPaquet = event => {
 
 
       <h2>Arrêt de travail prescrit pour la prise médicamenteuse :</h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupArret(e)}}>Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupArret(e)}} >Non</Button>
         <input
         onClick={changementCouleurSVGArretTravail}
         className="Lampe"
@@ -719,8 +1010,10 @@ const handleSubmitPaquet = event => {
 
 
       <h2>Contraception choisie par la patiente :</h2>
-      <Button variant="secondary" value="Oui" onClick={affichageTxtTypeContra} >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{
+        recupContra(e);
+        affichageTxtTypeContra();}} >Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}} >Non</Button>
   <div>{currentTxtTypeContra}</div>
   <input
         onClick={changementCouleurSVGContraception}
@@ -743,8 +1036,8 @@ const handleSubmitPaquet = event => {
 
 
       <h2>Recherche IST +/- antibio-prophylaxie </h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e);}} >Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}} >Non</Button>
 
         <p>
         De nombreuses sources numériques existent pour l’information aux patient(es)
@@ -752,7 +1045,7 @@ const handleSubmitPaquet = event => {
           ces sites apparaitront sur le résumé de la consultation, à remettre en main
            propre de la patiente. 
         </p>
-        <Button variant="secondary" value="Oui" >Oui</Button>
+        <Button variant="secondary" value="Oui" onClick={recupInfoSupp} >Oui</Button>
 
         <input
         onClick={changementCouleurSVGHAS}
@@ -764,15 +1057,46 @@ const handleSubmitPaquet = event => {
 
 
       <h2>Frottis à jour ou test HPV</h2>
-      {/* <label>
-      Frottis à jour
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupFrotti(e);}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupFrotti(e);}}>Non</Button>
-        <Button variant="secondary" value="Non Concernée" onClick={(e)=>{recupFrotti(e);}}>Non Concernée</Button>
-     </label>
-     <label for="dateFrotti">Date : </label>
-      <input type="date" name="dateFrotti" id="dateFrotti" onChange={(e)=>{handleChange(e);}}></input>
-      <br></br> */}
+      <label>
+        Frotti à jour :
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Non
+        </Button>
+        <Button
+          value="Non Concernée"
+          variant="secondary"
+          onClick={(e) => {
+            recupFrotti(e);
+          }}
+        >
+          Non Concernée
+        </Button>
+      </label>
+      <br></br>
+      <label for="dateFrotti">Date : </label>
+      <input
+        type="date"
+        name="dateFrotti"
+        id="dateFrotti"
+        onChange={(e) => {
+          handleChangeFrotti(e);
+        }}
+      ></input>
      <input
         onClick={changementCouleurSVGFrotti}
         className="Lampe"
@@ -783,10 +1107,28 @@ const handleSubmitPaquet = event => {
 
 
       <h2>Tabac</h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
-
-        
+      <label>
+        <Button
+          value="Oui"
+          variant="secondary"
+          onClick={(e) => {
+            recupTabac(e);
+          }}
+        >
+          Oui
+        </Button>
+        <Button
+          value="Non"
+          variant="secondary"
+          onClick={(e) => {
+            recupTabac(e);
+          }}
+        >
+          Non
+        </Button>
+      </label>
+      <br></br>
+      
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
       <form >
             <input
@@ -809,7 +1151,7 @@ const handleSubmitPaquet = event => {
         <p>Ces éléments sont à destination du professionnel de santé.</p>
 
         <br></br>
-        <Button>Valider mes choix</Button>
+        <Button onClick={afficheStateFin}>Valider mes choix</Button>
         <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
       
         

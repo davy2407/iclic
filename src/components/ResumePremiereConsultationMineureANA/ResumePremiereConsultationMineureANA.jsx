@@ -12,7 +12,7 @@ class ResumePremiereConsultationMineureANA extends React.Component {
   render() {
     
     return (
-        <div className="container" >
+        <div className="containerT" >
       <img src={Logo} className="logo"></img>
       <br></br>
       <br></br>

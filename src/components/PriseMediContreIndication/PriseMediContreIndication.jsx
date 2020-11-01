@@ -19,6 +19,15 @@ function PriseMediContreindication(props) {
     }
     props.onRecup(globalStateContre);
   };
+
+
+  /////////// state 
+
+  
+
+  
+
+  ////////////////////////////////////////////////////////
   /// Verrou
   const verrouUn = () => {
     /// retourne le texte verrou 1

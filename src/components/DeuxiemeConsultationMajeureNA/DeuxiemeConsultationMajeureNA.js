@@ -21,11 +21,121 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     const afficheStateFin = () => {
       console.log("state de fin va suivre");
-      for (let index = 0; index < globalStateFin.length; index++) {
-        console.log(globalStateFin[index]);
+      let liste = [];
+    liste.push(currentAttestation);
+    liste.push(currentAcc);
+    liste.push(currentConsultation);
+
+    liste.push(currentGrossese);
+    liste.push(currentEcho);
+    liste.push(currentDosage);
+    liste.push(currentGroupe);
+    liste.push(currentIST);
+    liste.push(infoSupp);
+    liste.push(currentSang);
+
+    
+    liste.push(currentInfo);
+    liste.push(currentHPV);
+    liste.push(currentDateHPV);
+    liste.push(currentTabac);
+    liste.push(currentNbTabac);
+    for (let index = 0; index < liste.length; index++) {
+      if (liste[index].titre=="Pas de réponses") {
+        alert("Vous n'avez pas répondu à toutes les questions")
+        
       }
-      props.onRecup(globalStateFin);
+      else  {
+        console.log("OK");
+      }
+      
+    }
+      props.onRecup(liste);
     };
+
+
+
+    //// current state 
+    const [currentAttestation, setCurrentAttestation] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentGrossese, setCurrentGrossese] =useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentEcho, setCurrentEcho] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentAcc, setCurrentAcc] =useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentDosage, setCurrentDosage] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentGroupe, setCurrentGroupe] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentIST, setCurrentIST] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [infoSupp, setInfoSupp] = useState({
+      titre : "",
+      value : ""
+    });
+  
+    const [currentSang, setCurrentSang] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    
+  
+    const [ currentConsultation, setCurrentConsultation] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentInfo, setCurrentInfo]= useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentHPV, setCurrentHPV] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentDateHPV, setCurrentDateHPV]= useState({
+      titre : "",
+      value : ""
+    });
+  
+    const [currentTabac, setCurrentTabac]= useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentNbTabac, setCurrentNbTabac] = useState({
+      titre : "",
+      value : ""
+    });
+
+
+
+    /////////////////////////////////////////////////////////////////////////////
 
 
     ////// Attestation 1ère consultation préalable à l’IVG
@@ -35,9 +145,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         titre: "Attestation 1ere consultation préalable en main de la patiente : ",
         value: e.target.value,
       };
-      let liste = [...globalStateFin];
-      liste.push(reponse);
-      setGlobalStateFin(liste);
+      setCurrentAttestation(reponse);
       
       console.log("Attestation 1ere consultation préalable en main de la patiente : " + reponse.value);
     };
@@ -87,9 +195,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         titre: "Personne accompagnante : ",
         value: e.target.value,
       };
-      let liste = [...globalStateFin];
-      liste.push(reponse);
-      setGlobalStateFin(liste);
+      setCurrentAcc(reponse)
       
       console.log("Personne accompagnante : " + reponse.value);
     };
@@ -106,9 +212,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         titre: "Consultation psychosociale : ",
         value: e.target.value,
       };
-      let liste = [...globalStateFin];
-      liste.push(reponse);
-      setGlobalStateFin(liste);
+      setCurrentConsultation(reponse)
       
       console.log("Consultation psychosociale : " + reponse.value);
     };
@@ -158,9 +262,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         titre: "Grossesse intra-utérine confirmée : ",
         value: e.target.value,
       };
-      let liste = [...globalStateFin];
-      liste.push(reponse);
-      setGlobalStateFin(liste);
+      setCurrentGrossese(reponse)
       
       console.log("Grossesse intra-utérine confirmée : " + reponse.value);
     };
@@ -197,9 +299,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         titre: "Echographie de datation/Age gestationnel : ",
         value: nb,
       };
-      let liste = [...globalStateFin];
-      liste.push(reponse);
-      setGlobalStateFin(liste);
+      setCurrentEcho(reponse);
      
       console.log("Echographie de datation/Age gestationnel : " + nb);
    
@@ -396,7 +496,6 @@ function DeuxiemeConsultationMajeureNA(props) {
 
 
       ///// bloc ist
-      const [infoSupp, setInfoSupp] = useState({});
 
   const recupInfoSupp = (e) => {
     e.preventDefault();
@@ -404,9 +503,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       titre : "Si ressource cochée oui : ",
       value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    
     setInfoSupp(reponse);
     console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };
@@ -416,9 +513,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre : "Recherche IST : ",
           value : e.target.value
         };
-        let liste = [...globalStateFin];
-        liste.push(reponse);
-        setGlobalStateFin(liste);
+        setCurrentIST(reponse);
         
         console.log("Recherche IST : " + reponse.value);
       }; 
@@ -516,9 +611,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
       value: e.target.value,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    setCurrentSang(reponse);
     
     console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
   };
@@ -570,9 +663,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre : "Dosage ß-HCG : ",
           value : event.currentTarget.value
         };
-        let liste = [...globalStateFin];
-          liste.push(reponse);
-          setGlobalStateFin(liste);
+        setCurrentDosage(reponse);
          
       
           console.log("Dosage ß-HCG :  "+reponse.value);
@@ -595,9 +686,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre : "Groupe Sanguin : ",
           value : event.currentTarget.value
         };
-        let liste = [...globalStateFin];
-          liste.push(reponse);
-          setGlobalStateFin(liste);
+        setCurrentGroupe(reponse);
          
       
           console.log("Groupe Sanguin :  "+reponse.value);
@@ -615,9 +704,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre : "Information contraception postIVG : ",
           value : e.target.value
         };
-        let liste = [...globalStateFin];
-        liste.push(reponse);
-        setGlobalStateFin(liste);
+        setCurrentInfo(reponse);
         
         console.log("info post ivg " + reponse.value);
       };
@@ -671,9 +758,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre : "Frottis à jour (ou test HPV) : ",
           value : e.target.value
         };
-        let liste = [...globalStateFin];
-        liste.push(reponse);
-        setGlobalStateFin(liste);
+        setCurrentHPV(reponse)
         
         console.log("type frotti " + reponse.value);
       };
@@ -687,21 +772,10 @@ function DeuxiemeConsultationMajeureNA(props) {
         
         
         let reponse = {
-          titre: "Date Frotti",
+          titre: "Date frotti ou test HPV : ",
           value: e.target.value,
         };
-        let liste = [...globalStateFin];
-        for (let i = 0; i < liste.length; i++) {
-          if (
-            liste[i].titre == reponse.titre
-          ) {
-            liste.splice(i, 1);
-            
-          }
-          
-        }
-        liste.push(reponse);
-        setGlobalStateFin(liste);
+        setCurrentDateHPV(reponse);
     
         console.log("date frotti : " + reponse.value);
         
@@ -765,9 +839,7 @@ function DeuxiemeConsultationMajeureNA(props) {
           titre: "Tabac : ",
           value: e.target.value,
         };
-        let liste = [...globalStateFin];
-        liste.push(reponse);
-        setGlobalStateFin(liste);
+        setCurrentTabac(reponse);
         
         console.log("Fumeuse : " + reponse.value);
       };
@@ -783,9 +855,7 @@ const handleSubmitPaquet = event => {
     titre : "Nombre Paquet : ",
     value : event.currentTarget.value
   };
-  let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+  setCurrentNbTabac(reponse);
    
 
     console.log("nb paquet : "+reponse.value);

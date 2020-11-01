@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import { Button } from "react-bootstrap";
+
+import { Button, Form } from "react-bootstrap";
+
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
@@ -13,11 +15,79 @@ function PriseMediPatienteMajeure(props) {
 
   const afficheStateFin = () => {
     console.log("state de fin va suivre");
-    for (let index = 0; index < globalStateFin.length; index++) {
-      console.log(globalStateFin[index]);
+    let liste = [];
+    liste.push(currentEcho);
+    liste.push(currentgest);
+    liste.push(currentConssent);
+    liste.push(currentAttestation);
+    liste.push(currentSang);
+    liste.push(currentDosage);
+    liste.push(currentGroupe);
+    liste.push(currentAcc);
+    
+    for (let index = 0; index < liste.length; index++) {
+      if (liste[index].titre=="Pas de réponses") {
+        alert("Vous n'avez pas répondu à toutes les questions")
+        
+      }
+      else  {
+        console.log("OK");
+      }
+      
     }
-    props.onRecup(globalStateFin);
+
+
+    props.onRecup(liste);
   };
+
+  //////////////////////////////////////
+
+  //// current state 
+
+  const [currentEcho, setcurrentEcho] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentgest, setCurrentGest] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentConssent, setCurrentConssent] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentAttestation, setCurrentAttestation] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [currentSang, setCurrentSang] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [currentDosage, setCurrentDosage] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentGroupe, setCurrentGroupe] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentAcc, setCurrentAcc] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////
 
   const [
     saisieUtilisateurNbSemaineSA,
@@ -41,14 +111,12 @@ function PriseMediPatienteMajeure(props) {
       affichagePlusDouze();
     }
     let reponse = {
-      titre: "Echographie de datation/Age gestationnel : ",
+      titre: "Echographie de datation/Age gestationnel(SA) : ",
       value: nb,
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    setCurrentGest(reponse);
    
-    console.log("Echographie de datation/Age gestationnel : " + nb);
+    console.log("Echographie de datation/Age gestationnel(SA) : " + nb);
  
 
     setSaisieUtilisateurNbSemaineSA(0);
@@ -239,6 +307,18 @@ function PriseMediPatienteMajeure(props) {
   };
 
   /// Attestation consultation psychosocial
+
+  const recupAttestation = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Consultation psychosociale :",
+      value: e.target.value,
+    };
+    
+    setCurrentAttestation(reponse);
+    
+    console.log("Consultation psychosociale :" + reponse.value);
+  };
   const [txtPsy, setTxtPsy] = useState(
     "Non obligatoire pour les femmes majeures"
   );
@@ -301,8 +381,40 @@ function PriseMediPatienteMajeure(props) {
     e.preventDefault();
     affichageConsultationAttestation();
   };
+  //////////////////////////////////////////////////////
+
+  //////// Consentement
+
+  const recupConsentement = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Consentement à l’IVG : ",
+      value: e.target.value,
+    };
+    
+    setCurrentConssent(reponse);
+    
+    console.log("Consentement à l’IVG : " + reponse.value);
+  };
+
+  
+
+
+  //////////////////////////////////////////////////////
 
   /// Bloc prise de sang
+
+  const recupSang = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Prise de sang effectuée : ",
+      value: e.target.value,
+    };
+    
+    setCurrentSang(reponse);
+    
+    console.log("Prise de sang effectuée : " + reponse.value);
+  };
 
   const priseDeSang = () => {
     return (
@@ -345,6 +457,95 @@ function PriseMediPatienteMajeure(props) {
     setLogoAffichePriseDeSang(currentCache);
     affichageTxtPriseDeSang();
   };
+
+  ////////////////////////////////////////////////
+
+ 
+
+  ///////////// doasge 
+  const [nouvelleRechercheßHCG, setNouvelleRechercheßHCG] = useState(0)
+ 
+
+  const handleChangeßHCG = event => {
+    setNouvelleRechercheßHCG(event.currentTarget.value);
+  };
+const handleSubmitßHCG = event => {
+  event.preventDefault();
+  let reponse = {
+    titre : "ß-HCG : ",
+    value : event.currentTarget.value
+  };
+ setCurrentDosage(reponse);
+
+    console.log("ß-HCG : "+reponse.value);
+    
+  
+
+  
+  
+  
+};
+////////////////////////////////////////////////////////
+
+//////////: groupe 
+
+const handleChangeGroupe = (e) => {
+  /// recup date frotti
+ 
+  
+  
+  let reponse = {
+    titre: "Groupe Sanguin : ",
+    value: e.target.value,
+  };
+ setCurrentGroupe(reponse);
+
+  console.log("Groupe Sanguin : " + reponse.value);
+  
+};
+
+
+
+
+
+  ////////////////////////////////////////
+
+
+  //////// Personne Acc
+
+  const recupAcc = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Personne accompagnante : ",
+      value: e.target.value,
+    };
+    
+    setCurrentAcc(reponse);
+    
+    console.log("Personne accompagnante : " + reponse.value);
+  };
+
+  
+
+
+  //////////////////////////////////////////////////
+
+
+  //// echo 
+  const recupEcho = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Echographie de datation/age gestationnel : ",
+      value: e.target.value,
+    };
+    
+    setcurrentEcho(reponse);
+    
+    console.log("Echographie de datation/age gestationnel : " + reponse.value);
+  };
+
+
+  ///////////////////////////////////////
 
   return (
     <div>
@@ -398,8 +599,8 @@ function PriseMediPatienteMajeure(props) {
       <br></br>
       <h3>Échographie de datation :</h3>
       <br></br>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary">Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupEcho(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupEcho(e);}}>Non</Button>
       <br></br>
       <h3>Age gestationnel :</h3>
       <br></br>
@@ -419,18 +620,22 @@ function PriseMediPatienteMajeure(props) {
       <br></br>
       <h3>Consentement à l’IVG signé :</h3>
       <br></br>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupConsentement(e)}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{
+        recupConsentement(e);
+        clicVerrouDeuxaffichage();}}>
         Non
       </Button>
       <div>{currentInfoVerrouDeux}</div>
       <br></br>
       <h3>Attestation consultation psychosociale :</h3>
       <br></br>
-      <Button variant="secondary" onClick={clicOuiConsultation}>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{
+        recupAttestation(e);
+        clicOuiConsultation(e);}}>
         Oui
       </Button>
-      <Button variant="secondary">Non</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupAttestation(e)}}>Non</Button>
       <br></br>
       <div>{currentConsultationAttestation}</div>
       <input
@@ -444,8 +649,10 @@ function PriseMediPatienteMajeure(props) {
       <br></br>
       <h3>Prise de sang effectuée :</h3>
       <br></br>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary" onClick={clicVerrouDeuxaffichage}>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupSang(e)}}>Oui</Button>
+      <Button variant="secondary" onClick={(e)=>{
+        recupSang(e);
+        clicVerrouDeuxaffichage();}}>
         Non
       </Button>
       <br></br>
@@ -458,22 +665,40 @@ function PriseMediPatienteMajeure(props) {
       />
       <div>{currentInfoPriseDesang}</div>
       <br></br>
-      <label>
-        <h3>Dosage -HCG :</h3>
-        <input type="text"></input>
-        <Button variant="danger">Valider</Button>
-      </label>
-      <br></br>
-      <label>
+      
+        <h3>Dosage ß-HCG :</h3>
+        <form >
+            <input
+                value={nouvelleRechercheßHCG}
+                onChange={handleChangeßHCG}
+                type="text"
+                placeholder="Paquet/année"
+            />
+            <Button value={nouvelleRechercheßHCG} variant="secondary" onClick={(e)=> {
+              handleSubmitßHCG(e)
+            }}>Confirmer</Button>
+        </form>
         <h3>Groupe sanguin : </h3>
-        <input type="text"></input>
-        <Button variant="danger">Valider</Button>
-      </label>
+        <Form.Group>
+  <Form.Control as="select" size="lg" onChange={(e) => {
+          handleChangeGroupe(e);
+        }}>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </Form.Control>
+  </Form.Group>
+      
 
       <h3>Personne accompagnante :</h3>
       <br></br>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary">Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e);}}>Non</Button>
 
       <br></br>
       <ul>

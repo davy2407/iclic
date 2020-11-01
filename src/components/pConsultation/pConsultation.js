@@ -50,6 +50,7 @@ function PConsultation(props) {
     liste.push(currentMode);
     liste.push(currentContext);
     liste.push(currentIST);
+    liste.push(infoSupp);
     liste.push(currentSang);
     liste.push(currentDossier);
     liste.push(currentConsultation);
@@ -58,40 +59,102 @@ function PConsultation(props) {
     liste.push(currentDateHPV);
     liste.push(currentTabac);
     liste.push(currentNbTabac);
+    for (let index = 0; index < liste.length; index++) {
+      if (liste[index].titre=="Pas de réponses") {
+        alert("Vous n'avez pas répondu à toutes les questions")
+        
+      }
+      else  {
+        console.log("OK");
+      }
+      
+    }
 
 
     props.onRecup(liste);
   };
   /// current reponse
-  const [currentDDRSA, setCurrentDDRSA] = useState();
+  const [currentDDRSA, setCurrentDDRSA] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentDDRDay, setCurrentDDRDay] =useState();
+  const [currentDDRDay, setCurrentDDRDay] =useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentEcho, setCurrentEcho] = useState();
+  const [currentEcho, setCurrentEcho] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [ currentAcc, setCurrentAcc] =useState();
+  const [ currentAcc, setCurrentAcc] =useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentMode, setCurrentMode] = useState();
+  const [currentMode, setCurrentMode] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentContext, setCurrentContext] = useState();
+  const [currentContext, setCurrentContext] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentIST, setCurrentIST] = useState();
+  const [currentIST, setCurrentIST] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentSang, setCurrentSang] = useState();
+  const [infoSupp, setInfoSupp] = useState({
+    titre : "",
+    value : ""
+  });
 
-  const [currentDossier, setCurrentDossier] = useState();
+  const [currentSang, setCurrentSang] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [ currentConsultation, setCurrentConsultation] = useState();
+  const [currentDossier, setCurrentDossier] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [ currentInfo, setCurrentInfo]= useState();
+  const [ currentConsultation, setCurrentConsultation] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [ currentHPV, setCurrentHPV] = useState();
+  const [ currentInfo, setCurrentInfo]= useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentDateHPV, setCurrentDateHPV]= useState();
+  const [ currentHPV, setCurrentHPV] = useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
 
-  const [currentTabac, setCurrentTabac]= useState();
+  const [currentDateHPV, setCurrentDateHPV]= useState({
+    titre : "",
+    value : ""
+  });
 
-  const [ currentNbTabac, setCurrentNbTabac] = useState();
+  const [currentTabac, setCurrentTabac]= useState({
+    titre : "Pas de réponses",
+    value : ""
+  });
+
+  const [ currentNbTabac, setCurrentNbTabac] = useState({
+    titre : "",
+    value : ""
+  });
+
+
 
 
 
@@ -264,7 +327,7 @@ const handleSubmitPaquet = event => {
   
 };
 
-  const [infoSupp, setInfoSupp] = useState({});
+
 
   const recupInfoSupp = (e) => {
     e.preventDefault();
@@ -272,9 +335,7 @@ const handleSubmitPaquet = event => {
       titre : "Si ressource cochée oui : ",
       value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
+    
     setInfoSupp(reponse);
     console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };

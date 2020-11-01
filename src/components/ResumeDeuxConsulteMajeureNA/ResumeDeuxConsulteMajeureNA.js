@@ -12,7 +12,7 @@ class ResumeDeuxConsulteMajeureNA extends React.Component {
   render() {
     
     return (
-        <div className="container" >
+        <div className="containerD" >
       <img src={Logo} className="logo"></img>
       <br></br>
       <br></br>

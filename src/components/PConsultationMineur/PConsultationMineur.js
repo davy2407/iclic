@@ -15,9 +15,123 @@ function PConsultationMineur(props) {
     const [stateGlobal, setStateGlobal] = useState([]);
     const afficheStateFin = () => {
         /// remonte les données au composant parent
-        props.onRecup(stateGlobal);
+        let liste = [];
+    liste.push(currentDDRSA);
+    liste.push(currentDDRDay);
+    liste.push(currentEcho);
+    liste.push(currentAcc);
+    liste.push(currentMode);
+    liste.push(currentContext);
+    liste.push(currentIST);
+    liste.push(infoSupp);
+    liste.push(currentSang);
+    liste.push(currentDossier);
+    liste.push(currentConsultation);
+    liste.push(currentInfo);
+    liste.push(currentHPV);
+    liste.push(currentDateHPV);
+    liste.push(currentTabac);
+    liste.push(currentNbTabac);
+    for (let index = 0; index < liste.length; index++) {
+      if (liste[index].titre=="Pas de réponses") {
+        alert("Vous n'avez pas répondu à toutes les questions")
+        
+      }
+      else  {
+        console.log("OK");
+      }
+      
+    }
+
+
+    props.onRecup(liste);
     
       }
+
+     /// current reponse
+     const [currentDDRSA, setCurrentDDRSA] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentDDRDay, setCurrentDDRDay] =useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentEcho, setCurrentEcho] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentAcc, setCurrentAcc] =useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentMode, setCurrentMode] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentContext, setCurrentContext] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentIST, setCurrentIST] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [infoSupp, setInfoSupp] = useState({
+      titre : "",
+      value : ""
+    });
+  
+    const [currentSang, setCurrentSang] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentDossier, setCurrentDossier] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentConsultation, setCurrentConsultation] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentInfo, setCurrentInfo]= useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentHPV, setCurrentHPV] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [currentDateHPV, setCurrentDateHPV]= useState({
+      titre : "",
+      value : ""
+    });
+  
+    const [currentTabac, setCurrentTabac]= useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+  
+    const [ currentNbTabac, setCurrentNbTabac] = useState({
+      titre : "",
+      value : ""
+    });
+
+
+
+  /////////////////////////////////////////////////////////////
 
     /// accompagnant
     const recupAccompagnant = (e) => {
@@ -27,9 +141,7 @@ function PConsultationMineur(props) {
           titre : "Personne accompagnante majeurs ou consentement parental :",
           value : e.target.value
         };
-        let liste = [...stateGlobal];
-        liste.push(reponse);
-        setStateGlobal(liste);
+        setCurrentAcc(reponse);
     };
     
     const txtAccompagnant = () => {
@@ -75,9 +187,7 @@ function PConsultationMineur(props) {
       titre : "Mode de découverte de la grossesse : ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentMode(reponse);
 };
 
     ///
@@ -90,9 +200,7 @@ function PConsultationMineur(props) {
           titre : "Contexte biopsychosocial favorable : ",
           value : e.target.value
         };
-        let liste = [...stateGlobal];
-        liste.push(reponse);
-        setStateGlobal(liste);
+        setCurrentContext(reponse);
     };
 
     /// warning
@@ -122,9 +230,7 @@ function PConsultationMineur(props) {
           titre : "Recherche IST : ",
           value : e.target.value
         };
-        let liste = [...stateGlobal];
-        liste.push(reponse);
-        setStateGlobal(liste);
+        setCurrentIST(reponse);
     };
 
     const objetInfo = () => {
@@ -143,11 +249,9 @@ function PConsultationMineur(props) {
         e.preventDefault();
         let reponse = {
           titre : "Info supp : ",
-          value : objetInfo
+          value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
         };
-        let liste = [...stateGlobal];
-        liste.push(reponse);
-        setStateGlobal(liste);
+        setInfoSupp(reponse);
 
     }
     
@@ -193,12 +297,10 @@ function PConsultationMineur(props) {
     /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
     e.preventDefault();
     let reponse = {
-      titre : "Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
+      titre : "Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + ß-HCG quantitatif ) : ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentSang(reponse);
 };
 
 const txtPriseSang = () => {
@@ -246,9 +348,7 @@ const recuGuide = (e) => {
       titre : "Contexte de l’IVG évoqués : ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentDossier(reponse);
 };
 
 ///
@@ -263,9 +363,7 @@ const recupConsultation = (e) => {
       titre : "Lieux de la consultation psychosociale : ",
       value : "        "
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentConsultation(reponse);
 };
 
 const txtConsultationF = () => {
@@ -320,12 +418,10 @@ const recupPostIVG = (e) => {
     /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
     e.preventDefault();
     let reponse = {
-      titre : "nformation contraception postIVG : ",
+      titre : "Information contraception postIVG : ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentInfo(reponse);
 };
 
 const txtIVG = () => {
@@ -378,9 +474,7 @@ const handleChange = (e) => {
       titre : "Date Frotti ou HPV",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentDateHPV(reponse);
 
     
     
@@ -393,9 +487,7 @@ const handleChange = (e) => {
       titre : "Frottis à jour ou test HPV :  ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentHPV(reponse);
 };
 
 const Frotti = () => {
@@ -459,9 +551,7 @@ const recupTabac = (e) => {
       titre : "Tabac : ",
       value : e.target.value
     };
-    let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
+    setCurrentTabac(reponse);
 };
 
 
@@ -601,11 +691,8 @@ else if (Math.round(semaineSA.weeks)<5) {
 const transmissionDDR = () => {
   let jour = valueDDRday;
   let semaineSA = valueDDRweek;
-  let liste = [...stateGlobal];
-  liste.push(semaineSA);
-  liste.push(jour);
-  console.log(liste);
-  setStateGlobal(liste);
+  setCurrentDDRSA(semaineSA);
+  setCurrentDDRDay(jour);
 }
 
 
@@ -647,11 +734,7 @@ const recupEcho = (e) => {
     titre: "Echographie :",
     value: e.target.value,
   };
-  let liste = [...stateGlobal];
-  liste.push(reponse);
-  setStateGlobal(liste);
-  
-  console.log("Echographie :" + reponse.value);
+  setCurrentEcho(reponse);
 };
 
 const echographie = () => {
@@ -711,12 +794,7 @@ const handleSubmitPaquet = event => {
     titre : "Nombre Paquet : ",
     value : event.currentTarget.value
   };
-  let liste = [...stateGlobal];
-    liste.push(reponse);
-    setStateGlobal(liste);
-   
-
-    console.log("nb paquet : "+reponse.value);
+  setCurrentNbTabac(reponse);
    
   
 

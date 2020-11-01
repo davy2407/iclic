@@ -28,6 +28,8 @@ import TarifDeuxiemePriseMediMajeureNA from "@components/TarifDeuxiemePriseMediM
 import TarifDeuxiemePriseMineureANA from "@components/TarifDeuxiemePriseMineureANA";
 import PostIVGMajeureNA from "@components/PostIVGMajeureNA";
 import TarifDeuxiemeConsulteMajeureNA from "@components/TarifDeuxiemeConsulteMajeureNA";
+import TarifDeuxiemeConsulteMineureANA from "@components/TarifDeuxiemeConsulteMineureANA";
+import PostIVGMineur from "@components/PostIVGMineur";
 
 
 //import style
@@ -147,6 +149,12 @@ Les spécificités sont rappelées lors de chaque étape du site.
     /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[8]]);
     setObjetConsultationAffiche([]);
+  }
+
+  const modifierObjetTarifDeuxiemeConsulteMineure = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[24]]);
+    setObjetConsultationAffiche([]);
+
   }
 
   const modifierObjetTarifPremiereConsulteMineur = () =>{
@@ -332,7 +340,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+            afficheSuite : modifierObjetTarifDeuxiemeConsulteMineure
           }
       },
       {
@@ -428,6 +436,24 @@ Les spécificités sont rappelées lors de chaque étape du site.
       {
         name : "Tarification deuxième consultation Majeure NA" ,
          id :23 , objet : TarifDeuxiemeConsulteMajeureNA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarification deuxième consultation Mineure ANA" ,
+         id :24 , objet : TarifDeuxiemeConsulteMineureANA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Consultation Post IVG Mineure" ,
+         id :25 , objet : PostIVGMineur ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
@@ -682,6 +708,20 @@ Les spécificités sont rappelées lors de chaque étape du site.
         idAnonymeOuNon == 1
     ) {
       setObjetConsultationAffiche([liste[22]]);
+      
+    }
+    else if ((
+      identifiantConsultation== 5 &&
+        idMajeureOuNon == 0 &&
+        idAnonymeOuNon == 1
+
+    )||
+    (
+      identifiantConsultation== 5 &&
+      idMajeureOuNon == 0 &&
+      idAnonymeOuNon == 0
+    )) {
+      setObjetConsultationAffiche([liste[25]]);
       
     }
     
