@@ -8,7 +8,7 @@ import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
-import FicheConseil from "@assets/docx/FicheConseilSurveillance.docx";
+import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
 
 
 function TarifDeuxiemeConsulteMajeureNA(props) {
@@ -51,13 +51,11 @@ Une copie doit être rendue à la patiente après signature. Une copie est à co
       
 
       <p>Lien guide IVG ministère :</p>
-      <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
-      <a href={FicheCNGOF} target="_blank">
-        Fiche info CNGOF PDF
-      </a>
-      <a
+      
+      <a rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
@@ -77,7 +75,7 @@ Une copie doit être rendue à la patiente après signature. Une copie est à co
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF </Button>
       <br></br>
-      <a target="_blank" href="#">Consentement à l’IVG PDF</a>
+      <a target="_blank" href={FormulaireCon}>Consentement à l’IVG PDF</a>
       <br></br>
       
       
@@ -89,10 +87,10 @@ Une copie doit être rendue à la patiente après signature. Une copie est à co
     Au terme de cette consultation, dans le cas où vous n’êtes pas le professionnel
      de santé effectuant l’IVG, il est nécessaire d’adresser la patiente à 
      un professionnel de santé pouvant effectuer l’acte
-      (<a target="_blank" href="https://www.ivglesadresses.org/">
+      (<a rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
           https://www.ivglesadresses.org/
           </a>
-           <a target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
+           <a rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
            Centre de planification :  https://ivg.gouv.fr/les-centres-de-planification.html
                </a>)
     </p>

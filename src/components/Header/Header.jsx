@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 
-import Logo from "@assets/images/LOGO_IVG.svg";
-import Banniere from "@assets/images/Banniere.svg";
+import Logo from "@assets/images/LOGOFull.svg";
+import Banniere from "@assets/images/LOGOShort.svg";
 import {  Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 function Header(props) {

@@ -33,6 +33,10 @@ import TarifDeuxiemeConsulteMajeureNA from "@components/TarifDeuxiemeConsulteMaj
 import TarifDeuxiemeConsulteMineureANA from "@components/TarifDeuxiemeConsulteMineureANA";
 import PostIVGMineur from "@components/PostIVGMineur";
 import TarifPostMajeure from "@components/TarifPostMajeure";
+import PostIVGMAJA from "@components/PostIVGMAJA";
+import ContreIndicationMineure from "@components/ContreIndicationMineure";
+import PremierePriseMineureConsultePrin from "@components/PremierePriseMineureConsultePrin";
+import TarifPriseMediMineur from "@components/TarifPriseMediMineur";
 
 
 
@@ -167,6 +171,12 @@ function AppCore() {
     setTexteDemarrage("");
   }
 
+  const afficheTArifMediMineur = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[30]]);
+    setObjetConsultationMediAffiche([]);
+
+  }
+
   const afficheTarifDeuxiemeConsulteMajeureNA = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[23]]);
     setObjetConsultationAffiche([]);
@@ -175,6 +185,12 @@ function AppCore() {
 
   const afficheTarifPremierPriseMediMajeure = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[19]]);
+    setObjetConsultationMediAffiche([]);
+
+  }
+
+  const afficheFinCOnsulteMineure = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[29]]);
     setObjetConsultationMediAffiche([]);
 
   }
@@ -198,6 +214,13 @@ function AppCore() {
   const afficheContreIndication = () => {
     /// function permettant l'affichage du composant contrre indication medical et stop laffichage consulte 
     setObjetTarrificationAffiche([listeObjetConsulation[0]]);
+    setObjetConsultationAffiche([]);
+
+  }
+
+  const afficheContreIndicationMineure = () => {
+    /// function permettant l'affichage du composant contrre indication medical et stop laffichage consulte 
+    setObjetTarrificationAffiche([listeObjetConsulation[28]]);
     setObjetConsultationAffiche([]);
 
   }
@@ -266,6 +289,140 @@ function AppCore() {
           Une jeune fille mineure non émancipée doit donner au médecin son consentement
            pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient
             présents afin qu'elle n'agisse pas sous la contrainte.
+          </p>
+      </div>
+    )
+  }
+
+  const txtPostMin = () => {
+    return (
+      <div>
+        <p>
+            Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
+Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">  HAS</a>
+
+ .
+ D’autres modalités,
+ plus flexible et mieux adaptées aux conditions de vie de chacune sont envisageables
+  pour s’en assurer (autotest, télémédecine), elle doit être systématiquement proposée
+   selon le             <a rel="noreferrer noopener" target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
+.
+
+            </p>
+            <p>
+            Dans le cas particulier de l’IVG, l’article<a rel="noreferrer noopener" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie"></a> L. 2212-7  du code de
+             la santé publique dispose : « Si la femme est mineure non émancipée,
+              le consentement de l’un des titulaires de l’autorité parentale ou,
+               le cas échéant, du représentant légal est recueilli. Ce consentement
+                est joint à la demande qu’elle présente au médecin en dehors de la
+                 présence de toute autre personne.
+
+            </p>
+            <p>
+            Si la femme mineure non émancipée désire garder le secret, le médecin doit
+             s’efforcer, dans l’intérêt de celle-ci, d’obtenir son consentement
+              pour que le ou les titulaires de l’autorité parentale ou, le cas
+               échéant, le représentant légal soient consultés ou doit vérifier
+                que cette démarche a été faite lors de l’entretien mentionné à
+                 l’article L 2212-4. Si la mineure ne veut pas effectuer cette
+                  démarche, ou si le consentement n’est pas obtenu, l’interruption
+                   volontaire de grossesse ainsi que les actes médicaux et les
+                    soins qui lui sont liés peuvent être pratiqués à la demande
+                     de l’intéressée, présentée dans les conditions prévues au
+                      1er alinéa. Dans ce cas, la mineure se fait accompagner
+                       dans sa démarche par la personne majeure de son choix. 
+            </p>
+            <p>
+            Une jeune fille mineure non émancipée doit donner au médecin son consentement
+             pour avorter sans que ses parents, son tuteur ou toute autre personne ne
+              soient présents afin qu'elle n'agisse pas sous la contrainte.
+            </p>
+      </div>
+    )
+  }
+
+
+  const txtDeuxiemeContactMAJ = () => {
+    return (
+      <div>
+        <p>
+            Cette 2ème consultation peut être effectuée par tout médecin ou sage femme,
+             prenant en charge l’IVG ou non. Elle fait partie du tarif forfaitaire à l’IVG. 
+            Si vous n’êtes pas le médecin ou la sage femme prenant en charge l’IVG, 
+            il convient de ré-adresser
+            la patiente au terme de la consultation à un professionnel pouvant effectuer cet acte. 
+            </p>
+      </div>
+    )
+  }
+
+  const txtPOstMaj = () => {
+    return (
+      <div>
+        <p>
+            Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
+<a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">  HAS</a>
+
+ 
+
+            </p>
+      </div>
+    )
+  }
+  const txtDeuxiemePriseMin = () => {
+    return (
+      <div>
+        <p>
+            Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
+             qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
+
+            </p>
+      </div>
+    )
+  }
+
+  const txtDeuxiemePriseMaj = () => {
+    return (
+      <div>
+        <p>
+            Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
+             qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
+
+            </p>
+      </div>
+    )
+  }
+
+  const txtDeuxiemeContactMineure = () => {
+    return (
+      <div>
+        <p>
+          Dans le cas particulier de l’IVG, l’article <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a> Lien n°19 du code de la
+           santé publique dispose : « Si la femme est mineure non émancipée,
+            le consentement de l’un des titulaires de l’autorité parentale ou,
+             le cas échéant, du représentant légal est recueilli. Ce consentement
+              est joint à la demande qu’elle présente au médecin en dehors de la
+               présence de toute autre personne. 
+          </p>
+
+          <p>
+          Si la femme mineure non émancipée désire garder le secret,
+           le médecin doit s’efforcer, dans l’intérêt de celle-ci,
+            d’obtenir son consentement pour que le ou les titulaires
+             de l’autorité parentale ou, le cas échéant, le représentant
+              légal soient consultés ou doit vérifier que cette démarche
+               a été faite lors de l’entretien mentionné à l’article
+                L 2212-4. Si la mineure ne veut pas effectuer cette démarche,
+                 ou si le consentement n’est pas obtenu, l’interruption
+                  volontaire de grossesse ainsi que les actes médicaux
+                   et les soins qui lui sont liés peuvent être pratiqués
+                    à la demande de l’intéressée, présentée dans les conditions prévues au 1er alinéa. Dans ce cas, la mineure se fait accompagner dans sa démarche par la personne majeure de son choix 
+
+          </p>
+
+          <p>
+          Une jeune fille mineure non émancipée doit donner au médecin son consentement pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient présents afin qu'elle n'agisse pas sous la contrainte.
+
           </p>
       </div>
     )
@@ -380,7 +537,8 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : afficheTarifDeuxiemeConsulteMajeureNA
-          }
+          },
+          txt : txtDeuxiemeContactMAJ()
       },
       {
         name : "Deuxieme consultation Mineure A/NA" ,
@@ -389,7 +547,8 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifDeuxiemeConsulteMineure
-          }
+          },
+          txt : txtDeuxiemeContactMineure()
       },
       {
         name : "Deuxieme prise médicament Majeure NA" ,
@@ -398,7 +557,8 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : afficheTarifdeuxiemeMediMajeureNA
-          }
+          },
+          txt : txtDeuxiemePriseMaj()
       },
       {
         name : "Deuxieme prise médicament Majeure A" ,
@@ -416,7 +576,8 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : afficheTarifDeuxiemeMineureANA
-          }
+          },
+          txt : txtDeuxiemePriseMin()
       },
       {
         name : "Première prise médicament Mineure A/NA" ,
@@ -424,7 +585,7 @@ function AppCore() {
           
           fonction : {
             recupInfo : recupPremierePriseMedi,
-            afficheSuite : afficheContreIndication
+            afficheSuite : afficheContreIndicationMineure
           }
       },
       {
@@ -479,7 +640,8 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : afficheTarifPostMaj
-          }
+          },
+          txt : txtPOstMaj()
       },
       {
         name : "Tarification deuxième consultation Majeure NA" ,
@@ -506,11 +668,48 @@ function AppCore() {
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : afficheTarifPostMaj
-          }
+          },
+          txt : txtPostMin()
       },
       {
         name : "Tarification Post IVG Majeure" ,
          id :26 , objet : TarifPostMajeure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Post IVG Majeure Anonyme" ,
+         id :27 , objet : PostIVGMAJA ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Contre Indication Médicaments Mineure" ,
+         id :28 , objet : ContreIndicationMineure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : afficheFinCOnsulteMineure
+          }
+      },
+      {
+        name : "Consultation (fin) prise médicaments Mineure" ,
+         id :29 , objet : PremierePriseMineureConsultePrin ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : afficheTArifMediMineur
+          }
+      },
+      {
+        name : "Tarif Prise Médicaments mineure" ,
+         id :30 , objet : TarifPriseMediMineur ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
@@ -674,6 +873,7 @@ function AppCore() {
 
       ) {
         setObjetConsultationAffiche([liste[11]]);
+        setTexteDemarrage([liste[11].txt])
       
     } else if ((
       identifiantConsultation== 2 &&
@@ -696,6 +896,7 @@ function AppCore() {
 
       ) {
         setObjetConsultationAffiche([liste[12]]);
+        setTexteDemarrage([liste[12].txt])
       
     } 
     else if (
@@ -705,6 +906,7 @@ function AppCore() {
 
     ) {
       setObjetConsultationAffiche([liste[13]]);
+      setTexteDemarrage([liste[13].txt])
       
     }
     else if (
@@ -728,6 +930,7 @@ function AppCore() {
 
       ) {
         setObjetConsultationAffiche([liste[15]]);
+        setTexteDemarrage([liste[15].txt])
       
     } 
     else if (
@@ -768,6 +971,7 @@ function AppCore() {
         idAnonymeOuNon == 1
     ) {
       setObjetConsultationAffiche([liste[22]]);
+      setTexteDemarrage([liste[22].txt]);
       
     }
     else if ((
@@ -782,6 +986,16 @@ function AppCore() {
       idAnonymeOuNon == 0
     )) {
       setObjetConsultationAffiche([liste[25]]);
+      setTexteDemarrage([liste[25].txt]);
+      
+    }
+    else if (
+      identifiantConsultation== 5 &&
+        idMajeureOuNon == 1 &&
+        idAnonymeOuNon == 0
+
+    ) {
+      setObjetConsultationAffiche([liste[27]]);
       
     }
     
@@ -874,16 +1088,16 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         Un numéro vert gratuit est accessible 7j/7 24h/24 pour toute information au 0800 202 205.
         </p>
         <p>
-          <a target="_blank" href="https://www.ivg.net/">Liens IVG.net</a>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.ivg.net/">Liens IVG.net</a>
         </p>
         <p>
-          <a target="_blank" href="https://www.ivglesadresses.org/">Liens ivglesadresses.org</a>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">Liens ivglesadresses.org</a>
         </p>
         <p>
-          <a target="_blank" href="https://www.ivginfo.com/">Liens ivginfo.com</a>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.ivginfo.com/">Liens ivginfo.com</a>
         </p>
         <p>
-          <a target="_blank" href="http://www.avortementancic.net/IMG/pdf/guide_ivg_2017-2.pdf">Lien dossier guide ivg</a>
+          <a rel="noreferrer noopener" target="_blank" href="http://www.avortementancic.net/IMG/pdf/guide_ivg_2017-2.pdf">Lien dossier guide ivg</a>
         </p>
       </div>
     )

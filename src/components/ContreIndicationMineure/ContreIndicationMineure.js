@@ -6,9 +6,9 @@ import FicheVidalMiso from "@assets/pdf/FicheVidalMisoprostol.pdf";
 import FicheVidalMife from "@assets/pdf/FicheVidalMifepristone.pdf";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 
-import "./PriseMediContreIndication.css";
+import "./ContreIndicationMineure.css";
 
-function PriseMediContreindication(props) {
+function ContreIndicationMineure(props) {
   
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
 
@@ -378,4 +378,4 @@ function PriseMediContreindication(props) {
   );
 }
 
-export default PriseMediContreindication;
+export default ContreIndicationMineure;

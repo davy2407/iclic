@@ -17,9 +17,9 @@ class TestPrint extends React.Component {
       <img src={Logo} className="logo"></img>
       <br></br>
       <br></br>
-      <h1>
+      <h3>
         Résumé de la consultation de 1er contact médical préalable à l’IVG :{" "}
-      </h1>
+      </h3>
       <br></br>
       <p>Nom/prénom et date de naissance :</p>
       <br></br>
@@ -31,7 +31,7 @@ class TestPrint extends React.Component {
       <br></br>
       <br></br>
       
-    <div>{this.state.data.map((objet)=>{
+    <div >{this.state.data.map((objet)=>{
     return (
       <div>
         

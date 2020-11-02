@@ -145,7 +145,7 @@ function PostIVGMineur(props) {
 
 
     //// Bloc Dosage
-    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState(0)
+    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState()
           ///////// dosage initial BHCG
 
   const handleChangeBHCGInitial = event => {
@@ -155,7 +155,7 @@ function PostIVGMineur(props) {
 
 
               ////////// dosage jour BHCG
-              const [nouvelleRechercheBHCGJour, setNouvelleRechercheBHCGJour] = useState(0)
+              const [nouvelleRechercheBHCGJour, setNouvelleRechercheBHCGJour] = useState()
 
               const handleChangeBHCGJour = event => {
                 setNouvelleRechercheBHCGJour(event.currentTarget.value);
@@ -289,7 +289,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
                 <p>
                 Les DIU peuvent être mise en place lors de la visite de contrôle après
                  une IVG médicamenteuse si la vacuité utérine à l’échographie est
-                  constatée ou si le dosage de -HCG est négatif. En cas de doute,
+                  constatée ou si le dosage de B-HCG est négatif. En cas de doute,
                    le DIU est posé lors des règles suivantes 
                    (avec une autre contraception dans l’intervalle).
                    <a target="_blank" href={ContraceptionHAS}>
@@ -610,7 +610,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
               handleTypeCause(e);
             }}>
         <option value="">Cause</option>
-        <option value="Un échec après analyse de la décroissance du taux de HCG. ">1. Un échec après analyse de la décroissance du taux de HCG. </option>
+        <option value="Un échec après analyse de la décroissance du taux de B-HCG. ">1. Un échec après analyse de la décroissance du taux de HCG. </option>
         <option value="Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).">2. Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).</option>
         <option value="Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.">3. Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.</option>
         <option value="Des douleurs ne s’atténuant pas par la prise de médicaments.">4. Des douleurs ne s’atténuant pas par la prise de médicaments.</option>
@@ -654,7 +654,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
                 Il est à noter que des patientes présentant des saignements abondants
                  avec signes cliniques d’anémie peuvent être adresser au service
                   d’urgence spécialisé du centre de référence
-                  <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+                  <a rel="noopener noreferrer" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
                   HAS recommandation
                   </a>
                 </p>
@@ -800,51 +800,12 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
     
     
     return (
-        <div>
+        <div className="consultationContainer">
 
-            <h1>Consultation post IVG : 
+            <h1>Consultation post IVG :  
 Mineure Non Anonyme/Anonyme :
             </h1>
-            <p>
-            Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
-Elle est indispensable selon la    <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">  HAS</a>
-
- .
- D’autres modalités,
- plus flexible et mieux adaptées aux conditions de vie de chacune sont envisageables
-  pour s’en assurer (autotest, télémédecine), elle doit être systématiquement proposée
-   selon le             <a target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
-.
-
-            </p>
-            <p>
-            Dans le cas particulier de l’IVG, l’article<a target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie"></a> L. 2212-7  du code de
-             la santé publique dispose : « Si la femme est mineure non émancipée,
-              le consentement de l’un des titulaires de l’autorité parentale ou,
-               le cas échéant, du représentant légal est recueilli. Ce consentement
-                est joint à la demande qu’elle présente au médecin en dehors de la
-                 présence de toute autre personne.
-
-            </p>
-            <p>
-            Si la femme mineure non émancipée désire garder le secret, le médecin doit
-             s’efforcer, dans l’intérêt de celle-ci, d’obtenir son consentement
-              pour que le ou les titulaires de l’autorité parentale ou, le cas
-               échéant, le représentant légal soient consultés ou doit vérifier
-                que cette démarche a été faite lors de l’entretien mentionné à
-                 l’article L 2212-4. Si la mineure ne veut pas effectuer cette
-                  démarche, ou si le consentement n’est pas obtenu, l’interruption
-                   volontaire de grossesse ainsi que les actes médicaux et les
-                    soins qui lui sont liés peuvent être pratiqués à la demande
-                     de l’intéressée, présentée dans les conditions prévues au
-                      1er alinéa. Dans ce cas, la mineure se fait accompagner
-                       dans sa démarche par la personne majeure de son choix. 
-            </p>
-            <p>
-            Une jeune fille mineure non émancipée doit donner au médecin son consentement
-             pour avorter sans que ses parents, son tuteur ou toute autre personne ne
-              soient présents afin qu'elle n'agisse pas sous la contrainte.
-            </p>
+            
 
 
 
@@ -854,6 +815,7 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
 
 
             <br></br>
+            <div className="ConsultationContainer">
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e)}}>Oui</Button>
@@ -870,8 +832,10 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
 
             </p>
             {/* lien a finir  */}
+            </div>
 
 
+            <div className="ConsultationContainer">
             <h2>Personne accompagnante majeure ou consentement parental </h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e);}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e);}}>Non</Button>
@@ -882,55 +846,61 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
         src={logoAfficheAcc}
       />
       <div>{currentInfoAcc}</div>
+            </div>
 
-            <h2>Dosage : </h2>
+            <div className="ConsultationContainer">
+            <h2>Dosage B-HCG : </h2>
 
-            <form >
-            <input
-                value={nouvelleRechercheBHCGInitial}
-                onChange={handleChangeBHCGInitial}
-                type="text"
-                placeholder="Dosage initial BHCG"
-            />
-            
-        </form>
+<form >
+<input
+    value={nouvelleRechercheBHCGInitial}
+    onChange={handleChangeBHCGInitial}
+    type="text"
+    placeholder="Dosage initial BHCG"
+/>
 
-        <form >
-            <input
-                value={nouvelleRechercheBHCGJour}
-                onChange={handleChangeBHCGJour}
-                type="text"
-                placeholder="Dosage jour BHCG"
-            />
-            
-        </form>
-        <Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
-        {afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
+</form>
 
+<form >
+<input
+    value={nouvelleRechercheBHCGJour}
+    onChange={handleChangeBHCGJour}
+    type="text"
+    placeholder="Dosage jour BHCG"
+/>
 
-
-
-        <h3>Utilisation d’un autotest urinaire :</h3>
-        <Button variant="secondary" value="Oui" onClick={(e)=>{
-          recupTestUri(e);
-          afficheUrinaire();
-        }}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
-      <div>{currentOuiUri}</div>
+</form>
+<Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
+{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 
 
 
-        <input
-        onClick={changementCouleurSVGDosage}
-        className="Lampe"
-        type="image"
-        src={logoAfficheDosage}
-      />
-      <div>{currentInfoDosage}</div>
+
+<h3>Utilisation d’un autotest urinaire :</h3>
+<Button variant="secondary" value="Oui" onClick={(e)=>{
+recupTestUri(e);
+afficheUrinaire();
+}}>Oui</Button>
+<Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
+<div>{currentOuiUri}</div>
+
+
+
+<input
+onClick={changementCouleurSVGDosage}
+className="Lampe"
+type="image"
+src={logoAfficheDosage}
+/>
+<div>{currentInfoDosage}</div>
+            </div>
+      <div className="ConsultationContainer">
       <h2>Contraception choisie par la patiente :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
+      </div>
 
+      <div className="ConsultationContainer">
       <h2>Adhésion à cette contraception :</h2>
       <Button variant="secondary" value="Oui">Oui</Button>
       <Button variant="secondary" value="Non">Non</Button>
@@ -941,36 +911,40 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
         src={logoAfficheContraception}
       />
       <div>{currentInfoContraception}</div>
+      </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
 
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e)}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e)}}>Non</Button>
+<Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e)}}>Oui</Button>
+<Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e)}}>Non</Button>
 
 
-      <p>
-      De nombreuses sources numériques existent pour l’information aux patient(es)
-       des IST ainsi que de ces risques
-        <a target="_blank" href="http://www.info-ist.fr/index.html">
-         Lien ISt-info
-        </a>
-        <a target="_blank" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
-        Lien Ameli IST
-        </a>
-         En cliquant ici,
-        ces sites apparaitront sur le résumé de la consultation, à remettre en main
-         propre de la patiente. 
-      </p>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <input
-        onClick={changementCouleurSVGIST}
-        className="Lampe"
-        type="image"
-        src={logoAfficheIST}
-      />
-      <div>{currentInfoIST}</div>
+<p>
+De nombreuses sources numériques existent pour l’information aux patient(es)
+ des IST ainsi que de ces risques
+  <a target="_blank" href="http://www.info-ist.fr/index.html">
+   Lien ISt-info
+  </a>
+  <a target="_blank" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
+  Lien Ameli IST
+  </a>
+   En cliquant ici,
+  ces sites apparaitront sur le résumé de la consultation, à remettre en main
+   propre de la patiente. 
+</p>
+<Button variant="secondary" value="Oui">Oui</Button>
+<input
+  onClick={changementCouleurSVGIST}
+  className="Lampe"
+  type="image"
+  src={logoAfficheIST}
+/>
+<div>{currentInfoIST}</div>
+      </div>
 
+      <div className="ConsultationContainer">
       <h2>Frottis à jour</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupHPV(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupHPV(e);}}>Non</Button>
@@ -991,9 +965,11 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoFrotti}</div>
+      </div>
 
 
       
+      <div className="ConsultationContainer">
       <h2>Tabac :</h2>
       <br></br>
       <label>
@@ -1030,7 +1006,9 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
+      </div>
 
+        <div className="ConsultationContainer">
         <h2>Vécu de l’IVG traumatique :</h2>
         <Button variant="secondary" value="Oui" onClick={(e)=>{recupVecu(e)}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupVecu(e)}}>Non</Button>
@@ -1042,8 +1020,10 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoVecu}</div>
+        </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{
         recupAvis(e);
@@ -1058,6 +1038,7 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoAvis}</div>
+      </div>
 
       <br></br>
 

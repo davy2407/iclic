@@ -10,7 +10,7 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
         }
     }
   render() {
-    
+     
     return (
         <div className="containerP" >
       <img src={Logo} className="logo"></img>
@@ -36,6 +36,8 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
       <p>GEU :</p>
       <p>Infections :</p>
       <p>Autres :</p>
+      <br></br>
+      <br></br>
 
 
 

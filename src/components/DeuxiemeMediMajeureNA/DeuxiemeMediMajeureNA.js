@@ -288,10 +288,8 @@ function DeuxiemeMediMajeureNA(props) {
           <div>
               
             <p>
-            prévention  de l’incompatibilité rhésus chez les femmes rhésus négatif si
-             conjoint positif ou inconnue par la prescription et l’administration de
-              gammaglobuline anti-D. 
-            Injection IM ou IV de 200 ug d’Ig anti-D.
+            prévention  de l’incompatibilité rhésus chez les femmes rhésus négatif si conjoint positif ou inconnue par la prescription et l’administration de gammaglobuline anti-D. 
+Injection IM ou IV de 200 ug d’Ig anti-D
             </p>
             
           </div>
@@ -481,16 +479,13 @@ L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consul
     
     
     return (
-        <div>
+        <div className="consultationContainer">
 
             <h1>Consultation 2ème prise médicamenteuse (facultative) :
 Majeure Non Anonyme</h1>
 
-            <p>
-            Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
-             qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
-
-            </p>
+            
+            <div className="ConsultationContainer">
             <h2>Effets secondaires de la mifépristone :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupMife(e);}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupMife(e);}}>Non</Button>
@@ -501,7 +496,9 @@ Majeure Non Anonyme</h1>
         src={logoAfficheMife}
       />
       <div>{currentInfoMife}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Délivrance du misoprostol :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupMiso(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupMiso(e)}}>Non</Button>
@@ -512,7 +509,9 @@ Majeure Non Anonyme</h1>
         src={logoAfficheMiso}
       />
       <div>{currentInfoMiso}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupAnti(e);
             afficheCause();}}>Oui</Button>
@@ -526,6 +525,8 @@ Majeure Non Anonyme</h1>
       />
       <div>{currentInfoAntiD}</div>
 
+            </div>
+            <div className="ConsultationContainer">
             <h2>Arrêt de travail prescrit pour la prise médicamenteuse : </h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupArret(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupArret(e)}}>Non</Button>
@@ -536,7 +537,9 @@ Majeure Non Anonyme</h1>
         src={logoAfficheArret}
       />
       <div>{currentInfoArret}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Contraception choisie par la patiente :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);
             affichageTxtTypeContra();}}>Oui</Button>
@@ -549,6 +552,7 @@ Majeure Non Anonyme</h1>
         src={logoAfficheContra}
       />
       <div>{currentInfoContra}</div>
+            </div>
 
             <a target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
 

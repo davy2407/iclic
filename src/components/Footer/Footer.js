@@ -10,6 +10,8 @@ import Quatre from "@assets/images/Quatre.svg";
 import Cinq from "@assets/images/Cinq.svg";
 import Six from "@assets/images/Six.svg";
 import Sept from "@assets/images/Sept.svg";
+import logoPrenat from "@assets/images/logoPerinaNormandie.png";
+import National from "@assets/images/logoNational.jpg";
 
 function Footer() {
   const [listeSponsor, setListeSponsor] = useState([
@@ -17,7 +19,9 @@ function Footer() {
     // { nom: 2, backgroundImage: Deux },
     // { nom: 3, backgroundImage: Trois },
     // { nom: 4, backgroundImage: Quatre },
-    { nom: 5, backgroundImage: Cinq }
+    { id: 1, nom: 'UniRouen', backgroundImage: Cinq },
+    { id: 2, nom: 'Prenat', backgroundImage: logoPrenat },
+    { id: 3, nom: 'Natio', backgroundImage: National }
     // { nom: 6, backgroundImage: Six },
     // { nom: 7, backgroundImage: Sept },
   ]);

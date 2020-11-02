@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 // import assets
 import LightOn from "@assets/images/lightOn.svg";
@@ -676,23 +677,21 @@ const recupBilan = (e) => {
     /// Groupe Sanguin 
 
     const [groupeSanguin, setGroupeSanguin] = useState("");
-  const handleGroupeSanguin = event => {
-      setGroupeSanguin(event.currentTarget.value);
-    };
-
-    const handleSubmitGroupeSanguin = event => {
-      event.preventDefault();
+    const handleChangeGroupe = (e) => {
+      /// recup date frotti
+     
+      
+      
       let reponse = {
-        titre : "Groupe Sanguin : ",
-        value : event.currentTarget.value
+        titre: "Groupe Sanguin : ",
+        value: e.target.value,
       };
-      setCurrentGroupe(reponse);
-       
+     setCurrentGroupe(reponse);
     
-        console.log("Groupe Sanguin :  "+reponse.value);
-        setGroupeSanguin("");
+      console.log("Groupe Sanguin : " + reponse.value);
+      
     };
-
+    
 
     /////////////////////////////////////////////////////////////////////////
 
@@ -870,40 +869,13 @@ setNouvelleRecherchePaquet(0);
     /////////////////////////////////////////////////////////////////////////////
 
   return (
-      <div>
+      <div className="consultationContainer">
           <h1>
           2ème consultation préalable à l’IVG/Recueil de consentement 
 Mineur A/NA : 
           </h1>
           <br></br>
-          <p>
-          Dans le cas particulier de l’IVG, l’article <a target="_blank" href="19) https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a> Lien n°19 du code de la
-           santé publique dispose : « Si la femme est mineure non émancipée,
-            le consentement de l’un des titulaires de l’autorité parentale ou,
-             le cas échéant, du représentant légal est recueilli. Ce consentement
-              est joint à la demande qu’elle présente au médecin en dehors de la
-               présence de toute autre personne. 
-          </p>
-
-          <p>
-          Si la femme mineure non émancipée désire garder le secret,
-           le médecin doit s’efforcer, dans l’intérêt de celle-ci,
-            d’obtenir son consentement pour que le ou les titulaires
-             de l’autorité parentale ou, le cas échéant, le représentant
-              légal soient consultés ou doit vérifier que cette démarche
-               a été faite lors de l’entretien mentionné à l’article
-                L 2212-4. Si la mineure ne veut pas effectuer cette démarche,
-                 ou si le consentement n’est pas obtenu, l’interruption
-                  volontaire de grossesse ainsi que les actes médicaux
-                   et les soins qui lui sont liés peuvent être pratiqués
-                    à la demande de l’intéressée, présentée dans les conditions prévues au 1er alinéa. Dans ce cas, la mineure se fait accompagner dans sa démarche par la personne majeure de son choix 
-
-          </p>
-
-          <p>
-          Une jeune fille mineure non émancipée doit donner au médecin son consentement pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient présents afin qu'elle n'agisse pas sous la contrainte.
-
-          </p>
+          
 
 
 
@@ -911,6 +883,7 @@ Mineur A/NA :
 
 
 
+          <div className="ConsultationContainer">
           <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
           <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
           <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
@@ -921,14 +894,18 @@ Mineur A/NA :
       src={logoAfficheAttestation}
     />
     <div>  {currentInfoAttestation}</div>
+          </div>
 
 
 
+          <div className="ConsultationContainer">
           <h2>Personne accompagnante majeure ou consentement parental</h2>
           <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
           <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+          </div>
 
 
+          <div className="ConsultationContainer">
           <h2>Consultation psycho-sociale réalisée :</h2>
           <Button variant="secondary" value="Oui" onClick={recupPsy}>Oui</Button>
           
@@ -940,16 +917,22 @@ Mineur A/NA :
       src={logoAfficheConsultationPsy}
     />
     <div>  {currentInfoConsultationPsy}</div>
+          </div>
+    <div className="ConsultationContainer">
     <h3>Attestation</h3>
     <Button variant="secondary" value="Oui">Oui</Button>
     <Button variant="secondary" value="Non">Non</Button>
+    </div>
     
 
+          <div className="ConsultationContainer">
           <h2>Grossesse intra-utérine confirmée :</h2>
           <Button variant="secondary" value="Oui" onClick={recupGro}>Oui</Button>
           <Button variant="secondary" value="Non" onClick={recupGro}>Non</Button>
+          </div>
 
 
+          <div className="ConsultationContainer">
           <h2>Age gestationnel : </h2>
           {/* faire input comme nb paquet tabac pConsultation */}
           <input
@@ -966,9 +949,11 @@ Mineur A/NA :
     <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
     <div>{currentInfoNbSAplusDouze}</div>
     <br></br>
+          </div>
 
 
 
+    <div div className="ConsultationContainer">
     <h2>Recherche IST +/- antibio-prophylaxie</h2>
     <br></br>
     <label>
@@ -1000,6 +985,8 @@ Mineur A/NA :
       src={logoAfficheIST}
     />
     <div>  {currentInfoIST}</div>
+    </div>
+    <div div className="ConsultationContainer">
     <h2>
       Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
       quantitatif)
@@ -1034,8 +1021,10 @@ Mineur A/NA :
     />
     <br></br>
     <div>{currentInfoSang}</div>
+    </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Dosage ß-HCG : </h2>
       <form >
           <input
@@ -1049,33 +1038,27 @@ Mineur A/NA :
           }}>Confirmer</Button>
           
       </form>
+      </div>
 
 
-      <h2>Groupe sanguin :</h2>
-      <form >
-          <input
-              value={groupeSanguin}
-              onChange={handleGroupeSanguin}
-              type="text"
-              placeholder="groupe sanguin"
-          />
-          <Button value={groupeSanguin} variant="secondary" onClick={(e)=> {
-            handleSubmitGroupeSanguin(e)
-          }}>Confirmer</Button>
-          
-      </form>
-
-
-
-
-
-
-
-
-
-
-
-
+      <div className="ConsultationContainer">
+      <h3>Groupe sanguin : </h3>
+        <Form.Group>
+  <Form.Control as="select" size="lg" onChange={(e) => {
+          handleChangeGroupe(e);
+        }}>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </Form.Control>
+  </Form.Group>
+      </div>
+<div className="ConsultationContainer">
       <h2>Information contraception post-IVG</h2>
       <label>
       Information contraception post-IVG
@@ -1107,22 +1090,8 @@ Mineur A/NA :
     />
     <br></br>
     <div>{currentInfoPostIVG}</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+      </div>
+<div className="ConsultationContainer">
 <h2>Frottis à jour ou test HPV</h2>
     <br></br>
     <label>
@@ -1174,8 +1143,10 @@ Mineur A/NA :
     />
     <br></br>
     <div>{currentInfoFrotti}</div>
+</div>
 
 
+      <div className="ConsultationContainer">
       <h2>Tabac :</h2>
       <label>
       <Button
@@ -1208,6 +1179,7 @@ Mineur A/NA :
             handleSubmitPaquet(e)
           }}>Confirmer</Button>
       </form>
+      </div>
 
 
 

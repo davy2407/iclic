@@ -437,7 +437,7 @@ function DeuxiemeMediMineureANA(props) {
              </p>
              <p>
              Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a rel="noreferrer noopener" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
              </p>
              <p>
              La pilule : débuté au moment de la 1ère prise médicamenteuse ou le lendemain. 
@@ -448,7 +448,7 @@ L'implant : débuté le jour de la 2eme prise médicamenteuse ou à la consulta
              </p>
             
              <p>
-                 <a target="_blank" target="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+                 <a rel="noreferrer noopener" target="_blank" target="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
              </p>
             
           </div>
@@ -538,16 +538,13 @@ L'implant : débuté le jour de la 2eme prise médicamenteuse ou à la consulta
     
     
     return (
-        <div>
+        <div className="consultationContainer">
 
             <h1>Consultation 2ème prise médicamenteuse (facultative) :
 Mineure </h1>
 
-            <p>
-            Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
-             qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
-
-            </p>
+            
+            <div className="ConsultationContainer">
             <h2>Effets secondaires de la mifépristone :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupMife(e);}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupMife(e);}}>Non</Button>
@@ -558,7 +555,9 @@ Mineure </h1>
         src={logoAfficheMife}
       />
       <div>{currentInfoMife}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Délivrance du misoprostol :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupMiso(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupMiso(e)}}>Non</Button>
@@ -569,7 +568,9 @@ Mineure </h1>
         src={logoAfficheMiso}
       />
       <div>{currentInfoMiso}</div>
+            </div>
 
+      <div className="ConsultationContainer">
       <h2>Personne accompagnante majeure ou consentement parental obligatoire </h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e)}}>Non</Button>
@@ -580,7 +581,9 @@ Mineure </h1>
         src={logoAfficheAcc}
       />
       <div>{currentInfoAcc}</div>
+      </div>
 
+            <div className="ConsultationContainer">
             <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupAnti(e);
             afficheCause();}}>Oui</Button>
@@ -593,7 +596,9 @@ Mineure </h1>
         src={logoAfficheAntiD}
       />
       <div>{currentInfoAntiD}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Arrêt de travail prescrit pour la prise médicamenteuse : </h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupArret(e)}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupArret(e)}}>Non</Button>
@@ -604,7 +609,9 @@ Mineure </h1>
         src={logoAfficheArret}
       />
       <div>{currentInfoArret}</div>
+            </div>
 
+            <div className="ConsultationContainer">
             <h2>Contraception choisie par la patiente :</h2>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);
             affichageTxtTypeContra();}}>Oui</Button>
@@ -617,6 +624,7 @@ Mineure </h1>
         src={logoAfficheContra}
       />
       <div>{currentInfoContra}</div>
+            </div>
       <br></br>
 
       <h2>            <a target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>

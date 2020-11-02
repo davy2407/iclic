@@ -40,11 +40,11 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
       </ul>
       
       <p>Lien guide IVG ministère :</p>
-      <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
-      <a
+      <a rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
@@ -81,7 +81,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé consultation post-IVG médicamenteuse</Button>
       <br></br>
-      <a href={FicheHAS} rel="noreferrer noopener" target="_blank">    
+      <a href={FicheHAS}  target="_blank">    
         Fiche de liaison HAS à télécharger     
      </a>
     </div>

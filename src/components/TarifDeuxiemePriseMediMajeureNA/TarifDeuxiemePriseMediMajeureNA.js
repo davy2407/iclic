@@ -28,23 +28,13 @@ function TarifDeuxiemePriseMediMajeureNA(props) {
 CCL et facturation majeure NA.</h1>
       <br></br>
       <p>
-      Si le forfait a été enregistré lors de la 1ère consultation de prise
-       médicamenteuse, elle ne doit pas être renouvelée lors de cette consultation. 
+      La  2ème prise médicamenteuse peut se faire au cabinet  du médecin ou au domicile de la patiente si  le medecin a remis les comprimés à la patiente lors du rendez vous precedent. 
       </p>
       
-      <p>
-      La consultation de 2ème prise médicamenteuse est facultative et peut être réalisée au choix du médecin ou de la patiente, elle est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. Elle doit être cotée avec l’index FHV + FMV (50 + 87,92 euros). 
-Sa tarification peut être faite électroniquement ou par format papier.   
-Pour rappel, cette consultation est prise en charge à 100% avec exonération du
- ticket modérateur pour :
-      </p>
+      
       
      
-      <ul>
-          
-        <li>Les femmes bénéficiaires de la CMU complémentaire</li>
-        <li>Les femmes bénéficiaires de l’aide médicale de l’État (AME).</li>
-      </ul>
+      
 
       
     
@@ -52,13 +42,11 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       
 
       <p>Lien guide IVG ministère :</p>
-      <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
-      <a href={FicheCNGOF} target="_blank">
-        Fiche info CNGOF PDF
-      </a>
-      <a
+      
+      <a rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
@@ -77,30 +65,23 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
         </div>
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé consultation 2eme prise médicamenteuse </Button>
-      <br></br>
-      <a target="_blank" href={LiaisonHAS}>Fiche de liaison HAS à télécharger</a>
-      <br></br>
+      
       <a target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
       <br></br>
       
     </div>
     <p>
-    Il est confraternel de faire suivre le résumé et de la remettre en main de la patiente.
+    Remettre à la patiente la fiche de liaison qui reprend toutes les étapes de l’IVG de la patiente.
     </p>
-    <p>
-    Pour rappel : il est utile de rappeler à la patiente l’obligation de la
-     consultation de contrôle afin de vérifier avec le professionnel de santé
-      de la bonne réussite de la méthode (J14-21). La date de cette consultation
-       est à remplir manuellement sur le résumé. 
-    </p>
+   
 
     <p>
-    Pour cela, assurez-vous que la patiente possède bien la prise de sang
-     (HCG quantitatif) à effectuer pour la consultation de contrôle. 
-    L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG 
-    médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
-    <a target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
-   <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter"> Lien HAS recommandation</a> 
+    Obligation de consultation de contrôle afin de vérifier la bonne réussite de la méthode (J14-21). La date de cette consultation est à remplir manuellement sur le résumé. 
+assurez-vous que la patiente possède bien la prise de sang (βHCG quantitatif) à effectuer pour la consultation de contrôle. 
+L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG 
+médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
+    <a rel="noreferrer noopener" target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
+   <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter"> Lien HAS recommandation</a> 
     </p>
     </div>
   );

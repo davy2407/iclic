@@ -133,7 +133,7 @@ const recupReco = (e) => {
 
     //// Bloc Dosage
    
-    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState(0)
+    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState()
           ///////// dosage initial BHCG
 
   const handleChangeBHCGInitial = event => {
@@ -143,7 +143,7 @@ const recupReco = (e) => {
 
 
               ////////// dosage jour BHCG
-              const [nouvelleRechercheBHCGJour, setNouvelleRechercheBHCGJour] = useState(0)
+              const [nouvelleRechercheBHCGJour, setNouvelleRechercheBHCGJour] = useState()
 
               const handleChangeBHCGJour = event => {
                 setNouvelleRechercheBHCGJour(event.currentTarget.value);
@@ -428,12 +428,24 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
             return (
               <div>
                 <p>
-                   Le plan de dépistage national s’applique, pour toute femme
-                  immunocompétente de 25 à 65 ans.
+                   Le plan de dépistage national s’applique : 
                 </p>
-                <a href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">
+                <ul>
+                  <li>
+                    <p>
+                    entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                    le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+                    <a rel="noreferrer noopener" href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">
                   https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage
                 </a>
+                    </p>
+                  </li>
+                </ul>
+                
               </div>
             );
           };
@@ -526,9 +538,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
             return (
               <div>
                 <p>
-                 Un vécu traumatique peut nécessiter, à la demande du médecin/sage-femme
-                 pratiquant l’acte, une prise en charge avec une psychologue et/ou un
-                  suivi attentif par le médecin traitant
+                 Un vécu traumatique peut nécessiter une prise en charge avec une psychologue et/ou un suivi attentif par le médecin traitant. Les services de Protection maternelle et infantile (PMI) et les centres de Planification et d'Éducation familiale (CPEF) jouent un rôle majeur d'information, d'accompagnement et de prise en charge.
                 </p>
                 
               </div>
@@ -742,26 +752,16 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
     
     
     return (
-        <div>
+        <div className="consultationContainer">
 
             <h1>Consultation post IVG ,  
 Majeure Non Anonyme : 
             </h1>
-            <p>
-            Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
-Elle est indispensable selon la    <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">  HAS</a>
-
- .
- D’autres modalités,
- plus flexible et mieux adaptées aux conditions de vie de chacune sont envisageables
-  pour s’en assurer (autotest, télémédecine), elle doit être systématiquement proposée
-   selon le             <a target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
-.
-
-            </p>
+            
 
 
             <br></br>
+            <div className="ConsultationContainer">
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
             <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e);}}>Non</Button>
@@ -776,51 +776,58 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
               qu’en présentiel. 
               
 
+            
             </p>
+            </div>
             {/* lien a finir  */}
 
-            <h2>Dosage : </h2>
+            <div className="ConsultationContainer">
+            <h2>Dosage B-HCG : </h2>
 
-            <form >
-            <input
-                value={nouvelleRechercheBHCGInitial}
-                onChange={handleChangeBHCGInitial}
-                type="text"
-                placeholder="Dosage initial BHCG"
-            />
-            
-        </form>
+<form >
+<input
+    value={nouvelleRechercheBHCGInitial}
+    onChange={handleChangeBHCGInitial}
+    type="text"
+    placeholder="Dosage initial BHCG"
+/>
 
-        <form >
-            <input
-                value={nouvelleRechercheBHCGJour}
-                onChange={handleChangeBHCGJour}
-                type="text"
-                placeholder="Dosage jour BHCG"
-            />
-            
-        </form>
-        <Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
+</form>
 
-        {afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
-        <h3>Utilisation d’un autotest urinaire :</h3>
-        <Button variant="secondary" value="Oui" onClick={(e)=>{
-          recupTestUri(e);
-          afficheUrinaire();
-        }}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
-      <div>{currentOuiUri}</div>
-        <input
-        onClick={changementCouleurSVGDosage}
-        className="Lampe"
-        type="image"
-        src={logoAfficheDosage}
-      />
-      <div>{currentInfoDosage}</div>
+<form >
+<input
+    value={nouvelleRechercheBHCGJour}
+    onChange={handleChangeBHCGJour}
+    type="text"
+    placeholder="Dosage jour BHCG"
+/>
+
+</form>
+<Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
+
+{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
+<h3>Utilisation d’un autotest urinaire :</h3>
+<Button variant="secondary" value="Oui" onClick={(e)=>{
+recupTestUri(e);
+afficheUrinaire();
+}}>Oui</Button>
+<Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
+<div>{currentOuiUri}</div>
+<input
+onClick={changementCouleurSVGDosage}
+className="Lampe"
+type="image"
+src={logoAfficheDosage}
+/>
+<div>{currentInfoDosage}</div>
+            </div>
+      <div className="ConsultationContainer">
       <h2>Contraception choisie par la patiente :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
+      </div>
 
+      <div className="ConsultationContainer">
       <h2>Adhésion à cette contraception :</h2>
       <Button variant="secondary" value="Oui">Oui</Button>
       <Button variant="secondary" value="Non">Non</Button>
@@ -831,36 +838,40 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
         src={logoAfficheContraception}
       />
       <div>{currentInfoContraception}</div>
+      </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
 
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e);}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}}>Non</Button>
+<Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e);}}>Oui</Button>
+<Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}}>Non</Button>
 
 
-      <p>
-      De nombreuses sources numériques existent pour l’information aux patient(es)
-       des IST ainsi que de ces risques
-        <a target="_blank" href="http://www.info-ist.fr/index.html">
-         Lien ISt-info
-        </a>
-        <a target="_blank" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
-        Lien Ameli IST
-        </a>
-         En cliquant ici,
-        ces sites apparaitront sur le résumé de la consultation, à remettre en main
-         propre de la patiente. 
-      </p>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <input
-        onClick={changementCouleurSVGIST}
-        className="Lampe"
-        type="image"
-        src={logoAfficheIST}
-      />
-      <div>{currentInfoIST}</div>
+<p>
+De nombreuses sources numériques existent pour l’information aux patient(es)
+ des IST ainsi que de ces risques
+  <a target="_blank" href="http://www.info-ist.fr/index.html">
+   Lien ISt-info
+  </a>
+  <a target="_blank" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
+  Lien Ameli IST
+  </a>
+   En cliquant ici,
+  ces sites apparaitront sur le résumé de la consultation, à remettre en main
+   propre de la patiente. 
+</p>
+<Button variant="secondary" value="Oui">Oui</Button>
+<input
+  onClick={changementCouleurSVGIST}
+  className="Lampe"
+  type="image"
+  src={logoAfficheIST}
+/>
+<div>{currentInfoIST}</div>
+      </div>
 
+      <div className="ConsultationContainer">
       <h2>Frottis à jour</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupHPV(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupHPV(e);}}>Non</Button>
@@ -881,9 +892,11 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoFrotti}</div>
+      </div>
 
 
       
+      <div className="ConsultationContainer">
       <h2>Tabac :</h2>
       <br></br>
       <label>
@@ -920,7 +933,9 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
               handleSubmitPaquet(e);
             }}>Confirmer</Button>
         </form>
+      </div>
 
+        <div className="ConsultationContainer">
         <h2>Vécu de l’IVG traumatique :</h2>
         <Button variant="secondary" value="Oui" onClick={(e)=>{recupVecu(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupVecu(e);}}>Non</Button>
@@ -932,8 +947,10 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoVecu}</div>
+        </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{
         recupAvis(e);
@@ -948,6 +965,7 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <br></br>
       <div>{currentInfoAvis}</div>
+      </div>
 
       <br></br>
 

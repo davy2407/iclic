@@ -10,15 +10,15 @@ class ResumePremiereConsultationMineureANA extends React.Component {
         }
     }
   render() {
-    
+     
     return (
         <div className="containerT" >
       <img src={Logo} className="logo"></img>
       <br></br>
       <br></br>
-      <h1>
+      <h3>
         Résumé de la consultation de 1er contact médical préalable à l’IVG :{" "}
-      </h1>
+      </h3>
       <br></br>
       <p>Nom/prénom et date de naissance :</p>
       <br></br>

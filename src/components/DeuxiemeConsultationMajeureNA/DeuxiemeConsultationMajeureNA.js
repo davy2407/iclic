@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 // import assets
 import LightOn from "@assets/images/lightOn.svg";
@@ -288,7 +289,7 @@ function DeuxiemeConsultationMajeureNA(props) {
     const recupSaisieUtilisateurNbSemaine = (event) => {
       event.preventDefault();
       let nb = saisieUtilisateurNbSemaineSA;
-      if (nb < 7) {
+      if (nb <= 7) {
         affichageMoinsDeSept();
       } else if (nb > 7 && nb < 12) {
         affichagePlusDeSeptMoinsDouze();
@@ -310,7 +311,8 @@ function DeuxiemeConsultationMajeureNA(props) {
       /// retourne le texte mois de 7 semaines si <7
       return (
         <div>
-          <p>IVG médicamenteuse et chirurgical possible</p>
+          <p>IVG médicamenteuse </p>
+          <p className="Red"> Si SA = 7 alors IVG possible ce jour à votre cabinet, si non habilité, adresser au centre de référence.</p>
         </div>
       );
     };
@@ -339,8 +341,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       return (
         <div>
           <p>
-            IVG médicamenteuse et chirurgical possible mais en centre de référence
-            seulement.
+          IVG médicamenteuse et chirurgical possible en centre de référence seulement. 
           </p>
           <br></br>
           <h1 className="Verrou1">VERROU :</h1>
@@ -680,17 +681,19 @@ function DeuxiemeConsultationMajeureNA(props) {
         setGroupeSanguin(event.currentTarget.value);
       };
 
-      const handleSubmitGroupeSanguin = event => {
-        event.preventDefault();
+      const handleChangeGroupe = (e) => {
+        /// recup date frotti
+       
+        
+        
         let reponse = {
-          titre : "Groupe Sanguin : ",
-          value : event.currentTarget.value
+          titre: "Groupe Sanguin : ",
+          value: e.target.value,
         };
-        setCurrentGroupe(reponse);
-         
+       setCurrentGroupe(reponse);
       
-          console.log("Groupe Sanguin :  "+reponse.value);
-          setGroupeSanguin("");
+        console.log("Groupe Sanguin : " + reponse.value);
+        
       };
 
 
@@ -870,20 +873,15 @@ const handleSubmitPaquet = event => {
       /////////////////////////////////////////////////////////////////////////////
   
     return (
-        <div>
+        <div className="consultationContainer">
             <h1>
                 2ème consultation préalable à l’IVG/Recueil de consentement 
                 Majeur Non Anonyme 
             </h1>
             <br></br>
-            <p>
-            Cette 2ème consultation peut être effectuée par tout médecin ou sage femme,
-             prenant en charge l’IVG ou non. Elle fait partie du tarif forfaitaire à l’IVG. 
-            Si vous n’êtes pas le médecin ou la sage femme prenant en charge l’IVG, 
-            il convient de ré-adresser
-            la patiente au terme de la consultation à un professionnel pouvant effectuer cet acte. 
-            </p>
+            
 
+            <div className="ConsultationContainer">
             <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
             <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
@@ -894,14 +892,18 @@ const handleSubmitPaquet = event => {
         src={logoAfficheAttestation}
       />
       <div>  {currentInfoAttestation}</div>
+            </div>
 
 
 
+            <div className="ConsultationContainer">
             <h2>Personne accompagnante :</h2>
             <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+            </div>
 
 
+            <div className="ConsultationContainer">
             <h2>Consultation psycho-sociale réalisée :</h2>
             <Button variant="secondary" value="Oui" onClick={recupPsy}>Oui</Button>
             
@@ -913,16 +915,22 @@ const handleSubmitPaquet = event => {
         src={logoAfficheConsultationPsy}
       />
       <div>  {currentInfoConsultationPsy}</div>
+            </div>
+            <div className="ConsultationContainer">
       <h3>Attestation</h3>
       <Button variant="secondary" value="Oui">Oui</Button>
       <Button variant="secondary" value="Non">Non</Button>
+            </div>
       
 
+            <div className="ConsultationContainer">
             <h2>Grossesse intra-utérine confirmée :</h2>
             <Button variant="secondary" value="Oui" onClick={recupGro}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupGro}>Non</Button>
+            </div>
 
 
+            <div className="ConsultationContainer">
             <h2>Age gestationnel : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
@@ -940,8 +948,10 @@ const handleSubmitPaquet = event => {
       <div>{currentInfoNbSAplusDouze}</div>
       <br></br>
 
+            </div>
 
 
+      <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
@@ -973,6 +983,8 @@ const handleSubmitPaquet = event => {
         src={logoAfficheIST}
       />
       <div>  {currentInfoIST}</div>
+      </div>
+      <div className="ConsultationContainer">
       <h2>
         Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
         quantitatif)
@@ -1009,6 +1021,8 @@ const handleSubmitPaquet = event => {
       <div>{currentInfoSang}</div>
 
 
+      </div>
+        <div className="ConsultationContainer">
         <h2>Dosage ß-HCG : </h2>
         <form >
             <input
@@ -1022,33 +1036,39 @@ const handleSubmitPaquet = event => {
             }}>Confirmer</Button>
             
         </form>
+        </div>
 
 
-        <h2>Groupe sanguin :</h2>
-        <form >
-            <input
-                value={groupeSanguin}
-                onChange={handleGroupeSanguin}
-                type="text"
-                placeholder="groupe sanguin"
-            />
-            <Button value={groupeSanguin} variant="secondary" onClick={(e)=> {
-              handleSubmitGroupeSanguin(e)
-            }}>Confirmer</Button>
-            
-        </form>
-
-
-
-
-
-
-
-
+        <div className="ConsultationContainer">
+        <h3>Groupe sanguin : </h3>
+        <Form.Group>
+  <Form.Control as="select" size="lg" onChange={(e) => {
+          handleChangeGroupe(e);
+        }}>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </Form.Control>
+  </Form.Group>
+  </div>
 
 
 
 
+
+
+
+
+
+
+
+
+        <div className="ConsultationContainer">
         <h2>Information contraception post-IVG</h2>
         <label>
         Information contraception post-IVG
@@ -1080,6 +1100,7 @@ const handleSubmitPaquet = event => {
       />
       <br></br>
       <div>{currentInfoPostIVG}</div>
+        </div>
 
 
 
@@ -1096,6 +1117,7 @@ const handleSubmitPaquet = event => {
 
 
       
+<div className="ConsultationContainer">
 <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <label>
@@ -1147,8 +1169,10 @@ const handleSubmitPaquet = event => {
       />
       <br></br>
       <div>{currentInfoFrotti}</div>
+</div>
 
 
+        <div className="ConsultationContainer">
         <h2>Tabac :</h2>
         <label>
         <Button
@@ -1181,6 +1205,7 @@ const handleSubmitPaquet = event => {
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
+        </div>
 
 
 

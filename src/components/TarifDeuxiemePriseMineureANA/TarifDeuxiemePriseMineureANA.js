@@ -28,8 +28,7 @@ function TarifDeuxiemePriseMineureANA(props) {
 CCL et facturation mineure A/NA.</h1>
       <br></br>
       <p>
-      Le forfait a été enregistré lors de la 1ère consultation de prise médicamenteuse, elle ne doit pas être renouvelée lors de cette consultation.  
-      </p>
+      Le forfait a été enregistré lors de la 1ère consultation de prise médicamenteuse, elle ne doit pas être renouvelée lors de cette consultation.       </p>
       
       <p>
       La consultation de 2ème prise médicamenteuse est facultative et peut être
@@ -57,7 +56,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
       Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure
        bénéficie des conditions de facturation anonymes aux caisses
         de sécurité sociale, d’ores et déjà applicables,
-         <a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">(article D. 132-3 du Code de la sécurité  32)</a>
+         <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">(article D. 132-3 du Code de la sécurité  32)</a>
 
       </p>
 
@@ -70,13 +69,11 @@ Sa tarification peut être faite électroniquement ou par format papier.
       <br></br>
 
       <p>Lien guide IVG ministère :</p>
-      <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
-      <a href={FicheCNGOF} target="_blank">
-        Fiche info CNGOF PDF
-      </a>
-      <a
+      
+      <a rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
@@ -140,8 +137,8 @@ Sa tarification peut être faite électroniquement ou par format papier.
      (HCG quantitatif) à effectuer pour la consultation de contrôle. 
     L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG 
     médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
-    <a target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
-   <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">17) Lien HAS recommandation</a> 
+    <a rel="noreferrer noopener" target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/">Lien recommandation CNGOF</a>
+   <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">17) Lien HAS recommandation</a> 
     </p>
     </div>
   );

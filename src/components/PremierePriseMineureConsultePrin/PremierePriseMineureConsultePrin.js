@@ -13,7 +13,7 @@ import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
 
 
 
-function PremierePriseMajeureMineure(props) {
+function PremierePriseMineureConsultePrin(props) {
 
     const [globalStateFin, setGlobalStateFin] = useState(props.onData);
 
@@ -1179,4 +1179,4 @@ affichageFrotti();
 }
 
 
-export default PremierePriseMajeureMineure;
+export default PremierePriseMineureConsultePrin;
