@@ -15,7 +15,6 @@ function PremiereMediMineureANA(props) {
   const [globalStateFin, setGlobalStateFin] = useState([]);
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentCovid);
     liste.push(currentEcho);
@@ -33,7 +32,6 @@ function PremiereMediMineureANA(props) {
         
       }
       else  {
-        console.log("OK");
       }
       
     }
@@ -123,7 +121,6 @@ function PremiereMediMineureANA(props) {
     };
     setCurrentGest(reponse);
    
-    console.log("Echographie de datation/Age gestationnel(SA) : " + nb);
  
 
     setSaisieUtilisateurNbSemaineSA(0);
@@ -308,7 +305,6 @@ function PremiereMediMineureANA(props) {
     
     setCurrentAttestation(reponse);
     
-    console.log("Consultation psychosociale :" + reponse.value);
   };
   const [txtPsy, setTxtPsy] = useState(
     "Non obligatoire pour les femmes majeures"
@@ -385,7 +381,6 @@ function PremiereMediMineureANA(props) {
     
     setCurrentConssent(reponse);
     
-    console.log("Consentement à l’IVG : " + reponse.value);
   };
 
   
@@ -404,7 +399,6 @@ function PremiereMediMineureANA(props) {
     
     setCurrentSang(reponse);
     
-    console.log("Prise de sang effectuée : " + reponse.value);
   };
 
   const priseDeSang = () => {
@@ -468,7 +462,6 @@ const handleSubmitßHCG = event => {
   };
  setCurrentDosage(reponse);
 
-    console.log("ß-HCG : "+reponse.value);
     
   
 
@@ -491,7 +484,6 @@ const handleChangeGroupe = (e) => {
   };
  setCurrentGroupe(reponse);
 
-  console.log("Groupe Sanguin : " + reponse.value);
   
 };
 
@@ -513,7 +505,6 @@ const handleChangeGroupe = (e) => {
     
     setCurrentAcc(reponse);
     
-    console.log("Personne accompagnante majeure ou consentement parental obligatoire  : " + reponse.value);
   };
 
   
@@ -532,7 +523,6 @@ const handleChangeGroupe = (e) => {
     
     setcurrentEcho(reponse);
     
-    console.log("Echographie de datation/age gestationnel : " + reponse.value);
   };
 
   ///////// oui covid
@@ -589,7 +579,6 @@ const handleChangeGroupe = (e) => {
     
     setcurrentCovid(reponse);
     
-    console.log("Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : " + reponse.value);
   };
 
 

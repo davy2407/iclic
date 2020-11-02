@@ -49,7 +49,7 @@ function AppCore() {
   const accueil =()=> {
     return (
       <div>
-        <div className="BlocInfoApp">
+        <div className="BlocInfoApp consultationContainer">
         <p>
         Site créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé.
         
@@ -82,6 +82,14 @@ function AppCore() {
           >Loi avortement du 25 mars 2013 </a>
          
         </p>
+
+        <h3>COVID et IVG :  </h3>
+        <h4>Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)</h4>
+        <p>
+        La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
+Les spécificités sont rappelées lors de chaque étape du site.
+
+        </p>
         
       </div>
       </div>
@@ -105,10 +113,7 @@ function AppCore() {
     
     let newData = [...liste];
     setStateGlobalPremiereConsulte(newData);
-    console.log('DANS LAPP CORE')
     for (let i = 0; i < newData.length; i++) {
-      console.log(newData[i].titre);
-      console.log(newData[i].value);
 
       
     }
@@ -123,10 +128,7 @@ function AppCore() {
     
     
     setStateGlobalPremiereConsulte(newData);
-    console.log('DANS LAPP CORE consultation + Contre Indication')
     for (let i = 0; i < newData.length; i++) {
-      console.log(newData[i].titre);
-      console.log(newData[i].value);
 
       
     }
@@ -136,9 +138,6 @@ function AppCore() {
 
 
   const afficheStates = () => {
-    console.log("affichage multiple liste")
-    console.log(stateGlobalPremiereConsulte);
-    console.log(stateGlobalContreindication);
   }
 
   // const afficheAPropos = () => {
@@ -242,10 +241,7 @@ function AppCore() {
     let newData = [...liste];
     
     setStateGlobalPremiereConsulte(newData);
-    console.log('DANS LAPP CORE premiere prise medi')
     for (let i = 0; i < newData.length; i++) {
-      console.log(newData[i].titre);
-      console.log(newData[i].value);
 
       
     }
@@ -776,15 +772,11 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
     /// 5 Troisième temps de consultation: consultation de suivi
     /// 6 Première consultation préalable à l'ivg/Premier contact médical sans attestation
     /// 7 Deuxième conssultation préalable à l'ivg/Recueil de consentement sans attestation
-    console.log("dans modifier objet");
     
     let identifiantConsultation = idTypeConsultation;
     let idMajeureOuNon = idMajeure;
     let idAnonymeOuNon = idAnonyme;
     let liste = listeObjetConsulation;
-    console.log("id Consulte :  " + identifiantConsultation);
-    console.log("id MAJMIN :  " + idMajeure);
-    console.log("id A/NA :  " + idAnonyme);
     
 
 
@@ -1030,13 +1022,8 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
     let idMajMin = idPatienteMajeureMineure;
     let idAnonyme = idPatienteAnonyme;
     let idConsultation = idTypeConsultation;
-    console.log("id patiente = " + idMajMin);
-    console.log("id patiente anonyme = " + idAnonyme);
-    console.log("id type consultation = " + idConsultation);
-    console.log(liste);
     let texte = [];
     for (let index = 0; index < liste.length; index++) {
-      console.log(listeDonnee[index].name);
       if (listeDonnee[index].id == 4 || listeDonnee[index].id == 5) {
         texte.push("convention :  " + liste[index].name + "    ");
       } else if (listeDonnee[index].id == 6 || listeDonnee[index].id == 7) {
@@ -1071,7 +1058,7 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
 
   const txtNon = ()=> {
     return (
-      <div>
+      <div className="consultationContainer">
         <h1>Vous n’êtes pas professionnel de santé :</h1>
         <p>
         Ce site est à destination des professionnels de santé uniquement. 

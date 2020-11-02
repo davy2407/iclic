@@ -13,9 +13,8 @@ function ContreIndicationMineure(props) {
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
+
     for (let index = 0; index < globalStateContre.length; index++) {
-      console.log(globalStateContre[index]);
     }
     props.onRecup(globalStateContre);
   };
@@ -259,7 +258,6 @@ function ContreIndicationMineure(props) {
     liste.push(reponse);
     setGlobalStateContre(liste);
    
-    console.log("Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : " + reponse.value);
   };
 
   return (

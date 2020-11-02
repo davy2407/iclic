@@ -21,7 +21,6 @@ function DeuxiemeConsultationMajeureNA(props) {
     /// state global liste
 
     const afficheStateFin = () => {
-      console.log("state de fin va suivre");
       let liste = [];
     liste.push(currentAttestation);
     liste.push(currentAcc);
@@ -47,7 +46,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         
       }
       else  {
-        console.log("OK");
       }
       
     }
@@ -148,7 +146,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       setCurrentAttestation(reponse);
       
-      console.log("Attestation 1ere consultation préalable en main de la patiente : " + reponse.value);
     };
   
     const attestation = () => {
@@ -198,7 +195,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       setCurrentAcc(reponse)
       
-      console.log("Personne accompagnante : " + reponse.value);
     };
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -215,7 +211,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       setCurrentConsultation(reponse)
       
-      console.log("Consultation psychosociale : " + reponse.value);
     };
 
     const consultationPsy = () => {
@@ -265,7 +260,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       setCurrentGrossese(reponse)
       
-      console.log("Grossesse intra-utérine confirmée : " + reponse.value);
     };
 
 
@@ -302,7 +296,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       setCurrentEcho(reponse);
      
-      console.log("Echographie de datation/Age gestationnel : " + nb);
    
   
       setSaisieUtilisateurNbSemaineSA(0);
@@ -506,7 +499,6 @@ function DeuxiemeConsultationMajeureNA(props) {
     };
     
     setInfoSupp(reponse);
-    console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };
       const recupIST = (e) => {
         e.preventDefault();
@@ -516,7 +508,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
         setCurrentIST(reponse);
         
-        console.log("Recherche IST : " + reponse.value);
       }; 
       const returnInfoIST = () => {
         return (
@@ -614,7 +605,6 @@ function DeuxiemeConsultationMajeureNA(props) {
     };
     setCurrentSang(reponse);
     
-    console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
   };
       const returnInfoSang = () => {
         return (
@@ -667,7 +657,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         setCurrentDosage(reponse);
          
       
-          console.log("Dosage ß-HCG :  "+reponse.value);
           setDosageHCG(0);
       };
 
@@ -692,7 +681,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
        setCurrentGroupe(reponse);
       
-        console.log("Groupe Sanguin : " + reponse.value);
         
       };
 
@@ -709,7 +697,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
         setCurrentInfo(reponse);
         
-        console.log("info post ivg " + reponse.value);
       };
 
       const returnInfoPostIVG = () => {
@@ -763,7 +750,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
         setCurrentHPV(reponse)
         
-        console.log("type frotti " + reponse.value);
       };
     
       const [dateFrottiFin, setDateFrottiFin] = useState({});
@@ -771,7 +757,6 @@ function DeuxiemeConsultationMajeureNA(props) {
       const handleChange = (e) => {
         /// recup date frotti
         let myDate = new Date(e.target.valueAsDate);
-        console.log(myDate);
         
         
         let reponse = {
@@ -780,7 +765,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
         setCurrentDateHPV(reponse);
     
-        console.log("date frotti : " + reponse.value);
         
       };
       const returnInfoFrotti = () => {
@@ -844,7 +828,6 @@ function DeuxiemeConsultationMajeureNA(props) {
         };
         setCurrentTabac(reponse);
         
-        console.log("Fumeuse : " + reponse.value);
       };
     const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
  
@@ -861,7 +844,6 @@ const handleSubmitPaquet = event => {
   setCurrentNbTabac(reponse);
    
 
-    console.log("nb paquet : "+reponse.value);
     
   
 

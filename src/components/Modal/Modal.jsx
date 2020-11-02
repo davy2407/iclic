@@ -431,27 +431,58 @@ function MyVerticallyCenteredModal(props) {
          de grossesse conformément à la <a
          target="_blank"
          href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665.">loi L2212</a> du Code de la Santé Publique
-           ainsi que d’avoir signé une convention avec :
+           ainsi que d’avoir signé une convention avec un centre de rattachement. 
         </p>
-        <p>
-        Lien centres de référence/de rattachement
-        </p>
+        
         <h3>Covid et IVG : </h3>
         <p>
-        Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation. 
-Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultative.
+        Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
+        </p>
+        <p>
+        Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultatif.
+Ces consultations sont prises en charge à 100% par l’assurance maladie. 
+        </p>
 
-        </p>
+
         <p>
-        Ces consultations sont prises en charge à 100% par l’assurance maladie. 
-Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. 
-Pour en savoir plus : 
+        Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. 
+Pour en savoir plus :
         </p>
+        <ul>
+          <li>
+            <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">
+            https://www.legifrance.gouv.fr
+
+            </a>
+          </li>
+          <li>
+            <a rel="noreferrer noopener" traget="_blank" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">
+            https://www.ameli.fr/medecin/actualites/covid-19
+              
+            </a>
+          </li>
+          <li>
+            <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">
+            https://syngof.fr covid-19_-_medecins_-_ivg.pdf
+              
+            </a>
+          </li>
+          <li>
+            <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">
+            https://syngof.fr/documents-utiles
+              
+            </a>
+          </li>
+        </ul>
+
         <p>
-          <a target="_blank" href={GuideIVG} >
+          <a href={GuideIVG} target="_blank">
           Guide IVG hors établissement de santé praticien
           </a>
         </p>
+
+
+        
       </div>
     )
   }
@@ -462,20 +493,18 @@ Pour en savoir plus :
     return (
       <div>
         <p>
-        Il est obligatoire de justifier d’une attestation de compétence ainsi que 
-        d’une convention avec un centre agrée afin de pratiquer l’IVG médicamenteuse en ville. 
+        Attestation de compétence  (obligatoire) + convention avec un centre agrée
+à l’IVG médicamenteuse hors établissement de santé. 
         </p>
         <p>
-        En revanche, il existe 2 consultations préalables à l’IVG pouvant être effectués
-         par un médecin ou une sage-femme sans attestation ou convention. Ce professionnel 
-         de santé devra orienter la patiente vers un(e) confrère qualifié(e) pour la prise
-          du médicament. 
+        2 consultations préalables à l’IVG effectués par tous médecin ou sage-femme
+Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du médicament.
         </p>
         <p>
         Tout médecin ou sage femme doit répondre à une demande d’IVG et « ils restituent 
         à la femme sa demande pour que celle-ci soit remise au médecin ou à la sage-femme
          choisis par elle et lui délivrent un certificat attestant qu'ils se sont conformés
-          aux articles <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930122&cidTexte=LEGITEXT000006072665&dateTexte=20160128" target="_blank">L. 2212-3</a> et<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018156675&cidTexte=LEGITEXT000006070633&dateTexte=20080222" target="_blank"> L. 2212-5</a>
+          aux articles <a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930122&cidTexte=LEGITEXT000006072665&dateTexte=20160128" target="_blank">L. 2212-3</a> et<a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018156675&cidTexte=LEGITEXT000006070633&dateTexte=20080222" target="_blank"> L. 2212-5</a>
         </p>
         <p>
         D’après l’article 18 du code de déontologie article R4127-18
@@ -483,11 +512,9 @@ Pour en savoir plus :
           les conditions et délais prévus par la loi » <a href="https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>
         </p>
         <p>
-        En poursuivant la suite du questionnaire,  le certificat sera disponible en téléchargement. 
-Ce site n’enregistre aucune information personnelle, l’identité de la patiente et du praticien sont 
-à compléter après impression du document.
+        Ce site n’enregistre aucune information personnelle, l’identité de la patiente et du praticien sont à compléter après impression des différents documents.
         </p>
-        <p>lien a faire</p>
+        
       </div>
     )
   }
@@ -645,9 +672,16 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
         Il est obligatoire selon <a target="_blank" href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665."> l’article L2212-2 et L2212-9</a> de justifier d’une
          convention signée entre le praticien et un établissement de santé
           public ou privée pour la/les consultations IVG de prise des médicaments.
-           Cette convention est obligatoire afin de s’approvisionner en médicament
-            nécessaire à la réalisation d’une interruption volontaire de grossesse
-             selon l’article R2212-16. 
+          Cette convention est obligatoire pour presire les en médicament nécessaire à la réalisation d’une interruption volontaire de grossesse selon
+           <a
+           rel="noreferrer noopener" 
+           target="_blank"
+           href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665">
+            l’article R2212-16 </a>. 
+        </p>
+
+        <p>
+        Les centres de références (CHU, centre hospitalier régional, clinique), le planning familial, le conseil de l’ordre des médecins de votre département peuvent vous renseigner.
         </p>
 
         <p>
@@ -722,16 +756,13 @@ Ce site n’enregistre aucune information personnelle, l’identité de la patie
       <div>
         
         <p>
-        Selon <a
+        Selon <a rel="noreferrer noopener"
         target="_blank"
         href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006911489&cidTexte=LEGITEXT000006072665&dateTexte=20030527"
-        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de
-         compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse.
-          Cette compétence peut être acquise à travers une formation universitaire pour
-           les médecins et les sages-femmes. Elle peut être reconnue lors des études
-            universitaires en justifiant d’une qualification ou d’une pratique régulière.
-             L’attestation de formation est alors délivrée par le directeur de l’établissement.
-Des structures privées proposent par ailleurs une formation qualifiante selon les régions. 
+        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse. Cette compétence est  acquise par  une formation universitaire pour les médecins et les sages-femmes. Elle est  reconnue lors des études universitaires en justifiant d’une qualification ou d’une pratique régulière. L’attestation de formation est  délivrée par le directeur de l’établissement hospitalier  apres avis du chef de service en charge des IVG medicamenteuse 
+        </p>
+        <p>
+        Des formations continue pour les praticiens liberaux  proposent une formation qualifiante pour la pratique de l’IVG medicamenteuse hors etablissement..
         </p>
         <p>
         Les centres de références (CHU, centres universitaires régionaux),
@@ -739,13 +770,13 @@ Des structures privées proposent par ailleurs une formation qualifiante selon l
           département peuvent vous renseigner. 
         </p>
         <p>
-          <a target="_blank" href="http://revho.fr/">Lien site REVHO</a>
+          <a rel="noreferrer noopener" target="_blank" href="http://revho.fr/">Lien site REVHO</a>
         </p>
         <p>
-          <a target="_blank" href="https://www.sftg.eu/formations/liste-formations/833-ivg-medicamenteuse.html">Lien SFTG</a>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.sftg.eu/formations/liste-formations/833-ivg-medicamenteuse.html">Lien SFTG</a>
         </p>
         <p>
-          <a target="_blank" href="https://www.ogdpc.fr/organismes">Lien OGPDC</a>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.ogdpc.fr/organismes">Lien OGPDC</a>
         </p>
       </div>
     )
@@ -943,7 +974,7 @@ Des structures privées proposent par ailleurs une formation qualifiante selon l
               <hr></hr>
             </div>
           ))}
-          <p>{testText}</p>
+          <div>{testText}</div>
         </Form>
         <Button variant="secondary" onClick={RollBack}>retour</Button>
       </Modal.Body>

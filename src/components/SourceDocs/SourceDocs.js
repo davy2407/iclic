@@ -6,7 +6,7 @@ import "./SourceDocs.css";
 function SourceDocs() {
 
     return (
-        <div className="SourceDocs">
+        <div className="SourceDocs consultationContainer">
 
 <h1>Sources et textes de lois :</h1>
             <br></br>

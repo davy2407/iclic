@@ -6,7 +6,7 @@ import "./MentionL.css";
 function MentionL() {
 
     return (
-        <div className="Mention">
+        <div className="Mention consultationContainer">
             <h1>Mention légale </h1>
             <br></br>
             <p>

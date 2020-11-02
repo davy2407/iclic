@@ -6,7 +6,7 @@ import "./Contact.css";
 function Contact() {
 
     return (
-        <div className="Contact">
+        <div className="Contact consultationContainer">
             <h1>Contact </h1>
             <br></br>
             <h2>Responsable éditorial : </h2>
