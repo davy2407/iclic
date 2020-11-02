@@ -671,16 +671,18 @@ const handleSubmitPaquet = event => {
   
  
   setDateDDR(Math.round(semaineSA.weeks))
-  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<=7) {
+  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
     affichageTxtUrgence();
+    setCurrentVerrou("");
     
   }
-  else if (Math.round(semaineSA.weeks)>7) {
+  else if (Math.round(semaineSA.weeks)>=7) {
     affichageVerrou();
     
   }
   else if (Math.round(semaineSA.weeks)<5) {
     setCurrentTextUrgence("");
+    setCurrentVerrou("");
     
   }
 
@@ -869,12 +871,11 @@ const handleSubmitPaquet = event => {
         <ul>
           <li>
             <p>
-            entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
-            </p>
+            entre 25 et 30 ans, 2 examens cytologiques à un an d’intervalle, puis 3 ans après si résultat normal.            </p>
           </li>
           <li>
             <p>
-            le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+            A partir de 30 ans, 3 ans après le dernier examen cytologique (résultat normal); Test HPV tous les 5 ans.
             <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
           lien info
         </a>
@@ -912,12 +913,14 @@ const handleSubmitPaquet = event => {
   return (
     <div className="consultationContainer">
       <h1>1ère consultation préalable/1er contact médical Majeure Non Anonyme </h1>
-      <p>{props.onTexte}</p>
-      <br></br>
       
       <br></br>
       
       <br></br>
+      
+      <br></br>
+
+      <div className="ConsultationContainer">
       <h2>DDR</h2>
       {/* <form >
             <input
@@ -947,6 +950,7 @@ const handleSubmitPaquet = event => {
       <Button  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
       </form>
       
+      
       <br></br>
       <label>
         Date incertaine ?<Button variant="secondary" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
@@ -956,6 +960,8 @@ const handleSubmitPaquet = event => {
       <br></br>
       
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Prescription échographie de datation</h2>
       <label>
         Prescription :
@@ -972,6 +978,8 @@ const handleSubmitPaquet = event => {
       />
       <p>{currentInfoEcho}</p>
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Personne accompagnante</h2>
       <label>
         Personne accompagnante
@@ -995,6 +1003,8 @@ const handleSubmitPaquet = event => {
         </Button>
       </label>
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Mode de découverte de la grossesse </h2>
       <br></br>
       <label>
@@ -1042,6 +1052,8 @@ const handleSubmitPaquet = event => {
                                 <option value="Clinique">Clinique</option>
                             </select> */}
       </label>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Contexte biopsychosocial favorable :</h2>
       {/* Bloc a finir  */}
       <br></br>
@@ -1069,6 +1081,8 @@ const handleSubmitPaquet = event => {
       <p className={affichageWarningConsultation.className}>  
         {affichageWarningConsultation.texte}
       </p>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <Button variant="secondary">Oui</Button>
       <Button variant="secondary">Non</Button>
@@ -1078,7 +1092,9 @@ const handleSubmitPaquet = event => {
       {/* ///////////////////// */}
 
       {/* ///////////////////// */}
+      </div>
 
+      <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
@@ -1112,6 +1128,8 @@ const handleSubmitPaquet = event => {
       <div>  {currentInfoIST}</div>
       {/* Bloc a finir */}
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>
         Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
         quantitatif)
@@ -1148,6 +1166,9 @@ const handleSubmitPaquet = event => {
       <div>{currentInfoSang}</div>
 
       <br></br>
+
+      </div>
+      <div className="ConsultationContainer">
       <h2>Dossier guide IVG remis :</h2>
       <br></br>
       <label>
@@ -1175,6 +1196,9 @@ const handleSubmitPaquet = event => {
       <a href={GuideIVG} target="_blank">
         PDF Guide IVG
       </a>
+
+      </div>
+      <div className="ConsultationContainer">
       <h2>Consultation psychosociale proposée</h2>
       <br></br>
       <label>
@@ -1211,6 +1235,8 @@ const handleSubmitPaquet = event => {
       <br></br>
       <div>{currentInfoPsycho}</div>
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Information contraception post-IVG</h2>
       <br></br>
       <label>
@@ -1244,6 +1270,8 @@ const handleSubmitPaquet = event => {
       <br></br>
       <div>{currentInfoPostIVG}</div>
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <label>
@@ -1258,7 +1286,7 @@ const handleSubmitPaquet = event => {
           Oui
         </Button>
         <Button
-          value="Non"
+          value="Non (prévoir en postIVG)"
           variant="secondary"
           onClick={(e) => {
             recupFrotti(e);
@@ -1296,6 +1324,8 @@ const handleSubmitPaquet = event => {
       <br></br>
       <div>{currentInfoFrotti}</div>
       <br></br>
+      </div>
+      <div className="ConsultationContainer">
       <h2>Tabac :</h2>
       <br></br>
       <label>
@@ -1323,6 +1353,7 @@ const handleSubmitPaquet = event => {
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
       <form >
             <input
+                
                 value={nouvelleRecherchePaquet}
                 onChange={handleChangePaquet}
                 type="text"
@@ -1332,14 +1363,19 @@ const handleSubmitPaquet = event => {
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
+      </div>
       <br></br>
       <br></br>
+      <div className="ValiderContainer">
       <Button onClick={afficheStateFin} variant={couleurBouttonBase}>
         Valider mes choix
       </Button>{" "}
+      </div>
+      <div className="TarifiContainer">
       <Button variant="danger" onClick={props.onSuite}>
         Tarification
       </Button>
+      </div>
     </div>
   );
 }

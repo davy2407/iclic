@@ -672,16 +672,18 @@ setValueDDRweek(reponse);
 
 
 setDateDDR(Math.round(semaineSA.weeks))
-if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<=7) {
+if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
   affichageTxtUrgence();
+  setCurrentVerrou("");
   
 }
-else if (Math.round(semaineSA.weeks)>7) {
+else if (Math.round(semaineSA.weeks)>=7) {
   affichageVerrou();
   
 }
 else if (Math.round(semaineSA.weeks)<5) {
   setCurrentTextUrgence("");
+  setCurrentVerrou("");
   
 }
 
@@ -818,35 +820,11 @@ const handleSubmitPaquet = event => {
         <div className="consultationContainer">
           <h1>
               1ère consultation préalable/1er contact médical
-            Mineur A/NA : 
+            Mineur : 
             </h1>
-          <p>
-          Dans le cas particulier de l’IVG, l’article <a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a>  du code de
-           la santé publique dispose : « Si la femme est mineure non émancipée,
-            le consentement de l’un des titulaires de l’autorité parentale ou,
-             le cas échéant, du représentant légal est recueilli. Ce consentement est joint
-              à la demande qu’elle présente au médecin en dehors de la présence de toute autre
-               personne.
-          </p>
-          <p>
-          Si la femme mineure non émancipée désire garder le secret, le médecin doit s’efforcer,
-           dans l’intérêt de celle-ci, d’obtenir son consentement pour que le ou les titulaires 
-           de l’autorité parentale ou, le cas échéant, le représentant légal soient consultés ou 
-           doit vérifier que cette démarche a été faite lors de l’entretien mentionné à l’article
-            L 2212-4. Si la mineure ne veut pas effectuer cette démarche, ou si le consentement 
-            n’est pas obtenu, l’interruption volontaire de grossesse ainsi que les actes médicaux
-             et les soins qui lui sont liés peuvent être pratiqués à la demande de l’intéressée,
-              présentée dans les conditions prévues au 1er alinéa. Dans ce cas, la mineure se fait
-               accompagner dans sa démarche par la personne majeure de son choix
-          </p>
           
-          
-          <p>
-          Une jeune fille mineure non émancipée doit donner au médecin son consentement
-           pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient
-            présents afin qu'elle n'agisse pas sous la contrainte.
-          </p>
           <br></br>
+          <div className="ConsultationContainer">
           <h2>Personne accompagnante majeurs ou consentement parental</h2>
           <label>
           <Button variant="secondary" value="Oui" onClick={(e) => {
@@ -866,7 +844,9 @@ const handleSubmitPaquet = event => {
       <div>{currentTxtAcc}</div>
 
       <br></br>
-      <h2>DDR</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>DDR</h2>
       {/* <form >
             <input
                 value={nouvelleRecherchePaquet}
@@ -902,7 +882,9 @@ const handleSubmitPaquet = event => {
       <div>{currentVerrou}</div>
       <div>{currentIncertaine}</div>
       <br></br>
-      <h2>Prescription échographie de datation</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Prescription échographie de datation</h2>
       <label>
         Prescription :
       <div className="Red">{currentTextUrgence}</div>
@@ -925,31 +907,30 @@ const handleSubmitPaquet = event => {
 
 
 
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Mode de découverte de la grossesse :</h2>
+
+<label>
+Mode de découverte de la grossesse :
+<Button variant="secondary" value="Test sanguin" onClick={(e) => {
+      recupDecouverte(e);
+    }}>Test sanguin</Button>
+    <Button variant="secondary" value="Test urinaire"  onClick={(e) => {
+      recupDecouverte(e);
+    }}>Test urinaire</Button>
+    <Button variant="secondary" value="Echographie" onClick={(e) => {
+      recupDecouverte(e);
+    }}>Echographie</Button>
+    <Button variant="secondary" value="Clinique"  onClick={(e) => {
+      recupDecouverte(e);
+    }}>Clinique</Button>
+</label> 
 
 
-
-      <h2>Mode de découverte de la grossesse :</h2>
-
-      <label>
-      Mode de découverte de la grossesse :
-      <Button variant="secondary" value="Test sanguin" onClick={(e) => {
-            recupDecouverte(e);
-          }}>Test sanguin</Button>
-          <Button variant="secondary" value="Test urinaire"  onClick={(e) => {
-            recupDecouverte(e);
-          }}>Test urinaire</Button>
-          <Button variant="secondary" value="Echographie" onClick={(e) => {
-            recupDecouverte(e);
-          }}>Echographie</Button>
-          <Button variant="secondary" value="Clinique"  onClick={(e) => {
-            recupDecouverte(e);
-          }}>Clinique</Button>
-      </label> 
-
-
-
-      <br></br>
-      <h2>Contexte biopsychosocial favorable</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Contexte biopsychosocial favorable</h2>
       <label>
       Contexte biopsychosocial favorable :
       <Button variant="secondary" value="Oui" onClick={(e) => {
@@ -966,8 +947,9 @@ const handleSubmitPaquet = event => {
       <br></br>
 
 
-
-      <h2>Recherche IST +/- antibio-prophylaxie </h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Recherche IST +/- antibio-prophylaxie </h2>
       <label>
       Recherche IST +/- antibio-prophylaxie 
       <Button variant="secondary" value="Oui" onClick={(e) => {
@@ -998,27 +980,28 @@ const handleSubmitPaquet = event => {
       <p>{currentTxtIST}</p>
       <br></br>
 
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Prise de sang (Groupe sanguin 2 déterminations, RAI, ß-HCG quantitatif)</h2>
 
+<label>
+    Prise de sang :
+    <Button variant="secondary" value="Oui" onClick={(e)=>{recuPriseDeSang(e);}}>Oui</Button>
+    <Button variant="secondary" value="Non" onClick={(e)=>{recuPriseDeSang(e);}}>Non</Button>
 
-      <h2>Prise de sang (Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</h2>
+</label>
+<input
+  onClick={changementCouleurSVGPriseDeSang}
+  className="Lampe"
+  type="image"
+  src={logoAfficheSang}
+/>
+<p>{currentTxtSang}</p>
+<br></br>
 
-      <label>
-          Prise de sang :
-          <Button variant="secondary" value="Oui" onClick={(e)=>{recuPriseDeSang(e);}}>Oui</Button>
-          <Button variant="secondary" value="Non" onClick={(e)=>{recuPriseDeSang(e);}}>Non</Button>
-
-      </label>
-      <input
-        onClick={changementCouleurSVGPriseDeSang}
-        className="Lampe"
-        type="image"
-        src={logoAfficheSang}
-      />
-      <p>{currentTxtSang}</p>
-      <br></br>
-
-
-      <h2>Dossier guide IVG remis ou à défaut feuille d’information dédiées : </h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Dossier guide IVG remis ou à défaut feuille d’information dédiées : </h2>
       <label>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recuGuide(e);}}>Oui</Button>
         <Button variant="secondary" value="Non" onClick={(e)=>{recuGuide(e);}}>Non</Button>
@@ -1027,10 +1010,9 @@ const handleSubmitPaquet = event => {
       <p><a href={GuideIVG} target="_blank">
         PDF Guide IVG
       </a></p>
-
-
-      <br></br>
-      <h2>Consultation psychosociale proposée</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Consultation psychosociale proposée</h2>
       <label>
       Consultation psychosociale proposée
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupConsultation(e);}}>Oui</Button>
@@ -1046,12 +1028,9 @@ const handleSubmitPaquet = event => {
         src={logoAfficheConsultation}
       />
       <p>{currentTxtConsultation}</p>
-      <br></br>
-
-
-
-
-      <h2>Information contraception post-IVG</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Information contraception post-IVG</h2>
       <label>
       Information contraception post-IVG
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupPostIVG(e);}}>Oui</Button>
@@ -1064,10 +1043,9 @@ const handleSubmitPaquet = event => {
         src={logoAffichePostIVG}
       />
       <p>{currentTxtPostIVG}</p>
-      <br></br>
-
-
-      <h2>Frottis à jour ou test HPV</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Frottis à jour ou test HPV</h2>
       <label>
       Frottis à jour
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupFrotti(e);}}>Oui</Button>
@@ -1084,10 +1062,9 @@ const handleSubmitPaquet = event => {
         src={logoAfficheFrotti}
       />
       <p>{currentTxtFrotti}</p>
-      <br></br>
-
-
-      <h2>Tabac</h2>
+          </div>
+          <div className="ConsultationContainer">
+          <h2>Tabac</h2>
       <label>
           Tabac : 
           <Button variant="secondary" value="Oui" onClick={(e)=>{recupTabac(e);}}>Oui</Button>
@@ -1105,6 +1082,40 @@ const handleSubmitPaquet = event => {
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
+          </div>
+     
+
+
+
+
+
+
+
+      
+
+      
+      
+
+      
+
+
+      
+
+      
+      
+
+
+
+
+      
+      
+
+
+      
+      
+
+
+      
 
 
       <a href={ConsentementMineur} target="_blank ">consentement Mineure pdf</a>

@@ -1,24 +1,138 @@
 import React, { useState } from "react";
 
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
 
-
+  
 
 import "./PostIVGMajeureNA.css";
 
 
 function PostIVGMajeureNA(props) {
 
+  const afficheStateFin = () => {
+    console.log("state de fin va suivre");
+    let liste = [];
+    liste.push(currentReco);
+    liste.push(currentResultat);
+    liste.push(currentTestUri);
+    liste.push(currentPosNe);
+    liste.push(currentContra);
+    liste.push(currentIST);
+    liste.push(currentHPV);
+    liste.push(currentDateHPV);
+    liste.push(currentTabac);
+    liste.push(currentNbTabac);
+    liste.push(currentVecu);
+    liste.push(currentAvis);
+    liste.push(currentCause);
+   
+    for (let index = 0; index < liste.length; index++) {
+      if (liste[index].titre=="Pas de réponses") {
+        alert("Vous n'avez pas répondu à toutes les questions")
+        
+      }
+      else  {
+        console.log("OK");
+      }
+      
+    }
 
-    const [globalStateFin, setGlobalStateFin] = useState([]);
 
+    props.onRecup(liste);
+  };
+
+
+    
+
+    /// current state
+
+    const [currentReco, setCurrentReco] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+    
+
+    const [currentResultat, setCurrentResultat] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentContra, setCurrentContra] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentIST, setCurrentIST] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentHPV, setCurrentHPV] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentDateHPV, setCurrentDateHPV] = useState({
+      titre : "",
+      value : ""
+    });
+
+    const [currentTabac, setCurrentTabac] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentNbTabac, setCurrentNbTabac] = useState({
+      titre : "",
+      value : ""
+    });
+
+    const [currentVecu, setCurrentVecu] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentAvis, setCurrentAvis] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentCause, setCurrentCause] = useState({
+      titre : "",
+      value : ""
+    });
+    const [currentTestUri, setCurrentTestUri] = useState({
+      titre : "Pas de réponses",
+      value : ""
+    });
+
+    const [currentPosNe, setCurrentPosNe] = useState({
+      titre : "",
+      value : ""
+    });
+  
+//// bloc reco covid
+
+const recupReco = (e) => {
+  e.preventDefault();
+  let reponse = {
+    titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
+    value: e.target.value,
+  };
+  setCurrentReco(reponse);
+
+  console.log("Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : " + reponse.value);
+};
+
+///////////////////////////
 
     //// Bloc Dosage
+   
     const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState(0)
           ///////// dosage initial BHCG
 
@@ -39,14 +153,38 @@ function PostIVGMajeureNA(props) {
 
 
         ////// resultat
+        const ResultatFi = (initial,jour) =>{
+          let dosageIni = initial;
+            let dosageJour = jour;
+            let resultat = Math.round(( ( ( dosageJour - dosageIni ) / dosageIni ) * 100 )) ;
+            return resultat;
+
+        }
+
+        const recupResultat = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre : "Résultat décroissance dosage sanguin BHCG : ",
+            value : e.target.value+"%"
+          };
+  setCurrentResultat(reponse);
+
+  console.log("Résultat décroissance dosage sanguin BHCG :  " + reponse.value);
+
+        }
 
 
         const afficheResultat = (initial,jour) => {
             let dosageIni = initial;
             let dosageJour = jour;
-            let resultat =( ( ( dosageJour - dosageIni ) / dosageIni ) * 100 ) ;
+            let resultat = Math.round(( ( ( dosageJour - dosageIni ) / dosageIni ) * 100 )) ;
             let txt = "";
-            if (resultat>-80) {
+            let reponse = {
+              titre : "Résultat décroissance dosage sanguin BHCG : ",
+              value : resultat+"%"
+            };
+            // setCurrentResultat(reponse);
+            if (resultat>=-80) {
                 txt = "Échec de la méthode selon l’analyse du pourcentage." 
                 
             }
@@ -109,6 +247,18 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         ///////////////////////////////////////////////////////////////
 
         //////// Bloc Adhésion à cette contraception :
+
+        const recupContra = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Contraception choisie par la patiente : ",
+            value: e.target.value,
+          };
+          
+          setCurrentContra(reponse);
+          
+          console.log("Contraception choisie par la patiente : " + reponse.value);
+        };
 
         const returnInfoContraception = () => {
             return (
@@ -187,6 +337,18 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         ////////////////////// Bloc IST
 
+        const recupIST = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Recherche IST : ",
+            value: e.target.value,
+          };
+          
+          setCurrentIST(reponse);
+          
+          console.log("Recherche IST : " + reponse.value);
+        };
+
         const returnInfoIST = () => {
             return (
               <div>
@@ -234,6 +396,34 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
 
         //////////Bloc frotti
+
+        const recupHPV = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Frottis à jour (ou test HPV) : ",
+            value: e.target.value,
+          };
+          
+          setCurrentHPV(reponse);
+          
+          console.log("Frottis à jour (ou test HPV) : " + reponse.value);
+        };
+
+
+        const handleChange = (e) => {
+          /// recup date frotti
+          
+          
+          
+          let reponse = {
+            titre: "Date Frotti : ",
+            value: e.target.value,
+          };
+         setCurrentDateHPV(reponse);
+      
+          console.log("date frotti : " + reponse.value);
+          
+        };
         const returnInfoFrotti = () => {
             return (
               <div>
@@ -276,15 +466,15 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         //////////////////// tabac
 
+        
+
         const recupTabac = (e) => {
             e.preventDefault();
             let reponse = {
-              titre: "Tabac",
+              titre: "Tabac : ",
               value: e.target.value,
             };
-            let liste = [...globalStateFin];
-            liste.push(reponse);
-            setGlobalStateFin(liste);
+            setCurrentTabac(reponse);
           
             console.log("Fumeuse : " + reponse.value);
           };
@@ -302,12 +492,10 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         const handleSubmitPaquet = event => {
           event.preventDefault();
           let reponse = {
-            titre : "Nombre Paquet : ",
+            titre : "Paquets/Années : ",
             value : event.currentTarget.value
           };
-          let liste = [...globalStateFin];
-            liste.push(reponse);
-            setGlobalStateFin(liste);
+          setCurrentNbTabac(reponse);
            
         
             console.log("nb paquet : "+reponse.value);
@@ -322,6 +510,18 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
 
         /////////////////// bloc Vécu de l’IVG traumatique :
+
+
+        const recupVecu = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Vécu de l’IVG traumatique : ",
+            value: e.target.value,
+          };
+          setCurrentVecu(reponse);
+        
+          console.log("Vécu de l’IVG traumatique : " + reponse.value);
+        };
         const returnInfoVecu = () => {
             return (
               <div>
@@ -369,13 +569,52 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         //// Bloc Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :
 
+
+        const recupAvis = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
+            value: e.target.value,
+          };
+          setCurrentAvis(reponse);
+        
+          console.log("Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : " + reponse.value);
+        };
+
+        const handleTypeCause = (e) => {
+          
+         
+          
+          
+          let reponse = {
+            titre: "Si oui cause : ",
+            value: e.target.value,
+          };
+         setCurrentCause(reponse);
+        
+          console.log("Si oui cause : " + reponse.value);
+          
+        };
         const oui = () => {
             return (
-                <div>
-                    <input type="text" placeholder="cause">
-
-                    </input>
-                </div>
+              <div>
+                <Form.Group>
+      <Form.Control as="select" size="lg" onChange={(e) => {
+              handleTypeCause(e);
+            }}>
+        <option value="">Cause</option>
+        <option value="Un échec après analyse de la décroissance du taux de HCG. ">1. Un échec après analyse de la décroissance du taux de HCG. </option>
+        <option value="Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).">2. Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).</option>
+        <option value="Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.">3. Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.</option>
+        <option value="Des douleurs ne s’atténuant pas par la prise de médicaments.">4. Des douleurs ne s’atténuant pas par la prise de médicaments.</option>
+       
+      </Form.Control>
+      </Form.Group>
+      <p>
+      Il est à noter que des patientes présentant des saignements abondants avec signes cliniques d’anémie peuvent être adressées au service d’urgence spécialisé du centre de référence
+      <a target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien HAS recommandation</a>
+      </p>
+            </div>
             )
         }
 
@@ -384,10 +623,10 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         const [currentOui, setCurrentOui] = useState("");
 
         const afficheCause = () => {
-            let txtAEnlever = currentOui;
+            
             let txtAAfficher = afficheOUi;
             setCurrentOui(txtAAfficher);
-            setAfficheOUI(txtAEnlever);
+            
 
         }
 
@@ -444,6 +683,61 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
 
         //////////////////////////////////////////////////////
+        //////// bloc Utilisation d’un autotest urinaire 
+
+        const recupTestUri = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "Utilisation d’un autotest urinaire : ",
+            value: e.target.value,
+          };
+          setCurrentTestUri(reponse);
+        
+          console.log("Utilisation d’un autotest urinaire : " + reponse.value);
+
+        }
+
+        const recupPosNe = (e) => {
+          e.preventDefault();
+          let reponse = {
+            titre: "résultat autotest urinaire : ",
+            value: e.target.value,
+          };
+          setCurrentPosNe(reponse);
+        
+          console.log("résultat autotest urinaire : " + reponse.value);
+
+        }
+        const ouiUri = () => {
+          return (
+            <div>
+              <h4> résultat :</h4>
+
+<Button variant="secondary" value="Positif" onClick={(e)=>{recupPosNe(e)}}>Positif</Button>
+      <Button variant="secondary" value="Négatif" onClick={(e)=>{recupPosNe(e)}}>Négatif</Button>
+            
+        </div>
+          )
+      }
+
+      const [afficheOUiUri, setAfficheOUIUri] = useState(()=>ouiUri());
+
+      const [currentOuiUri, setCurrentOuiUri] = useState("");
+
+      const afficheUrinaire = () => {
+          
+          let txtAAfficher = afficheOUiUri;
+          setCurrentOuiUri(txtAAfficher);
+          
+
+      }
+
+
+
+
+        /////////////////////////////////////////////////////////////////
+
+    
     
     
     
@@ -469,7 +763,8 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
 
             <br></br>
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
-            <Button variant="secondary">Oui</Button>
+            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);}}>Oui</Button>
+            <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e);}}>Non</Button>
             <br></br>
 
 
@@ -505,7 +800,16 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
             />
             
         </form>
+        <Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
+
         {afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
+        <h3>Utilisation d’un autotest urinaire :</h3>
+        <Button variant="secondary" value="Oui" onClick={(e)=>{
+          recupTestUri(e);
+          afficheUrinaire();
+        }}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
+      <div>{currentOuiUri}</div>
         <input
         onClick={changementCouleurSVGDosage}
         className="Lampe"
@@ -514,8 +818,8 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       />
       <div>{currentInfoDosage}</div>
       <h2>Contraception choisie par la patiente :</h2>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
 
       <h2>Adhésion à cette contraception :</h2>
       <Button variant="secondary" value="Oui">Oui</Button>
@@ -531,8 +835,8 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
 
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
 
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}}>Non</Button>
 
 
       <p>
@@ -558,14 +862,16 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       <div>{currentInfoIST}</div>
 
       <h2>Frottis à jour</h2>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
-      <Button variant="secondary" value="Non concernée">Non concernée</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{recupHPV(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupHPV(e);}}>Non</Button>
+      <Button variant="secondary" value="Non concernée" onClick={(e)=>{recupHPV(e);}}>Non concernée</Button>
       <input
         type="date"
         name="dateFrotti"
         id="dateFrotti"
-        
+        onChange={(e) => {
+          handleChange(e);
+        }}
       ></input>
       <input
         onClick={changementCouleurSVGFrotti}
@@ -611,13 +917,13 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
                 placeholder="Paquet/année"
             />
             <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
-              handleSubmitPaquet(e)
+              handleSubmitPaquet(e);
             }}>Confirmer</Button>
         </form>
 
         <h2>Vécu de l’IVG traumatique :</h2>
-        <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+        <Button variant="secondary" value="Oui" onClick={(e)=>{recupVecu(e);}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupVecu(e);}}>Non</Button>
       <input
         onClick={changementCouleurSVGVecu}
         className="Lampe"
@@ -629,8 +935,10 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
 
 
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
-      <Button variant="secondary" value="Oui" onClick={afficheCause}>Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+      <Button variant="secondary" value="Oui" onClick={(e)=>{
+        recupAvis(e);
+        afficheCause();}}>Oui</Button>
+      <Button variant="secondary" value="Non" onClick={(e)=>{recupAvis(e);}}>Non</Button>
         <div>{currentOui}</div>
         <input
         onClick={changementCouleurSVGAvis}
@@ -644,9 +952,9 @@ Elle est indispensable selon la    <a target="_blank" href="https://www.has-sant
       <br></br>
 
             
-        <Button variant="danger">Valider mes choix</Button>
+        <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
         <br></br>
-        <Button variant="danger">Tarification</Button>
+        <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
 
 
 

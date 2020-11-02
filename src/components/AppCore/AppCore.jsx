@@ -4,6 +4,8 @@ import React, { useState } from "react";
 // import iclic components
 import Bouton from "@components/Bouton";
 
+
+// import APropos from "@components/APropos";
 import pConsultation from "@components/pConsultation";
 import PriseMediMajeure from "@components/PriseMediPatienteMajeure";
 import PremierConsultationTroisC from "@components/PremierConsultationTroisC";
@@ -30,6 +32,8 @@ import PostIVGMajeureNA from "@components/PostIVGMajeureNA";
 import TarifDeuxiemeConsulteMajeureNA from "@components/TarifDeuxiemeConsulteMajeureNA";
 import TarifDeuxiemeConsulteMineureANA from "@components/TarifDeuxiemeConsulteMineureANA";
 import PostIVGMineur from "@components/PostIVGMineur";
+import TarifPostMajeure from "@components/TarifPostMajeure";
+
 
 
 //import style
@@ -43,23 +47,26 @@ function AppCore() {
       <div>
         <div className="BlocInfoApp">
         <p>
-        Ce site à été créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé afin d’apporter une aide et un accompagnement dans sa protocolisation.
-Il est conçu selon une navigation simple, suivant le principe que toute question doit avoir une réponse.
+        Site créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé.
+        
         </p>
 
         <p>
-        Cet outil met à disposition des fiches d’information à destination des patientes et assure un suivi de l’acte selon les recommandations actuelles en France. 
-Aucune donnée personnelle n’est enregistrée, un résumé imprimable vous est proposé à la fin de la saisie de chaque consultation. 
+        Cet outil met à disposition des fiches d’information à destination des patientes et assure un suivi de l’acte. Les documents officiels sont disponibles selon les recommandations actuelles en France.
+        
         </p>
 
         <p>
-        L’IVG médicamenteuse se décompose en 5 consultations, les 2 premières (« préalables ») pouvant être effectuées par un médecin ou sage femme ne pratiquant pas lui même l’acte. 
+        Aucune donnée personnelle n’est enregistrée, un résumé imprimable vous est proposé à la fin de la saisie de chaque consultation. 
         </p>
 
         <p>
-          Le contenu de ce site ne se substitue pas à la responsabilité de
-          décision et de prescription du médecin
+        L’IVG médicamenteuse : 5 consultations, 2 premières (« préalables ») pouvant être effectuées par un médecin ou sage femme ne pratiquant pas lui même l’acte.
         </p>
+        <p>
+        Le contenu de ce site ne se substitue pas à la responsabilité de décision et de prescription du praticien.
+        </p>
+
 
         <p>
           L'interruption volontaire de grossesse est autorisé en France depuis
@@ -71,22 +78,7 @@ Aucune donnée personnelle n’est enregistrée, un résumé imprimable vous est
           >Loi avortement du 25 mars 2013 </a>
          
         </p>
-        <br></br>
-        <h3>COVID et IVG : </h3>
         
-        <p>
-        Arret de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)
-Durant la crise sanitaire du covid-19, une IVG médicamenteuse, à domicile,
- pouvait être réalisée jusqu’à la fin de la 7ème semaine de grossesse
-  (soit 9 semaines après la date des dernières règles). Ce délai a été rabattu
-   à la fin de la 5ème semaine de grossesse (soit 7 semaines après la date des
-    dernières règles) depuis le 11 juillet 2020
-
-        </p>
-        <p>
-        Cependant, la prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
-Les spécificités sont rappelées lors de chaque étape du site. 
-        </p>
       </div>
       </div>
     )
@@ -144,6 +136,16 @@ Les spécificités sont rappelées lors de chaque étape du site.
     console.log(stateGlobalPremiereConsulte);
     console.log(stateGlobalContreindication);
   }
+
+  // const afficheAPropos = () => {
+  //   setObjetConsultationAffiche([26]);
+  //   setObjetConsultationMediAffiche([]);
+  //   setObjetContreIndictionAffiche([]);
+  //   setObjetTarrificationAffiche([]);
+
+  // }
+
+
   const modifierObjetTarifPremiereConsulte = () =>{
     /// fonction qui affiche la tarification apres premiere consulte majeure non anonyme
     /// et stop laffichage du composant consultation
@@ -162,6 +164,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
      /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[10]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
   }
 
   const afficheTarifDeuxiemeConsulteMajeureNA = () =>{
@@ -205,6 +208,12 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
   }
 
+  const afficheTarifPostMaj = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[26]]);
+    setObjetConsultationAffiche([]);
+
+  }
+
   const recupPremierePriseMedi = (liste)=> {
     
     let newData = [...liste];
@@ -226,6 +235,43 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
 
   ////////////////////////////////////////////////////////////////////////
+
+  //////// state txt 
+
+  const TexteMineure = () => {
+    return (
+      <div>
+        <p>
+          Dans le cas particulier de l’IVG, l’article <a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a>  du code de
+           la santé publique dispose : « Si la femme est mineure non émancipée,
+            le consentement de l’un des titulaires de l’autorité parentale ou,
+             le cas échéant, du représentant légal est recueilli. Ce consentement est joint
+              à la demande qu’elle présente au médecin en dehors de la présence de toute autre
+               personne.
+          </p>
+          <p>
+          Si la femme mineure non émancipée désire garder le secret, le médecin doit s’efforcer,
+           dans l’intérêt de celle-ci, d’obtenir son consentement pour que le ou les titulaires 
+           de l’autorité parentale ou, le cas échéant, le représentant légal soient consultés ou 
+           doit vérifier que cette démarche a été faite lors de l’entretien mentionné à l’article
+            L 2212-4. Si la mineure ne veut pas effectuer cette démarche, ou si le consentement 
+            n’est pas obtenu, l’interruption volontaire de grossesse ainsi que les actes médicaux
+             et les soins qui lui sont liés peuvent être pratiqués à la demande de l’intéressée,
+              présentée dans les conditions prévues au 1er alinéa. Dans ce cas, la mineure se fait
+               accompagner dans sa démarche par la personne majeure de son choix
+          </p>
+          
+          
+          <p>
+          Une jeune fille mineure non émancipée doit donner au médecin son consentement
+           pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient
+            présents afin qu'elle n'agisse pas sous la contrainte.
+          </p>
+      </div>
+    )
+  }
+
+  /////////////////////////////////////////////////////////////////////
 
 
 
@@ -264,7 +310,8 @@ Les spécificités sont rappelées lors de chaque étape du site.
         fonction : {
           recupInfo : recupPremiereConsulte,
           afficheSuite : modifierObjetTarifPremiereConsulte
-        }
+        },
+        txt : ""
       },
       {
         name: "Prise medicamentMajeureNonAnonyme",
@@ -314,7 +361,8 @@ Les spécificités sont rappelées lors de chaque étape du site.
           fonction : {
             recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulteMineur
-          }
+          },
+          txt : TexteMineure() 
       },
       {
         name : "Tarif Première consultation mineure A/NA" ,
@@ -430,7 +478,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+            afficheSuite : afficheTarifPostMaj
           }
       },
       {
@@ -457,9 +505,19 @@ Les spécificités sont rappelées lors de chaque étape du site.
           
           fonction : {
             recupInfo : recupPremiereConsulte,
+            afficheSuite : afficheTarifPostMaj
+          }
+      },
+      {
+        name : "Tarification Post IVG Majeure" ,
+         id :26 , objet : TarifPostMajeure ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
             afficheSuite : modifierObjetTarifPremiereConsulteMineur
           }
       }
+     
     ]
   );
 
@@ -561,6 +619,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
     ) {
       /// afficher composant "adresser patiente"
       setObjetConsultationAffiche([liste[3]]);
+      setTexteDemarrage([liste[3].txt])
     } else if ((
       identifiantConsultation== 1 &&
       idMajeureOuNon == 0 &&
@@ -582,6 +641,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
       ) {
         setObjetConsultationAffiche([liste[9]]);
+        setTexteDemarrage([liste[9].txt])
       
     }
     else if (
@@ -839,7 +899,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
 
   const Oui = () => {
     /// je vais faire un check mais surement inutile
-    let texte = "Info Utilisateur";
+    let texte = "";
     setTexteDemarrage(texte);
     setListeBouton([]);
     setNombreBouton(0);
@@ -873,6 +933,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         listeRadio={listeBoutonRadio}
         onFonctionAffichage={AffichageDonnee}
       ></MyVerticallyCenteredModal>
+      
       <div className="Container">
       <div className="txtDebu">{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}

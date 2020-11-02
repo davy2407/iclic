@@ -1,8 +1,8 @@
 import React from 'react';
 import Logo from "@assets/images/LOGO_IVG.svg";
-import './ResumeDeuxiemePriseMedi.css';
+import './ResumePostIVGMajeure.css';
 
-class ResumeDeuxiemePriseMedi extends React.Component {
+class ResumePostIVGMajeure extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -17,7 +17,7 @@ class ResumeDeuxiemePriseMedi extends React.Component {
       <br></br>
       <br></br>
       <h1>
-      Résumé de  la 2ème  consultation de prise médicamenteuse : 
+      Résumé consultation post IVG :  
       </h1>
       <br></br>
       <p>Nom/prénom et date de naissance :</p>
@@ -45,12 +45,11 @@ class ResumeDeuxiemePriseMedi extends React.Component {
       <br></br>
       <br></br>
     
+      
+      
       <br></br>
-      <p>Ce résumé ne remplace pas la fiche de liaison, envoyée au centre de
-           référence lors de la 1ere consultation de prise médicamenteuse.  </p>
       <br></br>
-      <br></br>
-      <p>Date et Tampon</p>
+      <p>Date et Tampon : </p>
       <br></br>
       <br></br>
       <br></br>
@@ -63,4 +62,4 @@ class ResumeDeuxiemePriseMedi extends React.Component {
 }
 
 
-export default ResumeDeuxiemePriseMedi;
+export default ResumePostIVGMajeure;

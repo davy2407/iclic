@@ -23,7 +23,7 @@ function TarifDeuxiemePriseMediMajeureNA(props) {
 
  
   return (
-    <div>
+    <div className="Tarification">
       <h1>Consultation 2ème prise médicamenteuse (facultative) :
 CCL et facturation majeure NA.</h1>
       <br></br>

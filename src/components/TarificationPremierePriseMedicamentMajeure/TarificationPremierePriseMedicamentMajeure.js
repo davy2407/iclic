@@ -23,7 +23,7 @@ function TarificationPremierePriseMedicamentMajeure(props) {
 
  
   return (
-    <div>
+    <div className="Tarification">
       <h1>Consultation 1ere prise médicamenteuse, 
 Facturation et résumé majeure :</h1>
       <br></br>

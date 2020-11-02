@@ -23,7 +23,7 @@ function TarifDeuxiemePriseMineureANA(props) {
 
  
   return (
-    <div>
+    <div className="Tarification">
       <h1>Consultation 2ème prise médicamenteuse (facultative) :
 CCL et facturation mineure A/NA.</h1>
       <br></br>

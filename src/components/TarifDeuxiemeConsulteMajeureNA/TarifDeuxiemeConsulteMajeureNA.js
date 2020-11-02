@@ -23,7 +23,7 @@ function TarifDeuxiemeConsulteMajeureNA(props) {
 
  
   return (
-    <div>
+    <div className="Tarification">
       <h1>Tarification et Conclusion de consultation : </h1>
       <br></br>
       <p>

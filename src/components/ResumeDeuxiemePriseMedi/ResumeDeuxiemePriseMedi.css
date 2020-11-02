@@ -5,9 +5,10 @@
   
   }
 
-.container{
+.containerM{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 1.5rem;
 }
