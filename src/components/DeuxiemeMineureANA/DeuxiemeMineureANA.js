@@ -153,7 +153,7 @@ function DeuxiemeConsultationMineureANA(props) {
 
   const attestation = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
         Une première consultation préalable à l’IVG avant d’effectuer le recueil du consentement de la patiente.
         </p>
@@ -210,7 +210,7 @@ function DeuxiemeConsultationMineureANA(props) {
   const recupPsy = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Consultation psychosociale : ",
+      titre: "Attestation Consultation psychosociale : ",
       value: e.target.value,
     };
     setCurrentConsultation(reponse)
@@ -220,9 +220,9 @@ function DeuxiemeConsultationMineureANA(props) {
 
   const consultationPsy = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-        Non obligatoire pour les femmes majeures          
+        L’attestation est obligatoire avec un délai de 48h pour les jeunes filles mineurs, anonyme ou non.        
         </p>
         
       </div>
@@ -520,7 +520,7 @@ const recupInfoSupp = (e) => {
     }; 
     const returnInfoIST = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
            La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
            enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de
@@ -618,7 +618,7 @@ const recupBilan = (e) => {
 };
     const returnInfoSang = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
           2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors.  A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant toute IVG ou dans les 72h suivant tout saignement.
           </p>
@@ -710,7 +710,7 @@ const recupBilan = (e) => {
 
     const returnInfoPostIVG = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
              Il est nécessaire d’aborder dès cette consultation, les différentes
             modalités contraceptives. Site possible d’information à transmettre à
@@ -781,7 +781,7 @@ const recupBilan = (e) => {
     };
     const returnInfoFrotti = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
            Le plan de dépistage national s’applique : 
           </p>
@@ -906,10 +906,15 @@ Mineur A/NA :
 
 
           <div className="ConsultationContainer">
-          <h2>Consultation psycho-sociale réalisée :</h2>
-          <Button variant="secondary" value="Oui" onClick={recupPsy}>Oui</Button>
-          
-          <Button variant="secondary" value="Non" onClick={recupPsy}>Non</Button>
+          <h2>Attestation consultation psychosociale  :</h2>
+          <Button variant="secondary" value="Oui" onClick={(e)=>{
+              recupPsy(e);
+              
+              
+            }}>Oui</Button>
+            
+            <Button variant="secondary" value="Non" onClick={(e)=>{recupPsy(e);}}>Non</Button>
+     
           <input
       onClick={changementCouleurSVGConsultationPsy}
       className="Lampe"
@@ -918,11 +923,7 @@ Mineur A/NA :
     />
     <div>  {currentInfoConsultationPsy}</div>
           </div>
-    <div className="ConsultationContainer">
-    <h3>Attestation</h3>
-    <Button variant="secondary" value="Oui">Oui</Button>
-    <Button variant="secondary" value="Non">Non</Button>
-    </div>
+    
     
 
           <div className="ConsultationContainer">
@@ -988,7 +989,7 @@ Mineur A/NA :
     </div>
     <div div className="ConsultationContainer">
     <h2>
-      Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
+      Prise de sang (Groupe sanguin : 2 déterminations, RAI, B-HCG
       quantitatif)
     </h2>
     <br></br>

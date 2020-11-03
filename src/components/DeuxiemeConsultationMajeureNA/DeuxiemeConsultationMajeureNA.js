@@ -223,6 +223,27 @@ function DeuxiemeConsultationMajeureNA(props) {
         </div>
       )
     }
+
+
+  const demandeAttestation = ()=> {
+    return (
+      <div>
+          <h4>Attestation</h4>
+      <Button variant="secondary" value="Oui">Oui</Button>
+      <Button variant="secondary" value="Non">Non</Button>
+      </div>
+    )
+  }
+
+  const [ attestationObjet, setAttestationObjet] = useState(()=>demandeAttestation());
+
+  const [ currentAfficheAttestation, setCurrentAfficheAttestation] =useState("");
+
+  const afficheAttestation = () => {
+    let affiche = attestationObjet;
+    setCurrentAfficheAttestation(affiche)
+  }
+
     const [txtConsultationPsy, setTxtConsultationPsy] = useState(() => consultationPsy());
   
     const [currentInfoConsultationPsy, setCurrentInfoConsultationPsy] = useState("");
@@ -876,9 +897,14 @@ const handleSubmitPaquet = event => {
 
             <div className="ConsultationContainer">
             <h2>Consultation psycho-sociale réalisée :</h2>
-            <Button variant="secondary" value="Oui" onClick={recupPsy}>Oui</Button>
+            <Button variant="secondary" value="Oui" onClick={(e)=>{
+              recupPsy(e);
+              afficheAttestation();
+              
+            }}>Oui</Button>
             
-            <Button variant="secondary" value="Non" onClick={recupPsy}>Non</Button>
+            <Button variant="secondary" value="Non" onClick={(e)=>{recupPsy(e);}}>Non</Button>
+            <div>{currentAfficheAttestation}</div>
             <input
         onClick={changementCouleurSVGConsultationPsy}
         className="Lampe"
@@ -887,12 +913,7 @@ const handleSubmitPaquet = event => {
       />
       <div>  {currentInfoConsultationPsy}</div>
             </div>
-            <div className="ConsultationContainer">
-      <h3>Attestation</h3>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
-            </div>
-      
+          
 
             <div className="ConsultationContainer">
             <h2>Grossesse intra-utérine confirmée :</h2>
@@ -957,9 +978,9 @@ const handleSubmitPaquet = event => {
       </div>
       <div className="ConsultationContainer">
       <h2>
-        Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
+        Prise de sang (Groupe sanguin : 2 déterminations, RAI, B-HCG
         quantitatif)
-      </h2>
+      </h2> 
       <br></br>
       <label>
         
