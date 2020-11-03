@@ -83,8 +83,8 @@ function AppCore() {
          
         </p>
 
-        <h3>COVID et IVG :  </h3>
-        <h4>Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)</h4>
+        <h4>COVID et IVG :  </h4>
+        <h5>Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)</h5>
         <p>
         La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
 Les spécificités sont rappelées lors de chaque étape du site.

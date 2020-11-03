@@ -16,10 +16,11 @@ function PConsultationMineur(props) {
     const afficheStateFin = () => {
         /// remonte les données au composant parent
         let liste = [];
+        liste.push(currentAcc);
     liste.push(currentDDRSA);
     liste.push(currentDDRDay);
     liste.push(currentEcho);
-    liste.push(currentAcc);
+    
     liste.push(currentMode);
     liste.push(currentContext);
     liste.push(currentIST);
@@ -137,8 +138,8 @@ function PConsultationMineur(props) {
         /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
         e.preventDefault();
         let reponse = {
-          titre : "Personne accompagnante majeurs ou consentement parental :",
-          value : e.target.value
+          titre : "Personne accompagnante majeurs ou consentement parental : "+e.target.value+" ; identité : ",
+          value : ""
         };
         setCurrentAcc(reponse);
     };
@@ -459,78 +460,78 @@ affichagePostIVG();
 
 
 /// frotti et date 
-const handleChange = (e) => {
-    /// recup date frotti
-    let reponse = {
-      titre : "Date Frotti ou HPV",
-      value : e.target.value
-    };
-    setCurrentDateHPV(reponse);
+// const handleChange = (e) => {
+//     /// recup date frotti
+//     let reponse = {
+//       titre : "Date Frotti ou HPV",
+//       value : e.target.value
+//     };
+//     setCurrentDateHPV(reponse);
 
     
     
-  };
+//   };
 
-  const recupFrotti = (e) => {
-    /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
-    e.preventDefault();
-    let reponse = {
-      titre : "Frottis à jour ou test HPV :  ",
-      value : e.target.value
-    };
-    setCurrentHPV(reponse);
-};
+//   const recupFrotti = (e) => {
+//     /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
+//     e.preventDefault();
+//     let reponse = {
+//       titre : "Frottis à jour ou test HPV :  ",
+//       value : e.target.value
+//     };
+//     setCurrentHPV(reponse);
+// };
 
-const Frotti = () => {
-    return (
-        <div className="BulleInfo">
+// const Frotti = () => {
+//     return (
+//         <div className="BulleInfo">
             
-        <p>
-         Le plan de dépistage national s’applique :
-        </p>
-        <ul>
-            <li>
-                <p>
-                entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé
-                 sur la réalisation de deux examens cytologiques à un an d’intervalle,
-                 puis 3 ans après si le résultat des deux premiers est normal.
-                 </p>
-                 </li>
-            <li>
-                <p>
-                le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen 
-                cytologique dont le résultat était normal ; le rythme entre deux dépistages
-                 par test HPV est de 5 ans, dès lors que le résultat du test est négatif. <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">info</a>
-                </p>
-            </li>
-        </ul>
-        <br></br>
-      </div>
+//         <p>
+//          Le plan de dépistage national s’applique :
+//         </p>
+//         <ul>
+//             <li>
+//                 <p>
+//                 entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé
+//                  sur la réalisation de deux examens cytologiques à un an d’intervalle,
+//                  puis 3 ans après si le résultat des deux premiers est normal.
+//                  </p>
+//                  </li>
+//             <li>
+//                 <p>
+//                 le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen 
+//                 cytologique dont le résultat était normal ; le rythme entre deux dépistages
+//                  par test HPV est de 5 ans, dès lors que le résultat du test est négatif. <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">info</a>
+//                 </p>
+//             </li>
+//         </ul>
+//         <br></br>
+//       </div>
         
-    )
-};
-const [txtFrotti, setTxtFrotti] = useState(() => Frotti());
+//     )
+// };
+// const [txtFrotti, setTxtFrotti] = useState(() => Frotti());
 
-const [currentTxtFrotti, setCurrentTxtFrotti] = useState("");
+// const [currentTxtFrotti, setCurrentTxtFrotti] = useState("");
 
-const affichageFrotti = () => {
-let txtAEnlever = currentTxtFrotti;
-let txtAAfficher = txtFrotti;
-setCurrentTxtFrotti(txtAAfficher);
-setTxtFrotti(txtAEnlever);
-};
-const [logoAfficheFrotti, setLogoAfficheFrotti] = useState(LightOff);
+// const affichageFrotti = () => {
+// let txtAEnlever = currentTxtFrotti;
+// let txtAAfficher = txtFrotti;
+// setCurrentTxtFrotti(txtAAfficher);
+// setTxtFrotti(txtAEnlever);
+// };
+// const [logoAfficheFrotti, setLogoAfficheFrotti] = useState(LightOff);
 
-const [logoNonAfficheFrotti, setLogoNonFrotti] = useState(LightOn);
-const changementCouleurSVGFrotti = () => {
-let currentLampe = logoAfficheFrotti;
-let currentCache = logoNonAfficheFrotti;
-setLogoNonFrotti(currentLampe);
-setLogoAfficheFrotti(currentCache);
-affichageFrotti();
-}
+// const [logoNonAfficheFrotti, setLogoNonFrotti] = useState(LightOn);
+// const changementCouleurSVGFrotti = () => {
+// let currentLampe = logoAfficheFrotti;
+// let currentCache = logoNonAfficheFrotti;
+// setLogoNonFrotti(currentLampe);
+// setLogoAfficheFrotti(currentCache);
+// affichageFrotti();
+// }
 
-///
+// ///
 
 /// Tabac 
 
@@ -1094,7 +1095,7 @@ Mode de découverte de la grossesse :
       
 
 
-      <a href={ConsentementMineur} target="_blank ">consentement Mineure pdf</a>
+      <a href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
       <br></br>
 
 

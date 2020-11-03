@@ -64,7 +64,7 @@ function TarifPremiereMineureANA(props) {
     )
   })}</div> */}
   <p className="Red">
-  En rouge : Un délai de 48h est nécessaire entre la consultation psychosociale et la deuxième consultation préalable à l’IVG.
+  Un délai de 48h est nécessaire entre la consultation psychosociale et la deuxième consultation préalable à l’IVG.
 
   </p>
   
@@ -106,7 +106,7 @@ function TarifPremiereMineureANA(props) {
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
       <br></br>
       <a href={Certificat} target="_blank">
-          Certificat de 1ère consultation PDF à compléter
+      Certificat de 1ère consultation pour IVG, document à compléter
         </a>
     </div>
     </div>

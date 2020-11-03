@@ -13,8 +13,12 @@ class TestPrint extends React.Component {
   render() {
     
     return (
-        <div className="containerR" >
-      <img src={Logo} className="logo"></img>
+        <div className="containerT" >
+          <div className="Doite">
+          <img src={Logo} className="logoT"></img>
+
+
+          </div>
       <br></br>
       <br></br>
       <h3>

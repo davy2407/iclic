@@ -434,7 +434,7 @@ function MyVerticallyCenteredModal(props) {
            ainsi que d’avoir signé une convention avec un centre de rattachement. 
         </p>
         
-        <h3>Covid et IVG : </h3>
+        <h5>Covid et IVG : </h5>
         <p>
         Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
         </p>

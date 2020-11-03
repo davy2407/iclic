@@ -1,16 +1,23 @@
-.logo {
+.logoT {
       
-    width: 7vw;
-    height: 10vh;
-  
-  }
+  width: 10vw;
+  height: 15vh;
 
-.containerR{
-  width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0.5rem;
+}  
+
+
+.Droite{
+width: 80%;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
 }
 
+.containerT{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+padding: 1.5rem;
+}

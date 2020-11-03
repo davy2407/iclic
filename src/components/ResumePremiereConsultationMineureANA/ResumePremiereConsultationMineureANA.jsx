@@ -13,7 +13,11 @@ class ResumePremiereConsultationMineureANA extends React.Component {
      
     return (
         <div className="containerT" >
-      <img src={Logo} className="logo"></img>
+          <div className="Droite">
+          <img src={Logo} className="logoT"></img>
+
+          </div>
+      
       <br></br>
       <br></br>
       <h3>
@@ -28,7 +32,7 @@ class ResumePremiereConsultationMineureANA extends React.Component {
       <br></br>
       <br></br>
       
-      <p>Personne accompagnante majeurs ou consentement parental :             identitée :        </p>
+      
       
     <div>{this.state.data.map((objet)=>{
     return (
@@ -45,12 +49,16 @@ class ResumePremiereConsultationMineureANA extends React.Component {
       <p>Pour information : </p>
       <br></br>
     <br></br>
+    <br></br>
+    <br></br>
       <br></br>
       <p>Il est à noter qu’un délai de 48h entre la consultation psychosociale et la 2eme consultation préalable à l’IVG est à respecter. 
           Il est obligatoire d’amener à cette prochaine consultation l’attestation d’entretien. </p>
       <br></br>
       <br></br>
       <p>Date et Tampon</p>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
