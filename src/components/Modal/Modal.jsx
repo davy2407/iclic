@@ -759,15 +759,13 @@ Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du m�
         Selon <a rel="noreferrer noopener"
         target="_blank"
         href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006911489&cidTexte=LEGITEXT000006072665&dateTexte=20030527"
-        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse. Cette compétence est  acquise par  une formation universitaire pour les médecins et les sages-femmes. Elle est  reconnue lors des études universitaires en justifiant d’une qualification ou d’une pratique régulière. L’attestation de formation est  délivrée par le directeur de l’établissement hospitalier  apres avis du chef de service en charge des IVG medicamenteuse 
+        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse. Cette compétence est acquise par une formation universitaire pour les médecins et les sages-femmes. Elle est reconnue lors des études universitaires en justifiant d’une qualification ou d’une pratique régulière. L’attestation de formation est délivrée par le directeur de l’établissement hospitalier après avis du chef de service en charge des IVG médicamenteuse. 
         </p>
         <p>
-        Des formations continue pour les praticiens liberaux  proposent une formation qualifiante pour la pratique de l’IVG medicamenteuse hors etablissement..
+        Des formations continue pour les praticiens libéraux proposent une formation qualifiante pour la pratique de l’IVG médicamenteuse hors établissement..
         </p>
         <p>
-        Les centres de références (CHU, centres universitaires régionaux),
-         le planning familial, le conseil de l’ordre des médecins de votre
-          département peuvent vous renseigner. 
+        Les centres de références (CHU, centre hospitalier régional, clinique), le planning familial, le conseil de l’ordre des médecins de votre département peuvent vous renseigner.
         </p>
         <p>
           <a rel="noreferrer noopener" target="_blank" href="http://revho.fr/">Lien site REVHO</a>

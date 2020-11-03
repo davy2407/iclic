@@ -28,8 +28,7 @@ function PConsultationMineur(props) {
     liste.push(currentDossier);
     liste.push(currentConsultation);
     liste.push(currentInfo);
-    liste.push(currentHPV);
-    liste.push(currentDateHPV);
+    
     liste.push(currentTabac);
     liste.push(currentNbTabac);
     for (let index = 0; index < liste.length; index++) {
@@ -1021,7 +1020,7 @@ Mode de découverte de la grossesse :
       />
       <p>{currentTxtPostIVG}</p>
           </div>
-          <div className="ConsultationContainer">
+          {/* <div className="ConsultationContainer">
           <h2>Frottis à jour ou test HPV</h2>
       <label>
       Frottis à jour
@@ -1039,7 +1038,7 @@ Mode de découverte de la grossesse :
         src={logoAfficheFrotti}
       />
       <p>{currentTxtFrotti}</p>
-          </div>
+          </div> */}
           <div className="ConsultationContainer">
           <h2>Tabac</h2>
       <label>

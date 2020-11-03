@@ -55,6 +55,7 @@
 
 
 .BulleInfo{
+    font-size: 1em;
     background-color: rgb(133, 27, 83);
     color:  rgb(253, 238, 246);
     border-radius: 35px;
@@ -62,7 +63,20 @@
     padding: 0.5%;
     text-shadow: 0px 0.5px 0px rgb(184, 177, 177);
     box-shadow: inset 0 0 0.1em black, 0 0 0.3em black;
+    height: auto;
+    width: 90%;;
+    
+    
+
 }
+
+.BulleInfo p{
+    font-size: 1em;
+
+}
+
+
+
 
 .consultationContainer{
     width: 100%;

@@ -434,7 +434,7 @@ const handleSubmitPaquet = event => {
   const echographie = () => {
     return (
       <div className="BulleInfo">
-        <p>
+        <p className="txtInfo">
         Grossesse précoce, attendre le résultat des ß-HCG pour date d'échographie (œuf visualisé si ß-HCG supérieur à 1000-1500 UI/L).
 Possibilité de prescription échographie lors de la 2ème consultation préalable à l’IVG selon résultat sanguin.
         </p>

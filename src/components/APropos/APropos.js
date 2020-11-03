@@ -27,7 +27,7 @@ Les références sont établies à partir des recommandations nationales et/ou d
 Concernant les effets indésirables des traitements proposés, seuls les effets
  secondaires très fréquents (≥ 1/10) et fréquents (≥ 1/100,  1/10) ont été rapportés,
   des hyperliens renvoient l'utilisateur vers le
-   site <a target="_blank" href="http://www.base-donnees-publique.medicaments.gouv.fr/index.php?menu=0">www.base-donnees-publique.medicaments.gouv.fr</a> afin d'accéder à la monographie
+   site <a rel="noreferrer noopener" target="_blank" href="https://ansm.sante.fr/">www.base-donnees-publique.medicaments.gouv.fr</a> afin d'accéder à la monographie
     complète du produit concerné.
             </p>
             <p>
@@ -46,11 +46,11 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
             </p>
             <h2>Liens d’intérêts :</h2>
             <p>
-            aucun lien d’intérêt n’est à déclarer par le Dr LAINE Marianne ou Mr PUECH Lilian.
+            Aucun lien d’intérêt n’est à déclarer par le Dr LAINE Marianne ou Mr PUECH Lilian.
             </p>
             <h2>Confidentialité :</h2>
             <p>
-            aucune donnée personnelle n’est enregistrée sur le site. 
+            Aucune donnée personnelle n’est enregistrée sur le site. 
             </p>
             <h2>Publicité :</h2>
             <p>
