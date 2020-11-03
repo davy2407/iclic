@@ -31,14 +31,27 @@ function PostIVGMajeureNA(props) {
     liste.push(currentAvis);
     liste.push(currentCause);
    
+    let noReponse = [];
     for (let index = 0; index < liste.length; index++) {
-      if (liste[index].titre=="Pas de réponses") {
-        alert("Vous n'avez pas répondu à toutes les questions")
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
         
       }
-      else  {
-        console.log("OK");
-      }
+      
+      
+    }
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
       
     }
 
@@ -53,68 +66,136 @@ function PostIVGMajeureNA(props) {
 
     const [currentReco, setCurrentReco] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
     
 
     const [currentResultat, setCurrentResultat] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentContra, setCurrentContra] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentIST, setCurrentIST] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentHPV, setCurrentHPV] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentDateHPV, setCurrentDateHPV] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
 
     const [currentTabac, setCurrentTabac] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentNbTabac, setCurrentNbTabac] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
 
     const [currentVecu, setCurrentVecu] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentAvis, setCurrentAvis] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentCause, setCurrentCause] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
     const [currentTestUri, setCurrentTestUri] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
 
     const [currentPosNe, setCurrentPosNe] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
+
+
+
+
+     ////////////// current reponseOUTarif
+
+     const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+     //////////////////////////////////// tarification
+   
+     const afficheTarif = () => {
+       setCurrentReponseTarif(blocTarif)
+     };
+   
+     const tarifFinal = () => {
+       return (
+         <div className="TarifiContainer">
+         <Button variant="danger" onClick={props.onSuite}>
+           Tarification
+         </Button>
+         </div>
+       )
+     };
+   
+     const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+   
+   
+     //////////////////////////////////////////////////////
+   
+     /////// bloc no reponse
+     const afficheNoRep = () => {
+       setCurrentReponseTarif(pasDeReponseBloc)
+     };
+   
+     const [ stateNoReponse, setStateNoReponse] = useState([]);
+     const pasDeReponse = () => {
+       return (
+         <div>
+           <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+           
+   
+         </div>
+       )
+     }
+   
+   
+     const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+   
+   
+   
+   
+     /////////////////////////////////////////////////////////////
+ 
+   /////////////////////////////////////////////////////////////
+ 
   
 //// bloc reco covid
 
@@ -123,6 +204,8 @@ const recupReco = (e) => {
   let reponse = {
     titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
     value: e.target.value,
+    reponse : 1
+
   };
   setCurrentReco(reponse);
 
@@ -165,7 +248,9 @@ const recupReco = (e) => {
           e.preventDefault();
           let reponse = {
             titre : "Résultat décroissance dosage sanguin BHCG : ",
-            value : e.target.value+"%"
+            value : e.target.value+"%",
+            reponse : 1
+
           };
   setCurrentResultat(reponse);
 
@@ -181,7 +266,9 @@ const recupReco = (e) => {
             let txt = "";
             let reponse = {
               titre : "Résultat décroissance dosage sanguin BHCG : ",
-              value : resultat+"%"
+              value : resultat+"%",
+              reponse : 1
+
             };
             // setCurrentResultat(reponse);
             if (resultat>=-80) {
@@ -253,6 +340,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Contraception choisie par la patiente : ",
             value: e.target.value,
+            reponse : 1
+
           };
           
           setCurrentContra(reponse);
@@ -342,6 +431,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Recherche IST : ",
             value: e.target.value,
+            reponse : 1
+
           };
           
           setCurrentIST(reponse);
@@ -401,6 +492,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Frottis à jour (ou test HPV) : ",
             value: e.target.value,
+            reponse : 1
+
           };
           
           setCurrentHPV(reponse);
@@ -417,6 +510,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Date Frotti : ",
             value: e.target.value,
+            reponse : 1
+
           };
          setCurrentDateHPV(reponse);
       
@@ -484,6 +579,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
             let reponse = {
               titre: "Tabac : ",
               value: e.target.value,
+              reponse : 1
+
             };
             setCurrentTabac(reponse);
           
@@ -504,7 +601,9 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           event.preventDefault();
           let reponse = {
             titre : "Paquets/Années : ",
-            value : event.currentTarget.value
+            value : event.currentTarget.value,
+            reponse : 1
+
           };
           setCurrentNbTabac(reponse);
            
@@ -528,6 +627,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Vécu de l’IVG traumatique : ",
             value: e.target.value,
+            reponse : 1
+
           };
           setCurrentVecu(reponse);
         
@@ -584,6 +685,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
             value: e.target.value,
+            reponse : 1
+
           };
           setCurrentAvis(reponse);
         
@@ -598,6 +701,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Si oui cause : ",
             value: e.target.value,
+            reponse : 1
+
           };
          setCurrentCause(reponse);
         
@@ -696,6 +801,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "Utilisation d’un autotest urinaire : ",
             value: e.target.value,
+            reponse : 1
           };
           setCurrentTestUri(reponse);
         
@@ -708,6 +814,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           let reponse = {
             titre: "résultat autotest urinaire : ",
             value: e.target.value,
+            reponse : 1
           };
           setCurrentPosNe(reponse);
         
@@ -994,7 +1101,7 @@ De nombreuses sources numériques existent pour l’information aux patient(es)
             
         <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
         <br></br>
-        <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
+        <div>{currentReponseTarif}</div>
 
 
 

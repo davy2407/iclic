@@ -24,31 +24,46 @@ function DeuxiemeMediMajeureNA(props) {
         liste.push(currentContra);
         liste.push(currentTypeContra);
       
-        for (let index = 0; index < liste.length; index++) {
-          if (liste[index].titre=="Pas de réponses") {
-            alert("Vous n'avez pas répondu à toutes les questions")
-            
-          }
-          else  {
-            console.log("OK");
-          }
-          
-        }
-    
-    
-        props.onRecup(liste);
+        let noReponse = [];
+    for (let index = 0; index < liste.length; index++) {
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
+        
+      }
+      
+      
+    }
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
+      
+    }
+
+
+    props.onRecup(liste);
       };
 
     /// current reponse
   const [currentMife, setCurrentMife] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
   const recupMife = (e) => {
     e.preventDefault();
     let reponse = {
       titre: "Effets secondaires de la mifépristone : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentMife(reponse);
@@ -59,7 +74,8 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [currentMiso, setCurrentMiso] =useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const recupMiso = (e) => {
@@ -67,6 +83,7 @@ function DeuxiemeMediMajeureNA(props) {
     let reponse = {
       titre: "Délivrance du misoprostol : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentMiso(reponse);
@@ -80,13 +97,15 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [currentAntiG, setCurrentAntiG] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
   const recupAnti = (e) => {
     e.preventDefault();
     let reponse = {
       titre: "Nécessité d’une injection préventive d’Ig anti-D : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentAntiG(reponse);
@@ -96,7 +115,8 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [ currentDateAntiG, setCurrentDateAntiG] =useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
   const handleChangeAnti = (e) => {
     
@@ -105,6 +125,7 @@ function DeuxiemeMediMajeureNA(props) {
     let reponse = {
       titre: "Date injection préventive d’Ig anti-D : ",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateAntiG(reponse);
 
@@ -118,7 +139,8 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [currentArret, setCurrentArret] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const recupArret = (e) => {
@@ -126,6 +148,7 @@ function DeuxiemeMediMajeureNA(props) {
     let reponse = {
       titre: "Arrêt de travail prescrit : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentArret(reponse);
@@ -142,7 +165,8 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [currentContra, setCurrentContra] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const recupContra = (e) => {
@@ -150,6 +174,7 @@ function DeuxiemeMediMajeureNA(props) {
     let reponse = {
       titre: "Contraception choisie par la patiente : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentContra(reponse);
@@ -162,7 +187,8 @@ function DeuxiemeMediMajeureNA(props) {
 
   const [ currentTypeContra, setCurrentTypeContra] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
 
@@ -170,7 +196,56 @@ function DeuxiemeMediMajeureNA(props) {
 
   
 
+//////////////////////////////// tarif ou no reponse
 
+    ////////////// current reponseOUTarif
+
+    const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+    //////////////////////////////////// tarification
+  
+    const afficheTarif = () => {
+      setCurrentReponseTarif(blocTarif)
+    };
+  
+    const tarifFinal = () => {
+      return (
+        <div className="TarifiContainer">
+        <Button variant="danger" onClick={props.onSuite}>
+          Tarification
+        </Button>
+        </div>
+      )
+    };
+  
+    const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+  
+  
+    //////////////////////////////////////////////////////
+  
+    /////// bloc no reponse
+    const afficheNoRep = () => {
+      setCurrentReponseTarif(pasDeReponseBloc)
+    };
+  
+    const [ stateNoReponse, setStateNoReponse] = useState([]);
+    const pasDeReponse = () => {
+      return (
+        <div>
+          <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+          
+  
+        </div>
+      )
+    }
+  
+  
+    const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+  
+  
+  
+  
+    /////////////////////////////////////////////////////////////
 
   /////////////////////////////////////////////////////////////
 
@@ -430,6 +505,7 @@ L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consul
         let reponse = {
           titre: "Type contraception : ",
           value: e.target.value,
+          reponse : 1
         };
        setCurrentTypeContra(reponse);
       
@@ -558,7 +634,7 @@ Majeure </h1>
 
 
             <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
-            <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
+            <div>{currentReponseTarif}</div>
 
 
         </div>

@@ -41,16 +41,31 @@ function DeuxiemeConsultationMineureANA(props) {
   // liste.push(currentDateHPV);
   liste.push(currentTabac);
   liste.push(currentNbTabac);
-  for (let index = 0; index < liste.length; index++) {
-    if (liste[index].titre=="Pas de réponses") {
-      alert("Vous n'avez pas répondu à toutes les questions")
+  let noReponse = [];
+    for (let index = 0; index < liste.length; index++) {
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
+        
+      }
+      
       
     }
-    else  {
-      console.log("OK");
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
     }
-    
-  }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
+      
+    }
+
+
     props.onRecup(liste);
   };
 
@@ -59,84 +74,144 @@ function DeuxiemeConsultationMineureANA(props) {
   //// current state 
   const [currentAttestation, setCurrentAttestation] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentGrossese, setCurrentGrossese] =useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentEcho, setCurrentEcho] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentAcc, setCurrentAcc] =useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentDosage, setCurrentDosage] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentGroupe, setCurrentGroupe] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentIST, setCurrentIST] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [infoSupp, setInfoSupp] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [currentSang, setCurrentSang] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   
 
   const [ currentConsultation, setCurrentConsultation] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentInfo, setCurrentInfo]= useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
-  const [ currentHPV, setCurrentHPV] = useState({
-    titre : "Pas de réponses",
-    value : ""
-  });
-
-  const [currentDateHPV, setCurrentDateHPV]= useState({
-    titre : "",
-    value : ""
-  });
+ 
 
   const [currentTabac, setCurrentTabac]= useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentNbTabac, setCurrentNbTabac] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
 
 
   /////////////////////////////////////////////////////////////////////////////
+
+   //////////////////////////////// tarif ou no reponse
+
+    ////////////// current reponseOUTarif
+
+    const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+    //////////////////////////////////// tarification
+  
+    const afficheTarif = () => {
+      setCurrentReponseTarif(blocTarif)
+    };
+  
+    const tarifFinal = () => {
+      return (
+        <div className="TarifiContainer">
+        <Button variant="danger" onClick={props.onSuite}>
+          Tarification
+        </Button>
+        </div>
+      )
+    };
+  
+    const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+  
+  
+    //////////////////////////////////////////////////////
+  
+    /////// bloc no reponse
+    const afficheNoRep = () => {
+      setCurrentReponseTarif(pasDeReponseBloc)
+    };
+  
+    const [ stateNoReponse, setStateNoReponse] = useState([]);
+    const pasDeReponse = () => {
+      return (
+        <div>
+          <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+          
+  
+        </div>
+      )
+    }
+  
+  
+    const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+  
+  
+  
+  
+    /////////////////////////////////////////////////////////////
+  
+  
+  
+      /////////////////////////////////////////////////////////////////////////////
 
 
   ////// Attestation 1ère consultation préalable à l’IVG
@@ -145,6 +220,7 @@ function DeuxiemeConsultationMineureANA(props) {
     let reponse = {
       titre: "Attestation 1ere consultation préalable en main de la patiente : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentAttestation(reponse);
     
@@ -195,6 +271,7 @@ function DeuxiemeConsultationMineureANA(props) {
     let reponse = {
       titre: "Personne accompagnante majeurs ou consentement parental : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentAcc(reponse)
     
@@ -243,6 +320,7 @@ function DeuxiemeConsultationMineureANA(props) {
     let reponse = {
       titre: "Attestation Consultation psychosociale : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentConsultation(reponse)
     
@@ -293,6 +371,7 @@ function DeuxiemeConsultationMineureANA(props) {
     let reponse = {
       titre: "Grossesse intra-utérine confirmée : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentGrossese(reponse)
     
@@ -330,6 +409,7 @@ function DeuxiemeConsultationMineureANA(props) {
     let reponse = {
       titre: "Echographie de datation/Age gestationnel : ",
       value: nb,
+      reponse : 1
     };
     setCurrentEcho(reponse);
    
@@ -533,7 +613,8 @@ const recupInfoSupp = (e) => {
   e.preventDefault();
   let reponse = {
     titre : "Si ressource cochée oui : ",
-    value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+    value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante/",
+    reponse : 1
   };
   
   setInfoSupp(reponse);
@@ -543,7 +624,8 @@ const recupInfoSupp = (e) => {
       e.preventDefault();
       let reponse = {
         titre : "Recherche IST : ",
-        value : e.target.value
+        value : e.target.value,
+        reponse : 1
       };
       setCurrentIST(reponse);
       
@@ -642,6 +724,7 @@ const recupBilan = (e) => {
   let reponse = {
     titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
     value: e.target.value,
+    reponse : 1
   };
   setCurrentSang(reponse);
   
@@ -693,7 +776,8 @@ const recupBilan = (e) => {
       event.preventDefault();
       let reponse = {
         titre : "Dosage ß-HCG : ",
-        value : event.currentTarget.value
+        value : event.currentTarget.value,
+        reponse : 1
       };
       setCurrentDosage(reponse);
        
@@ -716,6 +800,7 @@ const recupBilan = (e) => {
       let reponse = {
         titre: "Groupe Sanguin : ",
         value: e.target.value,
+        reponse : 1
       };
      setCurrentGroupe(reponse);
     
@@ -732,7 +817,8 @@ const recupBilan = (e) => {
       e.preventDefault();
       let reponse = {
         titre : "Information contraception postIVG : ",
-        value : e.target.value
+        value : e.target.value,
+        reponse : 1
       };
       setCurrentInfo(reponse);
       
@@ -781,83 +867,7 @@ const recupBilan = (e) => {
     ////////////////////////////////////////////////////////////////////
 
 
-    ////////: frotti
-    const recupFrotti = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre : "Frottis à jour (ou test HPV) : ",
-        value : e.target.value
-      };
-      setCurrentHPV(reponse)
-      
-      console.log("type frotti " + reponse.value);
-    };
-  
-    const [dateFrottiFin, setDateFrottiFin] = useState({});
-  
-    const handleChange = (e) => {
-      /// recup date frotti
-      let myDate = new Date(e.target.valueAsDate);
-      console.log(myDate);
-      
-      
-      let reponse = {
-        titre: "Date frotti ou test HPV : ",
-        value: e.target.value,
-      };
-      setCurrentDateHPV(reponse);
-  
-      console.log("date frotti : " + reponse.value);
-      
-    };
-    const returnInfoFrotti = () => {
-      return (
-        <div className="BulleInfo">
-          <p>
-           Le plan de dépistage national s’applique : 
-          </p>
-          <ul>
-            <li>
-              <p>
-              entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
-              </p>
-            </li>
-            <li>
-              <p>
-              le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
-              <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
-            lien info
-          </a>
-              </p>
-            </li>
-          </ul>
-         
-        </div>
-      );
-    };
-  
-    const [txtFrotti, setTxtFrotti] = useState(() => returnInfoFrotti());
-  
-    const [currentInfoFrotti, setCurrentInfoFrotti] = useState("");
-  
-    const affichageTxtFrotti = () => {
-      let txtAEnlever = currentInfoFrotti;
-      let txtAAfficher = txtFrotti;
-      setCurrentInfoFrotti(txtAAfficher);
-      setTxtFrotti(txtAEnlever);
-    };
-  
-    const [logoAfficheFrotti, setLogoAfficheFrotti] = useState(LightOff);
-  
-    const [logoNonAfficheFrotti, setLogoNonAfficheFrotti] = useState(LightOn);
-  
-    const changementCouleurSVGFrotti = () => {
-      let currentLampe = logoAfficheFrotti;
-      let currentCache = logoNonAfficheFrotti;
-      setLogoNonAfficheFrotti(currentLampe);
-      setLogoAfficheFrotti(currentCache);
-      affichageTxtFrotti();
-    };
+    
     ////////////////////////////////////////////////////////////////////////
 
 
@@ -868,6 +878,7 @@ const recupBilan = (e) => {
       let reponse = {
         titre: "Tabac : ",
         value: e.target.value,
+        reponse : 1
       };
       setCurrentTabac(reponse);
       
@@ -883,7 +894,8 @@ const handleSubmitPaquet = event => {
 event.preventDefault();
 let reponse = {
   titre : "Nombre Paquet : ",
-  value : event.currentTarget.value
+  value : event.currentTarget.value,
+  reponse : 1
 };
 setCurrentNbTabac(reponse);
  
@@ -1226,7 +1238,7 @@ Mineur A/NA :
 
       <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
       <br></br>
-      <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
+      <div>{currentReponseTarif}</div>
 
 
       </div>

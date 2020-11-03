@@ -40,16 +40,32 @@ function DeuxiemeConsultationMajeureNA(props) {
     liste.push(currentDateHPV);
     liste.push(currentTabac);
     liste.push(currentNbTabac);
+    let noReponse = [];
     for (let index = 0; index < liste.length; index++) {
-      if (liste[index].titre=="Pas de réponses") {
-        alert("Vous n'avez pas répondu à toutes les questions")
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
         
       }
-      else  {
-      }
+      
       
     }
-      props.onRecup(liste);
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
+      
+    }
+
+
+    props.onRecup(liste);
     };
 
 
@@ -57,80 +73,148 @@ function DeuxiemeConsultationMajeureNA(props) {
     //// current state 
     const [currentAttestation, setCurrentAttestation] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentGrossese, setCurrentGrossese] =useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentEcho, setCurrentEcho] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [ currentAcc, setCurrentAcc] =useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentDosage, setCurrentDosage] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentGroupe, setCurrentGroupe] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentIST, setCurrentIST] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [infoSupp, setInfoSupp] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
   
     const [currentSang, setCurrentSang] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     
   
     const [ currentConsultation, setCurrentConsultation] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [ currentInfo, setCurrentInfo]= useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [ currentHPV, setCurrentHPV] = useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [currentDateHPV, setCurrentDateHPV]= useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
   
     const [currentTabac, setCurrentTabac]= useState({
       titre : "Pas de réponses",
-      value : ""
+      value : "",
+      reponse : 0
     });
   
     const [ currentNbTabac, setCurrentNbTabac] = useState({
       titre : "",
-      value : ""
+      value : "",
+      reponse : 1
     });
+
+
+
+     //////////////////////////////// tarif ou no reponse
+
+    ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+        Tarification
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+
+
+
+
+  /////////////////////////////////////////////////////////////
 
 
 
@@ -143,6 +227,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       let reponse = {
         titre: "Attestation 1ere consultation préalable en main de la patiente : ",
         value: e.target.value,
+        reponse : 1
       };
       setCurrentAttestation(reponse);
       
@@ -192,6 +277,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       let reponse = {
         titre: "Personne accompagnante : ",
         value: e.target.value,
+        reponse : 1
       };
       setCurrentAcc(reponse)
       
@@ -208,6 +294,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       let reponse = {
         titre: "Consultation psychosociale : ",
         value: e.target.value,
+        reponse : 1
       };
       setCurrentConsultation(reponse)
       
@@ -278,6 +365,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       let reponse = {
         titre: "Grossesse intra-utérine confirmée : ",
         value: e.target.value,
+        reponse : 1
       };
       setCurrentGrossese(reponse)
       
@@ -314,6 +402,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       let reponse = {
         titre: "Echographie de datation/Age gestationnel : ",
         value: nb,
+        reponse : 1
       };
       setCurrentEcho(reponse);
      
@@ -516,7 +605,8 @@ function DeuxiemeConsultationMajeureNA(props) {
     e.preventDefault();
     let reponse = {
       titre : "Si ressource cochée oui : ",
-      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+      value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante",
+      reponse : 1
     };
     
     setInfoSupp(reponse);
@@ -525,7 +615,8 @@ function DeuxiemeConsultationMajeureNA(props) {
         e.preventDefault();
         let reponse = {
           titre : "Recherche IST : ",
-          value : e.target.value
+          value : e.target.value,
+          reponse : 1
         };
         setCurrentIST(reponse);
         
@@ -616,6 +707,7 @@ function DeuxiemeConsultationMajeureNA(props) {
     let reponse = {
       titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentSang(reponse);
     
@@ -667,7 +759,8 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         event.preventDefault();
         let reponse = {
           titre : "Dosage ß-HCG : ",
-          value : event.currentTarget.value
+          value : event.currentTarget.value,
+          reponse : 1
         };
         setCurrentDosage(reponse);
          
@@ -693,6 +786,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         let reponse = {
           titre: "Groupe Sanguin : ",
           value: e.target.value,
+          reponse : 1
         };
        setCurrentGroupe(reponse);
       
@@ -708,7 +802,8 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         e.preventDefault();
         let reponse = {
           titre : "Information contraception postIVG : ",
-          value : e.target.value
+          value : e.target.value,
+          reponse : 1
         };
         setCurrentInfo(reponse);
         
@@ -761,7 +856,8 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         e.preventDefault();
         let reponse = {
           titre : "Frottis à jour (ou test HPV) : ",
-          value : e.target.value
+          value : e.target.value,
+          reponse : 1
         };
         setCurrentHPV(reponse)
         
@@ -777,6 +873,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         let reponse = {
           titre: "Date frotti ou test HPV : ",
           value: e.target.value,
+          reponse : 1
         };
         setCurrentDateHPV(reponse);
     
@@ -840,6 +937,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         let reponse = {
           titre: "Tabac : ",
           value: e.target.value,
+          reponse : 1
         };
         setCurrentTabac(reponse);
         
@@ -854,7 +952,8 @@ const handleSubmitPaquet = event => {
   event.preventDefault();
   let reponse = {
     titre : "Nombre Paquet : ",
-    value : event.currentTarget.value
+    value : event.currentTarget.value,
+    reponse : 1
   };
   setCurrentNbTabac(reponse);
    
@@ -1209,8 +1308,7 @@ const handleSubmitPaquet = event => {
 
         <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
         <br></br>
-        <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
-
+        <div>{currentReponseTarif}</div>
 
         </div>
     )
