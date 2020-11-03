@@ -98,7 +98,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
   }
   const [texteDemarrage, setTexteDemarrage] = useState(()=>accueil());
 
-  const [txtQuestion, setTxtQuestion] = useState("Etes vous professionel de santé ?")
+  const [txtQuestion, setTxtQuestion] = useState("Êtes vous professionel de santé ?")
 
   const test = () => {
     let liste = [...stateGlobalPremiereConsulte];
