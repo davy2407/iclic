@@ -23,7 +23,7 @@ function Contact() {
 
             </p>
             <p>
-            Mr Blindé Davy : chargé de mission principal du projet.
+            Mr Bindé Davy : Chargé de mission principal du projet.
             </p>
             <p>
             Mr Do rozario Enzo : Chargé de l’aide à la conception.
