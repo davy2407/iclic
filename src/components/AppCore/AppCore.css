@@ -29,6 +29,9 @@
     box-shadow: 5px 2.5px 2.5px rgb(172, 164, 164);
     font-family: 'PT Sans',cursive ;
     margin-bottom: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -47,6 +50,15 @@
     
     margin: 1%;
     padding: 1%;
+}
+
+
+.BulleInfo{
+    background-color: rgb(133, 27, 83);
+    color:  rgb(253, 238, 246);
+    border-radius: 35px;
+    margin-top: 0.5vh;
+    padding: 0.5%;
 }
 
 .consultationContainer{

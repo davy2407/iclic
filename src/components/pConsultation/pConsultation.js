@@ -343,18 +343,11 @@ const handleSubmitPaquet = event => {
   /// info IST
   const returnInfoIST = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-         La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-         enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de
-          risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année),
-           changement de partenaire récent, individus ou partenaires diagnostiqués avec
-            une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium),
-             antécédents d’IST, personnes en situation de prostitution, après un viol.
+         « HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
         </p>
-        <p>
-        De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives. 
-        </p>
+        
         
         <p>
           De nombreuses sources numériques existent pour l’information aux
@@ -440,19 +433,13 @@ const handleSubmitPaquet = event => {
 
   const echographie = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-        En pratique sur une grossesse a priori toute débutante, 
-        attendre le résultat des ß-HCG (dans la journée ou le lendemain)
-         pour programmer l’échographie (œuf visualisé si ß-HCG supérieur 1000-1500 UI/L)
-          afin qu’elle ne soit pas répétée inutilement. Il existe la possibilité d’attendre
-           la 2ème consultation préalable à l’IVG afin de programmer l’échographie de datation
-            en fonction du résultat sanguin.
+        Grossesse précoce, attendre le résultat des ß-HCG pour date d'échographie (œuf visualisé si ß-HCG supérieur à 1000-1500 UI/L).
+Possibilité de prescription échographie lors de la 2ème consultation préalable à l’IVG selon résultat sanguin.
         </p>
         <p>
-        Faire apparaître la mention « échographie de datation à réaliser 
-        en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué,
-         (Index pour radiologue IPE).
+        Préciser faire « échographie de datation à réaliser en urgence ; IPE  » sur votre ordonnance (Index pour radiologue « Vérification échographique pré IV »)
         </p>
       </div>
     )
@@ -478,6 +465,55 @@ const handleSubmitPaquet = event => {
     affichageTxtEcho();
   };
 
+
+  /////////////// Bloc Violence 
+
+  const violence = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Cette information ne figurera pas sur le résumé.
+Cette violence peut être physique, sexuelle, économique, verbale ou psychologique dans un contexte conjugal, professionnel ou plus récemment de cyberviolence. 
+        </p>
+        <p>
+        Y penser particulièrement en contexte de grossesse et de  post-partum. Adopter une attitude empathique et bienveillante sans porter de jugement.
+        </p>
+        <p>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
+          https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+
+          </a>
+        </p>
+        <p>
+        Pour toutes questions de prise en charge : <a href="http://www.declicviolence.fr/" rel="noreferrer noopener" target="_blank">http://www.declicviolence.fr/</a>
+        </p>
+      </div>
+    )
+  }
+  const [txtViolence, setTxtViolence] = useState(() => violence());
+
+  const [currentInfoViolence, setCurrentInfoViolence] = useState("");
+
+  const affichageTxtViolence = () => {
+    let txtAEnlever = currentInfoViolence;
+    let txtAAfficher = txtViolence;
+    setCurrentInfoViolence(txtAAfficher);
+    setTxtViolence(txtAEnlever);
+  };
+  const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+
+  const [logoNonAfficheViolence, setLogoNonAfficheViolence] = useState(LightOn);
+  const changementCouleurSVGViolence = () => {
+    let currentLampe = logoAfficheViolence;
+    let currentCache = logoNonAfficheViolence;
+    setLogoNonAfficheViolence(currentLampe);
+    setLogoAfficheViolence(currentCache);
+    affichageTxtViolence();
+  };
+
+
+  /////////////////////////////////////////////////////////////////////////
+
   const [valueDecouverteGro, setDecouverteGro] = useState(
     /// state bouton select ( ne fonctionne pas comme value de base actuellement )
     { value: "Selectionner" }
@@ -501,12 +537,10 @@ const handleSubmitPaquet = event => {
   /// Consultation psychosociale
   const returnInfo = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-          {" "}
-           Elle n’est pas obligatoire pour les personnes majeures. Il existe
-          l’obligation légale de le proposer. La patiente a un délai de 48h de
-          réflexion avant de signer le consentement après cette consultation.
+        Elle n’est pas obligatoire pour les personnes majeures.Mais obligation légale de le proposer.  Délai de 48h de réflexion avant de signer le consentement après la consultation psychosocial.
+
         </p>
         <br></br>
         <p>Elle peut avoir lieu : </p>
@@ -586,9 +620,9 @@ const handleSubmitPaquet = event => {
   /////// bloc prise de sang 
   const returnInfoSang = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-        2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors.  A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant toute IVG ou dans les 72h suivant tout saignement.
+        Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. 
         </p>
         
       </div>
@@ -704,7 +738,7 @@ const handleSubmitPaquet = event => {
 
   const textDDRIncertaine = ()=>{
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
         La DDR étant incertaine, il est nécessaire de s’assurer de la datation exacte
          rapidement afin de ne pas dépasser le terme légal pour une interruption de
@@ -823,11 +857,9 @@ const handleSubmitPaquet = event => {
 
   const returnInfoPostIVG = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-           Il est nécessaire d’aborder dès cette consultation, les différentes
-          modalités contraceptives. Site possible d’information à transmettre à
-          la patiente : 
+         Aborder la contraception dès cette consultation. Site d’information à transmettre à la patiente :
           <a target="_blank" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
             choisirsacontraception.com
           </a>
@@ -862,9 +894,30 @@ const handleSubmitPaquet = event => {
 
   /// Bloc frotti
 
-  const returnInfoFrotti = () => {
+  const NonFrotti = () => {
     return (
       <div>
+        <p className="Red">
+        prévoir en postIVG 
+        </p>
+      </div>
+    )
+  }
+
+  const [ txtNonFrotti, setTxtNonFrotti] = useState(()=>NonFrotti());
+
+  const [ currentNonFrotti, setCurrentNonFrotti] = useState("");
+
+  const affichageTxtFrottiNon = () => {
+    let txtAEnlever = currentNonFrotti;
+    let txtAAfficher = txtNonFrotti;
+    setCurrentNonFrotti(txtAAfficher);
+    
+  };
+
+  const returnInfoFrotti = () => {
+    return (
+      <div className="BulleInfo">
         <p>
          Le plan de dépistage national s’applique : 
         </p>
@@ -1086,12 +1139,13 @@ const handleSubmitPaquet = event => {
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <Button variant="secondary">Oui</Button>
       <Button variant="secondary">Non</Button>
-      {/* ///////////////////// */}
-            {/* //////////// a finir bulle info ///////// */}
-
-      {/* ///////////////////// */}
-
-      {/* ///////////////////// */}
+      <input
+        onClick={changementCouleurSVGViolence}
+        className="Lampe"
+        type="image"
+        src={logoAfficheViolence}
+      />
+      <div>  {currentInfoViolence}</div>
       </div>
 
       <div className="ConsultationContainer">
@@ -1290,6 +1344,7 @@ const handleSubmitPaquet = event => {
           variant="secondary"
           onClick={(e) => {
             recupFrotti(e);
+            affichageTxtFrottiNon();
           }}
         >
           Non
@@ -1299,10 +1354,12 @@ const handleSubmitPaquet = event => {
           variant="secondary"
           onClick={(e) => {
             recupFrotti(e);
+            
           }}
         >
           Non Concernée
         </Button>
+        <div>{currentNonFrotti}</div>
       </label>
       <br></br>
       <label for="dateFrotti">Date : </label>

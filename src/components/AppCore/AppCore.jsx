@@ -236,6 +236,11 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
   }
 
+ const affichePConsultation = () => {
+    setObjetConsultationAffiche([3]);
+
+  }
+
   const recupPremierePriseMedi = (liste)=> {
     
     let newData = [...liste];
@@ -426,7 +431,9 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
 
   /////////////////////////////////////////////////////////////////////
 
-
+ const testtt = () => {
+   console.log(".")
+ }
 
   
 
@@ -480,8 +487,8 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
         id: 5,
         objet: PremierConsultationTroisC,
         fonction : {
-          recupInfo : recupPremiereConsulte,
-          afficheSuite : modifierObjetTarifPremiereConsulte
+          recupInfo : testtt,
+          afficheSuite : affichePConsultation
         }
       },
       {
@@ -489,8 +496,8 @@ Elle est indispensable selon la    <a rel="noreferrer noopener" target="_blank" 
         id: 6,
         objet: PremierConsultationTroisD,
         fonction : {
-          recupInfo : recupPremiereConsulte,
-          afficheSuite : modifierObjetTarifPremiereConsulte
+          recupInfo : testtt,
+          afficheSuite : affichePConsultation
         }
       },
       { name: "resume premiere consultation majeure non anonyme", id: 7, objet: PremierConsultationTroisD,
@@ -1205,7 +1212,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
               onRecup={objet.fonction.recupInfo}
               onData={stateGlobalPremiereConsulte}
               onSuite={objet.fonction.afficheSuite}
-              onTest={afficheStates}
+              
             ></objet.objet>
           );
         })}
