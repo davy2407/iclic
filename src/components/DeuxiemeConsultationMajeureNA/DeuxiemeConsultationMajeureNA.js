@@ -637,7 +637,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       /////////////////////////////////////////////////////////////////////
 
       /// Dosage ß-HCG :
-      const [dosageHCG, setDosageHCG] = useState(0);
+      const [dosageHCG, setDosageHCG] = useState();
     const handleDosageHCG = event => {
         setDosageHCG(event.currentTarget.value);
       };
@@ -651,7 +651,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         setCurrentDosage(reponse);
          
       
-          setDosageHCG(0);
+          setDosageHCG();
       };
 
       ///////////////////////////////////////////////////////////////////
