@@ -1,8 +1,13 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 import "./PremierePriseMediMajeureA.css";
 
-function PremierePriseMediMajeureA(props) {
+function PremierePriseMediMajeureA() {
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
   return (
     <div>
       <h1>Consultation IVG : 1ere prise médicamenteuse.
@@ -17,6 +22,10 @@ Patiente majeure anonyme</h1>
           lien info
         </a>)
       </p>
+
+      <br></br>
+      <br></br>
+      <Button variant="danger" onClick={refreshPage}>Retourner Page d'acceuil</Button>
 
         
       

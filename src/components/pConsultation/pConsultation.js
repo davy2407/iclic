@@ -563,9 +563,7 @@ Possibilité de prescription échographie lors de la 2ème consultation préalab
         Cette information ne figurera pas sur le résumé.
 Cette violence peut être physique, sexuelle, économique, verbale ou psychologique dans un contexte conjugal, professionnel ou plus récemment de cyberviolence. 
         </p>
-        <p>
-        Y penser particulièrement en contexte de grossesse et de  post-partum. Adopter une attitude empathique et bienveillante sans porter de jugement.
-        </p>
+        
         <p>
           <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
           https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple

@@ -14,7 +14,6 @@ function PriseMediPatienteMajeure(props) {
   const [globalStateFin, setGlobalStateFin] = useState([]);
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentCovid);
     liste.push(currentEcho);
@@ -26,14 +25,27 @@ function PriseMediPatienteMajeure(props) {
     liste.push(currentGroupe);
     liste.push(currentAcc);
     
+    let noReponse = [];
     for (let index = 0; index < liste.length; index++) {
-      if (liste[index].titre=="Pas de réponses") {
-        alert("Vous n'avez pas répondu à toutes les questions")
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
         
       }
-      else  {
-        console.log("OK");
-      }
+      
+      
+    }
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep();
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
       
     }
 
@@ -47,48 +59,113 @@ function PriseMediPatienteMajeure(props) {
 
   const [currentEcho, setcurrentEcho] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentgest, setCurrentGest] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentConssent, setCurrentConssent] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentAttestation, setCurrentAttestation] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentSang, setCurrentSang] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentDosage, setCurrentDosage] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentGroupe, setCurrentGroupe] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentAcc, setCurrentAcc] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentCovid, setcurrentCovid] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
+
+
+
+  ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+        Suite
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+
+
+
+
+  /////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+
+
+
 
 
 
@@ -119,10 +196,10 @@ function PriseMediPatienteMajeure(props) {
     let reponse = {
       titre: "Echographie de datation/Age gestationnel(SA) : ",
       value: nb,
+      reponse : 1
     };
     setCurrentGest(reponse);
    
-    console.log("Echographie de datation/Age gestationnel(SA) : " + nb);
  
 
     setSaisieUtilisateurNbSemaineSA(0);
@@ -131,7 +208,7 @@ function PriseMediPatienteMajeure(props) {
     /// retourne le texte mois de 7 semaines si <7
     return (
       <div>
-        <p>IVG médicamenteuse et chirurgical possible</p>
+        <p>IVG médicamenteuse</p>
       </div>
     );
   };
@@ -303,15 +380,23 @@ function PriseMediPatienteMajeure(props) {
     let reponse = {
       titre: "Consultation psychosociale :",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentAttestation(reponse);
     
-    console.log("Consultation psychosociale :" + reponse.value);
   };
-  const [txtPsy, setTxtPsy] = useState(
-    "Non obligatoire pour les femmes majeures"
-  );
+
+  const Psy = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Non obligatoire pour les femmes majeures
+        </p>
+      </div>
+    )
+  }
+  const [txtPsy, setTxtPsy] = useState(()=>Psy());
 
   const [currentInfoPsy, setCurrentInfoPsy] = useState("");
 
@@ -380,11 +465,11 @@ function PriseMediPatienteMajeure(props) {
     let reponse = {
       titre: "Consentement à l’IVG : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentConssent(reponse);
     
-    console.log("Consentement à l’IVG : " + reponse.value);
   };
 
   
@@ -399,23 +484,19 @@ function PriseMediPatienteMajeure(props) {
     let reponse = {
       titre: "Prise de sang effectuée : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentSang(reponse);
     
-    console.log("Prise de sang effectuée : " + reponse.value);
   };
 
   const priseDeSang = () => {
     return (
-      <div>
-        <p>(Groupe sanguin 2 déterminations, RAI, HCG quantitatif)</p>
+      <div className="BulleInfo">
+        <p>(Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</p>
         <p>
-          2 typages de groupe sanguin sont nécessaires avant toute IVG
-          médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h
-          avant l’acte si négatif jusqu'alors. A noter qu’une injection
-          d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant
-          toute IVG ou dans les 72h suivant tout saignement. 
+        Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement.  
         </p>
       </div>
     );
@@ -453,7 +534,7 @@ function PriseMediPatienteMajeure(props) {
  
 
   ///////////// doasge 
-  const [nouvelleRechercheßHCG, setNouvelleRechercheßHCG] = useState(0)
+  const [nouvelleRechercheßHCG, setNouvelleRechercheßHCG] = useState()
  
 
   const handleChangeßHCG = event => {
@@ -463,11 +544,11 @@ const handleSubmitßHCG = event => {
   event.preventDefault();
   let reponse = {
     titre : "ß-HCG : ",
-    value : event.currentTarget.value
+    value : event.currentTarget.value,
+    reponse : 1
   };
  setCurrentDosage(reponse);
 
-    console.log("ß-HCG : "+reponse.value);
     
   
 
@@ -487,10 +568,10 @@ const handleChangeGroupe = (e) => {
   let reponse = {
     titre: "Groupe Sanguin : ",
     value: e.target.value,
+    reponse : 1
   };
  setCurrentGroupe(reponse);
 
-  console.log("Groupe Sanguin : " + reponse.value);
   
 };
 
@@ -508,11 +589,11 @@ const handleChangeGroupe = (e) => {
     let reponse = {
       titre: "Personne accompagnante : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentAcc(reponse);
     
-    console.log("Personne accompagnante : " + reponse.value);
   };
 
   
@@ -527,11 +608,11 @@ const handleChangeGroupe = (e) => {
     let reponse = {
       titre: "Echographie de datation/age gestationnel : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setcurrentEcho(reponse);
     
-    console.log("Echographie de datation/age gestationnel : " + reponse.value);
   };
 
   ///////// oui covid
@@ -569,18 +650,9 @@ signature du praticien ainsi que la date</li>
         Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
         </p>
         <p>
-        Le forfait médicament (FMV) n’est pas à facturer si vous choisissez le circuit qui permet à la patiente d’aller chercher directement les traitements abortifs à la pharmacie. 
-Dans cette hypothèse, ordonnance comportant : le nom, les dosages, la posologie et la voie d’administration des médicaments. 
+        Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
         </p>
-        <p>
-        Transmission à l’officine choisie par la patiente via ; messagerie sécurisée de santé ; dossier patient si téléconsultation intégrant cette fonctionnalité. 
-La voie postale est possible. Attention au délai. 
-        </p>
-
-        <p>
-        La consultation de suivi sera donc établie par téléconsultation. Lors de l’envoi à l’officine de l’ordonnance, il peut être ajouté un autotest urinaire BhCG, celui-ci est alors prise en charge par le laboratoire par l’intermédiaire d’un accord avec l’ANCIC et le CNGOF
-        </p>
-
+       
 
 
 
@@ -632,11 +704,11 @@ La voie postale est possible. Attention au délai.
     let reponse = {
       titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setcurrentCovid(reponse);
     
-    console.log("Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : " + reponse.value);
   };
 
 
@@ -644,7 +716,7 @@ La voie postale est possible. Attention au délai.
 
   return (
     <div className="consultationContainer">
-      <h1>Consultation IVG : 1ere prise médicamenteuse. Patiente majeure NA</h1>
+      <h1>Consultation IVG : 1ere prise médicamenteuse. Patiente majeure </h1>
 
       <br></br>
       <div className="ConsultationContainer">
@@ -753,7 +825,7 @@ La voie postale est possible. Attention au délai.
                 value={nouvelleRechercheßHCG}
                 onChange={handleChangeßHCG}
                 type="text"
-                placeholder="Paquet/année"
+                placeholder="saisir ß-HCG"
             />
             <Button value={nouvelleRechercheßHCG} variant="secondary" onClick={(e)=> {
               handleSubmitßHCG(e)
@@ -806,7 +878,12 @@ La voie postale est possible. Attention au délai.
       </div>
 
       <Button onClick={afficheStateFin} >Valider mes choix</Button>
-      <Button variant="danger" onClick={props.onSuite}>Suite</Button>
+
+
+
+  
+      <div>{currentReponseTarif}</div>
+
     </div>
   );
 }

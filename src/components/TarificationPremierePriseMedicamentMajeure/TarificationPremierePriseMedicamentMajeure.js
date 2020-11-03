@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'; 
+import React, {useState, useRef } from 'react'; 
 import { useReactToPrint } from 'react-to-print';
-import { Button, Form } from "react-bootstrap";
+import  Button  from "react-bootstrap/Button";
 import ResumePremierePriseMedicamentMajeure from '@components/ResumePremierePriseMedicamentMajeure';
 import "./TarificationPremierePriseMedicamentMajeure.css";
 
@@ -20,22 +20,10 @@ function TarificationPremierePriseMedicamentMajeure(props) {
 
   ///
 
-
- 
-  return (
-    <div className="Tarification">
-      <h1>Facturation et résumé majeure : </h1>
-      <br></br>
-      
-      <p>
-      La consultation de 1ere prise médicamenteuse est tarifée dans le
-       tarif forfaitaire à l’IVG hors établissement de santé. Elle doit
-        être cotée avec l’index FHV + FMV (50 + 87,92 euros). Cette cotation
-         inclut l’éventuelle consultation facultative avec exonération du
-          ticket modérateur  
-      </p>
-
-      <h2>Covid et IVG :</h2>
+  const ouiCovidBloc = () => {
+    return (
+      <div >
+        <h2>Covid et IVG :</h2>
       <p>
       Téléconsultation possible. 
 Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.
@@ -58,6 +46,49 @@ La voie postale est possible. Attention au délai.
       <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">SYNGOF PDF</a>
       <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">SYNGOF ressources utiles</a>
       </p>
+      </div>
+    )
+  }
+
+  const [ouiCovid, setOuiCovid] = useState(()=>ouiCovidBloc());
+
+  const [currentOui, setCurrentOui] = useState("");
+
+  const affichageOuiCovid = () => {
+    let txtAEnlever = currentOui;
+    let txtAAfficher = ouiCovid;
+    setCurrentOui(txtAAfficher);
+  
+    
+  };
+
+
+ 
+  return (
+    <div className="Tarification">
+      <h1>Facturation et résumé majeure : </h1>
+      <br></br>
+      
+      <p>
+      La consultation de 1ere prise médicamenteuse est tarifée dans le
+       tarif forfaitaire à l’IVG hors établissement de santé. Elle doit
+        être cotée avec l’index FHV + FMV (50 + 87,92 euros). Cette cotation
+         inclut l’éventuelle consultation facultative avec exonération du
+          ticket modérateur  
+      </p>
+
+      <div className="ConsultationContainer">
+          <label>
+        Consultation faite dans le cadre des dispositions du Covid valable
+        jusqu’au 31 octobre 2020 : 
+        <Button variant="secondary" onClick={()=> {affichageOuiCovid()}}>Oui</Button>
+        <Button variant="secondary" >Non</Button>
+      </label>
+  <div>{currentOui}</div>
+      <br></br>
+          </div>
+
+      
     
     
       

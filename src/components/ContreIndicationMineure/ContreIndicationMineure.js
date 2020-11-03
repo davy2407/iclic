@@ -14,7 +14,16 @@ function ContreIndicationMineure(props) {
 
   const afficheStateFin = () => {
 
-    for (let index = 0; index < globalStateContre.length; index++) {
+    let echelon = compteur;
+    if (echelon<5) {
+      afficheNoRep();
+      
+    }
+    else if (echelon>=5) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
+      
     }
     props.onRecup(globalStateContre);
   };
@@ -25,6 +34,68 @@ function ContreIndicationMineure(props) {
   
 
   
+
+
+  ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+       Consultation
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+
+
+
+
+  /////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
+
+  
+
+  /////////////
+
+  const [ compteur, setCompteur] = useState(0);
+
+  const augmenteCount = () => {
+    setCompteur(compteur+1)
+  }
 
   ////////////////////////////////////////////////////////
   /// Verrou
@@ -74,19 +145,16 @@ function ContreIndicationMineure(props) {
     settxtVerrouUn(txtAEnlever);
   };
 
-  const clicVerrouUnAffichage = (e) => {
-    e.preventDefault();
+  const clicVerrouUnAffichage = () => {
+   
     affichageVerrouUn();
   };
   /// Bloc Mifépristone
   const Mifepristone = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-        Insuffisance surrénale chronique, hypersensibilité à la substance active 
-         asthme sévère (non contrôlé par le traitement), porphyrie héréditaire,
-          grossesse non confirmée, grossesse de plus de 63 jours d’aménorrhée,
-           suspicion de grossesse extra-utérine.
+        Insuffisance surrénale chronique, hypersensibilité à la substance active  asthme sévère (non contrôlé par le traitement), porphyrie héréditaire, grossesse non confirmée, grossesse de plus de 63 jours d’aménorrhée, suspicion de grossesse extra-utérine. 
         </p>
       </div>
     );
@@ -120,10 +188,9 @@ function ContreIndicationMineure(props) {
 
   const Misoprostol = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-        hypersensibilité au misoprostol,, grossesse non confirmée, suspicion de grossesse
-         extra-utérine. 
+        hypersensibilité au misoprostol,, grossesse non confirmée, suspicion de grossesse extra-utérine. 
         </p>
       </div>
     );
@@ -155,16 +222,12 @@ function ContreIndicationMineure(props) {
 
   const PrescriptionAnta = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
-          prescription d’antalgiques de palier 1 (ibuprofène ou fénoprofène à
-          dose antalgique) et 2 (paracétamol associé à l’opium ; la codéine ;
-          tramadol seul ou en association avec le paracétamol) selon HAS.
+        HAS : antalgiques palier 1 (ibuprofène ou fénoprofène à dose antalgique) et 2 (paracétamol associé à l’opium ; la codéine ; tramadol seul ou en association avec le paracétamol).
         </p>
         <p>
-          En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG
-          médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à
-          la codéine{" "}
+        En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine 
           <a rel="noreferrer noopener"
             href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf"
             target="_blank"
@@ -201,24 +264,15 @@ function ContreIndicationMineure(props) {
 
   const EffetSecondaire = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <h4>ES mifépristone :</h4>
         <p>
-          nausées/vomissements, diarrhées, crampes abdominales, infection
-          consécutive à l’interruption de grossesse (suspectées ou confirmées
-          d’endométrite/affection pelvienne inflammatoire), contractions
-          utérines ou douleurs suivant la prise, métrorragies importantes dans
-          5% des cas et peuvent nécessiter un curetage hémostatique jusqu’à 1,4%
-          des cas.
+        nausées/vomissements, diarrhées, crampes abdominales, infection.
         </p>
         <br></br>
         <h4>ES misoprostol :</h4>
         <p>
-          nausées/vomissements, diarrhées, crampes abdominales, infection
-          consécutive à l’interruption de grossesse (suspectées ou confirmées
-          d’endométrite/affection pelvienne inflammatoire), contractions
-          utérines ou douleurs suivant la prise, saignements utérins,
-          malformations fœtales.
+        nausées/vomissements, diarrhées, crampes abdominales, infection, contractions utérines, saignements utérins, malformations fœtales.
         </p>
       </div>
     );
@@ -253,11 +307,13 @@ function ContreIndicationMineure(props) {
     let reponse = {
       titre: "Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : ",
       value: e.target.value,
+      reponse : 1 
     };
     let liste = [...globalStateContre];
     liste.push(reponse);
     setGlobalStateContre(liste);
    
+    console.log("Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : " + reponse.value);
   };
 
   return (
@@ -269,8 +325,10 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Mifépristone :</h3>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary" onClick={clicVerrouUnAffichage}>
+        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
+        <Button variant="secondary" onClick={()=>{
+          augmenteCount();
+          clicVerrouUnAffichage();}}>
           Non
         </Button>
         <div>{currentInfoVerrouUn}</div>
@@ -287,8 +345,10 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Misoprostol :</h3>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary" onClick={clicVerrouUnAffichage}>
+        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
+        <Button variant="secondary" onClick={()=>{
+          augmenteCount();
+          clicVerrouUnAffichage();}}>
           Non
         </Button>
         <div>{currentInfoVerrouUn}</div>
@@ -306,8 +366,8 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Prescription d’antalgiques : </h3>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
+        <Button variant="secondary" onClick={augmenteCount}>Non</Button>
       </label>
       <input
         onClick={changementCouleurSVGPresci}
@@ -324,8 +384,10 @@ function ContreIndicationMineure(props) {
           information claires et établies des effets secondaires possibles des
           traitements :
         </h3>
-        <Button variant="secondary" value="Oui" onClick={(e)=>{recupEffet(e)}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupEffet(e)}}>Non</Button>
+        <Button variant="secondary" value="Oui" onClick={(e)=>{recupEffet(e);
+        augmenteCount();}}>Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupEffet(e);
+        augmenteCount();}}>Non</Button>
       </label>
       <input
         onClick={changementCouleurSVGInfoEffet}
@@ -339,8 +401,9 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Contexte biopsychosocial favorable à l’IVG hors établissement :</h3>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary" onClick={clicVerrouUnAffichage}>
+        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
+        <Button variant="secondary" onClick={()=>{clicVerrouUnAffichage();
+        augmenteCount();}}>
           Non
         </Button>
         <div>{currentInfoVerrouUn}</div>
@@ -369,9 +432,8 @@ function ContreIndicationMineure(props) {
         Valider mes choix
       </Button>{" "}
       <br></br>
-      <Button variant="danger" onClick={props.onSuite}>
-        Consultation
-      </Button>
+      <div>{currentReponseTarif}</div>
+
     </div>
   );
 }

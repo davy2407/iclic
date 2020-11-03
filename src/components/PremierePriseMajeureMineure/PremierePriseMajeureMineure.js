@@ -18,7 +18,6 @@ function PremierePriseMajeureMineure(props) {
     const [globalStateFin, setGlobalStateFin] = useState(props.onData);
 
     const afficheStateFin = () => {
-      console.log("state de fin va suivre");
       let liste = [...globalStateFin];
       liste.push(currentDateInjection);
       liste.push(currentDateMife);
@@ -32,14 +31,27 @@ function PremierePriseMajeureMineure(props) {
       liste.push(currentDateHPV);
       liste.push(currentTabac);
       liste.push(currentNbTabac);
+      let noReponse = [];
       for (let index = 0; index < liste.length; index++) {
-        if (liste[index].titre=="Pas de réponses") {
-          alert("Vous n'avez pas répondu à toutes les questions")
+      
+        if (liste[index].reponse==0) {
+          noReponse.push(liste[index].titre)
           
         }
-        else  {
-          console.log("OK");
-        }
+        
+        
+      }
+      setStateNoReponse(noReponse);
+      if (noReponse.length>0) {
+  
+        /// affiche bloc no reponse
+        afficheNoRep(noReponse);
+        
+      }
+      else if (noReponse.length==0) {
+  
+        /// reponse ok affiche bouton tarif
+        afficheTarif();
         
       }
   
@@ -52,85 +64,150 @@ function PremierePriseMajeureMineure(props) {
   //// state 
   const [ currentInjection, setCurrentInjection] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 1
+
   });
 
   const [ currentDateInjection, setCurrentDateInjection] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
  
 
   const [currentPriseMife, setCurrentpriseMife ] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [ currentDateMife, setCurrentDateMife] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [ currentPriseMiso, setCurrentPriseMiso] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [ currentDateMiso, setCurrentDateMiso] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [ currentArret, setCurrentArret]= useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentContra, setCurrentContra] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentTypeContra, setCurrentTypeContra] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [currentDosage, setCurrentDosage] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentIst, setCurrentIst]= useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentInfoSupp, setCurrentInfoSupp] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [ currentHPV, setCurrentHPV] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentDateHPV, setCurrentDateHPV] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [currentTabac, setCurrentTabac]= useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentNbTabac, setCurrentNbTabac] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
+
+  ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+        Tarification
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+
+
+
+
 
 
   ///////////////////////////////////////////////////////////////
@@ -267,10 +344,10 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Date de l’injection de gammaglobuline antiD si incompatibilité Rhesus negatif : ",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateInjection(reponse);
 
-    console.log("Date de l’injection de gammaglobuline antiD si incompatibilité Rhesus negatif : " + reponse.value);
     
   };
 
@@ -303,13 +380,11 @@ signature du praticien ainsi que la date
 
   const injection = () => {
     return (
-      <div>
+      <div className="BulleInfo">
        
         <p>
-        prévention selon les recommandations officielles de l’incompatibilité rhésus
-         chez toutes les femmes rhésus négatif par la prescription et l’administration
-          d’une dose standards de gammaglobuline anti-D. Injection IM ou IV de 200 ug
-           d’Ig anti-D. 
+        Prévention selon les recommandations officielles de l’incompatibilité rhésus chez toutes les femmes rhésus négatif si conjoint positif ou inconnue par la prescription et l’administration d’une dose standards de gammaglobuline anti-D. 
+Injection IM ou IV de 200 ug d’Ig anti-D. 
         </p>
       </div>
     );
@@ -359,6 +434,7 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Date de prise de la mifépristone : ",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateMife(reponse);
 
@@ -368,12 +444,10 @@ signature du praticien ainsi que la date
 
   const priseMife = () => {
     return (
-      <div>
+      <div className="BulleInfo">
        
         <p>
-        une feuille de suivi de prise médicamenteuse est nécessaire au cabinet afin
-         d’assurer une sécurité du médicament efficace.
-          Exemple de feuille de suivi en pdf à télécharger. 
+        Feuille de suivi de prise médicamenteuse = sécurité du médicament efficace.
         </p>
       </div>
     );
@@ -426,6 +500,7 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Date de prise du misoprotol :  ",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateMiso(reponse);
 
@@ -435,18 +510,15 @@ signature du praticien ainsi que la date
 
   const delivranceMiso = () => {
     return (
-      <div>
+      <div className="BulleInfo">
        
         <p>
-        Dans le cas d’une IVG médicamenteuse réalisée à domicile, le médecin ou la
-         sage-femme peut délivre le deuxième médicament qui sera pris par la femme
-          36 à 48h plus tard, à son domicile. Cette délivrance peut aussi intervenir
-           en présentielle au cabinet lors de la consultation de 2eme prise
-            médicamenteuse comprise dans le forfait IVG hors établissement. 
+        Deuxième médicament pris par la femme 36 à 48h plus tard, à son domicile selon appreciation. 
             
         </p>
         <p>
-        La séquence de traitement par voie orale est recommandée par la HAS
+        présentielle au cabinet possible ; « 2eme prise médicamenteuse » comprise dans le forfait IVG hors établissement. 
+HAS recommande la séquence de traitement Per Os.
         <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf">lien info</a>
         </p>
         
@@ -494,6 +566,7 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Arrêt de travail prescrit : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentArret(reponse);
@@ -503,16 +576,17 @@ signature du praticien ainsi que la date
 
   const arretTravail = () => {
     return (
-      <div>
+      <div className="BulleInfo">
        
         <p>
-        motif : douleurs abdominales. Particulièrement lors de la prise du misoprostol.
-         Cet arrêt de travail peut être anticipée si la prise du misoprostol se fait
-          au domicile de la patiente. Il peut être remis lors de la 2ème consultation
-           de prise médicamenteuse selon le choix du professionnel de santé ou de la
-            patiente.  
+        motif : douleurs abdominales (Prise du misoprostol +++). 
             
         </p>
+        <p>
+        Arrêt de travail anticipée si prise du misoprostol au domicile ou 
+au cabinet si présentiel souhaité selon le professionnel de santé. 
+        </p>
+        
         
         
       </div>
@@ -558,6 +632,7 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Contraception choisie par la patiente : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentContra(reponse);
@@ -573,6 +648,7 @@ signature du praticien ainsi que la date
     let reponse = {
       titre: "Type contraception : ",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentTypeContra(reponse);
   
@@ -618,7 +694,7 @@ const affichageTxtTypeContra = () => {
 
 const infoContra = () => {
   return (
-    <div>
+    <div className="BulleInfo">
      
       <p className="Red">
       la reprise de la fertilité après une IVG est immédiate :
@@ -627,23 +703,29 @@ const infoContra = () => {
       </p>
 
       <p>
-      Rappel : le préservatif (masculin, féminin) représente la seule
-       méthode de contraception efficace contre les IST. Le préservatif
-        est remboursé par l’assurance maladie à compter du 10 décembre
-         2018 sur prescription par un médecin ou une sage-femme. 
-         <a
+      Rappel : le préservatif (masculin, féminin) : seule méthode efficace contre les IST. 
+Remboursé par l’assurance maladie  (10 décembre 2018). 
+         <a rel="noreferrer noopener"
          target="_blank"
          href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie"
          >
              lien info</a>
-        La pilule peut être commencée au moment de la 1ère prise médicamenteuse
-        ou le lendemain.
+        
       </p>
+
       <p>
-      Les DIU peuvent être mise en place lors de la visite de contrôle après une
-       IVG médicamenteuse si la vacuité utérine à l’échographie est constatée
-        ou si le dosage de -HCG est négatif. En cas de doute, le DIU est posé
-         lors des règles suivantes (avec une autre contraception dans l’intervalle).
+      La pilule : débuté au moment de la 1ère prise médicamenteuse ou le lendemain. 
+L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG (contraception dans l’intervalle). 
+      </p>
+
+
+      <p>
+      DIU : Visite de contrôle post-IVG médicamenteuse si : vacuité utérine à l’échographie et/ou dosage de β-HCG est négatif. 
+En cas de doute, le DIU est posé lors des menstruations suivantes (Contraception dans l’intervalle).
+      </p>
+
+      <p>
+        <a rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=CjwKCAiAnIT9BRAmEiwANaoE1UvpGljdoemjgb7elJSGJCybcyZEeTxIwzROGPcTkSZN0qrpNGkvBBoCkrsQAvD_BwE">lien choisirmacontraception.com</a>
       </p>
     </div>
   );
@@ -684,21 +766,13 @@ const changementCouleurSVGContraception = () => {
 
   const infoDosage = () => {
     return (
-      <div>
+      <div className="BulleInfo">
        
-        <p className="Red">
-        la reprise de la fertilité après une IVG est immédiate :
-         une contraception efficace est donc indispensable dès la
-          réalisation de l’IVG. 
-        </p>
+       
   
         <p>
-        Ce dosage permettra au terme de la consultation de contrôle,
-         de vérifier de la réussite de l’acte en fonction de la bonne
-          décroissance du taux. Celui-ci est donc indispensable. 
-L’autotest urinaire peut également être utilisé pour juger le succès
- de l’IVG médicamenteuse. Celui-ci peut être réalisé à domicile combiné
-  à un suivi téléphonique
+        Indispensable pour affirmer  réussite de la méthode. 
+L’autotest urinaire peut également être utilisé. (A domicile combiné à un suivi téléphonique) 
            <a
            target="_blank"
            href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter"
@@ -751,6 +825,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès
     let reponse = {
       titre: "Recherche IST : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentIst(reponse);
@@ -762,7 +837,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès
     
     let reponse = {
       titre : "Si ressource cochée oui : ",
-      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/",
+      reponse : 1
     };
     
     setCurrentInfoSupp(reponse);
@@ -772,11 +848,12 @@ L’autotest urinaire peut également être utilisé pour juger le succès
 
   const HAS = () => {
       return (
-          <div>
+          <div className="BulleInfo">
+              
               <p>
-              La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-               enceintes consultant pour une IVG, sans limite d’âge. 
-              </p>
+              « HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.»      
+                      </p>
+              
           </div>
       )
   }
@@ -815,7 +892,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès
     e.preventDefault();
     let reponse = {
       titre : "Frottis à jour (ou test HPV) : ",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentHPV(reponse);
     console.log("type frotti " + reponse.value);
@@ -829,6 +907,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès
     let reponse = {
       titre: "Date Frotti",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateHPV(reponse);
 
@@ -838,12 +917,22 @@ L’autotest urinaire peut également être utilisé pour juger le succès
 
   const Frotti = () => {
     return (
-        <div>
+        <div className="BulleInfo">
+            <h4>
+            Le plan de dépistage national s’applique :
+            </h4>
             <p>
-            Le plan de dépistage national s’applique, pour toute femme immunocompétente
-             de 25 à 65 ans.
+            entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
             </p>
-            <p><a target="_blank" href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage</a></p>
+            <p>
+            le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+            </p>
+
+
+
+
+
+            <p><a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">info</a></p>
             
         
       </div>
@@ -880,6 +969,7 @@ affichageFrotti();
     let reponse = {
       titre: "Tabac : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentTabac(reponse);
     
@@ -890,7 +980,8 @@ affichageFrotti();
     event.preventDefault();
     let reponse = {
       titre : "Nombre Paquet : ",
-      value : event.currentTarget.value
+      value : event.currentTarget.value,
+      reponse : 1
     };
    setCurrentNbTabac(reponse);
   
@@ -911,6 +1002,55 @@ affichageFrotti();
 
 
   ///////////////////////////////////////////////////////////////////////////////
+
+  /////////////// Bloc Violence 
+
+  const violence = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Cette information ne figurera pas sur le résumé.
+Cette violence peut être physique, sexuelle, économique, verbale ou psychologique dans un contexte conjugal, professionnel ou plus récemment de cyberviolence. 
+        </p>
+        
+        <p>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
+          https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+
+          </a>
+        </p>
+        <p>
+        Pour toutes questions de prise en charge : <a href="http://www.declicviolence.fr/" rel="noreferrer noopener" target="_blank">http://www.declicviolence.fr/</a>
+        </p>
+      </div>
+    )
+  }
+  const [txtViolence, setTxtViolence] = useState(() => violence());
+
+  const [currentInfoViolence, setCurrentInfoViolence] = useState("");
+
+  const affichageTxtViolence = () => {
+    let txtAEnlever = currentInfoViolence;
+    let txtAAfficher = txtViolence;
+    setCurrentInfoViolence(txtAAfficher);
+    setTxtViolence(txtAEnlever);
+  };
+  const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+
+  const [logoNonAfficheViolence, setLogoNonAfficheViolence] = useState(LightOn);
+  const changementCouleurSVGViolence = () => {
+    let currentLampe = logoAfficheViolence;
+    let currentCache = logoNonAfficheViolence;
+    setLogoNonAfficheViolence(currentLampe);
+    setLogoAfficheViolence(currentCache);
+    affichageTxtViolence();
+  };
+
+
+
+
+
+
   return (
 
     
@@ -928,10 +1068,21 @@ affichageFrotti();
           </div>
 
 <div className="ConsultationContainer">
-<h2>Protocole et coordonnées du centre de référence remise à la patienteà remplir manuellement sur la fiche de liaison</h2>
+<h2>Protocole et coordonnées du centre de référence remise à la patiente à remplir manuellement sur la fiche de liaison</h2>
 </div>      
 
-
+<div className="ConsultationContainer">
+      <h2>Violences subies en rapport ou non avec l’acte :</h2>
+      <Button variant="secondary">Oui</Button>
+      <Button variant="secondary">Non</Button>
+      <input
+        onClick={changementCouleurSVGViolence}
+        className="Lampe"
+        type="image"
+        src={logoAfficheViolence}
+      />
+      <div>  {currentInfoViolence}</div>
+      </div>
       <div className="ConsultationContainer">
       <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=> {
@@ -1163,7 +1314,7 @@ affichageFrotti();
 
         <br></br>
         <Button onClick={afficheStateFin}>Valider mes choix</Button>
-        <Button variant="danger" onClick={props.onSuite}>Tarification</Button>
+        <div>{currentReponseTarif}</div>
       
         
 

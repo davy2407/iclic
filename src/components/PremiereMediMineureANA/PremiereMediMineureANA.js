@@ -26,13 +26,27 @@ function PremiereMediMineureANA(props) {
     liste.push(currentGroupe);
     liste.push(currentAcc);
     
+    let noReponse = [];
     for (let index = 0; index < liste.length; index++) {
-      if (liste[index].titre=="Pas de réponses") {
-        alert("Vous n'avez pas répondu à toutes les questions")
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
         
       }
-      else  {
-      }
+      
+      
+    }
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
       
     }
 
@@ -46,51 +60,113 @@ function PremiereMediMineureANA(props) {
 
   const [currentEcho, setcurrentEcho] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentgest, setCurrentGest] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentConssent, setCurrentConssent] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentAttestation, setCurrentAttestation] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentSang, setCurrentSang] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [currentDosage, setCurrentDosage] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentGroupe, setCurrentGroupe] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentAcc, setCurrentAcc] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
   const [ currentCovid, setcurrentCovid] = useState({
     titre : "Pas de réponses",
-    value : ""
+    value : "",
+    reponse : 0
   });
 
 
 
+
+
+
+  ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+        Suite
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
+
+
+
+
+  /////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////
 
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -118,6 +194,7 @@ function PremiereMediMineureANA(props) {
     let reponse = {
       titre: "Echographie de datation/Age gestationnel(SA) : ",
       value: nb,
+      reponse : 1
     };
     setCurrentGest(reponse);
    
@@ -129,7 +206,7 @@ function PremiereMediMineureANA(props) {
     /// retourne le texte mois de 7 semaines si <7
     return (
       <div>
-        <p>IVG médicamenteuse et chirurgical possible</p>
+        <p>IVG médicamenteuse</p>
       </div>
     );
   };
@@ -301,14 +378,24 @@ function PremiereMediMineureANA(props) {
     let reponse = {
       titre: "Consultation psychosociale :",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentAttestation(reponse);
     
   };
-  const [txtPsy, setTxtPsy] = useState(
-    "Non obligatoire pour les femmes majeures"
-  );
+
+  const blocTxtPsy = ()=> {
+    return (
+      <div className="BulleInfo">
+        <p>
+        L’attestation est obligatoire avec un délai de 48h pour les jeunes femmes mineurs, anonyme ou non. 
+        </p>
+      </div>
+    )
+  }
+
+  const [txtPsy, setTxtPsy] = useState(()=>blocTxtPsy());
 
   const [currentInfoPsy, setCurrentInfoPsy] = useState("");
 
@@ -377,6 +464,7 @@ function PremiereMediMineureANA(props) {
     let reponse = {
       titre: "Consentement à l’IVG : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentConssent(reponse);
@@ -395,6 +483,7 @@ function PremiereMediMineureANA(props) {
     let reponse = {
       titre: "Prise de sang effectuée : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentSang(reponse);
@@ -403,14 +492,10 @@ function PremiereMediMineureANA(props) {
 
   const priseDeSang = () => {
     return (
-      <div>
-        <p>(Groupe sanguin 2 déterminations, RAI, HCG quantitatif)</p>
+      <div className="BulleInfo">
+        <p>(Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</p>
         <p>
-          2 typages de groupe sanguin sont nécessaires avant toute IVG
-          médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h
-          avant l’acte si négatif jusqu'alors. A noter qu’une injection
-          d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant
-          toute IVG ou dans les 72h suivant tout saignement. 
+        Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. 
         </p>
       </div>
     );
@@ -458,7 +543,8 @@ const handleSubmitßHCG = event => {
   event.preventDefault();
   let reponse = {
     titre : "ß-HCG : ",
-    value : event.currentTarget.value
+    value : event.currentTarget.value,
+    reponse : 1
   };
  setCurrentDosage(reponse);
 
@@ -481,6 +567,7 @@ const handleChangeGroupe = (e) => {
   let reponse = {
     titre: "Groupe Sanguin : ",
     value: e.target.value,
+    reponse : 1
   };
  setCurrentGroupe(reponse);
 
@@ -501,10 +588,46 @@ const handleChangeGroupe = (e) => {
     let reponse = {
       titre: "Personne accompagnante majeure ou consentement parental obligatoire  : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentAcc(reponse);
     
+  };
+  const accomp = () => {
+    return (
+      <div className="BulleInfo">
+        <p>Accompagnement personne majeure identique au cours des différentes consultations : soutien moral efficient.</p>
+       
+      </div>
+    );
+  };
+
+  const [txtAccomp, setTxtAccomp] = useState(() => accomp());
+
+  const [currentInfoAccomp, setCurrentInfoAccomp] = useState("");
+
+  const affichageTxtAccomp = () => {
+    let txtAEnlever = currentInfoAccomp;
+    let txtAAfficher = txtAccomp;
+    setCurrentInfoAccomp(txtAAfficher);
+    setTxtAccomp(txtAEnlever);
+  };
+
+  const [logoAfficheAccomp, setLogoAfficheAccomp] = useState(
+    LightOff
+  );
+
+  const [logoNonAfficheAccomp, setLogoNonAfficheAccomp] = useState(
+    LightOn
+  );
+
+  const changementCouleurSVGAccomp = () => {
+    let currentLampe = logoAfficheAccomp;
+    let currentCache = logoNonAfficheAccomp;
+    setLogoNonAfficheAccomp(currentLampe);
+    setLogoAfficheAccomp(currentCache);
+    affichageTxtAccomp();
   };
 
   
@@ -519,6 +642,7 @@ const handleChangeGroupe = (e) => {
     let reponse = {
       titre: "Echographie de datation/age gestationnel : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setcurrentEcho(reponse);
@@ -532,7 +656,7 @@ const handleChangeGroupe = (e) => {
       <div>
         <h3>Covid et IVG :</h3>
         <p>
-        Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
+        Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.
         </p>
         <p>
         Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
@@ -575,6 +699,7 @@ const handleChangeGroupe = (e) => {
     let reponse = {
       titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
       value: e.target.value,
+      reponse : 1
     };
     
     setcurrentCovid(reponse);
@@ -691,7 +816,7 @@ const handleChangeGroupe = (e) => {
                 value={nouvelleRechercheßHCG}
                 onChange={handleChangeßHCG}
                 type="text"
-                placeholder="Paquet/année"
+                placeholder="saisir ßHCG"
             />
             <Button value={nouvelleRechercheßHCG} variant="secondary" onClick={(e)=> {
               handleSubmitßHCG(e)
@@ -722,6 +847,13 @@ const handleChangeGroupe = (e) => {
       <br></br>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e);}}>Non</Button>
+      <input
+        onClick={changementCouleurSVGAccomp}
+        className="Lampe"
+        type="image"
+        src={logoAfficheAccomp}
+      />
+      <div>{currentInfoAccomp}</div>
 
       </div>
       <br></br>
@@ -735,16 +867,12 @@ const handleChangeGroupe = (e) => {
             Lien guide IVG
           </a>
         </li>
-        <li>
-          <a href={GuideCNGOF} target="_blank">
-            Fiche info CNGOF PDF
-          </a>
-        </li>
+        
       </ul>
       </div>
 
       <Button onClick={afficheStateFin} >Valider mes choix</Button>
-      <Button variant="danger" onClick={props.onSuite}>Suite</Button>
+      <div>{currentReponseTarif}</div>
     </div>
   );
 }
