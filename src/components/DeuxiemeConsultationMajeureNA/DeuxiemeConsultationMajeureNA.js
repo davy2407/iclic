@@ -215,7 +215,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     const consultationPsy = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
           Non obligatoire pour les femmes majeures          
           </p>
@@ -511,18 +511,11 @@ function DeuxiemeConsultationMajeureNA(props) {
       }; 
       const returnInfoIST = () => {
         return (
-          <div>
+          <div className="BulleInfo">
             <p>
-             La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-             enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de
-              risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année),
-               changement de partenaire récent, individus ou partenaires diagnostiqués avec
-                une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium),
-                 antécédents d’IST, personnes en situation de prostitution, après un viol.
+             HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans
             </p>
-            <p>
-            De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives. 
-            </p>
+            
             
             <p>
               De nombreuses sources numériques existent pour l’information aux
@@ -608,9 +601,10 @@ function DeuxiemeConsultationMajeureNA(props) {
   };
       const returnInfoSang = () => {
         return (
-          <div>
+          <div className="BulleInfo">
             <p>
-            2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors.  A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant toute IVG ou dans les 72h suivant tout saignement.
+            « (Groupe sanguin 2 déterminations, HCG quantitatif)
+Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. »
             </p>
             
           </div>
@@ -701,9 +695,9 @@ function DeuxiemeConsultationMajeureNA(props) {
 
       const returnInfoPostIVG = () => {
         return (
-          <div>
+          <div className="BulleInfo">
             <p>
-               Il est nécessaire d’aborder dès cette consultation, les différentes
+               Aborder dès cette consultation, les différentes
               modalités contraceptives. Site possible d’information à transmettre à
               la patiente : Lien{" "}
               <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
@@ -769,14 +763,14 @@ function DeuxiemeConsultationMajeureNA(props) {
       };
       const returnInfoFrotti = () => {
         return (
-          <div>
+          <div className="BulleInfo">
             <p>
              Le plan de dépistage national s’applique : 
             </p>
             <ul>
               <li>
                 <p>
-                entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
+                entre 25 et 30 ans, le dépistage du cancer du col de l’utérus : deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
                 </p>
               </li>
               <li>
@@ -867,12 +861,7 @@ const handleSubmitPaquet = event => {
             <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
             <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
-            <input
-        onClick={changementCouleurSVGAttestation}
-        className="Lampe"
-        type="image"
-        src={logoAfficheAttestation}
-      />
+            
       <div>  {currentInfoAttestation}</div>
             </div>
 
