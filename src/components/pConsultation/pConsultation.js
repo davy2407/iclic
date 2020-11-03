@@ -59,14 +59,27 @@ function PConsultation(props) {
     liste.push(currentDateHPV);
     liste.push(currentTabac);
     liste.push(currentNbTabac);
+    let noReponse = [];
     for (let index = 0; index < liste.length; index++) {
-      if (liste[index].titre=="Pas de réponses") {
-        alert("Vous n'avez pas répondu à toutes les questions")
+      
+      if (liste[index].reponse==0) {
+        noReponse.push(liste[index].titre)
         
       }
-      else  {
-        console.log("OK");
-      }
+      
+      
+    }
+    setStateNoReponse(noReponse);
+    if (noReponse.length>0) {
+
+      /// affiche bloc no reponse
+      afficheNoRep(noReponse);
+      
+    }
+    else if (noReponse.length==0) {
+
+      /// reponse ok affiche bouton tarif
+      afficheTarif();
       
     }
 
@@ -75,85 +88,146 @@ function PConsultation(props) {
   };
   /// current reponse
   const [currentDDRSA, setCurrentDDRSA] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Date DDR; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentDDRDay, setCurrentDDRDay] =useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "",
+    value : "",
+    reponse : 0
   });
 
   const [currentEcho, setCurrentEcho] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Prescription échographie de datation; ",
+    value : "",
+    reponse : 0
   });
 
   const [ currentAcc, setCurrentAcc] =useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Personne accompagnante; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentMode, setCurrentMode] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Mode de découverte de la grossesse; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentContext, setCurrentContext] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Contexte biopsychosocial favorable; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentIST, setCurrentIST] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Recherche IST +/- antibio-prophylaxie; ",
+    value : "",
+    reponse : 0
   });
 
   const [infoSupp, setInfoSupp] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [currentSang, setCurrentSang] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Prise de sang; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentDossier, setCurrentDossier] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Dossier guide IVG remis; ",
+    value : "",
+    reponse : 0
   });
 
   const [ currentConsultation, setCurrentConsultation] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Consultation psychosociale  obligatoirement proposée; ",
+    value : "",
+    reponse : 0
   });
 
   const [ currentInfo, setCurrentInfo]= useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Information contraception; ",
+    value : "",
+    reponse : 0
   });
 
   const [ currentHPV, setCurrentHPV] = useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Frottis à jour ou test HPV; ",
+    value : "",
+    reponse : 0
   });
 
   const [currentDateHPV, setCurrentDateHPV]= useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
   const [currentTabac, setCurrentTabac]= useState({
-    titre : "Pas de réponses",
-    value : ""
+    titre : "Tabac; ",
+    value : "",
+    reponse : 0
   });
 
   const [ currentNbTabac, setCurrentNbTabac] = useState({
     titre : "",
-    value : ""
+    value : "",
+    reponse : 1
   });
 
+
+
+  ////////////// current reponseOUTarif
+
+  const [ currentReponseTarif, setCurrentReponseTarif] = useState("")
+
+  //////////////////////////////////// tarification
+
+  const afficheTarif = () => {
+    setCurrentReponseTarif(blocTarif)
+  };
+
+  const tarifFinal = () => {
+    return (
+      <div className="TarifiContainer">
+      <Button variant="danger" onClick={props.onSuite}>
+        Tarification
+      </Button>
+      </div>
+    )
+  };
+
+  const [blocTarif, setBlocTarif] = useState(()=>tarifFinal());
+
+
+  //////////////////////////////////////////////////////
+
+  /////// bloc no reponse
+  const afficheNoRep = () => {
+    setCurrentReponseTarif(pasDeReponseBloc)
+  };
+
+  const [ stateNoReponse, setStateNoReponse] = useState([]);
+  const pasDeReponse = () => {
+    return (
+      <div>
+        <h4 className="Red">Vous n'avez pas répondu à toutes les questions </h4>
+        
+
+      </div>
+    )
+  }
+
+
+  const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
 
 
 
@@ -167,6 +241,7 @@ function PConsultation(props) {
     let reponse = {
       titre: "Accompagnant(e)",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentAcc(reponse);
     
@@ -179,7 +254,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Mode de découverte de la grossesse :",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentMode(reponse);
     setModeDecouverte(reponse);
@@ -192,6 +268,7 @@ function PConsultation(props) {
     let reponse = {
       titre: "Contexte Biopsychosocial favorable : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentContext(reponse);
     setContexteBioPsyFin(reponse);
@@ -204,7 +281,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Recherche IST : ",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentIST(reponse);
     console.log("IST " + reponse.value);
@@ -217,6 +295,7 @@ function PConsultation(props) {
     let reponse = {
       titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentSang(reponse);
     console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
@@ -228,7 +307,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Contexte de l’IVG évoqués :",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentDossier(reponse);
     console.log("contexte de l'IVG evoqué : " + reponse.value);
@@ -240,7 +320,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Consultation psychosociale proposée : ",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentConsultation(reponse);
     console.log("consultation proposé " + reponse.value);
@@ -252,7 +333,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Information contraception postIVG : ",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentInfo(reponse);
     console.log("info post ivg " + reponse.value);
@@ -264,7 +346,8 @@ function PConsultation(props) {
     e.preventDefault();
     let reponse = {
       titre : "Frottis à jour (ou test HPV) : ",
-      value : e.target.value
+      value : e.target.value,
+      reponse : 1
     };
     setCurrentHPV(reponse);
     console.log("type frotti " + reponse.value);
@@ -281,6 +364,7 @@ function PConsultation(props) {
     let reponse = {
       titre: "Date Frotti",
       value: e.target.value,
+      reponse : 1
     };
    setCurrentDateHPV(reponse);
 
@@ -294,6 +378,7 @@ function PConsultation(props) {
     let reponse = {
       titre: "Tabac : ",
       value: e.target.value,
+      reponse : 1
     };
     setCurrentTabac(reponse);
     
@@ -314,7 +399,8 @@ const handleSubmitPaquet = event => {
   event.preventDefault();
   let reponse = {
     titre : "Nombre Paquet : ",
-    value : event.currentTarget.value
+    value : event.currentTarget.value,
+    reponse : 1
   };
  setCurrentNbTabac(reponse);
 
@@ -333,7 +419,8 @@ const handleSubmitPaquet = event => {
     e.preventDefault();
     let reponse = {
       titre : "Si ressource cochée oui : ",
-      value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+      value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante",
+      reponse : 1
     };
     
     setInfoSupp(reponse);
@@ -424,6 +511,7 @@ const handleSubmitPaquet = event => {
     let reponse = {
       titre: "Echographie :",
       value: e.target.value,
+      reponse : 1
     };
     
     setCurrentEcho(reponse);
@@ -690,12 +778,14 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
   
   let reponse = {
     titre : "Nombre semaines SA : ",
-    value : semaineSA.weeks.toString()
+    value : semaineSA.weeks.toString(),
+    reponse : 1
 
   };
   let reponse2 = {
     titre : "+ jour : ",
-    value : semaineSA.days.toString()
+    value : semaineSA.days.toString(),
+    reponse : 1
 
   };
   console.log(reponse2);
@@ -1428,11 +1518,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         Valider mes choix
       </Button>{" "}
       </div>
-      <div className="TarifiContainer">
-      <Button variant="danger" onClick={props.onSuite}>
-        Tarification
-      </Button>
-      </div>
+
+          <div>{currentReponseTarif}</div>
+     
     </div>
   );
 }

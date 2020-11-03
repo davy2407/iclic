@@ -17,7 +17,7 @@ function Contact() {
             Pour toutes demande, n’hésitez pas à nous contacter via contact.ivgclic@gmail.com
             </p>
 
-            <h2>ntégration, développement et graphisme : </h2>
+            <h2>Intégration, développement et graphisme : </h2>
             <p>
             Mr Degre Thibaud : Graphiste, en charge de l’élaboration du logo.
 
