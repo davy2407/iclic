@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import ResumePremiereConsultationMineureANA from '@components/ResumePremiereConsultationMineureANA';
 import "./TarifPremiereMineureANA.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
+
 import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 
 
@@ -36,7 +36,7 @@ function TarifPremiereMineureANA(props) {
         (<a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la Sécurité Sociale 32). 
       </p>
       <p>
-      circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).Ne pas utiliser la carte vitale de la patente mineur!
+      circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).Ne pas utiliser la carte vitale de la patiente mineur!
       </p>
       
 
