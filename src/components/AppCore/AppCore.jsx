@@ -154,11 +154,13 @@ Les spécificités sont rappelées lors de chaque étape du site.
     /// et stop laffichage du composant consultation
     setObjetTarrificationAffiche([listeObjetConsulation[8]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
   }
 
   const modifierObjetTarifDeuxiemeConsulteMineure = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[24]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
@@ -173,30 +175,35 @@ Les spécificités sont rappelées lors de chaque étape du site.
   const afficheTArifMediMineur = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[30]]);
     setObjetConsultationMediAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheTarifDeuxiemeConsulteMajeureNA = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[23]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheTarifPremierPriseMediMajeure = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[19]]);
     setObjetConsultationMediAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheFinCOnsulteMineure = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[29]]);
     setObjetConsultationMediAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheTarifdeuxiemeMediMajeureNA = () =>{
     setObjetTarrificationAffiche([listeObjetConsulation[20]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
 
   }
@@ -205,6 +212,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
   const afficheTarifDeuxiemeMineureANA = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[21]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
@@ -214,6 +222,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
     /// function permettant l'affichage du composant contrre indication medical et stop laffichage consulte 
     setObjetTarrificationAffiche([listeObjetConsulation[0]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
@@ -221,23 +230,27 @@ Les spécificités sont rappelées lors de chaque étape du site.
     /// function permettant l'affichage du composant contrre indication medical et stop laffichage consulte 
     setObjetTarrificationAffiche([listeObjetConsulation[28]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheConsultationMedi = () => {
     setObjetConsultationMediAffiche([listeObjetConsulation[18]]);
     setObjetTarrificationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
   const afficheTarifPostMaj = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[26]]);
     setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
 
   }
 
  const affichePConsultation = () => {
     setObjetConsultationAffiche([3]);
+    setTexteDemarrage("");
 
   }
 
