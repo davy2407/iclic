@@ -12,8 +12,12 @@ class ResumePostIVGMajeure extends React.Component {
   render() {
     
     return (
-        <div className="containerM" >
-      <img src={Logo} className="logo"></img>
+        <div className="containerT" >
+          <div className="Droite">
+          <img src={Logo} className="logo"></img>
+
+
+          </div>
       <br></br>
       <br></br>
       <h1>
@@ -25,6 +29,8 @@ class ResumePostIVGMajeure extends React.Component {
       <br></br>
       
       <p>Antécédent(s) :</p>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       

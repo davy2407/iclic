@@ -27,8 +27,12 @@ function TarifDeuxiemeConsulteMajeureNA(props) {
       <h1>Tarification et Conclusion de consultation : </h1>
       <br></br>
       <p>
-      La consultation de recueil de consentement (2ème consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. Elle doit être cotée avec l’index IC ou ICS (tarif de 25euros).
-Sa tarification peut être faite électroniquement ou par format papier.  FSE ou feuille paierRB 100% . 
+      La consultation de recueil de consentement (2ème consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. 
+      </p>
+
+      <p>
+      Cotée IC ou ICS 25 euros.  
+Sa tarification peut être faite électroniquement ou par format papier.   FSE ou feuille paierRB 100% 
       </p>
       
       
@@ -78,7 +82,7 @@ Sa tarification peut être faite électroniquement ou par format papier.  FSE ou
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF </Button>
       <br></br>
-      <a target="_blank" href={FormulaireCon}>Consentement à l’IVG PDF</a>
+      <a target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
       <br></br>
       
       

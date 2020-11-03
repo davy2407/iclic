@@ -205,14 +205,14 @@ const recupReco = (e) => {
 
         const returnInfoDosage = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Une baisse supérieure à 80% du dosage initial 15 jours après
                  l’IVG médicamenteuse est en faveur d’une réussite de celle-ci. 
 L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG
  médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
                 </p>
-                <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+                <a target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
                  Lien HAS recommandation : 
                 </a>
               </div>
@@ -262,7 +262,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoContraception = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p className="Red">
                 la reprise de la fertilité après une IVG est immédiate :
                  une contraception efficace est donc indispensable dès la réalisation
@@ -351,10 +351,9 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoIST = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p >
-                La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-                 enceintes consultant pour une IVG, sans limite d’âge. 
+                « HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.»
                 </p>
                 
 
@@ -426,19 +425,19 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         };
         const returnInfoFrotti = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                    Le plan de dépistage national s’applique : 
                 </p>
                 <ul>
                   <li>
                     <p>
-                    entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
+                    Entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
                     </p>
                   </li>
                   <li>
                     <p>
-                    le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+                    Le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif. 
                     <a rel="noreferrer noopener" href="https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage">
                   https://www.ameli.fr/assure/sante/themes/cancer-col-uterus/frottis-depistage
                 </a>
@@ -536,7 +535,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         };
         const returnInfoVecu = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Un vécu traumatique peut nécessiter une prise en charge avec une psychologue et/ou un suivi attentif par le médecin traitant. Les services de Protection maternelle et infantile (PMI) et les centres de Planification et d'Éducation familiale (CPEF) jouent un rôle majeur d'information, d'accompagnement et de prise en charge.
                 </p>
@@ -613,17 +612,14 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
               handleTypeCause(e);
             }}>
         <option value="">Cause</option>
-        <option value="Un échec après analyse de la décroissance du taux de HCG. ">1. Un échec après analyse de la décroissance du taux de HCG. </option>
+        <option value="Un échec après analyse de la décroissance du taux de B-HCG. ">1. Un échec après analyse de la décroissance du taux de B-HCG. </option>
         <option value="Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).">2. Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).</option>
         <option value="Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.">3. Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.</option>
         <option value="Des douleurs ne s’atténuant pas par la prise de médicaments.">4. Des douleurs ne s’atténuant pas par la prise de médicaments.</option>
        
       </Form.Control>
       </Form.Group>
-      <p>
-      Il est à noter que des patientes présentant des saignements abondants avec signes cliniques d’anémie peuvent être adressées au service d’urgence spécialisé du centre de référence
-      <a target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien HAS recommandation</a>
-      </p>
+     
             </div>
             )
         }
@@ -643,7 +639,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoAvis = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Une échographie de contrôle ou un avis spécialisé peut être demandée devant :
                 </p>
@@ -657,7 +653,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
                 Il est à noter que des patientes présentant des saignements abondants
                  avec signes cliniques d’anémie peuvent être adresser au service
                   d’urgence spécialisé du centre de référence
-                  <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+                  <a target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
                   HAS recommandation
                   </a>
                 </p>
@@ -747,6 +743,37 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         /////////////////////////////////////////////////////////////////
 
+
+
+        ///// oui covid
+
+        const ouiCovid = ()=> {
+          return (
+            <div>
+              <h2>Covid et IVG :</h2>
+            <p>
+            Dans le cadre du Covid, cette consultation doit être faite par
+             téléconsultation. Sa facturation est facturée de la même manière
+              qu’en présentiel. 
+              
+
+            
+            </p>
+            </div>
+          )
+        };
+
+        const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+        const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+        const afficheCovid =() => {
+          let affiche = covidTxt;
+          setCurrentOuiCovid(affiche);
+        }
+
     
     
     
@@ -763,21 +790,14 @@ Majeure Non Anonyme :
             <br></br>
             <div className="ConsultationContainer">
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);}}>Oui</Button>
+            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);
+            afficheCovid();}}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e);}}>Non</Button>
             <br></br>
 
 
 
-            <h2>Covid et IVG :</h2>
-            <p>
-            Dans le cadre du Covid, cette consultation doit être faite par
-             téléconsultation. Sa facturation est facturée de la même manière
-              qu’en présentiel. 
-              
-
-            
-            </p>
+    <div>{currentOuiCovid}</div>
             </div>
             {/* lien a finir  */}
 
@@ -825,12 +845,6 @@ src={logoAfficheDosage}
       <h2>Contraception choisie par la patiente :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
-      </div>
-
-      <div className="ConsultationContainer">
-      <h2>Adhésion à cette contraception :</h2>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
       <input
         onClick={changementCouleurSVGContraception}
         className="Lampe"
@@ -838,6 +852,14 @@ src={logoAfficheDosage}
         src={logoAfficheContraception}
       />
       <div>{currentInfoContraception}</div>
+      </div>
+      
+
+      <div className="ConsultationContainer">
+      <h2>Adhésion à cette contraception :</h2>
+      <Button variant="secondary" value="Oui">Oui</Button>
+      <Button variant="secondary" value="Non">Non</Button>
+      
       </div>
 
 

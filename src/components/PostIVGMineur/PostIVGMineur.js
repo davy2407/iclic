@@ -796,6 +796,34 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         /////////////////////////////////////////////////////////////////
 
+        const ouiCovid = ()=> {
+          return (
+            <div>
+              <h2>Covid et IVG :</h2>
+            <p>
+            Dans le cadre du Covid, cette consultation doit être faite par
+             téléconsultation. Sa facturation est facturée de la même manière
+              qu’en présentiel. 
+              
+
+            
+            </p>
+            </div>
+          )
+        };
+
+        const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+        const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+        const afficheCovid =() => {
+          let affiche = covidTxt;
+          setCurrentOuiCovid(affiche);
+        }
+
+
     
     
     
@@ -817,21 +845,14 @@ Mineure Non Anonyme/Anonyme :
             <br></br>
             <div className="ConsultationContainer">
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e)}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e)}}>Oui</Button>
+            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);
+            afficheCovid();}}>Oui</Button>
+            <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e);}}>Non</Button>
             <br></br>
 
 
 
-            <h2>Covid et IVG :</h2>
-            <p>
-            Dans le cadre du Covid, cette consultation doit être faite par
-             téléconsultation. Sa facturation est facturée de la même manière
-              qu’en présentiel. 
-              
-
-            </p>
-            {/* lien a finir  */}
+    <div>{currentOuiCovid}</div>
             </div>
 
 

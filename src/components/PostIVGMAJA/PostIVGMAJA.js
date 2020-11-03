@@ -16,7 +16,7 @@ function PostIVGMAJA() {
             <h2>Consultation post IVG  
 Majeure Anonyme :</h2>
             <p>
-            Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse, qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
+            Cette consultation intervient 14 à 21 jours après la 1ère prise médicamenteuse.
 Pour les femmes majeures, l’avortement anonyme est impossible. Seul un règlement de la totalité du forfait lui permettrait un anonymat certain.
             </p>
             <p>

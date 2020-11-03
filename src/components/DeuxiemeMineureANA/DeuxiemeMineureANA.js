@@ -37,8 +37,8 @@ function DeuxiemeConsultationMineureANA(props) {
 
   
   liste.push(currentInfo);
-  liste.push(currentHPV);
-  liste.push(currentDateHPV);
+  // liste.push(currentHPV);
+  // liste.push(currentDateHPV);
   liste.push(currentTabac);
   liste.push(currentNbTabac);
   for (let index = 0; index < liste.length; index++) {
@@ -199,6 +199,37 @@ function DeuxiemeConsultationMineureANA(props) {
     setCurrentAcc(reponse)
     
     console.log("Personne accompagnante majeurs ou consentement parental : " + reponse.value);
+  };
+
+  const accompagnantTXT = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Accompagnement personne majeure identique au cours des différentes consultations : soutien moral efficient.        </p>
+        
+      </div>
+    )
+  }
+  const [txtAccompagnant, setTxtAccompagnant] = useState(() => accompagnantTXT());
+
+  const [currentInfoAccompagnant, setCurrentInfoAccompagnant] = useState("");
+
+  const affichageTxtAccompagnant = () => {
+    let txtAEnlever = currentInfoAccompagnant;
+    let txtAAfficher = txtAccompagnant;
+    setCurrentInfoAccompagnant(txtAAfficher);
+    setTxtAccompagnant(txtAEnlever);
+  };
+  const [logoAfficheAccompagnant, setLogoAfficheAccompagnant] = useState(LightOff);
+
+  const [logoNonAfficheAccompagnant, setLogoNonAfficheAccompagnant] = useState(LightOn);
+  
+  const changementCouleurSVGAccompagnant = () => {
+    let currentLampe = logoAfficheAccompagnant;
+    let currentCache = logoNonAfficheAccompagnant;
+    setLogoNonAfficheAccompagnant(currentLampe);
+    setLogoAfficheAccompagnant(currentCache);
+    affichageTxtAccompagnant();
   };
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -902,6 +933,14 @@ Mineur A/NA :
           <h2>Personne accompagnante majeure ou consentement parental</h2>
           <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
           <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+          <input
+      onClick={changementCouleurSVGAccompagnant}
+      className="Lampe"
+      type="image"
+      src={logoAfficheAccompagnant}
+    />
+    <div>  {currentInfoAccompagnant}</div>
+
           </div>
 
 
@@ -989,7 +1028,7 @@ Mineur A/NA :
     </div>
     <div div className="ConsultationContainer">
     <h2>
-      Prise de sang (Groupe sanguin : 2 déterminations, RAI, B-HCG
+      Prise de sang (Groupe sanguin : 2 déterminations, RAI, ß-HCG
       quantitatif)
     </h2>
     <br></br>
@@ -1092,7 +1131,7 @@ Mineur A/NA :
     <br></br>
     <div>{currentInfoPostIVG}</div>
       </div>
-<div className="ConsultationContainer">
+{/* <div className="ConsultationContainer">
 <h2>Frottis à jour ou test HPV</h2>
     <br></br>
     <label>
@@ -1144,7 +1183,7 @@ Mineur A/NA :
     />
     <br></br>
     <div>{currentInfoFrotti}</div>
-</div>
+</div> */}
 
 
       <div className="ConsultationContainer">

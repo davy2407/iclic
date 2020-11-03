@@ -12,8 +12,11 @@ class ResumeDeuxConsulteMajeureNA extends React.Component {
   render() {
     
     return (
-        <div className="containerD" >
-      <img src={Logo} className="logo"></img>
+        <div className="containerT" >
+          <div className="Droite">
+          <img src={Logo} className="logo"></img>
+
+          </div>
       <br></br>
       <br></br>
       <h1>
@@ -25,6 +28,7 @@ class ResumeDeuxConsulteMajeureNA extends React.Component {
       <br></br>
       
       <p>Antécédent(s) :</p>
+      <br></br>
       <br></br>
       <br></br>
       
@@ -42,6 +46,7 @@ class ResumeDeuxConsulteMajeureNA extends React.Component {
     <br></br>
       <br></br>
       <p>Pour information : </p>
+      <br></br>
       <br></br>
       <br></br>
     

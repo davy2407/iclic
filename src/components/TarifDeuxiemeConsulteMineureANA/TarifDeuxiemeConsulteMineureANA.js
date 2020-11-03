@@ -32,8 +32,8 @@ function TarifDeuxiemeConsulteMineureANA(props) {
       
 
       <p>
-      la jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale, (article<a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">D. 132-3</a>  du Code de la sécurité  32 ) 
-      le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).  
+      La jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale, (article<a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">D. 132-3</a>  du Code de la sécurité  32 ). 
+      Le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).  
       </p>
 
       
@@ -42,10 +42,25 @@ function TarifDeuxiemeConsulteMineureANA(props) {
       La consultation de recueil de consentement (2ème consultation préalable), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. Il doit être coté avec l’index IC ou ICS (tarif de 25euros). Cette cotation doit être respectée même si vous n’effectuez pas vous même l’IVG. 
 
       </p>
+
       <p>
-      Le consentement doit être téléchargé et signé par la patiente. 
-Une copie doit être rendue à la patiente après signature. Une copie est à conserver par le médecin ou la sage-femme ayant fait signer le consentement ; une copie supplémentaire sera nécessaire si le médecin réalisant l’IVG est différent du médecin faisant signé le consentement.
+      Le consentement doit être téléchargé et signé par la patiente.
       </p>
+      <ol>
+        <li>
+         Copie : patiente après signature.
+
+        </li>
+        <li>
+         Copie : médecin ou sage femme
+          
+        </li>
+        <li>
+        3Copie : pour le praticien orthogéniste
+          
+        </li>
+      </ol>
+  
 
 
 
@@ -79,7 +94,7 @@ Une copie doit être rendue à la patiente après signature. Une copie est à co
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF </Button>
       <br></br>
-      <a target="_blank" href={FormulaireCon}>Consentement à l’IVG PDF</a>
+      <a target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
       <br></br>
       
       
