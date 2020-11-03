@@ -49,7 +49,7 @@ function AppCore() {
   const accueil =()=> {
     return (
       <div>
-        <div className="BlocInfoApp consultationContainer">
+        <div className="Taille consultationContainer">
         <p>
         Site créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé.
         
