@@ -7,7 +7,7 @@ import LightOff from "@assets/images/lightOff.svg";
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 import ConsentementMineur from "@assets/docx/consentementMineure.docx";
 
-// import css
+// import css 
 import "./pConsultationMineur.css";
 
 function PConsultationMineur(props) {
@@ -257,13 +257,10 @@ function PConsultationMineur(props) {
     
     const txtIST = () => {
         return (
-            <div>
+            <div className="BulleInfo">
                 <p>
-                La HAS recommande un dépistage opportuniste ciblé à toutes les femmes enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année), changement de partenaire récent, individus ou partenaires diagnostiqués avec une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium), antécédents d’IST, personnes en situation de prostitution, après un viol. 
-                </p>
-                <p>
-                De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives.
-                </p>
+                HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.                </p>
+                
             </div>
         )
     };
@@ -305,12 +302,9 @@ function PConsultationMineur(props) {
 
 const txtPriseSang = () => {
     return (
-        <div>
+        <div className="BulleInfo">
             <p>
-            2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale.
-             Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors. 
-              A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de
-               RAI négatif avant toute IVG ou dans les 72h suivant tout saignement. 
+            Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. 
             </p>
         </div>
     )
@@ -368,7 +362,7 @@ const recupConsultation = (e) => {
 
 const txtConsultationF = () => {
     return (
-        <div>
+        <div className="BulleInfo">
             <p>
             Un entretien psycho-social, fait par une personne qualifiée en conseil conjugal, 
             est obligatoire en cas de patiente mineure. Il a lieu entre les deux consultations
@@ -426,13 +420,11 @@ const recupPostIVG = (e) => {
 
 const txtIVG = () => {
     return (
-        <div>
+        <div className="BulleInfo">
             
         <p>
-           Il est nécessaire d’aborder dès cette consultation, les différentes
-          modalités contraceptives. Site possible d’information à transmettre à
-          la patiente : Lien{" "}
-          <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
+         Aborder dès cette consultation, les différentes modalités contraceptives. Site d’information à transmettre à la patiente :
+          <a rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
             choisirsacontraception.com
           </a>
         </p>
@@ -492,7 +484,7 @@ const handleChange = (e) => {
 
 const Frotti = () => {
     return (
-        <div>
+        <div className="BulleInfo">
             
         <p>
          Le plan de dépistage national s’applique :
@@ -704,7 +696,7 @@ const transmissionDDR = () => {
 const textDDRIncertaine = ()=>{
   return (
     <div>
-      <p>
+      <p className="Red">
       La DDR étant incertaine, il est nécessaire de s’assurer de la datation exacte
        rapidement afin de ne pas dépasser le terme légal pour une interruption de
         grossesse par voie médicamenteuse.
@@ -741,20 +733,11 @@ const recupEcho = (e) => {
 
 const echographie = () => {
   return (
-    <div>
+    <div className="BulleInfo" >
       <p>
-      En pratique sur une grossesse a priori toute débutante, 
-      attendre le résultat des ß-HCG (dans la journée ou le lendemain)
-       pour programmer l’échographie (œuf visualisé si ß-HCG supérieur 1000-1500 UI/L)
-        afin qu’elle ne soit pas répétée inutilement. Il existe la possibilité d’attendre
-         la 2ème consultation préalable à l’IVG afin de programmer l’échographie de datation
-          en fonction du résultat sanguin.
+      « Préciser faire « échographie de datation à réaliser en urgence ; IPE  » sur votre ordonnance (Index pour radiologue « Vérification échographique pré IV »). »
       </p>
-      <p>
-      Faire apparaître la mention « échographie de datation à réaliser 
-      en urgence pour IVG » sur votre ordonnance afin que le forfait IVG soit appliqué,
-       (Index pour radiologue IPE).
-      </p>
+      
     </div>
   )
 }
@@ -835,13 +818,7 @@ const handleSubmitPaquet = event => {
           }}>Non</Button>
 
           </label>
-          <input
-        onClick={changementCouleurSVGAcc}
-        className="Lampe"
-        type="image"
-        src={logoAfficheAcc}
-      />
-      <div>{currentTxtAcc}</div>
+          
 
       <br></br>
           </div>
