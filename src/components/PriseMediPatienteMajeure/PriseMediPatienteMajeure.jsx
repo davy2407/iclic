@@ -536,6 +536,31 @@ const handleChangeGroupe = (e) => {
 
   ///////// oui covid
 
+
+  const nonCovid = () => {
+    return (
+      <div>
+        <p>
+        Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé.
+        </p>
+
+        <p>
+        Commande à usage professionnel auprès de la pharmacie d’officine de son choix. La commande comprend les mentions suivantes :
+        <ul>
+          <li>Le nom, la qualité, le numéro d’inscription à l’Ordre, l’adresse et la 
+signature du praticien ainsi que la date</li>
+          <li>Le nom des médicaments et le nombre de boîtes commandées</li>
+          <li>La mention « usage professionnel »</li>
+          <li>Le nom de l’établissement de santé avec lequel le praticien a conclu une convention ainsi que la date de cette convention.</li>
+        </ul>
+        </p>
+
+      </div>
+    )
+  }
+
+  const [nonCovidTxt , setNonCovidTxt] = useState(()=>nonCovid());
+ 
   const ouiCovid = () => {
     return (
       <div>
@@ -544,8 +569,21 @@ const handleChangeGroupe = (e) => {
         Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
         </p>
         <p>
-        Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
+        Le forfait médicament (FMV) n’est pas à facturer si vous choisissez le circuit qui permet à la patiente d’aller chercher directement les traitements abortifs à la pharmacie. 
+Dans cette hypothèse, ordonnance comportant : le nom, les dosages, la posologie et la voie d’administration des médicaments. 
         </p>
+        <p>
+        Transmission à l’officine choisie par la patiente via ; messagerie sécurisée de santé ; dossier patient si téléconsultation intégrant cette fonctionnalité. 
+La voie postale est possible. Attention au délai. 
+        </p>
+
+        <p>
+        La consultation de suivi sera donc établie par téléconsultation. Lors de l’envoi à l’officine de l’ordonnance, il peut être ajouté un autotest urinaire BhCG, celui-ci est alors prise en charge par le laboratoire par l’intermédiaire d’un accord avec l’ANCIC et le CNGOF
+        </p>
+
+
+
+
         <a rel="noreferrer noopener"
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id"
           target="_blank"
@@ -574,9 +612,19 @@ const handleChangeGroupe = (e) => {
 
   const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
 
-  const afficheOuiCovid = () => {
-    let affiche = ouiCovidTxt
+  const afficheOuiCovid = (e) => {
+    let value = e.target.value;
+    if (value=="Oui") {
+      let affiche = ouiCovidTxt
     setCurrentOuiCovid(affiche);
+      
+    }
+    else if (value=="Non") {
+      let affiche = nonCovidTxt
+    setCurrentOuiCovid(affiche);
+      
+    }
+    
   }
 
   const recupCovid = (e) => {
@@ -605,13 +653,17 @@ const handleChangeGroupe = (e) => {
         jusqu’au 31 octobre 2020 : 
         <Button variant="secondary" value="Oui" onClick={(e)=>{
           recupCovid(e);
-          afficheOuiCovid();}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupCovid(e);}}>Non</Button>
+          afficheOuiCovid(e);}}>Oui</Button>
+        <Button variant="secondary" value="Non" onClick={(e)=>{recupCovid(e);
+        afficheOuiCovid(e)}}>Non</Button>
       </label>
       <div>{currentOuiCovid}</div>
       <br></br>
       </div>
-      
+      <div className="ConsultationContainer">
+        <h3>"Protocole et coordonnées du centre de référence remise à la patiente (en travaux, remplir manuellement sur la fiche de liaison)."</h3>
+        
+      </div>
       <br></br>
       <h2>La patiente a en sa possession :</h2>
       <br></br>

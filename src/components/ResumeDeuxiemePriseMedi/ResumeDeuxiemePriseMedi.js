@@ -12,8 +12,10 @@ class ResumeDeuxiemePriseMedi extends React.Component {
   render() {
     
     return (
-        <div className="containerM" >
-      <img src={Logo} className="logo"></img>
+        <div className="containerT" >
+      <div className="Droite">
+      <img src={Logo} className="logoT"></img>
+      </div>
       <br></br>
       <br></br>
       <h1>
@@ -25,6 +27,8 @@ class ResumeDeuxiemePriseMedi extends React.Component {
       <br></br>
       
       <p>Antécédent(s) :</p>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       
@@ -44,12 +48,13 @@ class ResumeDeuxiemePriseMedi extends React.Component {
       <p>Pour information : </p>
       <br></br>
       <br></br>
+      <br></br>
     
       <br></br>
       <p>Ce résumé ne remplace pas la fiche de liaison, envoyée au centre de
            référence lors de la 1ere consultation de prise médicamenteuse.  </p>
       <br></br>
-      <br></br>
+      
       <p>Date et Tampon</p>
       <br></br>
       <br></br>

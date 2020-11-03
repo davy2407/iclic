@@ -201,7 +201,7 @@ function DeuxiemeMediMineureANA(props) {
     ///// bloc Mife
     const returnInfoMife = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               <h4>ES mifépristone :</h4>
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection.
@@ -240,7 +240,7 @@ function DeuxiemeMediMineureANA(props) {
     //////// Bloc Miso
     const returnInfoMiso = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               <h4>ES misoprostol : </h4>
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection, contractions utérines, saignements utérins, malformations fœtales.
@@ -280,7 +280,7 @@ function DeuxiemeMediMineureANA(props) {
 
     const returnInfoAcc = () => {
         return (
-          <div>
+          <div className="BulleInfo">
             <p>
             Accompagnement personne majeure identique au cours des différentes consultations : soutien moral efficient.             </p>
             
@@ -344,7 +344,7 @@ function DeuxiemeMediMineureANA(props) {
 
     const returnInfoAntiD = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p>
             prévention  de l’incompatibilité rhésus chez les femmes rhésus négatif si
@@ -388,7 +388,7 @@ function DeuxiemeMediMineureANA(props) {
 
     const returnInfoArret = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p>
             pour le jour de la prise de misoprostol            
@@ -430,7 +430,7 @@ function DeuxiemeMediMineureANA(props) {
 
     const returnInfoContra = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p className="Red">
             La reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          

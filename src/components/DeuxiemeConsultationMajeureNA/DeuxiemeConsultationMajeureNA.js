@@ -150,7 +150,7 @@ function DeuxiemeConsultationMajeureNA(props) {
   
     const attestation = () => {
       return (
-        <div>
+        <div className="BulleInfo">
           <p>
           Une première consultation préalable à l’IVG avant d’effectuer le recueil du consentement de la patiente.
           </p>
@@ -873,7 +873,7 @@ const handleSubmitPaquet = event => {
         <div className="consultationContainer">
             <h1>
                 2ème consultation préalable à l’IVG/Recueil de consentement 
-                Majeur Non Anonyme 
+                Majeur  
             </h1>
             <br></br>
             
@@ -882,7 +882,12 @@ const handleSubmitPaquet = event => {
             <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
             <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
-            
+            <input
+        onClick={changementCouleurSVGAttestation}
+        className="Lampe"
+        type="image"
+        src={logoAfficheAttestation}
+      />
       <div>  {currentInfoAttestation}</div>
             </div>
 

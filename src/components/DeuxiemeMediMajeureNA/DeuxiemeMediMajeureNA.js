@@ -180,7 +180,7 @@ function DeuxiemeMediMajeureNA(props) {
     ///// bloc Mife
     const returnInfoMife = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               <h4>ES mifépristone :</h4>
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection.
@@ -219,7 +219,7 @@ function DeuxiemeMediMajeureNA(props) {
     //////// Bloc Miso
     const returnInfoMiso = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               <h4>ES misoprostol : </h4>
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection, contractions utérines, saignements utérins, malformations fœtales.
@@ -285,7 +285,7 @@ function DeuxiemeMediMajeureNA(props) {
 
     const returnInfoAntiD = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p>
             prévention  de l’incompatibilité rhésus chez les femmes rhésus négatif si conjoint positif ou inconnue par la prescription et l’administration de gammaglobuline anti-D. 
@@ -327,7 +327,7 @@ Injection IM ou IV de 200 ug d’Ig anti-D
 
     const returnInfoArret = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p>
             pour le jour de la prise de misoprostol            
@@ -369,7 +369,7 @@ Injection IM ou IV de 200 ug d’Ig anti-D
 
     const returnInfoContra = () => {
         return (
-          <div>
+          <div className="BulleInfo">
               
             <p className="Red">
             la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
@@ -482,7 +482,7 @@ L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consul
         <div className="consultationContainer">
 
             <h1>Consultation 2ème prise médicamenteuse (facultative) :
-Majeure Non Anonyme</h1>
+Majeure </h1>
 
             
             <div className="ConsultationContainer">

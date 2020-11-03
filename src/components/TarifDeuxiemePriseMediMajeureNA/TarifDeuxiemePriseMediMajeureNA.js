@@ -25,7 +25,7 @@ function TarifDeuxiemePriseMediMajeureNA(props) {
   return (
     <div className="Tarification">
       <h1>Consultation 2ème prise médicamenteuse (facultative) :
-CCL et facturation majeure NA.</h1>
+Conclusion et facturation majeure.</h1>
       <br></br>
       <p>
       La  2ème prise médicamenteuse peut se faire au cabinet  du médecin ou au domicile de la patiente si  le medecin a remis les comprimés à la patiente lors du rendez vous precedent. 
