@@ -87,7 +87,8 @@ tarif habituel de  consultation
         </a>
 
         <p>
-        Obligation légale et déontologique pour tout praticien  de remettre à la patiente une attestation de demande d’IVG 
+        Obligation légale et déontologique pour tout praticien  de remettre à la patiente une attestation de demande d’IVG.
+          
 La patiente dispose d’un délai de 48h entre la consultation psychosociale (si choisie) et la deuxième consultation préalable à l’IVG.
         </p>
         <p>

@@ -1185,7 +1185,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>
-        Prise de sang (Groupe sanguin : 2 déterminations, RAI, -HCG
+        Prise de sang (Groupe sanguin : 2 déterminations, RAI, ß-HCG
         quantitatif)
       </h2>
       <br></br>
