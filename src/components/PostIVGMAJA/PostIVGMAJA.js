@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 
 
@@ -8,6 +9,9 @@ import "./PostIVGMAJA.css";
 
 
 function PostIVGMAJA() { 
+    function refreshPage() {
+        window.location.reload(false);
+      }
 
 
     return (
@@ -24,6 +28,11 @@ Pour les femmes majeures, l’avortement anonyme est impossible. Seul un règlem
                 Lien article L2212-2 CSP, article L2212-9 CSP et article L2212-16 :
                 </a>
             </p>
+
+
+            <br></br>
+<br></br>
+<Button variant="danger" onClick={refreshPage}>Retourner Page d'acceuil</Button>
 
         </div>
     )

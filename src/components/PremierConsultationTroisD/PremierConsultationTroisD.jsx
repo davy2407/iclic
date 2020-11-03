@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import "./PremierConsultationTroisD.css";
 
 function PremierConsultationTroisD() {
+  function refreshPage() {
+    window.location.reload(false);
+  }
   return (
     <div className="consultationContainer" >
       <h1> 1 ère consultation préalable/1er contact médical Majeure Anonyme</h1>
@@ -21,7 +24,8 @@ function PremierConsultationTroisD() {
 
 
       <br></br>
-      {/* <Button onClick={props.onSuite()}>Poursuivre la consultation</Button> */}
+<Button variant="danger" onClick={refreshPage}>Retourner Page d'acceuil</Button>
+
     </div>
   );
 }
