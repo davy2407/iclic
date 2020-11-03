@@ -24,8 +24,8 @@ function PostIVGMineur(props) {
     liste.push(currentPosNe);
     liste.push(currentContra);
     liste.push(currentIST);
-    liste.push(currentHPV);
-    liste.push(currentDateHPV);
+    // liste.push(currentHPV);
+    // liste.push(currentDateHPV);
     liste.push(currentTabac);
     liste.push(currentNbTabac);
     liste.push(currentVecu);
@@ -213,7 +213,7 @@ function PostIVGMineur(props) {
 
         const returnInfoDosage = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Une baisse supérieure à 80% du dosage initial 15 jours après
                  l’IVG médicamenteuse est en faveur d’une réussite de celle-ci. 
@@ -270,7 +270,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoContraception = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p className="Red">
                 la reprise de la fertilité après une IVG est immédiate :
                  une contraception efficace est donc indispensable dès la réalisation
@@ -359,7 +359,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoIST = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p >
                 La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
                  enceintes consultant pour une IVG, sans limite d’âge. 
@@ -434,7 +434,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         };
         const returnInfoFrotti = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                    Le plan de dépistage national s’applique, pour toute femme
                   immunocompétente de 25 à 65 ans.
@@ -529,7 +529,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         };
         const returnInfoVecu = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Un vécu traumatique peut nécessiter, à la demande du médecin/sage-femme
                  pratiquant l’acte, une prise en charge avec une psychologue et/ou un
@@ -617,10 +617,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
        
       </Form.Control>
       </Form.Group>
-      <p>
-      Il est à noter que des patientes présentant des saignements abondants avec signes cliniques d’anémie peuvent être adressées au service d’urgence spécialisé du centre de référence
-      <a target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien HAS recommandation</a>
-      </p>
+      
             </div>
             )
         }
@@ -640,7 +637,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoAvis = () => {
             return (
-              <div>
+              <div className="BulleInfo">
                 <p>
                  Une échographie de contrôle ou un avis spécialisé peut être demandée devant :
                 </p>
@@ -707,7 +704,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
 
         const returnInfoAcc = () => {
           return (
-            <div>
+            <div className="BulleInfo">
               <p>
               Accompagnement personne majeure identique au cours des différentes consultations : soutien moral efficient.             </p>
               
@@ -919,12 +916,6 @@ src={logoAfficheDosage}
       <h2>Contraception choisie par la patiente :</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
-      </div>
-
-      <div className="ConsultationContainer">
-      <h2>Adhésion à cette contraception :</h2>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
       <input
         onClick={changementCouleurSVGContraception}
         className="Lampe"
@@ -932,6 +923,13 @@ src={logoAfficheDosage}
         src={logoAfficheContraception}
       />
       <div>{currentInfoContraception}</div>
+      </div>
+
+      <div className="ConsultationContainer">
+      <h2>Adhésion à cette contraception :</h2>
+      <Button variant="secondary" value="Oui">Oui</Button>
+      <Button variant="secondary" value="Non">Non</Button>
+      
       </div>
 
 
@@ -965,7 +963,7 @@ De nombreuses sources numériques existent pour l’information aux patient(es)
 <div>{currentInfoIST}</div>
       </div>
 
-      <div className="ConsultationContainer">
+      {/* <div className="ConsultationContainer">
       <h2>Frottis à jour</h2>
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupHPV(e);}}>Oui</Button>
       <Button variant="secondary" value="Non" onClick={(e)=>{recupHPV(e);}}>Non</Button>
@@ -986,7 +984,7 @@ De nombreuses sources numériques existent pour l’information aux patient(es)
       />
       <br></br>
       <div>{currentInfoFrotti}</div>
-      </div>
+      </div> */}
 
 
       

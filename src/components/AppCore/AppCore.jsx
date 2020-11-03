@@ -37,6 +37,7 @@ import PostIVGMAJA from "@components/PostIVGMAJA";
 import ContreIndicationMineure from "@components/ContreIndicationMineure";
 import PremierePriseMineureConsultePrin from "@components/PremierePriseMineureConsultePrin";
 import TarifPriseMediMineur from "@components/TarifPriseMediMineur";
+import TarifPostMin from "@components/TarifPostMin";
 
 
 
@@ -243,6 +244,13 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
   const afficheTarifPostMaj = () => {
     setObjetTarrificationAffiche([listeObjetConsulation[26]]);
+    setObjetConsultationAffiche([]);
+    setTexteDemarrage("");
+
+  }
+
+  const afficheTarifPostMin = () => {
+    setObjetTarrificationAffiche([listeObjetConsulation[31]]);
     setObjetConsultationAffiche([]);
     setTexteDemarrage("");
 
@@ -668,7 +676,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
           
           fonction : {
             recupInfo : recupPremiereConsulte,
-            afficheSuite : afficheTarifPostMaj
+            afficheSuite : afficheTarifPostMin
           },
           txt : txtPostMin()
       },
@@ -711,6 +719,15 @@ Les spécificités sont rappelées lors de chaque étape du site.
       {
         name : "Tarif Prise Médicaments mineure" ,
          id :30 , objet : TarifPriseMediMineur ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Tarif Post IVG Mineur" ,
+         id :31 , objet : TarifPostMin ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
