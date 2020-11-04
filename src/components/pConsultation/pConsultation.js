@@ -101,6 +101,7 @@ function PConsultation(props) {
     if (noReponse.length>0) {
 
       /// affiche bloc no reponse
+      console.log(noReponse);
       afficheNoRep(noReponse);
       
     }
@@ -1135,7 +1136,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <label>
         Prescription :
       <div className="Red">{currentTextUrgence}</div>
-        <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" >Oui</Button>
+        <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" onClick={(e)=>{recupEcho(e)}} >Oui</Button>
         <Button className={btnOuiViolenceBase} variant="danger" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
       </label>
       
