@@ -49,10 +49,10 @@ La voie postale est possible. Attention au délai.
        Lors de l’envoi à l’officine de l’ordonnance, il peut être ajouté un autotest
         urinaire BhCG, celui-ci est alors prise en charge par le laboratoire par
          l’intermédiaire d’un accord avec l’ANCIC et le CNGOF
-         <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">LegiFrance</a>
-      <a rel="noreferrer noopener" target="_blank" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">ameli.fr</a>
-      <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">SYNGOF PDF</a>
-      <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">SYNGOF ressources utiles</a>
+         <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">LegiFrance</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">ameli.fr</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">SYNGOF PDF</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">SYNGOF ressources utiles</a>
       </p>
     
     
@@ -119,7 +119,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030). La facturation électronique est exclue dans ce seul cas de figure.
       </p>
 
-      <div className="ConsultationContainer">
+      {/* <div className="ConsultationContainer">
           <label>
         Consultation faite dans le cadre des dispositions du Covid valable
         jusqu’au 31 octobre 2020 : 
@@ -128,25 +128,25 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       </label>
   <div>{currentOui}</div>
       <br></br>
-          </div>
+          </div> */}
       
 
       <p>Lien guide IVG ministère :</p>
-      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
-      <a href={FicheCNGOF} target="_blank">
-        Fiche info CNGOF PDF
-      </a>
-      <a rel="noreferrer noopener"
+      
+      <a className="Bold" rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href={InfoPatiente} target="_blank">Fiche info patient traitement</a>
+      <br></br>
+      <br></br>
       
   
+      <a className="Bold" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
 
       
       <div>
@@ -155,22 +155,21 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Fiche de liaison première prise médicamenteuse</Button>
+      
+     
       <br></br>
-      <a target="_blank" href={LiaisonHAS}>Fiche de liaison HAS à télécharger</a>
-      <br></br>
-      <a target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
       <br></br>
       
     </div>
     <p>
-    Il est <span className="Red">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
+    Il est <span className="Bold" className="Red">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
      transmission préétabli avec votre centre de référence afin de suivre les règles
       préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
     Un exemplaire doit être remis à la patiente. 
     </p>
     <p>
     Toute mineure depuis le 1er janvier 2020 peut bénéficier d'une contraception gratuite. Quel que soit son âge, elle bénéficie d'une prise en charge complète par l'Assurance Maladie et sans avance de frais. 
-    <a target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichJO.do?idJO=JORFCONT000042266235">
+    <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichJO.do?idJO=JORFCONT000042266235">
     Journal officiel contraception mineure de moins de 15 ans :
     </a>
     </p>
@@ -210,6 +209,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
     <p>
     Une consultation dédiée de première consultation de contraception et de prévention des maladies sexuellement transmissibles pour les jeunes filles de 15 à 18 ans. Elle est applicable depuis le 1er novembre 2017 pour les médecins de spécialité médecine générale ou gynécologie. Elle est cotée selon le code CCP avec prise en charge à 100% (46 euros). Elle ne peut pas s’additionner au forfait IVG.
     </p>
+    <a className="Bold" target="_blank" href={LiaisonHAS}>Fiche de liaison HAS à télécharger</a>
     </div>
   );
 }
