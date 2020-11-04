@@ -25,10 +25,38 @@ function PConsultation(props) {
   
 
   ///////////////////////////
+  const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
 
-  const [couleurBouttonBase, setCouleurBouttonBase] = useState("secondary");
+  const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
 
-  const [couleurBouttonSel, setCouleurBouttonSel] = useState("danger");
+
+
+  const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+  const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+ const changeCouleurBoutonViolence = (e) => {
+    
+    
+    
+  
+    if (e.target.className==couleurBouttonSel) {
+      e.target.className=couleurBouttonBase;
+      
+    }
+    else {
+      e.target.className=couleurBouttonSel;
+
+    }
+
+
+
+ }
+
 
   /// function permettant la liaison avec la function onProps qui remonte les donnees au composant parent.
   /// liste des differents state , manque ddr et echographie
@@ -198,7 +226,7 @@ function PConsultation(props) {
   const tarifFinal = () => {
     return (
       <div className="TarifiContainer">
-      <Button variant="danger" onClick={props.onSuite}>
+      <Button className={btnOuiViolenceBase} variant="danger" onClick={props.onSuite}>
         Tarification
       </Button>
       </div>
@@ -455,8 +483,8 @@ const handleSubmitPaquet = event => {
 
         <label>
           Vous desirez plus d'informations à transmettre ?
-          <Button
-            variant="secondary"
+          <Button className={btnOuiViolenceBase}
+            variant="danger"
             value="Oui"
             onClick={(e) => {
               recupInfoSupp(e);
@@ -464,8 +492,8 @@ const handleSubmitPaquet = event => {
           >
             Oui
           </Button>
-          <Button
-            variant="secondary"
+          <Button className={btnOuiViolenceBase}
+            variant="danger"
             value="Non"
             onClick={(e) => {
               recupInfoSupp(e);
@@ -1070,7 +1098,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+            <Button value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
@@ -1088,13 +1116,13 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         
         
       ></input>
-      <Button  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
+      <Button className={btnOuiViolenceBase}  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
       </form>
       
       
       <br></br>
       <label>
-        Date incertaine ?<Button variant="secondary" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
+        Date incertaine ?<Button className={btnOuiViolenceBase} variant="danger" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
       </label>
       <div>{currentVerrou}</div>
       <div>{currentIncertaine}</div>
@@ -1107,8 +1135,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <label>
         Prescription :
       <div className="Red">{currentTextUrgence}</div>
-        <Button variant="secondary" value="Prescrite" onClick={(e)=>{recupEcho(e)}}>Oui</Button>
-        <Button variant="secondary" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
+        <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" >Oui</Button>
+        <Button className={btnOuiViolenceBase} variant="danger" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
       </label>
       
       <input
@@ -1124,8 +1152,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Personne accompagnante</h2>
       <label>
         Personne accompagnante
-        <Button
-          variant="secondary"
+        <Button className={btnOuiViolenceBase}
+          variant="danger"
           value="Oui"
           onClick={(e) => {
             recupAccompagnant(e);
@@ -1133,8 +1161,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         >
           Oui
         </Button>
-        <Button
-          variant="secondary"
+        <Button className={btnOuiViolenceBase}
+          variant="danger"
           value="Non"
           onClick={(e) => {
             recupAccompagnant(e);
@@ -1150,36 +1178,36 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Mode de découverte de la grossesse :
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Test Urinaire"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
           }}
         >
           Test urinaire
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Test Sanguin"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
           }}
         >
           Test sanguin
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Échographie"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
           }}
         >
           Échographie
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Clinique"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
           }}
@@ -1198,8 +1226,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Contexte biopsychosocial favorable :</h2>
       {/* Bloc a finir  */}
       <br></br>
-      <Button
-        variant="secondary"
+      <Button className={btnOuiViolenceBase}
+        variant="danger"
         value="Oui"
         onClick={(e) => {
           recupContexteBio(e);
@@ -1208,9 +1236,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         Oui
       </Button>
       <br></br>
-      <Button
+      <Button className={btnOuiViolenceBase}
         value="Non"
-        variant="secondary"
+        variant="danger"
         onClick={(e) => {
           afficheConsultation();
           recupContexteBio(e);
@@ -1225,8 +1253,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary">Non</Button>
+      <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
+      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button>
       <input
         onClick={changementCouleurSVGViolence}
         className="Lampe"
@@ -1241,18 +1269,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Recherche IST +/- antibio-prophylaxie
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupIST(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupIST(e);
           }}
@@ -1279,18 +1307,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupBilan(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupBilan(e);
           }}
@@ -1315,18 +1343,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Dossier guide IVG remis :
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupInfoGuideIVG(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupInfoGuideIVG(e);
           }}
@@ -1345,18 +1373,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Consultation proposée :
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupConsultationPsy(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupConsultationPsy(e);
           }}
@@ -1383,18 +1411,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Information contraception post-IVG
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupinfoPostIVG(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupinfoPostIVG(e);
           }}
@@ -1418,18 +1446,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <label>
         Frotti à jour :
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupFrotti(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non (prévoir en postIVG)"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupFrotti(e);
             affichageTxtFrottiNon();
@@ -1437,9 +1465,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         >
           Non
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non Concernée"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupFrotti(e);
             
@@ -1474,18 +1502,18 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Tabac :</h2>
       <br></br>
       <label>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Oui"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupTabac(e);
           }}
         >
           Oui
         </Button>
-        <Button
+        <Button className={btnOuiViolenceBase}
           value="Non"
-          variant="secondary"
+          variant="danger"
           onClick={(e) => {
             recupTabac(e);
           }}
@@ -1504,7 +1532,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+            <Button className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
               handleSubmitPaquet(e)
             }}>Confirmer</Button>
         </form>
@@ -1512,7 +1540,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <br></br>
       <br></br>
       <div className="ValiderContainer">
-      <Button onClick={afficheStateFin} variant={couleurBouttonBase}>
+      <Button className={btnOuiViolenceBase} onClick={afficheStateFin} variant="danger">
         Valider mes choix
       </Button>{" "}
       </div>

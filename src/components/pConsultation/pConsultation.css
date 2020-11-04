@@ -1,9 +1,83 @@
+.TestBTNTiers{
+    color: #9bf19f ;
+    text-transform: capitalize;
+    background: #dfdede;
+    padding: 10px;
+    border: 4px solid #9bf19f ;
+    border-radius: 6px;
+    /* display: inline-block; */
+    transition: all 0.1s ease 0s;
+    font-size: 1rem;
+    font-weight:bold;
+}
+.TestBTNTiers:hover{
+    color: #5c454f ;
+border-radius: 50px;
+border-color: #5c454f ;
+transition: all 0.1s ease 0s;
+
+}
+
+.TestBTNTiers:focus{
+    outline: none;
+}
+
+
+
+
+.TestBTNBAse{
+    color: #5c454f ;
+text-transform: capitalize;
+background: #ffffff;
+padding: 10px;
+border: 4px solid #5c454f ;
+border-radius: 6px;
+/* display: inline-block; */
+transition: all 0.1s ease 0s;
+font-size: 1rem;
+    font-weight:bold;
+}
+
+.TestBTNBAse:hover{
+    color: #f37575 ;
+border-radius: 50px;
+border-color: #f37575 ;
+transition: all 0.1s ease 0s;
+
+}
+
+.TestBTNBAse:focus{
+    outline: none;
+}
 
 
 
 
 
 
+.TestBTNSel{
+    color: #ffffff ;
+    text-transform: capitalize;
+    background: #f37575;
+    padding: 10px;
+    border: 4px solid #f37575;
+    border-radius: 6px;
+    /* display: inline-block; */
+    transition: all 0.1s ease 0s;
+    font-size: 1rem;
+    font-weight:bold;
+}
+.TestBTNSel:hover{
+    color: #5c454f ;
+border-radius: 50px;
+border-color: #5c454f;
+transition: all 0.1s ease 0s;
+
+}
+
+.TestBTNSel:focus{
+    outline: none;
+}
 
 
 .ValiderContainer{

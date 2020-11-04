@@ -20,6 +20,10 @@
     justify-content: space-between;
 }
 
+.Lampe{
+    outline: none;
+}
+
 .ConsultationContainer{
     width: 80%;
     background-color: rgb(247, 240, 244);
@@ -112,7 +116,7 @@ input{
 }
 
 Button{
-    margin: 0.5em;
+    margin: 1%;
 }
 
 .Tarification{
