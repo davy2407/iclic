@@ -1104,12 +1104,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Remise et prise de mifépristone :</h2>
       <Button variant="secondary" value="Oui" >Oui</Button>
         <Button variant="secondary" value="Non" >Non</Button>
-        <input
-        onClick={changementCouleurSVGPriseMife}
-        className="Lampe"
-        type="image"
-        src={logoAffichePriseMife}
-      />
+        
       <input
         type="date"
         name="dateMife"
@@ -1118,6 +1113,12 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           handleChangeMife(e);
         }}
       ></input>
+      <input
+        onClick={changementCouleurSVGPriseMife}
+        className="Lampe"
+        type="image"
+        src={logoAffichePriseMife}
+      />
       <div>{currentInfoPriseMife}</div>
       </div>
 
