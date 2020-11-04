@@ -15,7 +15,7 @@ function PriseMediContreindication(props) {
   const afficheStateFin = () => {
     let echelon = compteur;
     if (echelon<5) {
-      afficheNoRep();
+      afficheNoRep(); 
       
     }
     else if (echelon>=5) {

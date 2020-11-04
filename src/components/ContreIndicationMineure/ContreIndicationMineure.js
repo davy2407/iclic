@@ -13,10 +13,9 @@ function ContreIndicationMineure(props) {
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
 
   const afficheStateFin = () => {
-
     let echelon = compteur;
     if (echelon<5) {
-      afficheNoRep();
+      afficheNoRep(); 
       
     }
     else if (echelon>=5) {
@@ -31,9 +30,6 @@ function ContreIndicationMineure(props) {
 
   /////////// state 
 
-  
-
-  
 
 
   ////////////// current reponseOUTarif
@@ -145,8 +141,8 @@ function ContreIndicationMineure(props) {
     settxtVerrouUn(txtAEnlever);
   };
 
-  const clicVerrouUnAffichage = () => {
-   
+  const clicVerrouUnAffichage = (e) => {
+    e.preventDefault();
     affichageVerrouUn();
   };
   /// Bloc Mifépristone
@@ -190,7 +186,7 @@ function ContreIndicationMineure(props) {
     return (
       <div className="BulleInfo">
         <p>
-        hypersensibilité au misoprostol,, grossesse non confirmée, suspicion de grossesse extra-utérine. 
+        Hypersensibilité au misoprostol,, grossesse non confirmée, suspicion de grossesse extra-utérine. 
         </p>
       </div>
     );
@@ -227,12 +223,10 @@ function ContreIndicationMineure(props) {
         HAS : antalgiques palier 1 (ibuprofène ou fénoprofène à dose antalgique) et 2 (paracétamol associé à l’opium ; la codéine ; tramadol seul ou en association avec le paracétamol).
         </p>
         <p>
-        En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine 
-          <a rel="noreferrer noopener"
+        En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine. <a className="Bold" rel="noreferrer noopener"
             href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf"
             target="_blank"
-          >
-            info
+          > info
           </a>
         </p>
       </div>
@@ -381,7 +375,7 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>
-          information claires et établies des effets secondaires possibles des
+          Information claires et établies des effets secondaires possibles des
           traitements :
         </h3>
         <Button variant="secondary" value="Oui" onClick={(e)=>{recupEffet(e);
@@ -412,18 +406,10 @@ function ContreIndicationMineure(props) {
 
       <br></br>
       <br></br>
-      <h3>Fiche VIDAL traitement misoprostol : </h3>
-      <a href={FicheVidalMiso} target="_blank">
-        télécharger PDF
-      </a>
-      <br></br>
-      <h3>Fiche VIDAL traitement mifépristone :</h3>
-      <a href={FicheVidalMife} target="_blank">
-        télécharger PDF
-      </a>
+      
       <br></br> 
       <h3>Fiche patient traitement :</h3>
-      <a href={InfoPatiente} target="_blank">
+      <a className="Bold" href={InfoPatiente} target="_blank">
         télécharger PDF
       </a>
 
