@@ -1117,13 +1117,15 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         
         
       ></input>
-      <Button className={btnOuiViolenceBase}  variant="danger" onClick={transmissionDDR}  >Valider DDR</Button>
+      <Button className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{transmissionDDR();
+      changeCouleurBoutonViolence(e);}}  >Valider DDR</Button>
       </form>
       
       
       <br></br>
       <label>
-        Date incertaine ?<Button className={btnOuiViolenceBase} variant="danger" onClick={()=>{clicDateIncertaine();}}>Oui</Button>
+        Date incertaine ?<Button className={btnOuiViolenceBase} variant="danger" onClick={(e)=>{clicDateIncertaine();
+        changeCouleurBoutonViolence(e);}}>Oui</Button>
       </label>
       <div>{currentVerrou}</div>
       <div>{currentIncertaine}</div>
@@ -1136,8 +1138,10 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <label>
         Prescription :
       <div className="Red">{currentTextUrgence}</div>
-        <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" onClick={(e)=>{recupEcho(e)}} >Oui</Button>
-        <Button className={btnOuiViolenceBase} variant="danger" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
+        <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" onClick={(e)=>{recupEcho(e);
+        changeCouleurBoutonViolence(e);}} >Oui</Button>
+        <Button className={btnOuiViolenceBase} variant="danger" value="Non prescrite" onClick={(e)=>{recupEcho(e);
+        changeCouleurBoutonViolence(e);}}>Non</Button>
       </label>
       
       <input
@@ -1158,6 +1162,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           value="Oui"
           onClick={(e) => {
             recupAccompagnant(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1167,6 +1172,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           value="Non"
           onClick={(e) => {
             recupAccompagnant(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1184,6 +1190,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Test urinaire
@@ -1193,6 +1200,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Test sanguin
@@ -1202,6 +1210,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Échographie
@@ -1211,6 +1220,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupModeDecouverte(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Clinique
@@ -1232,6 +1242,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         value="Oui"
         onClick={(e) => {
           recupContexteBio(e);
+          changeCouleurBoutonViolence(e);
         }}
       >
         Oui
@@ -1243,6 +1254,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         onClick={(e) => {
           afficheConsultation();
           recupContexteBio(e);
+          changeCouleurBoutonViolence(e);
         }}
       >
         Non
@@ -1275,6 +1287,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupIST(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1284,6 +1297,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupIST(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1313,6 +1327,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupBilan(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1322,6 +1337,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupBilan(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1349,6 +1365,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupInfoGuideIVG(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1358,6 +1375,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupInfoGuideIVG(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1379,6 +1397,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupConsultationPsy(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1388,6 +1407,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupConsultationPsy(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1417,6 +1437,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupinfoPostIVG(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1426,6 +1447,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupinfoPostIVG(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1452,6 +1474,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupFrotti(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1462,6 +1485,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           onClick={(e) => {
             recupFrotti(e);
             affichageTxtFrottiNon();
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1471,6 +1495,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupFrotti(e);
+            changeCouleurBoutonViolence(e);
             
           }}
         >
@@ -1508,6 +1533,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupTabac(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Oui
@@ -1517,6 +1543,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           variant="danger"
           onClick={(e) => {
             recupTabac(e);
+            changeCouleurBoutonViolence(e);
           }}
         >
           Non
@@ -1533,15 +1560,17 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
-              handleSubmitPaquet(e)
+            <Button  className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
+              handleSubmitPaquet(e);
+              changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
       </div>
       <br></br>
       <br></br>
       <div className="ValiderContainer">
-      <Button className={btnOuiViolenceBase} onClick={afficheStateFin} variant="danger">
+      <Button  className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+      changeCouleurBoutonViolence(e);}} variant="danger">
         Valider mes choix
       </Button>{" "}
       </div>
