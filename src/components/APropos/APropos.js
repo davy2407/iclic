@@ -36,7 +36,7 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
             <ul>
                 <li>Peggy Damioli, médecin spécialiste en médecine générale orthogéniste, Bihorel.</li>
                 <li>Sylvie Pauthier, chirurgien spécialiste en  gyneco-obstetrique, Ch Belvedere.</li>
-                <li>Sage-femme orthogéniste travaillant dans le secteur de Rouen souhaitant garder l’anonymat.</li>
+                <li>Sage-femme conseillère familliale en centre d'orthogénie.</li>
 
             </ul>
             <br></br>

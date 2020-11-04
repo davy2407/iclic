@@ -215,46 +215,68 @@ function PremierePriseMajeureMineure(props) {
   const covidIVGOui = ()=> {
       return (
           <div>
-              <h2>Covid et IVG :</h2>
+              
               <p>
               Téléconsultation possible. 
-Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.  
+Condition : Outils informatique fiable pour les documents nécessaires à la
+ pratique de l’IVG dans le cadre réglementaire.  
               </p>
               <p>
-              Le forfait médicament (FMV) n’est pas à facturer si vous choisissez le circuit qui permet à la patiente d’aller chercher directement les traitements abortifs à la pharmacie. 
-Dans cette hypothèse, vous établissez une ordonnance comportant :</p> 
-<p> le nom, les dosages, la posologie et la voie d’administration des médicaments. 
-L’ordonnance est ensuite transmise à l’officine choisie par la patiente via une
- messagerie sécurisée de santé ou déposée dans le dossier patient dans le cas de
-  l’usage d’une solution de téléconsultation intégrant cette fonctionnalité. A défaut,
-   vous pouvez transmettre l’ordonnance directement à la patiente par voie postale ou
-    messagerie. 
+              Le forfait médicament (FMV) n’est pas à facturer si vous
+               choisissez le circuit qui permet à la patiente d’aller 
+               chercher directement les traitements abortifs à la pharmacie. 
+              </p>
+              <p>
+Dans cette hypothèse, ordonnance
+ comportant : le nom, les dosages, la posologie et la
+  voie d’administration des médicaments. 
+</p>
+<p>
+Transmission à l'officine choisie par la patiente via ; messagerie sécurisée de santé ; dossier patient si téléconsultation intégrant cette fonctionnalité.
+  </p>
+  <p>La voie postale est possible. Attention aux délais.
               </p>
               <p>
               La consultation de suivi sera donc établie par téléconsultation.
                Lors de l’envoi à l’officine de l’ordonnance, 
                il peut être ajouté un autotest urinaire BhCG,
                 celui-ci est alors prise en charge par le laboratoire par
-                 l’intermédiaire d’un accord avec l’ANCIC et le CNGOF
-                 <a rel="noreferrer noopener"
+                 l’intermédiaire d’un accord avec l’ANCIC et le CNGOF.
+
+
+                 <ul>
+                   <li>
+                   <a className="Bold" rel="noreferrer noopener"
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id"
           target="_blank"
         >
           Legifrance.gouv
         </a>
-        .
-        <a rel="noreferrer noopener"
+
+                   </li>
+                   <li>
+                   <a rel="noreferrer noopener"
           href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse"
           target="_blank"
         >
           ameli.fr
         </a>
-        <a rel="noreferrer noopener"
+                     
+                   </li>
+                   <li>
+                   <a rel="noreferrer noopener"
           href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf"
           target="_blank"
         >
           syngof
         </a>
+                     
+                   </li>
+                 </ul>
+                
+        
+        
+        
               </p>
           </div>
       )
@@ -519,7 +541,6 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
         <p>
         présentielle au cabinet possible ; « 2eme prise médicamenteuse » comprise dans le forfait IVG hors établissement. 
 HAS recommande la séquence de traitement Per Os.
-        <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf">lien info</a>
         </p>
         
       </div>
@@ -579,13 +600,13 @@ HAS recommande la séquence de traitement Per Os.
       <div className="BulleInfo">
        
         <p>
-        motif : douleurs abdominales (Prise du misoprostol +++). 
-            
+        Motif : douleurs abdominales (Prise du misoprostol +++). 
+            <ul>
+              <li>Arrêt de travail anticipée si prise du misoprostol</li>
+              <li>Possibilité de présentiel au cabinet selon le souhait du professionel de santé.</li>
+            </ul>
         </p>
-        <p>
-        Arrêt de travail anticipée si prise du misoprostol au domicile ou 
-au cabinet si présentiel souhaité selon le professionnel de santé. 
-        </p>
+ 
         
         
         
@@ -696,37 +717,25 @@ const infoContra = () => {
   return (
     <div className="BulleInfo">
      
-      <p className="Red">
-      la reprise de la fertilité après une IVG est immédiate :
-       une contraception efficace est donc indispensable dès la
-        réalisation de l’IVG. 
-      </p>
+     <p className="Red">
+            la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
+             </p>
+             <p>
+             Rappel : le préservatif : seule méthode efficace contre les IST. 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+             </p>
+             <p>
+             La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
+L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
+             </p>
+             <p>
+             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
+             </p>
+            
+             <p>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+             </p>
 
-      <p>
-      Rappel : le préservatif (masculin, féminin) : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018). 
-         <a rel="noreferrer noopener"
-         target="_blank"
-         href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie"
-         >
-             lien info</a>
-        
-      </p>
-
-      <p>
-      La pilule : débuté au moment de la 1ère prise médicamenteuse ou le lendemain. 
-L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG (contraception dans l’intervalle). 
-      </p>
-
-
-      <p>
-      DIU : Visite de contrôle post-IVG médicamenteuse si : vacuité utérine à l’échographie et/ou dosage de β-HCG est négatif. 
-En cas de doute, le DIU est posé lors des menstruations suivantes (Contraception dans l’intervalle).
-      </p>
-
-      <p>
-        <a rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=CjwKCAiAnIT9BRAmEiwANaoE1UvpGljdoemjgb7elJSGJCybcyZEeTxIwzROGPcTkSZN0qrpNGkvBBoCkrsQAvD_BwE">lien choisirmacontraception.com</a>
-      </p>
     </div>
   );
 };
@@ -771,17 +780,19 @@ const changementCouleurSVGContraception = () => {
        
   
         <p>
-        Indispensable pour affirmer  réussite de la méthode. 
+        Indispensable pour affirmer la réussite de la méthode. 
+        </p>
+        <p>
 L’autotest urinaire peut également être utilisé. (A domicile combiné à un suivi téléphonique) 
-           <a
+           
+              
+          
+        </p>
+        <a className="Bold"
            target="_blank"
            href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter"
            >
                HAS recommandation</a>
-               <a target="_blank" href="https://ansfl.org/document/cngof-2016-livg-medicamenteuse/"
-               >recommandation CNGOF</a>
-          
-        </p>
        
       </div>
     );
@@ -851,7 +862,7 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
           <div className="BulleInfo">
               
               <p>
-              « HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.»      
+               HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.»      
                       </p>
               
           </div>
@@ -918,22 +929,25 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
   const Frotti = () => {
     return (
         <div className="BulleInfo">
-            <h4>
-            Le plan de dépistage national s’applique :
-            </h4>
+             <p>
+         Le plan de dépistage national s’applique : 
+        </p>
+        <ul>
+          <li>
             <p>
-            entre 25 et 30 ans, le dépistage du cancer du col de l’utérus reste fondé sur la réalisation de deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
+            entre 25 et 30 ans, 2 examens cytologiques à un an d’intervalle, puis 3 ans après si résultat normal.            </p>
+          </li>
+          <li>
+            <p>
+            A partir de 30 ans, 3 ans après le dernier examen cytologique (résultat normal); Test HPV tous les 5 ans.
             </p>
             <p>
-            le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
+            <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
+          lien info
+        </a>
             </p>
-
-
-
-
-
-            <p><a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">info</a></p>
-            
+          </li>
+        </ul>
         
       </div>
         
@@ -993,7 +1007,7 @@ affichageFrotti();
     
     
   };
-  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
  
 
   const handleChangePaquet = event => {
@@ -1055,7 +1069,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
     
       <div className="consultationContainer">
-          <h1>Consultation 1ere prise médicamenteuse </h1>
+          <h1>Consultation première prise médicamenteuse </h1>
           <div className="ConsultationContainer">
           <label>
         Consultation faite dans le cadre des dispositions du Covid valable
@@ -1068,7 +1082,10 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           </div>
 
 <div className="ConsultationContainer">
-<h2>Protocole et coordonnées du centre de référence remise à la patiente à remplir manuellement sur la fiche de liaison</h2>
+
+<h3>Protocole et coordonnées du centre de référence remise à la patiente.
+           </h3>
+           <h4>Actuellement en cours de réalisation : à remplir manuellement sur la fiche de liaison.</h4>
 </div>      
 
 <div className="ConsultationContainer">
@@ -1198,11 +1215,21 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}} >Non</Button>
 
         <p>
-        De nombreuses sources numériques existent pour l’information aux patient(es)
-         des IST ainsi que de ces risques Lien dans l’ordre 24, 23. En cliquant ici,
-          ces sites apparaitront sur le résumé de la consultation, à remettre en main
-           propre de la patiente. 
-        </p>
+              De nombreuses sources numériques existent pour l’information aux
+              patiente(s) des IST ainsi que de ces risques
+              <a
+                href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+                target="_blank"
+              >
+                Ameli IST
+              </a>
+              ,{" "}
+              <a href="http://www.info-ist.fr/index.html" target="_blank">
+                ISt-info
+              </a>
+              .
+            </p>
+            <p>Souhaitez vous transmettre ces informations à la patiente ?</p>
         <Button variant="secondary" value="Oui" onClick={recupInfoSupp} >Oui</Button>
 
         <input
@@ -1307,11 +1334,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
         <br></br>
         <a target="_blank" href={ProtocolHAS}>protocole IVG HAS</a>
-        <a target="_blank" href={GuideCNGOF}>CNGOF info patient</a>
      
         <a target="_blank" href={ContraceptionHAS}>HAS contraception</a>
 
-        <p>Ces éléments sont à destination du professionnel de santé.</p>
 
         <br></br>
         <Button onClick={afficheStateFin}>Valider mes choix</Button>

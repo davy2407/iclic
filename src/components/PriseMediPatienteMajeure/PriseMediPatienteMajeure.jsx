@@ -391,7 +391,7 @@ function PriseMediPatienteMajeure(props) {
     return (
       <div className="BulleInfo">
         <p>
-        Non obligatoire pour les femmes majeures
+        Non obligatoire pour les femmes majeures.
         </p>
       </div>
     )
@@ -494,7 +494,7 @@ function PriseMediPatienteMajeure(props) {
   const priseDeSang = () => {
     return (
       <div className="BulleInfo">
-        <p>(Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</p>
+        <p>(Groupe sanguin 2 déterminations, ßHCG quantitatif)</p>
         <p>
         Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement.  
         </p>
@@ -621,20 +621,7 @@ const handleChangeGroupe = (e) => {
   const nonCovid = () => {
     return (
       <div>
-        <p>
-        Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé.
-        </p>
-
-        <p>
-        Commande à usage professionnel auprès de la pharmacie d’officine de son choix. La commande comprend les mentions suivantes :
-        <ul>
-          <li>Le nom, la qualité, le numéro d’inscription à l’Ordre, l’adresse et la 
-signature du praticien ainsi que la date</li>
-          <li>Le nom des médicaments et le nombre de boîtes commandées</li>
-          <li>La mention « usage professionnel »</li>
-          <li>Le nom de l’établissement de santé avec lequel le praticien a conclu une convention ainsi que la date de cette convention.</li>
-        </ul>
-        </p>
+        
 
       </div>
     )
@@ -645,37 +632,51 @@ signature du praticien ainsi que la date</li>
   const ouiCovid = () => {
     return (
       <div>
-        <h3>Covid et IVG :</h3>
+        
         <p>
         Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
         </p>
         <p>
         Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
         </p>
-       
-
-
-
-        <a rel="noreferrer noopener"
+        <ul>
+          <li>
+          <a className="Bold" rel="noreferrer noopener"
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id"
           target="_blank"
         >
           Legifrance.gouv
         </a>
-        .
-        <a rel="noreferrer noopener"
+
+          </li>
+          <li>
+          <a className="Bold" rel="noreferrer noopener"
           href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse"
           target="_blank"
         >
           ameli.fr
         </a>
-        <a rel="noreferrer noopener"
+            
+          </li>
+          <li>
+          <a className="Bold" rel="noreferrer noopener"
           href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf"
           target="_blank"
         >
           syngof
         </a>
 
+            
+          </li>
+        </ul>
+       
+
+
+
+        
+        
+        
+        
       </div>
     )
   }
@@ -716,7 +717,8 @@ signature du praticien ainsi que la date</li>
 
   return (
     <div className="consultationContainer">
-      <h1>Consultation IVG : 1ere prise médicamenteuse. Patiente majeure </h1>
+      <h1>Consultation première prise médicamenteuse : </h1>
+      <h2>Prélude</h2>
 
       <br></br>
       <div className="ConsultationContainer">
@@ -733,7 +735,9 @@ signature du praticien ainsi que la date</li>
       <br></br>
       </div>
       <div className="ConsultationContainer">
-        <h3>"Protocole et coordonnées du centre de référence remise à la patiente (en travaux, remplir manuellement sur la fiche de liaison)."</h3>
+        <h3>Protocole et coordonnées du centre de référence remise à la patiente.
+           </h3>
+           <h4>Actuellement en cours de réalisation : à remplir manuellement sur la fiche de liaison.</h4>
         
       </div>
       <br></br>
@@ -838,6 +842,8 @@ signature du praticien ainsi que la date</li>
   <Form.Control as="select" size="lg" onChange={(e) => {
           handleChangeGroupe(e);
         }}>
+              <option value="">Choisir..</option>
+
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
@@ -860,21 +866,19 @@ signature du praticien ainsi que la date</li>
       </div>
       <br></br>
       <div className="ConsultationContainer">
-      <ul>
-        <li>
-          <a rel="noreferrer noopener"
+     
+       <p>
+       <a className="Bold" rel="noreferrer noopener"
             href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
             target="_blank"
           >
             Lien guide IVG
           </a>
-        </li>
-        <li>
-          <a href={GuideCNGOF} target="_blank">
-            Fiche info CNGOF PDF
-          </a>
-        </li>
-      </ul>
+       </p>
+          
+      
+       
+     
       </div>
 
       <Button onClick={afficheStateFin} >Valider mes choix</Button>

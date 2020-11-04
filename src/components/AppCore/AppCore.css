@@ -69,16 +69,42 @@
     color:  rgb(253, 238, 246);
     border-radius: 35px;
     margin-top: 0.5vh;
-    padding: 0.5%;
+    padding-top: 1.5%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     text-shadow: 0px 0.5px 0px rgb(184, 177, 177);
     box-shadow: inset 0 0 0.1em black, 0 0 0.3em black;
     height: auto;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     
     
     
     
 
+}
+
+.BulleInfo ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.Bold{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
 }
 
 

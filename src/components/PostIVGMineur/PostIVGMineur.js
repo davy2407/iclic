@@ -294,8 +294,8 @@ function PostIVGMineur(props) {
 L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG
  médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
                 </p>
-                <a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
-                 Lien HAS recommandation : 
+                <a className="Bold" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+                 Lien HAS recommandation
                 </a>
               </div>
             );
@@ -347,30 +347,24 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
             return (
               <div className="BulleInfo">
                 <p className="Red">
-                la reprise de la fertilité après une IVG est immédiate :
-                 une contraception efficace est donc indispensable dès la réalisation
-                  de l’IVG.
-                </p>
-                <p>
-                Rappel : le préservatif (masculin, féminin) représente la seule méthode
-                 de contraception efficace contre les IST. Le préservatif est remboursé
-                  par l’assurance maladie à compter du 10 décembre 2018 sur prescription
-                   par un médecin ou une sage-femme. 
-                   <a target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">
-                    Lien remboursement préservatif
-                   </a>
-            La pilule peut être commencée au moment de la 1ère prise médicamenteuse ou le lendemain. 
-                </p>
-                <p>
-                Les DIU peuvent être mise en place lors de la visite de contrôle après
-                 une IVG médicamenteuse si la vacuité utérine à l’échographie est
-                  constatée ou si le dosage de B-HCG est négatif. En cas de doute,
-                   le DIU est posé lors des règles suivantes 
-                   (avec une autre contraception dans l’intervalle).
-                   <a target="_blank" href={ContraceptionHAS}>
-                       Lien info Contraception HAS
-                   </a>
-                </p>
+            la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
+             </p>
+             <p>
+             Rappel : le préservatif : seule méthode efficace contre les IST. 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+             </p>
+             <p>
+             La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
+L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
+             </p>
+             <p>
+             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
+             </p>
+            
+             <p>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+             </p>
+
 
 
 
@@ -437,8 +431,8 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
             return (
               <div className="BulleInfo">
                 <p >
-                La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-                 enceintes consultant pour une IVG, sans limite d’âge. 
+                 HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans. »
+
                 </p>
                 
 
@@ -502,7 +496,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         
           
           
-          const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+          const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
          
         
           const handleChangePaquet = event => {
@@ -655,20 +649,23 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         const returnInfoAvis = () => {
             return (
               <div className="BulleInfo">
-                <p>
-                 Une échographie de contrôle ou un avis spécialisé peut être demandée devant :
+               <p>
+                 Une échographie de contrôle ou un avis spécialisé peuvent être demandés devant :
                 </p>
-                <ol>
+                <ul>
                     <li> Un échec après analyse de la décroissance du taux de BHCG. </li>
-                    <li> Des saignements abondant (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).</li>
+                    <li> Des saignements abondants (sans signe clinique d’anémie ou facteur de risque/comorbidité).</li>
                     <li>Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.</li>
-                    <li>Des douleurs ne s’atténuant pas par la prise de médicaments.</li>
-                </ol>
+                    <li>Des douleurs ne s’atténuant pas par la prise d'antalgique.</li>
+                </ul>
                 <p>
                 Il est à noter que des patientes présentant des saignements abondants
-                 avec signes cliniques d’anémie peuvent être adresser au service
-                  d’urgence spécialisé du centre de référence
-                  <a rel="noopener noreferrer" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+                 avec signes cliniques d’anémie peuvent être adressées au service
+                  d’urgence spécialisée du centre de référence.
+                  
+                </p>
+                <p>
+                <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
                   HAS recommandation
                   </a>
                 </p>
@@ -816,7 +813,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
         const ouiCovid = ()=> {
           return (
             <div>
-              <h2>Covid et IVG :</h2>
+              
             <p>
             Dans le cadre du Covid, cette consultation doit être faite par
              téléconsultation. Sa facturation est facturée de la même manière
@@ -847,8 +844,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
     return (
         <div className="consultationContainer">
 
-            <h1>Consultation post IVG :  
-Mineure Non Anonyme/Anonyme :
+            <h1>Consultation post-IVG Mineure :
             </h1>
             
 
@@ -961,14 +957,21 @@ src={logoAfficheDosage}
 
 
 <p>
-De nombreuses sources numériques existent pour l’information aux patient(es)
- des IST ainsi que de ces risques
-  <a target="_blank" href="http://www.info-ist.fr/index.html">
+De nombreuses sources numériques existent pour l’information aux patiente(s)
+ des IST ainsi que de ces risques.
+  
+  </p>
+
+
+  <p>
+  <a className="Bold" target="_blank" rel="noreferrer noopener" href="http://www.info-ist.fr/index.html">
    Lien ISt-info
   </a>
-  <a target="_blank" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
+  <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
   Lien Ameli IST
   </a>
+  </p>
+  <p>
    En cliquant ici,
   ces sites apparaitront sur le résumé de la consultation, à remettre en main
    propre de la patiente. 

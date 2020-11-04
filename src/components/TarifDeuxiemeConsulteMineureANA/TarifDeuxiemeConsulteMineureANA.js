@@ -24,15 +24,16 @@ function TarifDeuxiemeConsulteMineureANA(props) {
  
   return (
     <div className="Tarification">
-      <h1>Tarification et Conclusion de consultation : </h1>
+      <h1>Conclusion de consultation : </h1>
+      <h2>Tarification</h2>
       <br></br>
       <p>
-      L’IVG est prise en charge à 100% dans le cadre d’un tarif forfaitaire avec dispense totale d’avance de frais pour les patientes .       </p>
+      L’IVG est prise en charge à 100% dans le cadre d’un tarif forfaitaire avec dispense totale d’avance de frais pour les patientes.       </p>
       
       
 
       <p>
-      La jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale, (article<a target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">D. 132-3</a>  du Code de la sécurité  32 ). 
+      La jeune femme mineure bénéficie des conditions de facturation anonyme aux caisses de sécurité sociale, (article <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">D. 132-3</a>  du Code de la sécurité  32 ). 
       Le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).  
       </p>
 
@@ -44,19 +45,22 @@ function TarifDeuxiemeConsulteMineureANA(props) {
       </p>
 
       <p>
-      Le consentement doit être téléchargé et signé par la patiente.
+      Le consentement doit être téléchargé et signé par la patiente : 
       </p>
+      <a className="Bold" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+      <br></br>
+      <p>Copie pour :</p>
       <ol>
         <li>
-         Copie : patiente après signature.
+        patiente après signature.
 
         </li>
         <li>
-         Copie : médecin ou sage femme
+        médecin ou sage femme
           
         </li>
         <li>
-        3Copie : pour le praticien orthogéniste
+        pour le praticien orthogéniste
           
         </li>
       </ol>
@@ -69,18 +73,18 @@ function TarifDeuxiemeConsulteMineureANA(props) {
 
       
 
-      <p>Lien guide IVG ministère :</p>
-      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+     
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
-      <a rel="noreferrer noopener"
+      <a className="Bold" rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href={InfoPatiente} target="_blank">Fiche info patient traitement</a>
+      <a className="Bold" href={InfoPatiente} target="_blank">Fiche info patiente traitement</a>
       
   
 
@@ -94,7 +98,7 @@ function TarifDeuxiemeConsulteMineureANA(props) {
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF </Button>
       <br></br>
-      <a target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+      
       <br></br>
       
       
@@ -106,11 +110,11 @@ function TarifDeuxiemeConsulteMineureANA(props) {
     Au terme de cette consultation, dans le cas où vous n’êtes pas le professionnel
      de santé effectuant l’IVG, il est nécessaire d’adresser la patiente à 
      un professionnel de santé pouvant effectuer l’acte
-      (<a rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
+      (<a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
           https://www.ivglesadresses.org/
-          </a>
-           <a rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
-           Centre de planification :  https://ivg.gouv.fr/les-centres-de-planification.html
+          </a>,
+           <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
+           Centre de planification
                </a>)
     </p>
 

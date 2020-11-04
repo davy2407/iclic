@@ -493,23 +493,25 @@ Pour en savoir plus :
     return (
       <div>
         <p>
-        Attestation de compétence  (obligatoire) + convention avec un centre agrée
-à l’IVG médicamenteuse hors établissement de santé. 
+        Attestation de compétence  (obligatoire) + convention avec un centre agrée accorde
+l’IVG médicamenteuse hors établissement de santé. 
         </p>
         <p>
-        2 consultations préalables à l’IVG effectués par tous médecin ou sage-femme
-Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du médicament.
+        2 consultations préalables à l’IVG effectués par tous médecin ou sage-femme.
         </p>
         <p>
-        Tout médecin ou sage femme doit répondre à une demande d’IVG et « ils restituent 
+        Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du médicament.
+        </p>
+        <p>
+        Tout médecin ou sage femme doit répondre à une demande d’IVG et « il restitue 
         à la femme sa demande pour que celle-ci soit remise au médecin ou à la sage-femme
          choisis par elle et lui délivrent un certificat attestant qu'ils se sont conformés
-          aux articles <a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930122&cidTexte=LEGITEXT000006072665&dateTexte=20160128" target="_blank">L. 2212-3</a> et<a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018156675&cidTexte=LEGITEXT000006070633&dateTexte=20080222" target="_blank"> L. 2212-5</a>
+          aux articles <a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930122&cidTexte=LEGITEXT000006072665&dateTexte=20160128" target="_blank">L. 2212-3</a> et<a rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018156675&cidTexte=LEGITEXT000006070633&dateTexte=20080222" target="_blank"> L. 2212-5</a>.
         </p>
         <p>
         D’après l’article 18 du code de déontologie article R4127-18
          « un médecin … ; … est toujours libre de s’y refuser et doit en informer l’intéressée dans
-          les conditions et délais prévus par la loi » <a href="https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>
+          les conditions et délais prévus par la loi » <a href="https://www.conseil-national.medecin.fr/code-deontologie/devoirs-generaux-medecins-art-2-31/article-18-ivg" target="_blank">voir lien</a>.
         </p>
         <p>
         Ce site n’enregistre aucune information personnelle, l’identité de la patiente et du praticien sont à compléter après impression des différents documents.
@@ -671,8 +673,10 @@ Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du m�
         <p>
         Il est obligatoire selon <a target="_blank" href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665."> l’article L2212-2 et L2212-9</a> de justifier d’une
          convention signée entre le praticien et un établissement de santé
-          public ou privée pour la/les consultations IVG de prise des médicaments.
-          Cette convention est obligatoire pour presire les en médicament nécessaire à la réalisation d’une interruption volontaire de grossesse selon
+          public ou privée pour la/les consultation(s) IVG de prise des médicaments.
+          Cette convention est obligatoire pour prescrire les médicaments nécessaire à la
+           réalisation
+           d’une interruption volontaire de grossesse selon
            <a
            rel="noreferrer noopener" 
            target="_blank"
@@ -681,12 +685,12 @@ Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du m�
         </p>
 
         <p>
-        Les centres de références (CHU, centre hospitalier régional, clinique), le planning familial, le conseil de l’ordre des médecins de votre département peuvent vous renseigner.
+        Les centres de références (CHU, Centre Hospitalier Régional, clinique), le planning familial, le conseil de l’ordre des médecins de votre département peuvent vous renseigner.
         </p>
 
         <p>
-          <a href="#">
-            Convention type à télécharger :
+          <a target="_blank" rel="noreferrer noopener"  href="#">
+            Convention type à télécharger 
           </a>
         </p>
       </div>
@@ -759,13 +763,18 @@ Orientation de la patiente vers un(e) confrère qualifié(e) pour la prise du m�
         Selon <a rel="noreferrer noopener"
         target="_blank"
         href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006911489&cidTexte=LEGITEXT000006072665&dateTexte=20030527"
-        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse. Cette compétence est acquise par une formation universitaire pour les médecins et les sages-femmes. Elle est reconnue lors des études universitaires en justifiant d’une qualification ou d’une pratique régulière. L’attestation de formation est délivrée par le directeur de l’établissement hospitalier après avis du chef de service en charge des IVG médicamenteuse. 
+        > l’Article R2212-11</a> , il est nécessaire d’avoir une attestation de compétence afin de pratiquer les interruptions de grossesse par voie médicamenteuse. Cette compétence est acquise par une formation universitaire pour les médecins et les sages-femmes. Elle est reconnue lors des études universitaires en justifiant d’une qualification ou d’une pratique régulière.
+         L’attestation de formation est délivrée par le directeur de l’établissement
+          hospitalier après avis du chef de service en charge des IVG médicamenteuses. 
         </p>
         <p>
-        Des formations continue pour les praticiens libéraux proposent une formation qualifiante pour la pratique de l’IVG médicamenteuse hors établissement..
+        Des formations continues pour les praticiens libéraux proposent une formation
+         qualifiante pour la pratique de l’IVG médicamenteuse hors établissement..
         </p>
         <p>
-        Les centres de références (CHU, centre hospitalier régional, clinique), le planning familial, le conseil de l’ordre des médecins de votre département peuvent vous renseigner.
+        Les centres de référence (CHU, Centre Hospitalier Régional, clinique),
+         le planning familial, le conseil de l’ordre des médecins de votre département
+          peuvent vous renseigner.
         </p>
         <p>
           <a rel="noreferrer noopener" target="_blank" href="http://revho.fr/">Lien site REVHO</a>

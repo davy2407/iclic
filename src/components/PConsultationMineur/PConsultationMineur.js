@@ -12,6 +12,10 @@ import "./pConsultationMineur.css";
 
 function PConsultationMineur(props) {
 
+  const recupRadioViolence = (e) => {
+    console.log("Violence : "+e.target.value);
+  }
+
     const [stateGlobal, setStateGlobal] = useState([]);
     const afficheStateFin = () => {
         /// remonte les données au composant parent
@@ -277,7 +281,7 @@ function PConsultationMineur(props) {
     /// warning
 
     const [consultationPsychoSo, setConsultationPsychoSo] = useState({
-        texte: "consultation psychosociale proposée",
+        texte: "consultation psycho-sociale proposée",
         className: "Red",
       });
     
@@ -332,7 +336,7 @@ function PConsultationMineur(props) {
         return (
             <div className="BulleInfo">
                 <p>
-                HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.                </p>
+                HAS :  « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans. »              </p>
                 
             </div>
         )
@@ -361,13 +365,58 @@ function PConsultationMineur(props) {
   
   ///
 
+   /////////////// Bloc Violence 
+
+   const violence = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Cette information ne figurera pas sur le résumé.
+Cette violence peut être physique, sexuelle, économique,
+ verbale ou psychologique dans un contexte conjugal,
+  professionnel ou plus récemment de cyberviolence. 
+        </p>
+        
+        <p>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
+          https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+
+          </a>
+        </p>
+        <p>
+        Pour toutes questions de prise en charge : <a href="http://www.declicviolence.fr/" rel="noreferrer noopener" target="_blank">http://www.declicviolence.fr/</a>
+        </p>
+      </div>
+    )
+  }
+  const [txtViolence, setTxtViolence] = useState(() => violence());
+
+  const [currentInfoViolence, setCurrentInfoViolence] = useState("");
+
+  const affichageTxtViolence = () => {
+    let txtAEnlever = currentInfoViolence;
+    let txtAAfficher = txtViolence;
+    setCurrentInfoViolence(txtAAfficher);
+    setTxtViolence(txtAEnlever);
+  };
+  const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+
+  const [logoNonAfficheViolence, setLogoNonAfficheViolence] = useState(LightOn);
+  const changementCouleurSVGViolence = () => {
+    let currentLampe = logoAfficheViolence;
+    let currentCache = logoNonAfficheViolence;
+    setLogoNonAfficheViolence(currentLampe);
+    setLogoAfficheViolence(currentCache);
+    affichageTxtViolence();
+  };
+
   /// Prise de sang
 
   const recuPriseDeSang = (e) => {
     /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
     e.preventDefault();
     let reponse = {
-      titre : "Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + ß-HCG quantitatif ) : ",
+      titre : "Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + ß-HCG quantitatif ) : ",
       value : e.target.value,
       reponse : 1
     };
@@ -429,7 +478,7 @@ const recupConsultation = (e) => {
     /// fonction recuperant la valeur du boutton et l'ajoutant a la liste d'objet stateGlobal
     e.preventDefault();
     let reponse = {
-      titre : "Lieux de la consultation psychosociale : ",
+      titre : "Lieux de la consultation psycho-sociale : ",
       value : "        ",
       reponse : 1
     };
@@ -501,7 +550,10 @@ const txtIVG = () => {
             
         <p>
          Aborder dès cette consultation, les différentes modalités contraceptives. Site d’information à transmettre à la patiente :
-          <a rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
+        </p>
+
+        <p>
+        <a rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
             choisirsacontraception.com
           </a>
         </p>
@@ -815,8 +867,13 @@ const recupEcho = (e) => {
 const echographie = () => {
   return (
     <div className="BulleInfo" >
+
+<p>
+        Grossesse précoce, attendre le résultat des ß-HCG pour date d'échographie (œuf visualisé si ß-HCG supérieur à 1000-1500 UI/L).
+Possibilité de prescription échographie lors de la 2ème consultation préalable à l’IVG selon résultat sanguin.
+        </p>
       <p>
-      « Préciser faire « échographie de datation à réaliser en urgence ; IPE  » sur votre ordonnance (Index pour radiologue « Vérification échographique pré IV »). »
+      « Préciser faire « échographie de datation à réaliser en urgence ; IPE  » sur votre ordonnance (Index pour radiologue « Vérification échographique pré-IVG »). »
       </p>
       
     </div>
@@ -848,7 +905,7 @@ const changementCouleurSVGEcho = () => {
 
 ////////// nb tabac
 
-const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
  
 
   const handleChangePaquet = event => {
@@ -884,13 +941,13 @@ const handleSubmitPaquet = event => {
     return (
         <div className="consultationContainer">
           <h1>
-              1ère consultation préalable/1er contact médical
-            Mineur : 
+              Première consultation préalable/Premier contact médical
+            Mineure : 
             </h1>
           
           <br></br>
           <div className="ConsultationContainer">
-          <h2>Personne accompagnante majeurs ou consentement parental</h2>
+          <h2>Personne accompagnante majeure ou consentement parental</h2>
           <label>
           <Button variant="secondary" value="Oui" onClick={(e) => {
             recupAccompagnant(e);
@@ -945,7 +1002,7 @@ const handleSubmitPaquet = event => {
           <div className="ConsultationContainer">
           <h2>Prescription échographie de datation</h2>
       <label>
-        Prescription :
+      
       <div className="Red">{currentTextUrgence}</div>
         <Button variant="secondary" value="Prescrite" onClick={(e)=>{recupEcho(e)}}>Oui</Button>
         <Button variant="secondary" value="Non prescrite" onClick={(e)=>{recupEcho(e)}}>Non</Button>
@@ -971,7 +1028,7 @@ const handleSubmitPaquet = event => {
           <h2>Mode de découverte de la grossesse :</h2>
 
 <label>
-Mode de découverte de la grossesse :
+
 <Button variant="secondary" value="Test sanguin" onClick={(e) => {
       recupDecouverte(e);
     }}>Test sanguin</Button>
@@ -991,7 +1048,7 @@ Mode de découverte de la grossesse :
           <div className="ConsultationContainer">
           <h2>Contexte biopsychosocial favorable</h2>
       <label>
-      Contexte biopsychosocial favorable :
+     
       <Button variant="secondary" value="Oui" onClick={(e) => {
             recupContexte(e);
           }}>Oui</Button>
@@ -1010,7 +1067,7 @@ Mode de découverte de la grossesse :
           <div className="ConsultationContainer">
           <h2>Recherche IST +/- antibio-prophylaxie </h2>
       <label>
-      Recherche IST +/- antibio-prophylaxie 
+      
       <Button variant="secondary" value="Oui" onClick={(e) => {
             recupIST(e);
           }}>Oui</Button>
@@ -1041,10 +1098,10 @@ Mode de découverte de la grossesse :
 
           </div>
           <div className="ConsultationContainer">
-          <h2>Prise de sang (Groupe sanguin 2 déterminations, RAI, ß-HCG quantitatif)</h2>
+          <h2>Prise de sang (Groupe sanguin 2 déterminations, ß-HCG quantitatif)</h2>
 
 <label>
-    Prise de sang :
+    
     <Button variant="secondary" value="Oui" onClick={(e)=>{recuPriseDeSang(e);}}>Oui</Button>
     <Button variant="secondary" value="Non" onClick={(e)=>{recuPriseDeSang(e);}}>Non</Button>
 
@@ -1071,9 +1128,9 @@ Mode de découverte de la grossesse :
       </a></p>
           </div>
           <div className="ConsultationContainer">
-          <h2>Consultation psychosociale proposée</h2>
+          <h2>Consultation psycho-sociale proposée</h2>
       <label>
-      Consultation psychosociale proposée
+      
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupConsultation(e);}}>Oui</Button>
         <Button variant="secondary" value="Non" onClick={(e)=>{recupConsultation(e);}}>Non</Button>
       </label>
@@ -1089,9 +1146,32 @@ Mode de découverte de la grossesse :
       <p>{currentTxtConsultation}</p>
           </div>
           <div className="ConsultationContainer">
+      <h2>Violences subies en rapport ou non avec l’acte :</h2>
+      <div onChange={(e)=>{recupRadioViolence(e);}}>
+      <div>
+      <input id="Voui" type="radio" value="Oui" name="violence" /> 
+      <label for="Voui">Oui</label>
+      </div>
+      <div>
+      <input id="Vnon" type="radio" value="Non" name="violence" /> 
+      <label for="Vnon">Non</label>
+      </div>
+
+      </div>
+      {/* <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
+      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button> */}
+      <input
+        onClick={changementCouleurSVGViolence}
+        className="Lampe"
+        type="image"
+        src={logoAfficheViolence}
+      />
+      <div>  {currentInfoViolence}</div>
+      </div>
+          <div className="ConsultationContainer">
           <h2>Information contraception post-IVG</h2>
       <label>
-      Information contraception post-IVG
+      
       <Button variant="secondary" value="Oui" onClick={(e)=>{recupPostIVG(e);}}>Oui</Button>
         <Button variant="secondary" value="Non" onClick={(e)=>{recupPostIVG(e);}}>Non</Button>
       </label>
@@ -1177,7 +1257,6 @@ Mode de découverte de la grossesse :
       
 
 
-      <a href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
       <br></br>
 
 

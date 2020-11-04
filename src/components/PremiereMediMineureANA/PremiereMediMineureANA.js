@@ -493,7 +493,7 @@ function PremiereMediMineureANA(props) {
   const priseDeSang = () => {
     return (
       <div className="BulleInfo">
-        <p>(Groupe sanguin 2 déterminations, RAI, ßHCG quantitatif)</p>
+        <p>(Groupe sanguin 2 déterminations, ßHCG quantitatif)</p>
         <p>
         Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. 
         </p>
@@ -711,7 +711,8 @@ const handleChangeGroupe = (e) => {
 
   return (
     <div className="consultationContainer">
-      <h1>Consultation IVG : 1ere prise médicamenteuse, Patiente mineure.</h1>
+      <h1>Consultation première prise médicamenteuse mineure : </h1>
+      <h2>Prélude</h2>
 
       <br></br>
       <div className="ConsultationContainer">
@@ -829,6 +830,7 @@ const handleChangeGroupe = (e) => {
   <Form.Control as="select" size="lg" onChange={(e) => {
           handleChangeGroupe(e);
         }}>
+          <option value="">Choisir..</option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>

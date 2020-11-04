@@ -231,7 +231,7 @@ function DeuxiemeConsultationMineureANA(props) {
     return (
       <div className="BulleInfo">
         <p>
-        Une première consultation préalable à l’IVG avant d’effectuer le recueil du consentement de la patiente.
+        Une première consultation préalable à l’IVG est nécessaire avant d’effectuer le recueil du consentement de la patiente.
         </p>
         
       </div>
@@ -318,13 +318,13 @@ function DeuxiemeConsultationMineureANA(props) {
   const recupPsy = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Attestation Consultation psychosociale : ",
+      titre: "Attestation Consultation psycho-sociale : ",
       value: e.target.value,
       reponse : 1
     };
     setCurrentConsultation(reponse)
     
-    console.log("Consultation psychosociale : " + reponse.value);
+    console.log("Consultation psycho-sociale : " + reponse.value);
   };
 
   const consultationPsy = () => {
@@ -635,33 +635,24 @@ const recupInfoSupp = (e) => {
       return (
         <div className="BulleInfo">
           <p>
-           La HAS recommande un dépistage opportuniste ciblé à toutes les femmes
-           enceintes consultant pour une IVG, sans limite d’âge. Les facteurs de
-            risques ciblés sont : multipartenariat (au moins deux partenaires dans l’année),
-             changement de partenaire récent, individus ou partenaires diagnostiqués avec
-              une autre IST (Neisseria gonorrhoeae, syphilis, VIH, Mycoplasma genitalium),
-               antécédents d’IST, personnes en situation de prostitution, après un viol.
-          </p>
-          <p>
-          De plus elle doit être systématique chez les femmes de 15 à 25 ans sexuellement actives. 
-          </p>
-          
-          <p>
-            De nombreuses sources numériques existent pour l’information aux
-            patient(es) des IST ainsi que de ces risques
-            <a
-              href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
-              target="_blank"
-            >
-              Ameli IST
-            </a>
-            ,{" "}
-            <a href="http://www.info-ist.fr/index.html" target="_blank">
-              ISt-info
-            </a>
-            .
-          </p>
-          <br></br>
+            HAS :  « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans. »              </p>
+            
+            
+            <p>
+              De nombreuses sources numériques existent pour l’information aux
+              patient(es) des IST ainsi que de ces risques
+              <a className="Bold" rel="noreferrer noopener"
+                href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+                target="_blank"
+              >
+                Ameli IST
+              </a>
+              ,{" "}
+              <a className="Bold" rel="noreferrer noopener" href="http://www.info-ist.fr/index.html" target="_blank">
+                ISt-info
+              </a>
+              .
+            </p>
   
           <label>
             Vous desirez plus d'informations à transmettre ?
@@ -722,20 +713,21 @@ const recupInfoSupp = (e) => {
 const recupBilan = (e) => {
   e.preventDefault();
   let reponse = {
-    titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
+    titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) : ",
     value: e.target.value,
     reponse : 1
   };
   setCurrentSang(reponse);
   
-  console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
+  console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) :" + reponse.value);
 };
     const returnInfoSang = () => {
       return (
         <div className="BulleInfo">
           <p>
-          2 typages de groupe sanguin sont nécessaires avant toute IVG médicamenteuse ou chirurgicale. Les RAI doivent dater de moins de 48h avant l’acte si négatif jusqu'alors.  A noter qu’une injection d’Immunoglobulines anti-D sera nécessaire en cas de RAI négatif avant toute IVG ou dans les 72h suivant tout saignement.
-          </p>
+            « (Groupe sanguin 2 déterminations, HCG quantitatif)
+Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. »
+            </p>
           
         </div>
       );
@@ -828,16 +820,22 @@ const recupBilan = (e) => {
     const returnInfoPostIVG = () => {
       return (
         <div className="BulleInfo">
-          <p>
-             Il est nécessaire d’aborder dès cette consultation, les différentes
-            modalités contraceptives. Site possible d’information à transmettre à
-            la patiente : Lien{" "}
-            <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
-              choisirsacontraception.com
-            </a>
-          </p>
-          <br></br>
-        </div>
+            <p>
+               Aborder dès cette consultation, les différentes
+              modalités contraceptives. 
+            </p>
+            <p>
+            Site possible d’information à transmettre à
+              la patiente : 
+            </p>
+            <p>
+            Lien{" "}
+              <a target="_blank" rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
+                choisirsacontraception.com
+              </a>
+            </p>
+            <br></br>
+          </div>
       );
     };
   
@@ -884,7 +882,7 @@ const recupBilan = (e) => {
       
       console.log("Fumeuse : " + reponse.value);
     };
-  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
 
 
 const handleChangePaquet = event => {
@@ -914,8 +912,8 @@ setNouvelleRecherchePaquet(0);
   return (
       <div className="consultationContainer">
           <h1>
-          2ème consultation préalable à l’IVG/Recueil de consentement 
-Mineur A/NA : 
+          Deuxième consultation préalable à l’IVG/Recueil de consentement 
+Mineure : 
           </h1>
           <br></br>
           
@@ -957,7 +955,7 @@ Mineur A/NA :
 
 
           <div className="ConsultationContainer">
-          <h2>Attestation consultation psychosociale  :</h2>
+          <h2>Attestation consultation psycho-sociale  :</h2>
           <Button variant="secondary" value="Oui" onClick={(e)=>{
               recupPsy(e);
               
@@ -985,7 +983,7 @@ Mineur A/NA :
 
 
           <div className="ConsultationContainer">
-          <h2>Age gestationnel : </h2>
+          <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
           {/* faire input comme nb paquet tabac pConsultation */}
           <input
       type="number"
@@ -1009,7 +1007,7 @@ Mineur A/NA :
     <h2>Recherche IST +/- antibio-prophylaxie</h2>
     <br></br>
     <label>
-      Recherche IST +/- antibio-prophylaxie
+   
       <Button
         value="Oui"
         variant="secondary"
@@ -1040,7 +1038,7 @@ Mineur A/NA :
     </div>
     <div div className="ConsultationContainer">
     <h2>
-      Prise de sang (Groupe sanguin : 2 déterminations, RAI, ß-HCG
+      Prise de sang (Groupe sanguin : 2 déterminations, ß-HCG
       quantitatif)
     </h2>
     <br></br>
@@ -1099,6 +1097,7 @@ Mineur A/NA :
   <Form.Control as="select" size="lg" onChange={(e) => {
           handleChangeGroupe(e);
         }}>
+          <option value="">Choisir..</option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
@@ -1113,7 +1112,7 @@ Mineur A/NA :
 <div className="ConsultationContainer">
       <h2>Information contraception post-IVG</h2>
       <label>
-      Information contraception post-IVG
+    
       <Button
         value="Oui"
         variant="secondary"

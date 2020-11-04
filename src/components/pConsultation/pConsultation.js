@@ -25,6 +25,26 @@ function PConsultation(props) {
   
 
   ///////////////////////////
+
+
+  const recupRadioViolence = (e) => {
+    console.log("Violence : "+e.target.value);
+  }
+
+  const recupRadioContexte = (e) => {
+    console.log("Contexte "+e.target.value);
+    let reponse = {
+      titre: "Contexte Biopsychosocial favorable : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    setCurrentContext(reponse);
+    setContexteBioPsyFin(reponse);
+    console.log("Contexte biopsychosocial favorable :" + reponse.value);
+  };
+  
+
+
   const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
 
   const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
@@ -177,7 +197,7 @@ function PConsultation(props) {
   });
 
   const [ currentConsultation, setCurrentConsultation] = useState({
-    titre : "Consultation psychosociale  obligatoirement proposée; ",
+    titre : "Consultation psycho-sociale  obligatoirement proposée; ",
     value : "",
     reponse : 0
   });
@@ -322,12 +342,12 @@ function PConsultation(props) {
   const recupBilan = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
+      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations+ BHCG quantitatif ) : ",
       value: e.target.value,
       reponse : 1
     };
     setCurrentSang(reponse);
-    console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) :" + reponse.value);
+    console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations  + BHCG quantitatif ) :" + reponse.value);
   };
 
   const [guideIVGFin, setGuideIVGFin] = useState({});
@@ -348,7 +368,7 @@ function PConsultation(props) {
   const recupConsultationPsy = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Consultation psychosociale proposée : ",
+      titre : "Consultation psycho-sociale proposée : ",
       value : e.target.value,
       reponse : 1
     };
@@ -418,7 +438,7 @@ function PConsultation(props) {
 
   
   
-  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+  const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
  
 
   const handleChangePaquet = event => {
@@ -461,21 +481,21 @@ const handleSubmitPaquet = event => {
     return (
       <div className="BulleInfo">
         <p>
-         « HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
+         HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
         </p>
         
         
         <p>
           De nombreuses sources numériques existent pour l’information aux
           patient(es) des IST ainsi que de ces risques
-          <a
+          <a rel="noreferrer noopener"
             href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
             target="_blank"
           >
             Ameli IST
           </a>
           ,{" "}
-          <a href="http://www.info-ist.fr/index.html" target="_blank">
+          <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noreferrer noopener">
             ISt-info
           </a>
           .
@@ -483,7 +503,7 @@ const handleSubmitPaquet = event => {
         <br></br>
 
         <label>
-          Vous desirez plus d'informations à transmettre ?
+          Vous desirez plus d'informations à transmettre à la patiente ?
           <Button className={btnOuiViolenceBase}
             variant="danger"
             value="Oui"
@@ -556,7 +576,8 @@ const handleSubmitPaquet = event => {
 Possibilité de prescription échographie lors de la 2ème consultation préalable à l’IVG selon résultat sanguin.
         </p>
         <p>
-        Préciser faire « échographie de datation à réaliser en urgence ; IPE  » sur votre ordonnance (Index pour radiologue « Vérification échographique pré IV »)
+        Préciser faire « échographie de datation à réaliser en urgence ; IPE  » 
+        sur votre ordonnance (Index pour radiologue « Vérification échographique pré-IVG »)
         </p>
       </div>
     )
@@ -590,7 +611,9 @@ Possibilité de prescription échographie lors de la 2ème consultation préalab
       <div className="BulleInfo">
         <p>
         Cette information ne figurera pas sur le résumé.
-Cette violence peut être physique, sexuelle, économique, verbale ou psychologique dans un contexte conjugal, professionnel ou plus récemment de cyberviolence. 
+Cette violence peut être physique, sexuelle, économique,
+ verbale ou psychologique dans un contexte conjugal,
+  professionnel ou plus récemment de cyberviolence. 
         </p>
         
         <p>
@@ -636,7 +659,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
   /// Bloc consultation Biopsychosocial
   const [consultationPsychoSo, setConsultationPsychoSo] = useState({
-    texte: "consultation psychosociale proposée",
+    texte: "consultation psycho-sociale proposée",
     className: "Red",
   });
 
@@ -654,7 +677,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
     return (
       <div className="BulleInfo">
         <p>
-        Elle n’est pas obligatoire pour les personnes majeures.Mais obligation légale de le proposer.  Délai de 48h de réflexion avant de signer le consentement après la consultation psychosocial.
+        Elle n’est pas obligatoire pour les personnes majeures. Mais obligation légale de la proposer.  Délai de 48h de réflexion avant de signer le consentement après la consultation psycho-sociale.
 
         </p>
         <br></br>
@@ -976,7 +999,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
     return (
       <div className="BulleInfo">
         <p>
-         Aborder la contraception dès cette consultation. Site d’information à transmettre à la patiente :
+         Aborder la contraception dès cette consultation. Site d’information à transmettre à la patiente : </p>
+          
+          <p>
           <a target="_blank" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
             choisirsacontraception.com
           </a>
@@ -1046,7 +1071,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           <li>
             <p>
             A partir de 30 ans, 3 ans après le dernier examen cytologique (résultat normal); Test HPV tous les 5 ans.
-            <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
+            <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
           lien info
         </a>
             </p>
@@ -1082,7 +1107,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
   return (
     <div className="consultationContainer">
-      <h1>1ère consultation préalable/1er contact médical Majeure Non Anonyme </h1>
+      <h1>Première consultation préalable/Premier contact médical Majeure </h1>
       
       <br></br>
       
@@ -1136,7 +1161,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <div className="ConsultationContainer">
       <h2>Prescription échographie de datation</h2>
       <label>
-        Prescription :
+       
       <div className="Red">{currentTextUrgence}</div>
         <Button className={btnOuiViolenceBase} variant="danger" value="Prescrite" onClick={(e)=>{recupEcho(e);
         changeCouleurBoutonViolence(e);}} >Oui</Button>
@@ -1156,7 +1181,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <div className="ConsultationContainer">
       <h2>Personne accompagnante</h2>
       <label>
-        Personne accompagnante
+       
         <Button className={btnOuiViolenceBase}
           variant="danger"
           value="Oui"
@@ -1184,7 +1209,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Mode de découverte de la grossesse </h2>
       <br></br>
       <label>
-        Mode de découverte de la grossesse :
+     
         <Button className={btnOuiViolenceBase}
           value="Test Urinaire"
           variant="danger"
@@ -1235,9 +1260,26 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>Contexte biopsychosocial favorable :</h2>
-      {/* Bloc a finir  */}
+
+      <div onChange={(e)=>{recupRadioContexte(e);}}>
+      <div>
+      <input id="Coui" type="radio" value="Oui" name="contexte" /> 
+      <label for="Coui">Oui</label>
+      </div>
+      <div>
+      <input id="Cnon" type="radio" value="Non" name="contexte" /> 
+      <label for="Cnon">Non</label>
+      </div>
+
+      </div>
+
+
+
+
+
+    
       <br></br>
-      <Button className={btnOuiViolenceBase}
+      {/* <Button className={btnOuiViolenceBase}
         variant="danger"
         value="Oui"
         onClick={(e) => {
@@ -1258,7 +1300,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         }}
       >
         Non
-      </Button>
+      </Button> */}
       <br></br>
       <p className={affichageWarningConsultation.className}>  
         {affichageWarningConsultation.texte}
@@ -1266,8 +1308,19 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
-      <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
-      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button>
+      <div onChange={(e)=>{recupRadioViolence(e);}}>
+      <div>
+      <input id="Voui" type="radio" value="Oui" name="violence" /> 
+      <label for="Voui">Oui</label>
+      </div>
+      <div>
+      <input id="Vnon" type="radio" value="Non" name="violence" /> 
+      <label for="Vnon">Non</label>
+      </div>
+
+      </div>
+      {/* <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
+      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button> */}
       <input
         onClick={changementCouleurSVGViolence}
         className="Lampe"
@@ -1281,7 +1334,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
-        Recherche IST +/- antibio-prophylaxie
+   
         <Button className={btnOuiViolenceBase}
           value="Oui"
           variant="danger"
@@ -1316,7 +1369,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>
-        Prise de sang (Groupe sanguin : 2 déterminations, RAI, ß-HCG
+        Prise de sang (Groupe sanguin : 2 déterminations, ß-HCG
         quantitatif)
       </h2>
       <br></br>
@@ -1359,7 +1412,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Dossier guide IVG remis :</h2>
       <br></br>
       <label>
-        Dossier guide IVG remis :
+        
         <Button className={btnOuiViolenceBase}
           value="Oui"
           variant="danger"
@@ -1388,10 +1441,10 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       </div>
       <div className="ConsultationContainer">
-      <h2>Consultation psychosociale proposée</h2>
+      <h2>Consultation psycho-sociale proposée</h2>
       <br></br>
       <label>
-        Consultation proposée :
+      
         <Button className={btnOuiViolenceBase}
           value="Oui"
           variant="danger"
@@ -1431,7 +1484,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Information contraception post-IVG</h2>
       <br></br>
       <label>
-        Information contraception post-IVG
+   
         <Button className={btnOuiViolenceBase}
           value="Oui"
           variant="danger"
@@ -1468,7 +1521,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <label>
-        Frotti à jour :
+        
         <Button className={btnOuiViolenceBase}
           value="Oui"
           variant="danger"

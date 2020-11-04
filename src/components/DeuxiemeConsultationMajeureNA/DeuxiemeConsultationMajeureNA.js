@@ -17,6 +17,13 @@ import "./DeuxiemeConsultationMajeureNA.css";
 /// feuille de deuxieme consultation, patiente majeure non anonyme
 function DeuxiemeConsultationMajeureNA(props) {
 
+
+  //// function radio
+
+  const recupRadioViolence = (e) => {
+    console.log("Violence : "+e.target.value);
+  }
+
     const [ globalStateFin, setGlobalStateFin] =useState([])
     /// state global liste
 
@@ -237,7 +244,7 @@ function DeuxiemeConsultationMajeureNA(props) {
       return (
         <div className="BulleInfo">
           <p>
-          Une première consultation préalable à l’IVG avant d’effectuer le recueil du consentement de la patiente.
+          Une première consultation préalable à l’IVG est nécessaire  avant d’effectuer le recueil du consentement de la patiente.
           </p>
           
         </div>
@@ -375,6 +382,54 @@ function DeuxiemeConsultationMajeureNA(props) {
 
 
     /////////////////////////////////////////////////////////////////////////////////////
+
+    /////////////// Bloc Violence 
+
+  const violence = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+        Cette information ne figurera pas sur le résumé.
+Cette violence peut être physique, sexuelle, économique,
+ verbale ou psychologique dans un contexte conjugal,
+  professionnel ou plus récemment de cyberviolence. 
+        </p>
+        
+        <p>
+          <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
+          https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+
+          </a>
+        </p>
+        <p>
+        Pour toutes questions de prise en charge : <a href="http://www.declicviolence.fr/" rel="noreferrer noopener" target="_blank">http://www.declicviolence.fr/</a>
+        </p>
+      </div>
+    )
+  }
+  const [txtViolence, setTxtViolence] = useState(() => violence());
+
+  const [currentInfoViolence, setCurrentInfoViolence] = useState("");
+
+  const affichageTxtViolence = () => {
+    let txtAEnlever = currentInfoViolence;
+    let txtAAfficher = txtViolence;
+    setCurrentInfoViolence(txtAAfficher);
+    setTxtViolence(txtAEnlever);
+  };
+  const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+
+  const [logoNonAfficheViolence, setLogoNonAfficheViolence] = useState(LightOn);
+  const changementCouleurSVGViolence = () => {
+    let currentLampe = logoAfficheViolence;
+    let currentCache = logoNonAfficheViolence;
+    setLogoNonAfficheViolence(currentLampe);
+    setLogoAfficheViolence(currentCache);
+    affichageTxtViolence();
+  };
+
+
+  /////////////////////////////////////////////////////////////////////////
 
 
     /// age gestationel
@@ -625,13 +680,12 @@ function DeuxiemeConsultationMajeureNA(props) {
         return (
           <div className="BulleInfo">
             <p>
-             HAS : dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans
-            </p>
+            HAS :  « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans. »              </p>
             
             
             <p>
               De nombreuses sources numériques existent pour l’information aux
-              patient(es) des IST ainsi que de ces risques
+              patiente(s) des IST ainsi que de ces risques
               <a
                 href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
                 target="_blank"
@@ -647,7 +701,7 @@ function DeuxiemeConsultationMajeureNA(props) {
             <br></br>
     
             <label>
-              Vous desirez plus d'informations à transmettre ?
+              Vous desirez plus d'informations à transmettre à la patiente ?
               <Button
                 variant="secondary"
                 value="Oui"
@@ -705,7 +759,7 @@ function DeuxiemeConsultationMajeureNA(props) {
   const recupBilan = (e) => {
     e.preventDefault();
     let reponse = {
-      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + RAI + BHCG quantitatif ) : ",
+      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) : ",
       value: e.target.value,
       reponse : 1
     };
@@ -814,9 +868,15 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
           <div className="BulleInfo">
             <p>
                Aborder dès cette consultation, les différentes
-              modalités contraceptives. Site possible d’information à transmettre à
-              la patiente : Lien{" "}
-              <a href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
+              modalités contraceptives. 
+            </p>
+            <p>
+            Site possible d’information à transmettre à
+              la patiente : 
+            </p>
+            <p>
+            Lien{" "}
+              <a target="_blank" rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
                 choisirsacontraception.com
               </a>
             </p>
@@ -882,26 +942,27 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       const returnInfoFrotti = () => {
         return (
           <div className="BulleInfo">
+        <p>
+         Le plan de dépistage national s’applique : 
+        </p>
+        <ul>
+          <li>
             <p>
-             Le plan de dépistage national s’applique : 
+            entre 25 et 30 ans, 2 examens cytologiques à un an d’intervalle, puis 3 ans après si résultat normal.            </p>
+          </li>
+          <li>
+            <p>
+            A partir de 30 ans, 3 ans après le dernier examen cytologique (résultat normal); Test HPV tous les 5 ans.
             </p>
-            <ul>
-              <li>
-                <p>
-                entre 25 et 30 ans, le dépistage du cancer du col de l’utérus : deux examens cytologiques à un an d’intervalle, puis 3 ans après si le résultat des deux premiers est normal.
-                </p>
-              </li>
-              <li>
-                <p>
-                le test HPV chez les femmes à partir de 30 ans, sera réalisé 3 ans après le dernier examen cytologique dont le résultat était normal ; le rythme entre deux dépistages par test HPV est de 5 ans, dès lors que le résultat du test est négatif.
-                <a target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
-              lien info
-            </a>
-                </p>
-              </li>
-            </ul>
-           
-          </div>
+            <p>
+            <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/upload/docs/application/pdf/2019-07/synthese_hpv.pdf">
+          lien info
+        </a>
+            </p>
+          </li>
+        </ul>
+       
+      </div>
         );
       };
     
@@ -942,7 +1003,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         setCurrentTabac(reponse);
         
       };
-    const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState(0)
+    const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
  
 
   const handleChangePaquet = event => {
@@ -971,14 +1032,14 @@ const handleSubmitPaquet = event => {
     return (
         <div className="consultationContainer">
             <h1>
-                2ème consultation préalable à l’IVG/Recueil de consentement 
-                Majeur  
+                Deuxième consultation préalable à l’IVG/Recueil de consentement 
+                Majeure  
             </h1>
             <br></br>
             
 
             <div className="ConsultationContainer">
-            <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
+            <h2>Attestation première consultation préalable à l’IVG : </h2>
             <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
             <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
             <input
@@ -1018,7 +1079,29 @@ const handleSubmitPaquet = event => {
       <div>  {currentInfoConsultationPsy}</div>
             </div>
           
+            <div className="ConsultationContainer">
+      <h2>Violences subies en rapport ou non avec l’acte :</h2>
+      <div onChange={(e)=>{recupRadioViolence(e);}}>
+      <div>
+      <input id="Voui" type="radio" value="Oui" name="violence" /> 
+      <label for="Voui">Oui</label>
+      </div>
+      <div>
+      <input id="Vnon" type="radio" value="Non" name="violence" /> 
+      <label for="Vnon">Non</label>
+      </div>
 
+      </div>
+      {/* <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
+      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button> */}
+      <input
+        onClick={changementCouleurSVGViolence}
+        className="Lampe"
+        type="image"
+        src={logoAfficheViolence}
+      />
+      <div>  {currentInfoViolence}</div>
+      </div>
             <div className="ConsultationContainer">
             <h2>Grossesse intra-utérine confirmée :</h2>
             <Button variant="secondary" value="Oui" onClick={recupGro}>Oui</Button>
@@ -1027,7 +1110,7 @@ const handleSubmitPaquet = event => {
 
 
             <div className="ConsultationContainer">
-            <h2>Age gestationnel : </h2>
+            <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
         type="number"
@@ -1051,7 +1134,7 @@ const handleSubmitPaquet = event => {
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
-        Recherche IST +/- antibio-prophylaxie
+     
         <Button
           value="Oui"
           variant="secondary"
@@ -1082,7 +1165,7 @@ const handleSubmitPaquet = event => {
       </div>
       <div className="ConsultationContainer">
       <h2>
-        Prise de sang (Groupe sanguin : 2 déterminations, RAI, ß-HCG
+        Prise de sang (Groupe sanguin : 2 déterminations, ß-HCG
         quantitatif)
       </h2> 
       <br></br>
@@ -1141,6 +1224,7 @@ const handleSubmitPaquet = event => {
   <Form.Control as="select" size="lg" onChange={(e) => {
           handleChangeGroupe(e);
         }}>
+          <option value="">Choisir..</option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
@@ -1167,7 +1251,7 @@ const handleSubmitPaquet = event => {
         <div className="ConsultationContainer">
         <h2>Information contraception post-IVG</h2>
         <label>
-        Information contraception post-IVG
+        
         <Button
           value="Oui"
           variant="secondary"
@@ -1217,7 +1301,7 @@ const handleSubmitPaquet = event => {
 <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <label>
-      Frottis à jour ou test HPV
+   
         <Button
           value="Oui"
           variant="secondary"

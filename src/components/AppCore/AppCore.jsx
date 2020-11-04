@@ -5,6 +5,14 @@ import React, { useState } from "react";
 import Bouton from "@components/Bouton";
 
 
+//// docs
+
+import ConsentementMineur from "@assets/docx/consentementMineure.docx";
+import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
+
+
+
+
 // import APropos from "@components/APropos";
 import pConsultation from "@components/pConsultation";
 import PriseMediMajeure from "@components/PriseMediPatienteMajeure";
@@ -87,7 +95,7 @@ function AppCore() {
         <h4>COVID et IVG :  </h4>
         <h5>Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)</h5>
         <p>
-        La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assuré par l’assurance maladie jusqu’au 31 octobre 2020.  
+        La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assurée par l’assurance maladie jusqu’au 31 octobre 2020.  
 Les spécificités sont rappelées lors de chaque étape du site.
 
         </p>
@@ -297,6 +305,9 @@ Les spécificités sont rappelées lors de chaque étape du site.
           <p>
           Une jeune fille mineure non émancipée doit donner au médecin son consentement pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient présents afin qu'elle n'agisse pas sous la contrainte.
           </p>
+          <p>
+          <a className="Bold" href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
+          </p>
       </div>
     )
   }
@@ -368,9 +379,12 @@ Les spécificités sont rappelées lors de chaque étape du site.
       <div>
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
-<a target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">  HAS</a>
 
  
+
+            </p>
+            <p>
+            <a className="Bold" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien protocole HAS</a>
 
             </p>
       </div>
@@ -384,6 +398,8 @@ Les spécificités sont rappelées lors de chaque étape du site.
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
 
             </p>
+            <p> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
+            </p>
       </div>
     )
   }
@@ -396,9 +412,35 @@ Les spécificités sont rappelées lors de chaque étape du site.
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
 
             </p>
+            <p>
+            <a className="Bold" rel="noreferrer noopener" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
+            </p>
       </div>
     )
   }
+
+  const txtPriseMediMajeure = () => {
+    return (
+      <div>
+      <p>
+      Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé.
+      </p>
+
+      <p>
+      Commande à usage professionnel auprès de la pharmacie d’officine de son choix. La commande comprend les mentions suivantes :
+      <ul>
+        <li>Le nom, la qualité, le numéro d’inscription à l’Ordre, l’adresse et la 
+signature du praticien ainsi que la date</li>
+        <li>Le nom des médicaments et le nombre de boîtes commandées</li>
+        <li>La mention « usage professionnel »</li>
+        <li>Le nom de l’établissement de santé avec lequel le praticien a conclu une convention ainsi que la date de cette convention.</li>
+      </ul>
+      </p>
+
+    </div>
+    )
+  }
+
 
   const txtDeuxiemeContactMineure = () => {
     return (
@@ -486,7 +528,8 @@ Les spécificités sont rappelées lors de chaque étape du site.
         fonction : {
           recupInfo : recupPremierePriseMedi,
           afficheSuite : afficheContreIndication
-        }
+        },
+        txt : txtPriseMediMajeure()
       },
       {
         name: "premiere consultation patiente majeure anonyme 3c",
@@ -954,6 +997,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
 
     ) {
       setObjetConsultationAffiche([liste[4]]);
+      setTexteDemarrage([liste[4].txt]);
       
     }
     else if ((

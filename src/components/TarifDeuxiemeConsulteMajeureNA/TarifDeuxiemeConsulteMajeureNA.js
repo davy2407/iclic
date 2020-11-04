@@ -24,15 +24,16 @@ function TarifDeuxiemeConsulteMajeureNA(props) {
  
   return (
     <div className="Tarification">
-      <h1>Tarification et Conclusion de consultation : </h1>
+      <h1>Conclusion de consultation : </h1>
+      <h2>Tarification</h2>
       <br></br>
       <p>
-      La consultation de recueil de consentement (2ème consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. 
+      La consultation de recueil de consentement (deuxième consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. 
       </p>
 
       <p>
       Cotée IC ou ICS 25 euros.  
-Sa tarification peut être faite électroniquement ou par format papier.   FSE ou feuille paierRB 100% 
+Sa tarification peut être faite électroniquement ou par format papier.  
       </p>
       
       
@@ -40,11 +41,16 @@ Sa tarification peut être faite électroniquement ou par format papier.   FSE o
       <p>
       Le consentement doit être téléchargé et signé par la patiente. 
       </p>
+      <a className="Bold" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+
+      <p>
+        Copie pour : 
+      </p>
       <p>
       <ol>
-        <li> Copie : patiente après signature.</li>
-        <li> Copie : médecin ou sage femme</li>
-        <li>Copie :adressée au centre d’orthogenie referent</li>
+        <li>patiente après signature.</li>
+        <li>médecin ou sage femme</li>
+        <li>adressée au centre d’orthogenie referent</li>
       </ol>
 
       </p>
@@ -57,12 +63,12 @@ Sa tarification peut être faite électroniquement ou par format papier.   FSE o
 
       
 
-      <p>Lien guide IVG ministère :</p>
-      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+ 
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
-      <a rel="noreferrer noopener"
+      <a className="Bold" rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
       >
@@ -82,20 +88,17 @@ Sa tarification peut être faite électroniquement ou par format papier.   FSE o
         <br></br>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF </Button>
       <br></br>
-      <a target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
       <br></br>
       
       
     </div>
-    <p>
-    Remetre à la patiente le consentement.
-    </p>
+ 
     <p>
     SI  vous n’êtes pas le professionnel de santé effectuant l’IVG, adresser la patiente à un professionnel de santé pouvant effectuer l’acte
-      (<a rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
+      (<a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
           https://www.ivglesadresses.org/
           </a>
-           <a rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
+           <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
            Centre de planification :  https://ivg.gouv.fr/les-centres-de-planification.html
                </a>)
     </p>

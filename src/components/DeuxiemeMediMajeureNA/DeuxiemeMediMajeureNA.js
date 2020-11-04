@@ -364,7 +364,7 @@ function DeuxiemeMediMajeureNA(props) {
               
             <p>
             prévention  de l’incompatibilité rhésus chez les femmes rhésus négatif si conjoint positif ou inconnue par la prescription et l’administration de gammaglobuline anti-D. 
-Injection IM ou IV de 200 ug d’Ig anti-D
+Injection IM ou IV de 200 ug d’Ig anti-D.
             </p>
             
           </div>
@@ -405,7 +405,7 @@ Injection IM ou IV de 200 ug d’Ig anti-D
           <div className="BulleInfo">
               
             <p>
-            pour le jour de la prise de misoprostol            
+            Pour le jour de la prise de misoprostol.           
              </p>
             
           </div>
@@ -451,20 +451,18 @@ Injection IM ou IV de 200 ug d’Ig anti-D
              </p>
              <p>
              Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
              </p>
              <p>
-             La pilule : débuté au moment de la 1ère prise médicamenteuse ou le lendemain. 
-L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
+             La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
+L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
              </p>
              <p>
-             DIU : Visite de contrôle post-IVG médicamenteuse si : vacuité utérine à l’échographie et/ou dosage de β-HCG est négatif. 
+             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
              </p>
+            
              <p>
-             En cas de doute, le DIU est posé lors des menstruations suivantes (Contraception dans l’intervalle).
-             </p>
-             <p>
-                 <a target="_blank" target="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
              </p>
             
           </div>
@@ -520,6 +518,7 @@ L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consul
       <Form.Control as="select" size="lg" onChange={(e) => {
               handleTypeContra(e);
             }}>
+              <option value="">Choisir..</option>
         <option value="implant">implant</option>
         <option value="pilule">pilule</option>
         <option value="patch">patch</option>
@@ -557,7 +556,7 @@ L’implant : débuté le jour de la 1ere prise médicamenteuse ou à la consul
     return (
         <div className="consultationContainer">
 
-            <h1>Consultation 2ème prise médicamenteuse (facultative) :
+            <h1>Consultation deuxième prise médicamenteuse (facultative) :
 Majeure </h1>
 
             
@@ -630,7 +629,6 @@ Majeure </h1>
       <div>{currentInfoContra}</div>
             </div>
 
-            <a target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
 
 
             <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>

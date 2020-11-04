@@ -469,7 +469,7 @@ function DeuxiemeMediMineureANA(props) {
           <div className="BulleInfo">
               
             <p>
-            pour le jour de la prise de misoprostol            
+            Pour le jour de la prise de misoprostol.      
              </p>
             
           </div>
@@ -515,18 +515,18 @@ function DeuxiemeMediMineureANA(props) {
              </p>
              <p>
              Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a rel="noreferrer noopener" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
              </p>
              <p>
-             La pilule : débuté au moment de la 1ère prise médicamenteuse ou le lendemain. 
-L'implant : débuté le jour de la 2eme prise médicamenteuse ou à la consultation post-IVG.
+             La pilule à débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
+L'implant à débuter le jour de la 2eme prise médicamenteuse ou à la consultation post-IVG.
              </p>
              <p>
-             DIU placé lors de la  Visite de contrôle post-IVG médicamenteuse ou ulterieurement.
+             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ulterieurement.
              </p>
             
              <p>
-                 <a rel="noreferrer noopener" target="_blank" target="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
              </p>
             
           </div>
@@ -582,6 +582,7 @@ L'implant : débuté le jour de la 2eme prise médicamenteuse ou à la consulta
       <Form.Control as="select" size="lg" onChange={(e) => {
               handleTypeContra(e);
             }}>
+               <option value="">Choisir..</option>
         <option value="implant">implant</option>
         <option value="pilule">pilule</option>
         <option value="patch">patch</option>
@@ -619,8 +620,7 @@ L'implant : débuté le jour de la 2eme prise médicamenteuse ou à la consulta
     return (
         <div className="consultationContainer">
 
-            <h1>Consultation 2ème prise médicamenteuse (facultative) :
-Mineure </h1>
+            <h1>Consultation deuxième prise médicamenteuse (facultative) Mineure : </h1>
 
             
             <div className="ConsultationContainer">
@@ -706,8 +706,7 @@ Mineure </h1>
             </div>
       <br></br>
 
-      <h2>            <a target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
-</h2>
+      
 
             <br></br>
 

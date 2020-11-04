@@ -4,7 +4,6 @@ import { Button, Form } from "react-bootstrap";
 import TestPrint from '@components/TestPrint';
 import "./TarificationPremierContactMajeureNonAnonyme.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 
 
@@ -32,13 +31,11 @@ tarif habituel de  consultation
       </p>
       
       <br></br>
-      <p>Lien guide IVG ministère :</p>
+     
       <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
-      <a href={FicheCNGOF} target="_blank">
-        Fiche info CNGOF PDF
-      </a>
+      
       <a rel="noreferrer noopener"
         href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
         target="_blank"
@@ -57,24 +54,25 @@ tarif habituel de  consultation
       </div>
     )
   })}</div> */}
-  
-
-      <Form>
+  <br></br>
+  <br></br>
+  <Form>
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check
             type="checkbox"
             label="Certificat de 1ère consultation remise à la patiente :"
           />
         </Form.Group>
+        <p>
+        <a className="Bold" href={Certificat} target="_blank">
+      Certificat de 1ère consultation pour IVG, document à compléter
+        </a>
 
-        
-        <br></br>
-        
-        
-        
-        
-        
-      </Form>
+        </p>
+        </Form>
+  
+
+      
       <div>
         <div style={{display:'none'}}>
         <TestPrint ref={componentRef} data={props.onData}  />
@@ -82,9 +80,7 @@ tarif habituel de  consultation
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
       <br></br>
-      <a href={Certificat} target="_blank">
-          Certificat de 1ère consultation PDF à compléter
-        </a>
+    
 
         <p>
         Obligation légale et déontologique pour tout praticien  de remettre à la patiente une attestation de demande d’IVG.

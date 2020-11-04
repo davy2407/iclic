@@ -6,6 +6,8 @@ import "./TarifPremiereMineureANA.css";
 
 
 import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
+import ConsentementMineur from "@assets/docx/consentementMineure.docx";
+
 
 
 
@@ -39,8 +41,7 @@ function TarifPremiereMineureANA(props) {
       circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).Ne pas utiliser la carte vitale de la patiente mineur!
       </p>
       
-
-      <p>Lien guide IVG ministère :</p>
+      <br></br>
       <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank" rel="noreferrer noopener">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
@@ -63,10 +64,13 @@ function TarifPremiereMineureANA(props) {
       </div>
     )
   })}</div> */}
+  <br></br>
   <p className="Red">
   Un délai de 48h est nécessaire entre la consultation psychosociale et la deuxième consultation préalable à l’IVG.
 
   </p>
+
+
   
 
       <Form>
@@ -76,6 +80,21 @@ function TarifPremiereMineureANA(props) {
             label="Certificat de 1ère consultation remise à la patiente :"
           />
         </Form.Group>
+        <p>
+        <a className="Bold" href={Certificat} target="_blank">
+      Certificat de 1ère consultation pour IVG, document à compléter
+        </a>
+
+        </p>
+
+        <p>
+        <a className="Bold" href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
+
+        </p>
+        
+
+
+        </Form>
 
         
         <br></br>
@@ -97,7 +116,7 @@ function TarifPremiereMineureANA(props) {
         
         
         
-      </Form>
+     
       <div>
         <div style={{display:'none'}}>
         <ResumePremiereConsultationMineureANA ref={componentRef} data={props.onData}  />
@@ -105,9 +124,7 @@ function TarifPremiereMineureANA(props) {
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
       <br></br>
-      <a href={Certificat} target="_blank">
-      Certificat de 1ère consultation pour IVG, document à compléter
-        </a>
+      
     </div>
     </div>
   );
