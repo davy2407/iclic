@@ -11,7 +11,46 @@ import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 function PriseMediPatienteMajeure(props) {
   ///Bloc fonctionnel
 
-  const [globalStateFin, setGlobalStateFin] = useState([]);
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
+
+
+///////// boutton
+
+const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+const changeCouleurBoutonViolence = (e) => {
+  
+  
+  
+
+  if (e.target.className==couleurBouttonSel) {
+    e.target.className=couleurBouttonBase;
+    
+  }
+  else {
+    e.target.className=couleurBouttonSel;
+
+  }
+
+
+
+}
+
+
 
   const afficheStateFin = () => {
     let liste = [];
@@ -110,6 +149,63 @@ function PriseMediPatienteMajeure(props) {
     value : "",
     reponse : 0
   });
+
+  //// recup radio
+
+  const recupRadioAcc = (e) => {
+    let reponse = {
+      titre: "Accompagnant(e) : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    setCurrentAcc(reponse);
+    
+  }
+
+
+  const recupRadioEchographie = (e) => {
+    let reponse = {
+      titre: "Echographie de datation/age gestationnel : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    
+    setcurrentEcho(reponse);
+    
+  }
+
+  const recupRadioAttestation = (e) => {
+    let reponse = {
+      titre: "Consultation psychosociale :",
+      value: e.target.value,
+      reponse : 1
+  };
+
+  setCurrentAttestation(reponse);
+
+
+}
+
+
+const recupRadioConsentement = (e) => {
+  let reponse = {
+    titre: "Consentement à l’IVG : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  
+  setCurrentConssent(reponse);
+}
+
+  const recupRadioBilan = (e) => {
+    let reponse = {
+      titre: "Prise de sang effectuée : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    
+    setCurrentSang(reponse);
+  }
 
 
 
@@ -224,7 +320,7 @@ function PriseMediPatienteMajeure(props) {
 
   const affichageMoinsDeSept = () => {
     /// gère laffichage du texte - de 7 semaines
-    let txtAEnlever = currentInfoNbSAmoinsSept;
+   
     let txtAAfficher = txtMoinsDeSeptSA;
     setCurrentInfoNbSAmoinsSept(txtAAfficher);
     setcurrentInfoNbSAplusDouze("");
@@ -362,31 +458,20 @@ function PriseMediPatienteMajeure(props) {
 
   const affichageVerrouDeux = () => {
     /// gère laffichage du texte + de 7 semaines -12
-    let txtAEnlever = currentInfoVerrouDeux;
+  
     let txtAAfficher = txtVerrouDeux;
     setcurrentInfoVerrouDeux(txtAAfficher);
-    settxtVerrouDeux(txtAEnlever);
+  
   };
 
   const clicVerrouDeuxaffichage = (e) => {
-    e.preventDefault();
+   
     affichageVerrouDeux();
   };
 
   /// Attestation consultation psychosocial
 
-  const recupAttestation = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Consultation psychosociale :",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentAttestation(reponse);
-    
-  };
-
+ 
   const Psy = () => {
     return (
       <div className="BulleInfo">
@@ -424,9 +509,27 @@ function PriseMediPatienteMajeure(props) {
     return (
       <div>
         <h4>attestation :</h4>
-        <br></br>
-        <Button variant="secondary">Oui</Button>
-        <Button variant="secondary">Non</Button>
+        <Form>
+      <div key={`attestationOui-radio`} className="mb-3">
+      <Form.Check 
+        type='radio'
+        id={`attestationOuiOui`}
+        label={`Oui`}
+        value="Oui"
+        name="attestationOui"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`attestationOuiNon`}
+        label={`Non`}
+        value="Non"
+        name="attestationOui"
+        
+      />
+      </div>
+      </Form>
         <br></br>
       </div>
     );
@@ -584,17 +687,7 @@ const handleChangeGroupe = (e) => {
 
   //////// Personne Acc
 
-  const recupAcc = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Personne accompagnante : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentAcc(reponse);
-    
-  };
+  
 
   
 
@@ -603,18 +696,7 @@ const handleChangeGroupe = (e) => {
 
 
   //// echo 
-  const recupEcho = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Echographie de datation/age gestationnel : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setcurrentEcho(reponse);
-    
-  };
-
+  
   ///////// oui covid
 
 
@@ -725,11 +807,12 @@ const handleChangeGroupe = (e) => {
       <label>
         Consultation faite dans le cadre des dispositions du Covid valable
         jusqu’au 31 octobre 2020 : 
-        <Button variant="secondary" value="Oui" onClick={(e)=>{
-          recupCovid(e);
-          afficheOuiCovid(e);}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupCovid(e);
-        afficheOuiCovid(e)}}>Non</Button>
+        <Button variant="secondary" value="Oui" 
+        className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{ recupCovid(e);
+          afficheOuiCovid(e);
+          changeCouleurBoutonViolence(e);}}
+        >Oui</Button>
+   
       </label>
       <div>{currentOuiCovid}</div>
       <br></br>
@@ -746,8 +829,41 @@ const handleChangeGroupe = (e) => {
       <div className="ConsultationContainer">
       <h3>Échographie de datation :</h3>
       <br></br>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupEcho(e);}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupEcho(e);}}>Non</Button>
+
+      <Form>
+      <div key={`Echographie-radio`} className="mb-3" onChange={(e)=>{recupRadioEchographie(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`EchographieOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Echographie"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`EchographieNon`}
+        label={`Non`}
+        value="Non"
+        name="Echographie"
+        onClick={()=>{
+         
+          clicVerrouDeuxaffichage();}}
+      />
+      </div>
+      </Form>
+
+      <div>{currentInfoVerrouDeux}</div>
+
+
+
+
+
+
+
+
+
+
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -771,24 +887,75 @@ const handleChangeGroupe = (e) => {
       <div className="ConsultationContainer">
       <h3>Consentement à l’IVG signé :</h3>
       <br></br>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupConsentement(e)}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{
-        recupConsentement(e);
-        clicVerrouDeuxaffichage();}}>
-        Non
-      </Button>
+
+      <Form>
+      <div key={`Consentement-radio`} className="mb-3" onChange={(e)=>{recupRadioConsentement(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ConsentementOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Consentement"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`ConsentementNon`}
+        label={`Non`}
+        value="Non"
+        name="Consentement"
+        onClick={()=>{
+         
+          clicVerrouDeuxaffichage();}}
+        
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
+
+
       <div>{currentInfoVerrouDeux}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
       <h3>Attestation consultation psychosociale :</h3>
       <br></br>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{
-        recupAttestation(e);
-        clicOuiConsultation(e);}}>
-        Oui
-      </Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupAttestation(e)}}>Non</Button>
+
+      <Form>
+      <div key={`attestation-radio`} className="mb-3" onChange={(e)=>{recupRadioAttestation(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`attestationOui`}
+        label={`Oui`}
+        value="Oui"
+        name="attestation"
+        onClick={(e)=>{
+          clicOuiConsultation(e);}}
+      />
+
+<Form.Check 
+        type='radio'
+        id={`attestationNon`}
+        label={`Non`}
+        value="Non"
+        name="attestation"
+        
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
       <br></br>
       <div>{currentConsultationAttestation}</div>
       <input
@@ -804,12 +971,37 @@ const handleChangeGroupe = (e) => {
       <div className="ConsultationContainer">
       <h3>Prise de sang effectuée :</h3>
       <br></br>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupSang(e)}}>Oui</Button>
-      <Button variant="secondary" onClick={(e)=>{
-        recupSang(e);
-        clicVerrouDeuxaffichage();}}>
-        Non
-      </Button>
+
+
+      <Form>
+      <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`BilanOui`}
+        label={`Oui`}
+        value="Oui"
+        name="BilanSang"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`BilanNon`}
+        label={`Non`}
+        value="Non"
+        name="BilanSang"
+        onClick={()=>{
+         
+          clicVerrouDeuxaffichage();}}
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+     
       <br></br>
       <div>{currentInfoVerrouDeux}</div>
       <input
@@ -824,15 +1016,21 @@ const handleChangeGroupe = (e) => {
       
         <div className="ConsultationContainer">
         <h3>Dosage ß-HCG :</h3>
-        <form >
+        <form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
                 value={nouvelleRechercheßHCG}
                 onChange={handleChangeßHCG}
                 type="text"
                 placeholder="saisir ß-HCG"
             />
-            <Button value={nouvelleRechercheßHCG} variant="secondary" onClick={(e)=> {
-              handleSubmitßHCG(e)
+            <Button  className={btnOuiViolenceBase} value={nouvelleRechercheßHCG} variant="danger" onClick={(e)=> {
+              handleSubmitßHCG(e);
+              changeCouleurBoutonViolence(e);
+
             }}>Confirmer</Button>
         </form>
         </div>
@@ -859,9 +1057,37 @@ const handleChangeGroupe = (e) => {
 
       <div className="ConsultationContainer">
       <h3>Personne accompagnante :</h3>
-      <br></br>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e);}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e);}}>Non</Button>
+      <label>
+      <Form>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`accOui`}
+        label={`Oui`}
+        value="Oui"
+        name="accompagant"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`accNon`}
+        label={`Non`}
+        value="Non"
+        name="accompagant"
+      />
+      </div>
+      </Form>
+       
+
+     
+
+
+
+
+
+
+        
+      </label>
 
       </div>
       <br></br>
@@ -881,7 +1107,8 @@ const handleChangeGroupe = (e) => {
      
       </div>
 
-      <Button onClick={afficheStateFin} >Valider mes choix</Button>
+      <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+      changeCouleurBoutonViolence(e);}} variant="danger" >Valider mes choix</Button>
 
 
 
