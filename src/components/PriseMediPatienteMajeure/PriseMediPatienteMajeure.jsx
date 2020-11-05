@@ -145,9 +145,9 @@ const changeCouleurBoutonViolence = (e) => {
   });
 
   const [ currentCovid, setcurrentCovid] = useState({
-    titre : "Pas de réponses",
+    titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   //// recup radio
@@ -549,14 +549,12 @@ const recupRadioConsentement = (e) => {
 
   const affichageConsultationAttestation = () => {
     /// gère laffichage du questionnaire attestation
-    let txtAEnlever = currentConsultationAttestation;
     let txtAAfficher = txtConsultationPsyCho;
     setcurrentConsultationAttestation(txtAAfficher);
-    settxtConsultationPsyCho(txtAEnlever);
   };
 
   const clicOuiConsultation = (e) => {
-    e.preventDefault();
+   
     affichageConsultationAttestation();
   };
   //////////////////////////////////////////////////////
@@ -932,20 +930,20 @@ const handleChangeGroupe = (e) => {
       <div key={`attestation-radio`} className="mb-3" onChange={(e)=>{recupRadioAttestation(e);}}>
       <Form.Check 
         type='radio'
-        id={`attestationOui`}
+        id={`BugOui`}
         label={`Oui`}
         value="Oui"
-        name="attestation"
+        name="attestationBug"
         onClick={(e)=>{
           clicOuiConsultation(e);}}
       />
 
 <Form.Check 
         type='radio'
-        id={`attestationNon`}
+        id={`BugNon`}
         label={`Non`}
         value="Non"
-        name="attestation"
+        name="attestationBug"
         
       />
       </div>

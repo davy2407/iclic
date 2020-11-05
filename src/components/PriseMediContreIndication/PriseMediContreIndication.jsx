@@ -146,7 +146,7 @@ function PriseMediContreindication(props) {
   };
 
   const clicVerrouUnAffichage = (e) => {
-    e.preventDefault();
+ 
     affichageVerrouUn();
   };
   /// Bloc Mifépristone
@@ -323,6 +323,12 @@ function PriseMediContreindication(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Mifépristone :</h3>
+
+
+
+
+
+
         <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
         <Button variant="secondary" onClick={()=>{
           augmenteCount();

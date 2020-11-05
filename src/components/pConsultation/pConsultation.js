@@ -1714,7 +1714,7 @@ Cette violence peut être physique, sexuelle, économique,
 
           <div>{currentReponseTarif}</div>
      
-    </div>
+    </div> 
   );
 }
 
