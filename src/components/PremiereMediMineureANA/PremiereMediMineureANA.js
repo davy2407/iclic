@@ -1089,7 +1089,7 @@ return (
       </div>
 
     <div className="ConsultationContainer">
-    <h3>Personne accompagnante :</h3>
+    <h3>Personne accompagnante majeurs ou consentement parental :</h3>
     <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
       <Form.Check 

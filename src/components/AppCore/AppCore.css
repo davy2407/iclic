@@ -61,14 +61,40 @@
 
 .Question{
     text-align: center;
-    height: 30vh;
-    width: 40vw;
+    height: 40vh;
+    width: 50vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 
     
     margin: 1%;
     padding: 1%;
 }
 
+
+.txtDebu h4{
+    text-decoration: underline;
+    color: rgb(133, 27, 83);
+    font-size: 1.5rem;
+
+}
+
+.Question h1{
+    font-size: 4rem;
+}
+
+.Question button{
+    width: 10vw;
+    align-self: center;
+    background-color:  rgb(206, 0, 127);
+    border-radius: 20px;
+    box-shadow: 5px 2.5px 2.5px rgb(172, 164, 164);
+
+
+}
 
 .BulleInfo{
     
@@ -131,11 +157,25 @@ ul{
     text-align: center;
 
 }
+.consultationContainerDebut{
+    width: 40vw;
+    height: 100%;
+    background-color: rgb(253, 238, 246);
+    border-radius: 25px;
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-shadow: 0px 0.5px 0px grey; */
+    font-size: 1em;
+    text-align: center;
 
+}
 
 
 .consultationContainer{
-    width: 40vw;
+    width: 60vw;
     height: 100%;
     background-color: rgb(253, 238, 246);
     border-radius: 25px;
@@ -183,10 +223,7 @@ Button{
 
 }
 
-.Tarification a{
-    font-weight: bold;
-    font-size: large;
-}
+
 
 .ContainerBulle{
     display: flex;

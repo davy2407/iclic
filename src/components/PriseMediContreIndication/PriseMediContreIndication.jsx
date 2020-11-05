@@ -359,11 +359,11 @@ const changeCouleurBoutonViolence = (e) => {
     <div className="consultationContainer">
       <h1>Consultation 1ere prise médicamenteuse Contre-indication </h1>
       <br></br>
-      <h2>Contre-indication médicamenteuse : </h2>
+      
       <br></br>
       <div className="ConsultationContainer">
       <label>
-        <h3>Mifépristone :</h3>
+        <h3> Contre-indication médicamenteuse Mifépristone :</h3>
 
 
         <Form>
@@ -374,6 +374,9 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Oui`}
         value="Oui"
         name="MifeContreMaj"
+        onClick={()=>{
+         
+          clicVerrouUnAffichage();}}
         
       />
 
@@ -383,9 +386,7 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Non`}
         value="Non"
         name="MifeContreMaj"
-        onClick={()=>{
-         
-          clicVerrouUnAffichage();}}
+        
         
       />
       </div>
@@ -406,7 +407,7 @@ const changeCouleurBoutonViolence = (e) => {
       </div>
       <div className="ConsultationContainer">
       
-      <h3>Misoprostol :</h3>
+      <h3>Contre-indication médicamenteuse Misoprostol :</h3>
 
       <label>
 
@@ -420,6 +421,9 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Oui`}
         value="Oui"
         name="MisoContreMaj"
+        onClick={()=>{
+         
+          clicVerrouUnAffichage();}}
         
       />
 
@@ -429,10 +433,7 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Non`}
         value="Non"
         name="MisoContreMaj"
-        onClick={()=>{
-         
-          clicVerrouUnAffichage();}}
-        
+       
       />
       </div>
       </Form>

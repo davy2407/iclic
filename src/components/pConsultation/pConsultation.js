@@ -15,6 +15,8 @@ import { useReactToPrint } from "react-to-print";
 
 
 
+
+
 /// feuille de premiere consultation, patiente majeure non anonyme ne venant pas du 3d
 function PConsultation(props) {
   /// Bloc Fonctionnel

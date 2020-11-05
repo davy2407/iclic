@@ -61,7 +61,7 @@ function AppCore() {
   const accueil =()=> {
     return (
       <div>
-        <div className="Taille consultationContainer">
+        <div className="Taille consultationContainerDebut">
         <p>
         Site créé à destination de tout professionnel de santé prenant en charge l’interruption volontaire de grossesse médicamenteuse hors établissement de santé.
         
@@ -87,8 +87,8 @@ function AppCore() {
         <p>
           L'interruption volontaire de grossesse est autorisé en France depuis
           la loi Veil du 17 Janvier 1975 , elle est gratuite et accessible à
-          toute femme en France selon les délais légaux de la loi <a target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000222631&categorieLien=id"> 2001-588 du 4
-          Juillet 2001</a>,<a
+          toute femme en France selon les délais légaux de la loi <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000222631&categorieLien=id"> 2001-588 du 4
+          Juillet 2001</a>,<a rel="noreferrer noopener"
           target="_blank"
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027221802&categorieLien=id"
           >Loi avortement du 25 mars 2013 </a>
@@ -146,6 +146,24 @@ Les spécificités sont rappelées lors de chaque étape du site.
     }
     
 
+  }
+
+  const blocRecap =(liste) => {
+    let recap = liste;
+    return (
+      <div>
+        {recap.map((objet) => {
+          return (
+            <div>
+          <h4>{objet}</h4>
+          <br></br>
+          </div>
+            
+          );
+        })}
+      </div>
+    )
+      
   }
 
 
@@ -878,7 +896,7 @@ signature du praticien ainsi que la date</li>
     ) {
       /// afficher composant "adresser patiente"
       setObjetConsultationAffiche([liste[3]]);
-      setTexteDemarrage([liste[3].txt])
+      setTxtQuestion([liste[3].txt])
     } else if ((
       identifiantConsultation== 1 &&
       idMajeureOuNon == 0 &&
@@ -900,7 +918,7 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[9]]);
-        setTexteDemarrage([liste[9].txt])
+        setTxtQuestion([liste[9].txt])
       
     }
     else if (
@@ -933,7 +951,7 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[11]]);
-        setTexteDemarrage([liste[11].txt])
+        setTxtQuestion([liste[11].txt])
       
     } else if ((
       identifiantConsultation== 2 &&
@@ -956,7 +974,7 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[12]]);
-        setTexteDemarrage([liste[12].txt])
+        setTxtQuestion([liste[12].txt])
       
     } 
     else if (
@@ -966,7 +984,7 @@ signature du praticien ainsi que la date</li>
 
     ) {
       setObjetConsultationAffiche([liste[13]]);
-      setTexteDemarrage([liste[13].txt])
+      setTxtQuestion([liste[13].txt])
       
     }
     else if (
@@ -990,7 +1008,7 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[15]]);
-        setTexteDemarrage([liste[15].txt])
+        setTxtQuestion([liste[15].txt])
       
     } 
     else if (
@@ -1000,7 +1018,7 @@ signature du praticien ainsi que la date</li>
 
     ) {
       setObjetConsultationAffiche([liste[4]]);
-      setTexteDemarrage([liste[4].txt]);
+      setTxtQuestion([liste[4].txt]);
       
     }
     else if ((
@@ -1032,7 +1050,7 @@ signature du praticien ainsi que la date</li>
         idAnonymeOuNon == 1
     ) {
       setObjetConsultationAffiche([liste[22]]);
-      setTexteDemarrage([liste[22].txt]);
+      setTxtQuestion([liste[22].txt]);
       
     }
     else if ((
@@ -1047,7 +1065,7 @@ signature du praticien ainsi que la date</li>
       idAnonymeOuNon == 0
     )) {
       setObjetConsultationAffiche([liste[25]]);
-      setTexteDemarrage([liste[25].txt]);
+      setTxtQuestion([liste[25].txt]);
       
     }
     else if (
@@ -1118,7 +1136,11 @@ signature du praticien ainsi que la date</li>
       }
     }
 
-    setTexteDemarrage(texte);
+  ///////////
+
+
+
+    setTexteDemarrage(()=>blocRecap(texte));
     setListeBouton([]);
     setNombreBouton(0);
     setSelection(liste);
