@@ -1493,7 +1493,7 @@ const handleSubmitPaquet = event => {
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button variant="danger" className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
+            <Button variant="danger" className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
               handleSubmitPaquet(e);
               changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
@@ -1539,8 +1539,9 @@ const handleSubmitPaquet = event => {
 
 
       <Button
+      variant="danger" className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger"
         onClick={afficheStateFin}
-        variant="secondary"
+        variant="danger"
       >
         Valider mes choix
       </Button>{" "}
