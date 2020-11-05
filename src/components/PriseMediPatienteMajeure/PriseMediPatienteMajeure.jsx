@@ -6,7 +6,6 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 
 function PriseMediPatienteMajeure(props) {
   ///Bloc fonctionnel

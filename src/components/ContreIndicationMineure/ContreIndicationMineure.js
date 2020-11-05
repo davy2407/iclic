@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import FicheVidalMiso from "@assets/pdf/FicheVidalMisoprostol.pdf";
@@ -10,7 +11,17 @@ import "./ContreIndicationMineure.css";
 
 function ContreIndicationMineure(props) {
   
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
+  
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
+
+
+  
+
+
+
 
   const afficheStateFin = () => {
     let echelon = compteur;
@@ -29,6 +40,41 @@ function ContreIndicationMineure(props) {
 
 
   /////////// state 
+
+
+  ///////// boutton
+
+const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+const changeCouleurBoutonViolence = (e) => {
+  
+  
+  
+
+  if (e.target.className==couleurBouttonSel) {
+    e.target.className=couleurBouttonBase;
+    
+  }
+  else {
+    e.target.className=couleurBouttonSel;
+
+  }
+
+
+
+}
 
 
 
@@ -142,7 +188,7 @@ function ContreIndicationMineure(props) {
   };
 
   const clicVerrouUnAffichage = (e) => {
-    e.preventDefault();
+ 
     affichageVerrouUn();
   };
   /// Bloc Mifépristone
@@ -297,7 +343,7 @@ function ContreIndicationMineure(props) {
   };
 
   const recupEffet = (e) => {
-    e.preventDefault();
+    
     let reponse = {
       titre: "Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : ",
       value: e.target.value,
@@ -307,7 +353,6 @@ function ContreIndicationMineure(props) {
     liste.push(reponse);
     setGlobalStateContre(liste);
    
-    console.log("Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : " + reponse.value);
   };
 
   return (
@@ -319,12 +364,35 @@ function ContreIndicationMineure(props) {
       <div className="ConsultationContainer">
       <label>
         <h3>Mifépristone :</h3>
-        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
-        <Button variant="secondary" onClick={()=>{
-          augmenteCount();
-          clicVerrouUnAffichage();}}>
-          Non
-        </Button>
+
+
+        <Form>
+      <div key={`MifeMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <Form.Check 
+        type='radio'
+        id={`MifeContreMajOui`}
+        label={`Oui`}
+        value="Oui"
+        name="MifeContreMaj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`MifeContreMajNon`}
+        label={`Non`}
+        value="Non"
+        name="MifeContreMaj"
+        onClick={()=>{
+         
+          clicVerrouUnAffichage();}}
+        
+      />
+      </div>
+      </Form>
+
+
+
         <div>{currentInfoVerrouUn}</div>
       </label>
       <input
@@ -337,14 +405,46 @@ function ContreIndicationMineure(props) {
       <br></br>
       </div>
       <div className="ConsultationContainer">
+      
+      <h3>Misoprostol :</h3>
+
       <label>
-        <h3>Misoprostol :</h3>
-        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
-        <Button variant="secondary" onClick={()=>{
-          augmenteCount();
-          clicVerrouUnAffichage();}}>
-          Non
-        </Button>
+
+
+
+      <Form>
+      <div key={`MisoMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <Form.Check 
+        type='radio'
+        id={`MisoContreMajOui`}
+        label={`Oui`}
+        value="Oui"
+        name="MisoContreMaj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`MisoContreMajNon`}
+        label={`Non`}
+        value="Non"
+        name="MisoContreMaj"
+        onClick={()=>{
+         
+          clicVerrouUnAffichage();}}
+        
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
+        
+       
         <div>{currentInfoVerrouUn}</div>
       </label>
       <input
@@ -358,10 +458,34 @@ function ContreIndicationMineure(props) {
       </div>
 
       <div className="ConsultationContainer">
-      <label>
-        <h3>Prescription d’antalgiques : </h3>
-        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
-        <Button variant="secondary" onClick={augmenteCount}>Non</Button>
+      <h3>Prescription d’antalgiques : </h3>
+  <label>
+       
+
+
+        <Form>
+      <div key={`AntaMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <Form.Check 
+        type='radio'
+        id={`AntaMajOui`}
+        label={`Oui`}
+        value="Oui"
+        name="AntaContreMaj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`AntaMajNon`}
+        label={`Non`}
+        value="Non"
+        name="AntaContreMaj"
+       
+        
+      />
+      </div>
+      </Form>
+
       </label>
       <input
         onClick={changementCouleurSVGPresci}
@@ -373,15 +497,37 @@ function ContreIndicationMineure(props) {
       <br></br>
       </div>
       <div className="ConsultationContainer">
-      <label>
-        <h3>
+      <h3>
           Information claires et établies des effets secondaires possibles des
           traitements :
         </h3>
-        <Button variant="secondary" value="Oui" onClick={(e)=>{recupEffet(e);
-        augmenteCount();}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupEffet(e);
-        augmenteCount();}}>Non</Button>
+      <label>
+       
+
+        <Form>
+      <div key={`INfoEFfetMaj-radio`} className="mb-3" onChange={(e)=>{
+        recupEffet(e);
+        augmenteCount();}}>
+      <Form.Check 
+        type='radio'
+        id={`INfoEFfetMajOui`}
+        label={`Oui`}
+        value="Oui"
+        name="INfoEFfetMaj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`INfoEFfetMajNon`}
+        label={`Non`}
+        value="Non"
+        name="INfoEFfetMaj"
+        
+        
+      />
+      </div>
+      </Form>
       </label>
       <input
         onClick={changementCouleurSVGInfoEffet}
@@ -393,13 +539,35 @@ function ContreIndicationMineure(props) {
       <br></br>
       </div>
       <div className="ConsultationContainer">
+      <h3>Contexte biopsychosocial favorable à l’IVG hors établissement :</h3>
+
       <label>
-        <h3>Contexte biopsychosocial favorable à l’IVG hors établissement :</h3>
-        <Button variant="secondary" onClick={augmenteCount}>Oui</Button>
-        <Button variant="secondary" onClick={()=>{clicVerrouUnAffichage();
+        <Form>
+      <div key={`biopsychosocialCMaj-radio`} className="mb-3" onChange={(e)=>{
         augmenteCount();}}>
-          Non
-        </Button>
+      <Form.Check 
+        type='radio'
+        id={`biopsychosocialCMajOui`}
+        label={`Oui`}
+        value="Oui"
+        name="biopsychosocialContreMaj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`biopsychosocialCMajNon`}
+        label={`Non`}
+        value="Non"
+        name="biopsychosocialContreMaj"
+        onClick={()=>{clicVerrouUnAffichage();
+          }}
+        
+        
+      />
+      </div>
+      </Form>
+
         <div>{currentInfoVerrouUn}</div>
       </label>
       </div>
@@ -414,7 +582,8 @@ function ContreIndicationMineure(props) {
       </a>
 
 
-      <Button onClick={afficheStateFin} variant="danger">
+      <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+      changeCouleurBoutonViolence(e);}} variant="danger">
         Valider mes choix
       </Button>{" "}
       <br></br>

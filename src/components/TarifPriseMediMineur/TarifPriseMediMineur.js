@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'; 
+import React, { useState, useRef, useEffect } from 'react'; 
 import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
 import ResumePremierePriseMedicamentMajeure from '@components/ResumePremierePriseMedicamentMajeure';
@@ -12,6 +12,11 @@ import FicheConseil from "@assets/docx/FicheConseilSurveillance.docx";
 
 
 function TarifPriseMediMineur(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
+
   /// test impression
   const componentRef = useRef();
   const handlePrint = useReactToPrint({

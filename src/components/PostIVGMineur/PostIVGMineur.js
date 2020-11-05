@@ -898,17 +898,7 @@ const changeCouleurBoutonViolence = (e) => {
 
         /////////////////////////////// Bloc Accc
 
-        const recupAcc = (e) => {
-          e.preventDefault();
-          let reponse = {
-            titre: "Personne accompagnante majeure ou consentement parental : ",
-            value: e.target.value,
-            reponse : 1
-          };
-          setCurrentAcc(reponse);
-        
-          console.log("Personne accompagnante majeure ou consentement parental : " + reponse.value);
-        };
+      
 
         const returnInfoAcc = () => {
           return (
