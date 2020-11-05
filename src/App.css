@@ -71,6 +71,12 @@ a:active {
 
 }
 
+.navbar{
+  font-weight: bold;
+  font-size: large;
+
+}
+
 h1{
   font-weight: bold;
   font-size: large;
