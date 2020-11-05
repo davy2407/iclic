@@ -1372,7 +1372,7 @@ Cette violence peut être physique, sexuelle, économique,
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
 
       <Form>
-      <div key={`Vio-radio`} className="mb-3" onChange={(e)=>{recupRadioViolence(e);}}>
+      <div key={`Vio-radio`} className="mb-3" >
       <Form.Check 
         type='radio'
         id={`VioOui`}

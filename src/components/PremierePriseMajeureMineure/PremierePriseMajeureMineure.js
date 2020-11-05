@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button, Form } from "react-bootstrap";
 
@@ -15,13 +15,18 @@ import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
 
 function PremierePriseMajeureMineure(props) {
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
+
     const [globalStateFin, setGlobalStateFin] = useState(props.onData);
 
     const afficheStateFin = () => {
       let liste = [...globalStateFin];
-      liste.push(currentDateInjection);
-      liste.push(currentDateMife);
-      liste.push(currentDateMiso);
       liste.push(currentArret);
       liste.push(currentContra);
       liste.push(currentTypeContra);
@@ -31,6 +36,11 @@ function PremierePriseMajeureMineure(props) {
       liste.push(currentDateHPV);
       liste.push(currentTabac);
       liste.push(currentNbTabac);
+      liste.push(currentInjection);
+      liste.push(currentDateInjection);
+      liste.push(currentDateMife);
+      liste.push(currentDateMiso);
+
       let noReponse = [];
       for (let index = 0; index < liste.length; index++) {
       
@@ -61,11 +71,114 @@ function PremierePriseMajeureMineure(props) {
   ///Bloc fonctionnel
 
 
+  ///// recup radio 
+
+  const recupRadioTabac = (e) => {
+    let reponse = {
+      titre: "Tabac : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    setCurrentTabac(reponse);
+    
+  }
+
+  const recupRadioArret = (e) => {
+    let reponse = {
+      titre: "Arrêt de travail prescrit : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    
+    setCurrentArret(reponse);
+  }
+
+  const recupRadioHPV = (e) => {
+    let reponse = {
+      titre : "Frottis à jour (ou test HPV) : ",
+      value : e.target.value,
+      reponse : 1
+    };
+    setCurrentHPV(reponse);
+  }
+
+
+  const recupRadioIST = (e) => {
+    let reponse = {
+      titre : "Recherche IST : ",
+      value : e.target.value,
+      reponse : 1
+    };
+    setCurrentIst(reponse);
+  }
+
+  const recupRadioContraception = (e) => {
+    let reponse = {
+      titre: "Contraception choisie par la patiente : ",
+      value: e.target.value,
+      reponse : 1
+    };
+    
+    setCurrentContra(reponse);
+    
+  }
+
+  const recupRadioIG = (e) => {
+    let reponse = {
+      titre : "Injection préventive d’Ig anti-D : ",
+      value : e.target.value,
+      reponse : 1
+    };
+    setCurrentInjection(reponse);
+  }
+
+
+
+
+
+  ///// boutton
+
+
+  
+  const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+  const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+  const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+  const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+ const changeCouleurBoutonViolence = (e) => {
+    
+    
+    
+  
+    if (e.target.className==couleurBouttonSel) {
+      e.target.className=couleurBouttonBase;
+      
+    }
+    else {
+      e.target.className=couleurBouttonSel;
+
+    }
+
+
+
+ }
+
+
+
   //// state 
   const [ currentInjection, setCurrentInjection] = useState({
     titre : "Pas de réponses",
     value : "",
-    reponse : 1
+    reponse : 0
 
   });
 
@@ -349,13 +462,10 @@ signature du praticien ainsi que la date
   const recupIg = (e) => {
     e.preventDefault();
     let reponse = {
-      titre : "Test",
+      titre : "Injection préventive d’Ig anti-D : ",
       value : e.target.value
     };
-    let liste = [...globalStateFin];
-    liste.push(reponse);
-    setGlobalStateFin(liste);
-    console.log(liste);
+    setCurrentInjection(reponse);
   };
   const handleChangeInj = (e) => {
     /// recup date frotti
@@ -582,18 +692,7 @@ HAS recommande la séquence de traitement Per Os.
 
   //// Bloc Arrêt de travail prescrit pour la prise médicamenteuse :
 
-  const recupArret = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Arrêt de travail prescrit : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentArret(reponse);
-    
-    console.log("Arrêt de travail prescrit : " + reponse.value);
-  };
+ 
 
   const arretTravail = () => {
     return (
@@ -862,8 +961,41 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
           <div className="BulleInfo">
               
               <p>
-               HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans.»      
-                      </p>
+         HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
+        </p>
+        
+        
+        <p>
+          De nombreuses sources numériques existent pour l’information aux
+          patient(es) des IST ainsi que de ces risques
+          <a rel="noreferrer noopener"
+            href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+            target="_blank"
+          >
+            Ameli IST
+          </a>
+          ,{" "}
+          <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noreferrer noopener">
+            ISt-info
+          </a>
+          .
+        </p>
+        <br></br>
+
+        <label>
+          Vous desirez plus d'informations à transmettre à la patiente ?
+          <Button className={btnOuiViolenceBase}
+            variant="danger"
+            value="Oui"
+            onClick={(e) => {
+              recupInfoSupp(e);
+              changeCouleurBoutonViolence(e);
+            }}
+          >
+            Oui
+          </Button>
+        
+        </label>
               
           </div>
       )
@@ -899,16 +1031,31 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
   ///////////////////////////////////////////////////////////////////////////////////////
 
   //// Bloc frotti
-  const recupFrotti = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre : "Frottis à jour (ou test HPV) : ",
-      value : e.target.value,
-      reponse : 1
-    };
-    setCurrentHPV(reponse);
-    console.log("type frotti " + reponse.value);
+
+  const NonFrotti = () => {
+    return (
+      <div>
+        <p className="Red">
+        prévoir en postIVG 
+        </p>
+      </div>
+    )
+  }
+
+  const [ txtNonFrotti, setTxtNonFrotti] = useState(()=>NonFrotti());
+
+  const [ currentNonFrotti, setCurrentNonFrotti] = useState("");
+
+  const affichageTxtFrottiNon = () => {
+    let txtAEnlever = currentNonFrotti;
+    let txtAAfficher = txtNonFrotti;
+    setCurrentNonFrotti(txtAAfficher);
+    
   };
+
+
+
+
 
   const handleChangeFrotti = (e) => {
     /// recup date frotti
@@ -1074,10 +1221,42 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           <label>
         Consultation faite dans le cadre des dispositions du Covid valable
         jusqu’au 31 octobre 2020 : 
-        <Button variant="secondary" onClick={()=> {affichageOuiCovid()}}>Oui</Button>
-        <Button variant="secondary" onClick={()=> {affichageNonCovid()}}>Non</Button>
+        <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
+       
+        affichageOuiCovid(); 
+        changeCouleurBoutonViolence(e);}}
+        >Oui</Button>
       </label>
   <div>{currentOui}</div>
+
+  
+  <div className="BulleInfo">
+              <p>
+              Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé. 
+              </p>
+              <p>
+              Commande à usage professionnel auprès de la pharmacie d’officine de son choix. La commande comprend les mentions suivantes :
+              </p>
+              
+              <ul>
+                  <li>
+                  Le nom, la qualité, le numéro d’inscription à l’Ordre, l’adresse et la 
+signature du praticien ainsi que la date
+                  </li>
+                  <li>
+                  Le nom des médicaments et le nombre de boîtes commandées
+                  </li>
+                  <li>
+                  La mention « usage professionnel
+                  </li>
+                  <li>
+                  Le nom de l’établissement de santé avec lequel le praticien a conclu une convention ainsi que la date de cette convention.
+                  </li>
+
+
+              </ul>
+          </div>
+
       <br></br>
           </div>
 
@@ -1090,8 +1269,27 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
 <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
-      <Button variant="secondary">Oui</Button>
-      <Button variant="secondary">Non</Button>
+      <Form>
+      <div key={`Vio-radio`} className="mb-3" >
+      <Form.Check 
+        type='radio'
+        id={`VioOui`}
+        label={`Oui`}
+        value="Oui"
+        name="violencePrise"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`VioNon`}
+        label={`Non`}
+        value="Non"
+        name="violencePrise"
+      />
+      </div>
+      </Form>
+
+
       <input
         onClick={changementCouleurSVGViolence}
         className="Lampe"
@@ -1102,11 +1300,33 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
       <div className="ConsultationContainer">
       <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=> {
+      <Form>
+      <div key={`NeInjMAj-radio`} className="mb-3" onChange={(e)=>{recupRadioIG(e);}} >
+      <Form.Check 
+        type='radio'
+        id={`NeInjMAjOui`}
+        label={`Oui`}
+        value="Oui"
+        name="NeInjMAj"
+        onClick={()=> {
           affichageDateIg();
-          recupIg(e);
-          }}>Oui</Button>
-        <Button variant="secondary" >Non</Button>
+         
+          }}
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`NeInjMAjNon`}
+        label={`Non`}
+        value="Non"
+        name="NeInjMAj"
+        
+      />
+
+      </div>
+      </Form>
+
   <div>{currentDateIgAntiD}</div>
   <input
         onClick={changementCouleurSVGInjection}
@@ -1119,8 +1339,30 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Remise et prise de mifépristone :</h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+
+
+      <Form>
+      <div key={`DeliMifeMAJ-radio`} className="mb-3" >
+      <Form.Check 
+        type='radio'
+        id={`DeliMifeMAJOui`}
+        label={`Oui`}
+        value="Oui"
+        name="DeliMifeMAJ"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`DeliMifeMAJNon`}
+        label={`Non`}
+        value="Non"
+        name="DeliMifeMAJ"
+        
+      />
+
+      </div>
+      </Form>
         
       <input
         type="date"
@@ -1143,8 +1385,32 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Délivrance du misoprostol : </h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+
+
+      
+      <Form>
+      <div key={`DeliMisoMAJ-radio`} className="mb-3" >
+      <Form.Check 
+        type='radio'
+        id={`DeliMisoMAJOui`}
+        label={`Oui`}
+        value="Oui"
+        name="DeliMisoMAJ"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`DeliMisoMAJNon`}
+        label={`Non`}
+        value="Non"
+        name="DeliMisoMAJ"
+        
+      />
+
+      </div>
+      </Form>
+
         <input
         type="date"
         name="dateMiso"
@@ -1167,8 +1433,30 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Arrêt de travail prescrit pour la prise médicamenteuse :</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupArret(e)}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupArret(e)}} >Non</Button>
+
+      <Form>
+      <div key={`ArretMAj-radio`} className="mb-3" onChange={(e)=>{recupRadioArret(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ArretMAjOui`}
+        label={`Oui`}
+        value="Oui"
+        name="ArretMAj"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`ArretMAjNon`}
+        label={`Non`}
+        value="Non"
+        name="ArretMAj"
+        
+      />
+
+      </div>
+      </Form>
+
         <input
         onClick={changementCouleurSVGArretTravail}
         className="Lampe"
@@ -1181,10 +1469,29 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Contraception choisie par la patiente :</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{
-        recupContra(e);
-        affichageTxtTypeContra();}} >Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}} >Non</Button>
+      <Form>
+      <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`contracepOui`}
+        label={`Oui`}
+        value="Oui"
+        name="contraception"
+        onClick={()=>{
+          affichageTxtTypeContra();}}
+      />
+
+<Form.Check 
+        type='radio'
+        id={`contracepNon`}
+        label={`Non`}
+        value="Non"
+        name="contraception"
+        
+      />
+
+      </div>
+      </Form>
   <div>{currentTxtTypeContra}</div>
   <input
         onClick={changementCouleurSVGContraception}
@@ -1196,9 +1503,29 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
 
       <div className="ConsultationContainer">
-      <h2>Prescription d’un dosage de B-HCG à faire pour la consultation de contrôle J15-21 ou d’un autotest urinaire combiné à un suivi téléphonique :</h2>
-      <Button variant="secondary" value="Oui" >Oui</Button>
-        <Button variant="secondary" value="Non" >Non</Button>
+      <h2>Prescription d’un dosage de ß-HCG à faire pour la consultation de contrôle J15-21 ou d’un autotest urinaire combiné à un suivi téléphonique :</h2>
+
+      <Form>
+      <div key={`Prescription-radio`} className="mb-3" >
+      <Form.Check 
+        type='radio'
+        id={`PrescriptionMajoui`}
+        label={`Oui`}
+        value="Oui"
+        name="PrescriptionMaj"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`PrescriptionMajNon`}
+        label={`Non`}
+        value="Non"
+        name="PrescriptionMaj"
+      />
+      </div>
+      </Form>
+
+
         <input
         onClick={changementCouleurSVGDosage}
         className="Lampe"
@@ -1211,26 +1538,25 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie </h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e);}} >Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e);}} >Non</Button>
+      <Form>
+      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ISToui`}
+        label={`Oui`}
+        value="Oui"
+        name="ISTantibio"
+      />
 
-        <p>
-              De nombreuses sources numériques existent pour l’information aux
-              patiente(s) des IST ainsi que de ces risques
-              <a
-                href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
-                target="_blank"
-              >
-                Ameli IST
-              </a>
-              ,{" "}
-              <a href="http://www.info-ist.fr/index.html" target="_blank">
-                ISt-info
-              </a>
-              .
-            </p>
-            <p>Souhaitez vous transmettre ces informations à la patiente ?</p>
-        <Button variant="secondary" value="Oui" onClick={recupInfoSupp} >Oui</Button>
+<Form.Check 
+        type='radio'
+        id={`IstNon`}
+        label={`Non`}
+        value="Non"
+        name="ISTantibio"
+      />
+      </div>
+      </Form>
 
         <input
         onClick={changementCouleurSVGHAS}
@@ -1244,36 +1570,54 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
       <div className="ConsultationContainer">
       <h2>Frottis à jour ou test HPV</h2>
-      <label>
-        Frotti à jour :
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Non
-        </Button>
-        <Button
-          value="Non Concernée"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Non Concernée
-        </Button>
-      </label>
+    
+      <br></br>
+      <Form>
+      <div key={`hpv-radio`} className="mb-3" onChange={(e)=>{recupRadioHPV(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`hpvOui`}
+        label={`Oui`}
+        value="Oui"
+        name="HPV"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`hpvNon`}
+        label={`Non`}
+        value="Non"
+        name="HPV"
+        onClick={(e) => {
+           
+          affichageTxtFrottiNon();
+         
+        }}
+      />
+
+      <Form.Check 
+        type='radio'
+        id={`default-radio`}
+        label={`Non Concernée`}
+        value="Non Concernée"
+        name="HPV"
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
+
+     
+
+  
+       
+        <div className="ContainerBulle">{currentNonFrotti}</div>
+      
       <br></br>
       <label for="dateFrotti">Date : </label>
       <input
@@ -1284,50 +1628,63 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           handleChangeFrotti(e);
         }}
       ></input>
-     <input
+      <br></br>
+      <input
         onClick={changementCouleurSVGFrotti}
         className="Lampe"
         type="image"
         src={logoAfficheFrotti}
       />
-      <p>{currentTxtFrotti}</p>
+      <br></br>
+      <div className="ContainerBulle">{currentTxtFrotti}</div>
+      <br></br>
       </div>
 
 
       <div className="ConsultationContainer">
       <h2>Tabac</h2>
-      <label>
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Non
-        </Button>
-      </label>
+      <br></br>
+      <Form>
+      <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`tabacOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Tabac"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`tabacNon`}
+        label={`Non`}
+        value="Non"
+        name="Tabac"
+        
+      />
+
+      </div>
+      </Form>
+
+
       <br></br>
       
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
-      <form >
+      <form  onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
+                
                 value={nouvelleRecherchePaquet}
                 onChange={handleChangePaquet}
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
-              handleSubmitPaquet(e)
+            <Button  className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
+              handleSubmitPaquet(e);
+              changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
       </div>
@@ -1339,7 +1696,8 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
 
 
         <br></br>
-        <Button onClick={afficheStateFin}>Valider mes choix</Button>
+        <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+      changeCouleurBoutonViolence(e);}} variant="danger">Valider mes choix</Button>
         <div>{currentReponseTarif}</div>
       
         
