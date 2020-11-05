@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
@@ -9,6 +9,10 @@ import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 import "./PriseMediContreIndication.css";
 
 function PriseMediContreindication(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
 

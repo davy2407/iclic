@@ -17,6 +17,11 @@ import "./DeuxiemeConsultationMajeureNA.css";
 /// feuille de deuxieme consultation, patiente majeure non anonyme
 function DeuxiemeConsultationMajeureNA(props) {
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
+
+
 
   //// function radio
 
@@ -74,6 +79,129 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     props.onRecup(liste);
     };
+
+    //// button
+    const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+    const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+  
+  
+  
+    const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+  
+    const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+  
+  
+  
+  
+  
+   const changeCouleurBoutonViolence = (e) => {
+      
+      
+      
+    
+      if (e.target.className==couleurBouttonSel) {
+        e.target.className=couleurBouttonBase;
+        
+      }
+      else {
+        e.target.className=couleurBouttonSel;
+  
+      }
+  
+  
+  
+   }
+
+
+    ////////////: recup radio
+
+    const recupRadioContra = (e) => {
+      let reponse = {
+        titre : "Information contraception postIVG : ",
+        value : e.target.value,
+        reponse : 1
+      };
+      setCurrentInfo(reponse);
+    }
+
+    const recupRadioConsulte = (e) => {
+      let reponse = {
+        titre: "Consultation psychosociale : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentConsultation(reponse)
+    }
+
+    const recupRadioGro = (e) => {
+      let reponse = {
+        titre: "Grossesse intra-utérine confirmée : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentGrossese(reponse)
+    }
+
+    const recupRadioTabac = (e) => {
+      let reponse = {
+        titre: "Tabac : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentTabac(reponse);
+      
+    }
+
+    const recupRadioHPV = (e) => {
+      let reponse = {
+        titre : "Frottis à jour (ou test HPV) : ",
+        value : e.target.value,
+        reponse : 1
+      };
+      setCurrentHPV(reponse);
+    }
+
+    const recupRadioIST = (e) => {
+      let reponse = {
+        titre : "Recherche IST : ",
+        value : e.target.value,
+        reponse : 1
+      };
+      setCurrentIST(reponse);
+    }
+
+    const recupRadioBilan = (e) => {
+   
+      let reponse = {
+        titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations+ BHCG quantitatif ) : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentSang(reponse);
+    }
+
+    const recupRadioAcc = (e) => {
+      let reponse = {
+        titre: "Accompagnant(e) : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentAcc(reponse);
+      
+    }
+
+    const recupRadioAtt = (e) => {
+     
+      let reponse = {
+        titre: "Attestation 1ere consultation préalable en main de la patiente : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentAttestation(reponse);
+    }
+  
+  
 
 
 
@@ -229,16 +357,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
 
     ////// Attestation 1ère consultation préalable à l’IVG
-    const recupAttestation = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre: "Attestation 1ere consultation préalable en main de la patiente : ",
-        value: e.target.value,
-        reponse : 1
-      };
-      setCurrentAttestation(reponse);
-      
-    };
+    
   
     const attestation = () => {
       return (
@@ -279,16 +398,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     ///// accompagnant
 
-    const recupAccompagnant = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre: "Personne accompagnante : ",
-        value: e.target.value,
-        reponse : 1
-      };
-      setCurrentAcc(reponse)
-      
-    };
+    
 
     ////////////////////////////////////////////////////////////////////////////////////
 
@@ -323,6 +433,30 @@ function DeuxiemeConsultationMajeureNA(props) {
     return (
       <div>
           <h4>Attestation</h4>
+          <Form>
+      <div key={`sousAtt-radio`} className="mb-3">
+      <Form.Check 
+        type='radio'
+        id={`sousAttOui`}
+        label={`Oui`}
+        value="Oui"
+        name="sousAtte"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`sousAttNon`}
+        label={`Non`}
+        value="Non"
+        name="sousAtte"
+      />
+      </div>
+      </Form>
+
+
+
+
+
       <Button variant="secondary" value="Oui">Oui</Button>
       <Button variant="secondary" value="Non">Non</Button>
       </div>
@@ -703,23 +837,17 @@ Cette violence peut être physique, sexuelle, économique,
             <label>
               Vous desirez plus d'informations à transmettre à la patiente ?
               <Button
+              className={btnOuiViolenceBase}
                 variant="secondary"
                 value="Oui"
                 onClick={(e) => {
                   recupInfoSupp(e);
+                  changeCouleurBoutonViolence(e);
                 }}
               >
                 Oui
               </Button>
-              <Button
-                variant="secondary"
-                value="Non"
-                onClick={(e) => {
-                  recupInfoSupp(e);
-                }}
-              >
-                Non
-              </Button>
+             
             </label>
     
             <br></br>
@@ -756,16 +884,7 @@ Cette violence peut être physique, sexuelle, économique,
       ////// bilan sanguin
       
 
-  const recupBilan = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    setCurrentSang(reponse);
-    
-  };
+  
       const returnInfoSang = () => {
         return (
           <div className="BulleInfo">
@@ -852,16 +971,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
 
       ////////////: contraception post IVG
-      const recupinfoPostIVG = (e) => {
-        e.preventDefault();
-        let reponse = {
-          titre : "Information contraception postIVG : ",
-          value : e.target.value,
-          reponse : 1
-        };
-        setCurrentInfo(reponse);
-        
-      };
+     
 
       const returnInfoPostIVG = () => {
         return (
@@ -912,16 +1022,28 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
 
       ////////: frotti
-      const recupFrotti = (e) => {
-        e.preventDefault();
-        let reponse = {
-          titre : "Frottis à jour (ou test HPV) : ",
-          value : e.target.value,
-          reponse : 1
-        };
-        setCurrentHPV(reponse)
+
+      const NonFrotti = () => {
+        return (
+          <div>
+            <p className="Red">
+            prévoir en postIVG 
+            </p>
+          </div>
+        )
+      }
+    
+      const [ txtNonFrotti, setTxtNonFrotti] = useState(()=>NonFrotti());
+    
+      const [ currentNonFrotti, setCurrentNonFrotti] = useState("");
+    
+      const affichageTxtFrottiNon = () => {
+        let txtAEnlever = currentNonFrotti;
+        let txtAAfficher = txtNonFrotti;
+        setCurrentNonFrotti(txtAAfficher);
         
       };
+      
     
       const [dateFrottiFin, setDateFrottiFin] = useState({});
     
@@ -993,16 +1115,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
       //// Tabac 
 
-      const recupTabac = (e) => {
-        e.preventDefault();
-        let reponse = {
-          titre: "Tabac : ",
-          value: e.target.value,
-          reponse : 1
-        };
-        setCurrentTabac(reponse);
-        
-      };
+      
     const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
  
 
@@ -1040,35 +1153,107 @@ const handleSubmitPaquet = event => {
 
             <div className="ConsultationContainer">
             <h2>Attestation première consultation préalable à l’IVG : </h2>
-            <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
+
+
+
+
+
+
+
+            <Form>
+      <div key={`Att-radio`} className="mb-3" onChange={(e)=>{recupRadioAtt(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`AttOui`}
+        label={`Oui`}
+        value="Oui"
+        name="attestation"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`AttNon`}
+        label={`Non`}
+        value="Non"
+        name="attestation"
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
+          
             <input
         onClick={changementCouleurSVGAttestation}
         className="Lampe"
         type="image"
         src={logoAfficheAttestation}
       />
-      <div>  {currentInfoAttestation}</div>
+      <div className="ContainerBulle">  {currentInfoAttestation}</div>
             </div>
-
-
-
-            <div className="ConsultationContainer">
+           <div className="ConsultationContainer">
             <h2>Personne accompagnante :</h2>
-            <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+            <Form>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`accOui`}
+        label={`Oui`}
+        value="Oui"
+        name="accompagant"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`accNon`}
+        label={`Non`}
+        value="Non"
+        name="accompagant"
+      />
+      </div>
+      </Form>
+
+
             </div>
-
-
-            <div className="ConsultationContainer">
+           <div className="ConsultationContainer">
             <h2>Consultation psycho-sociale réalisée :</h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{
-              recupPsy(e);
-              afficheAttestation();
-              
-            }}>Oui</Button>
+
+            <Form>
+      <div key={`Consult-radio`} className="mb-3" onChange={(e)=>{recupRadioConsulte(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ConsultOui`}
+        label={`Oui`}
+        value="Oui"
+        name="consultation"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`ConsultNon`}
+        label={`Non`}
+        value="Non"
+        name="consultation"
+        onClick={()=>{
+          
+          afficheAttestation();
+          
+        }}
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
             
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupPsy(e);}}>Non</Button>
             <div>{currentAfficheAttestation}</div>
             <input
         onClick={changementCouleurSVGConsultationPsy}
@@ -1076,20 +1261,32 @@ const handleSubmitPaquet = event => {
         type="image"
         src={logoAfficheConsultationPsy}
       />
-      <div>  {currentInfoConsultationPsy}</div>
+      <div className="ContainerBulle">  {currentInfoConsultationPsy}</div>
             </div>
-          
             <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
-      <div onChange={(e)=>{recupRadioViolence(e);}}>
-      <div>
-      <input id="Voui" type="radio" value="Oui" name="violence" /> 
-      <label for="Voui">Oui</label>
+      <div >
+
+
+      <Form>
+      <div key={`vio-radio`} className="mb-3">
+      <Form.Check 
+        type='radio'
+        id={`Voui`}
+        label={`Oui`}
+        value="Oui"
+        name="violence"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`Vnon`}
+        label={`Non`}
+        value="Non"
+        name="violence"
+      />
       </div>
-      <div>
-      <input id="Vnon" type="radio" value="Non" name="violence" /> 
-      <label for="Vnon">Non</label>
-      </div>
+      </Form>
 
       </div>
       {/* <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
@@ -1100,16 +1297,40 @@ const handleSubmitPaquet = event => {
         type="image"
         src={logoAfficheViolence}
       />
-      <div>  {currentInfoViolence}</div>
+      <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
             <div className="ConsultationContainer">
             <h2>Grossesse intra-utérine confirmée :</h2>
-            <Button variant="secondary" value="Oui" onClick={recupGro}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={recupGro}>Non</Button>
+
+            <Form>
+      <div key={`gro-radio`} className="mb-3" onChange={(e)=>{recupRadioGro(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`groOui`}
+        label={`Oui`}
+        value="Oui"
+        name="grossesse"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`groNon`}
+        label={`Non`}
+        value="Non"
+        name="grossesse"
+      />
+      </div>
+      </Form>
+
+
+
+
+
+
+
+
             </div>
-
-
-            <div className="ConsultationContainer">
+           <div className="ConsultationContainer">
             <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
@@ -1118,7 +1339,8 @@ const handleSubmitPaquet = event => {
         value={saisieUtilisateurNbSemaineSA}
         onChange={handleChangeSA}
       />
-      <Button variant="danger" onClick={recupSaisieUtilisateurNbSemaine}>
+      <Button className={btnOuiViolenceBase} variant="danger" onClick={(e)=>{recupSaisieUtilisateurNbSemaine(e);
+      changeCouleurBoutonViolence(e);}}>
         Valider
       </Button>
       <br></br>
@@ -1128,31 +1350,30 @@ const handleSubmitPaquet = event => {
       <br></br>
 
             </div>
-
-
       <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
      
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupIST(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupIST(e);
-          }}
-        >
-          Non
-        </Button>
+      <Form>
+      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ISToui`}
+        label={`Oui`}
+        value="Oui"
+        name="ISTantibio"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`IstNon`}
+        label={`Non`}
+        value="Non"
+        name="ISTantibio"
+      />
+      </div>
+      </Form>
       </label>
       <br></br>
       <input
@@ -1161,7 +1382,7 @@ const handleSubmitPaquet = event => {
         type="image"
         src={logoAfficheIST}
       />
-      <div>  {currentInfoIST}</div>
+      <div className="ContainerBulle">  {currentInfoIST}</div>
       </div>
       <div className="ConsultationContainer">
       <h2>
@@ -1169,27 +1390,26 @@ const handleSubmitPaquet = event => {
         quantitatif)
       </h2> 
       <br></br>
-      <label>
-        
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupBilan(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupBilan(e);
-          }}
-        >
-          Non
-        </Button>
-      </label>
+      <Form>
+      <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`BilanOui`}
+        label={`Oui`}
+        value="Oui"
+        name="BilanSang"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`BilanNon`}
+        label={`Non`}
+        value="Non"
+        name="BilanSang"
+      />
+      </div>
+      </Form>
+
       <input
         onClick={changementCouleurSVGSang}
         className="Lampe"
@@ -1197,28 +1417,31 @@ const handleSubmitPaquet = event => {
         src={logoAfficheSang}
       />
       <br></br>
-      <div>{currentInfoSang}</div>
+      <div className="ContainerBulle">{currentInfoSang}</div>
 
 
       </div>
         <div className="ConsultationContainer">
         <h2>Dosage ß-HCG : </h2>
-        <form >
+        <form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
                 value={dosageHCG}
                 onChange={handleDosageHCG}
                 type="text"
                 placeholder="dosage ß-HCG"
             />
-            <Button value={dosageHCG} variant="secondary" onClick={(e)=> {
-              handleSubmitDosageHCG(e)
+            <Button  className={btnOuiViolenceBase} value={dosageHCG} variant="danger" onClick={(e)=> {
+              handleSubmitDosageHCG(e);
+              changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
             
         </form>
         </div>
-
-
-        <div className="ConsultationContainer">
+       <div className="ConsultationContainer">
         <h3>Groupe sanguin : </h3>
         <Form.Group>
   <Form.Control as="select" size="lg" onChange={(e) => {
@@ -1236,41 +1459,27 @@ const handleSubmitPaquet = event => {
   </Form.Control>
   </Form.Group>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        <div className="ConsultationContainer">
+      <div className="ConsultationContainer">
         <h2>Information contraception post-IVG</h2>
-        <label>
-        
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupinfoPostIVG(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupinfoPostIVG(e);
-          }}
-        >
-          Non
-        </Button>
-      </label>
+        <Form>
+      <div key={`contra-radio`} className="mb-3" onChange={(e)=>{recupRadioContra(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`contraOui`}
+        label={`Oui`}
+        value="Oui"
+        name="contraception"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`contraNon`}
+        label={`Non`}
+        value="Non"
+        name="contraception"
+      />
+      </div>
+      </Form>
       <br></br>
       <input
         onClick={changementCouleurSVGPostIVG}
@@ -1279,57 +1488,46 @@ const handleSubmitPaquet = event => {
         src={logoAffichePostIVG}
       />
       <br></br>
-      <div>{currentInfoPostIVG}</div>
+      <div className="ContainerBulle">{currentInfoPostIVG}</div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-<div className="ConsultationContainer">
+ <div className="ConsultationContainer">
 <h2>Frottis à jour ou test HPV</h2>
       <br></br>
-      <label>
-   
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Non
-        </Button>
-        <Button
-          value="Non Concernée"
-          variant="secondary"
-          onClick={(e) => {
-            recupFrotti(e);
-          }}
-        >
-          Non Concernée
-        </Button>
-      </label>
+      <Form>
+      <div key={`hpv-radio`} className="mb-3" onChange={(e)=>{recupRadioHPV(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`hpvOui`}
+        label={`Oui`}
+        value="Oui"
+        name="HPV"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`hpvNon`}
+        label={`Non`}
+        value="Non"
+        name="HPV"
+        onClick={() => {
+           
+          affichageTxtFrottiNon();
+         
+        }}
+      />
+
+      <Form.Check 
+        type='radio'
+        id={`default-radio`}
+        label={`Non Concernée`}
+        value="Non Concernée"
+        name="HPV"
+      />
+      </div>
+      </Form>
+      <div className="ContainerBulle">{currentNonFrotti}</div>
+
+
       <br></br>
       <label for="dateFrotti">Date : </label>
       <input
@@ -1348,41 +1546,48 @@ const handleSubmitPaquet = event => {
         src={logoAfficheFrotti}
       />
       <br></br>
-      <div>{currentInfoFrotti}</div>
+      <div className="ContainerBulle">{currentInfoFrotti}</div>
 </div>
-
-
-        <div className="ConsultationContainer">
+ <div className="ConsultationContainer">
         <h2>Tabac :</h2>
         <label>
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Non
-        </Button>
+        <Form>
+      <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`tabacOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Tabac"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`tabacNon`}
+        label={`Non`}
+        value="Non"
+        name="Tabac"
+        
+      />
+
+      </div>
+      </Form>
       </label>
-        <form >
+      <form  onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
+                
                 value={nouvelleRecherchePaquet}
                 onChange={handleChangePaquet}
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
-              handleSubmitPaquet(e)
+            <Button  className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
+              handleSubmitPaquet(e);
+              changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
         </div>

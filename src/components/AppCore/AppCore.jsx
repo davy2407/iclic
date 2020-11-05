@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 /// finir PremiereMediMineureANA , texte a changer etc voir signes ///
 
 // import iclic components
@@ -54,6 +54,9 @@ import {Button} from "react-bootstrap";
 import "./AppCore.css";
 
 function AppCore() {
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   /// State gérant le texte à afficher au démmarage
   const accueil =()=> {
     return (

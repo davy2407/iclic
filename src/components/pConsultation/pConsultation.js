@@ -28,6 +28,10 @@ function PConsultation(props) {
   ///////////////////////////
 
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
+
   const recupRadioViolence = (e) => {
     console.log("Violence : "+e.target.value);
   }
@@ -477,6 +481,7 @@ const handleSubmitPaquet = event => {
     reponse : 1
   };
  setCurrentNbTabac(reponse);
+ 
 
     console.log("nb paquet : "+reponse.value);
     setNbTabacFin(reponse);
@@ -534,24 +539,15 @@ const handleSubmitPaquet = event => {
             value="Oui"
             onClick={(e) => {
               recupInfoSupp(e);
+              changeCouleurBoutonViolence(e);
             }}
           >
             Oui
           </Button>
-          <Button className={btnOuiViolenceBase}
-            variant="danger"
-            value="Non"
-            onClick={(e) => {
-              recupInfoSupp(e);
-            }}
-          >
-            Non
-          </Button>
+        
         </label>
 
-        <br></br>
-
-        <br></br>
+ 
       </div>
     );
   };
@@ -828,8 +824,6 @@ Cette violence peut être physique, sexuelle, économique,
     dateDDR.getMonth(),
     dateDDR.getDate()
   );
-  console.log(todayInUTC);
-  console.log(dateDDRInUTC);
 
 
   const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
@@ -852,7 +846,6 @@ Cette violence peut être physique, sexuelle, économique,
     reponse : 1
 
   };
-  console.log(reponse2);
   setCurrentDDRDay(reponse2);
     setCurrentDDRSA(reponse);
   
@@ -1167,8 +1160,8 @@ Cette violence peut être physique, sexuelle, économique,
         Date incertaine ?<Button className={btnOuiViolenceBase} variant="danger" onClick={(e)=>{clicDateIncertaine();
         changeCouleurBoutonViolence(e);}}>Oui</Button>
       </label>
-      <div>{currentVerrou}</div>
-      <div>{currentIncertaine}</div>
+      <div  className="ContainerBulle">{currentVerrou}</div>
+      <div  className="ContainerBulle">{currentIncertaine}</div>
       <br></br>
       
       <br></br>
@@ -1228,7 +1221,7 @@ Cette violence peut être physique, sexuelle, économique,
         type="image"
         src={logoAfficheEcho}
       />
-      <p>{currentInfoEcho}</p>
+      <div className="ContainerBulle">{currentInfoEcho}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -1413,7 +1406,7 @@ Cette violence peut être physique, sexuelle, économique,
         type="image"
         src={logoAfficheViolence}
       />
-      <div>  {currentInfoViolence}</div>
+      <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
 
       <div className="ConsultationContainer">
@@ -1445,7 +1438,7 @@ Cette violence peut être physique, sexuelle, économique,
         type="image"
         src={logoAfficheIST}
       />
-      <div>  {currentInfoIST}</div>
+      <div className="ContainerBulle">  {currentInfoIST}</div>
       {/* Bloc a finir */}
       <br></br>
       </div>
@@ -1485,7 +1478,7 @@ Cette violence peut être physique, sexuelle, économique,
         src={logoAfficheSang}
       />
       <br></br>
-      <div>{currentInfoSang}</div>
+      <div className="ContainerBulle">{currentInfoSang}</div>
 
       <br></br>
 
@@ -1555,7 +1548,7 @@ Cette violence peut être physique, sexuelle, économique,
         src={logoAffichePsycho}
       />
       <br></br>
-      <div>{currentInfoPsycho}</div>
+      <div className="ContainerBulle">{currentInfoPsycho}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -1590,7 +1583,7 @@ Cette violence peut être physique, sexuelle, économique,
         src={logoAffichePostIVG}
       />
       <br></br>
-      <div>{currentInfoPostIVG}</div>
+      <div className="ContainerBulle">{currentInfoPostIVG}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -1640,7 +1633,7 @@ Cette violence peut être physique, sexuelle, économique,
 
   
        
-        <div>{currentNonFrotti}</div>
+        <div className="ContainerBulle">{currentNonFrotti}</div>
       
       <br></br>
       <label for="dateFrotti">Date : </label>
@@ -1660,7 +1653,7 @@ Cette violence peut être physique, sexuelle, économique,
         src={logoAfficheFrotti}
       />
       <br></br>
-      <div>{currentInfoFrotti}</div>
+      <div className="ContainerBulle">{currentInfoFrotti}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -1692,7 +1685,11 @@ Cette violence peut être physique, sexuelle, économique,
       <br></br>
       
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
-      <form >
+      <form  onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
                 
                 value={nouvelleRecherchePaquet}

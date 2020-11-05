@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
 import TestPrint from '@components/TestPrint';
@@ -9,6 +9,10 @@ import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 
 
 function TarificationPremierContactMNA(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   /// test impression
   const componentRef = useRef();
   const handlePrint = useReactToPrint({

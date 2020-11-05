@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button} from "react-bootstrap";
 import ResumeDeuxConsulteMajeureNA from '@components/ResumeDeuxConsulteMajeureNA';
@@ -12,6 +12,10 @@ import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
 
 
 function TarifDeuxiemeConsulteMajeureNA(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   /// test impression
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
