@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button} from "react-bootstrap";
 import ResumePostIVGMajeure from '@components/ResumePostIVGMajeure';
@@ -9,6 +9,10 @@ import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 
 
 function TarifPostMin(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   /// test impression
   const componentRef = useRef();
   const handlePrint = useReactToPrint({

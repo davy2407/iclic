@@ -14,6 +14,11 @@ import "./PostIVGMineur.css";
 
 function PostIVGMineur(props) {
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
+
+
   const afficheStateFin = () => {
     console.log("state de fin va suivre");
     let liste = [];
@@ -23,7 +28,9 @@ function PostIVGMineur(props) {
     liste.push(currentTestUri);
     liste.push(currentPosNe);
     liste.push(currentContra);
+    liste.push(currentTypeContra);
     liste.push(currentIST);
+    liste.push(infoSupp);
     // liste.push(currentHPV);
     // liste.push(currentDateHPV);
     liste.push(currentTabac);
@@ -61,14 +68,144 @@ function PostIVGMineur(props) {
   };
 
 
+         //// button
+const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+const changeCouleurBoutonViolence = (e) => {
+  
+  
+  
+
+  if (e.target.className==couleurBouttonSel) {
+    e.target.className=couleurBouttonBase;
     
+  }
+  else {
+    e.target.className=couleurBouttonSel;
+
+  }
+
+
+
+}
+
+
+
+
+    ///// recup radio 
+
+    const recupRadioControl = (e) => {
+      let reponse = {
+        titre: "Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
+        value: e.target.value,
+        reponse : 1
+
+      };
+      setCurrentAvis(reponse);
+    }
+
+
+    const recupRadioAuto = (e) => {
+      let reponse = {
+        titre: "Utilisation d’un autotest urinaire : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentTestUri(reponse);
+    };
+
+    const recupRadioPOsNe = (e) => {
+      let reponse = {
+        titre: "résultat autotest urinaire : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentPosNe(reponse);
+    }
+
+    const recupRadioVecu = (e) => {
+      let reponse = {
+        titre: "Vécu de l’IVG traumatique : ",
+        value: e.target.value,
+        reponse : 1
+
+      };
+      setCurrentVecu(reponse);
+    }
+
+    const recupRadioIST = (e) => {
+      let reponse = {
+        titre : "Recherche IST : ",
+        value : e.target.value,
+        reponse : 1
+      };
+      setCurrentIST(reponse);
+    }
+
+    const recupRadioTabac = (e) => {
+      let reponse = {
+        titre: "Tabac : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentTabac(reponse);
+      
+    }
+
+    const recupRadioContraception = (e) => {
+      let reponse = {
+        titre: "Contraception choisie par la patiente : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      
+      setCurrentContra(reponse);
+      
+    }
+
+
+
+    const recupInfoSupp = (e) => {
+      e.preventDefault();
+      let reponse = {
+        titre : "Si ressource cochée oui : ",
+        value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante",
+        reponse : 1
+      };
+      
+      setInfoSupp(reponse);
+    };
+
+    const recupRadioAcc = (e) => {
+      let reponse = {
+        titre: "Personne accompagnante majeurs ou consentement parental : ",
+        value: e.target.value,
+        reponse : 1
+      };
+      setCurrentAcc(reponse);
+      
+    }
+
+
 
     /// current state
 
     const [currentReco, setCurrentReco] = useState({
-      titre : "Pas de réponses",
+      titre : "",
       value : "",
-      reponse : 0
+      reponse : 1
     });
 
     const [currentAcc, setCurrentAcc] = useState({
@@ -81,9 +218,9 @@ function PostIVGMineur(props) {
     
 
     const [currentResultat, setCurrentResultat] = useState({
-      titre : "Pas de réponses",
+      titre : "",
       value : "",
-      reponse : 0
+      reponse : 1
     });
 
     const [currentContra, setCurrentContra] = useState({
@@ -96,6 +233,12 @@ function PostIVGMineur(props) {
       titre : "Pas de réponses",
       value : "",
       reponse : 0
+    });
+
+    const [infoSupp, setInfoSupp] = useState({
+      titre : "",
+      value : "",
+      reponse : 1
     });
 
     
@@ -132,12 +275,18 @@ function PostIVGMineur(props) {
     });
 
     const [currentTestUri, setCurrentTestUri] = useState({
-      titre : "Pas de réponses",
+      titre : "",
       value : "",
-      reponse : 0
+      reponse : 1
     });
 
     const [currentPosNe, setCurrentPosNe] = useState({
+      titre : "",
+      value : "",
+      reponse : 1
+    });
+
+    const [ currentTypeContra, setCurrentTypeContra] = useState({
       titre : "",
       value : "",
       reponse : 1
@@ -288,15 +437,42 @@ function PostIVGMineur(props) {
         const returnInfoDosage = () => {
             return (
               <div className="BulleInfo">
-                <p>
-                 Une baisse supérieure à 80% du dosage initial 15 jours après
-                 l’IVG médicamenteuse est en faveur d’une réussite de celle-ci. 
-L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG
- médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
-                </p>
-                <a className="Bold" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
-                 Lien HAS recommandation
-                </a>
+                  <p>
+         HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
+        </p>
+        
+        
+        <p>
+          De nombreuses sources numériques existent pour l’information aux
+          patient(es) des IST ainsi que de ces risques
+          <a rel="noreferrer noopener"
+            href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
+            target="_blank"
+          >
+            Ameli IST
+          </a>
+          ,{" "}
+          <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noreferrer noopener">
+            ISt-info
+          </a>
+          .
+        </p>
+        <br></br>
+
+        <label>
+          Vous desirez plus d'informations à transmettre à la patiente ?
+          <Button className={btnOuiViolenceBase}
+            variant="danger"
+            value="Oui"
+            onClick={(e) => {
+              recupInfoSupp(e);
+              changeCouleurBoutonViolence(e);
+            }}
+          >
+            Oui
+          </Button>
+        
+        </label>
               </div>
             );
           };
@@ -343,63 +519,111 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
           console.log("Contraception choisie par la patiente : " + reponse.value);
         };
 
-        const returnInfoContraception = () => {
-            return (
-              <div className="BulleInfo">
-                <p className="Red">
-            la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
-             </p>
-             <p>
-             Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
-             </p>
-             <p>
-             La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
-L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
-             </p>
-             <p>
-             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
-             </p>
-            
-             <p>
-                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
-             </p>
-
-
-
-
-
+        const returnInfoContra = () => {
+          return (
+            <div className="BulleInfo">
                 
-              </div>
-            );
+              <p className="Red">
+              la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
+               </p>
+               <p>
+               Rappel : le préservatif : seule méthode efficace contre les IST. 
+    Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+               </p>
+               <p>
+               La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
+    L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
+               </p>
+               <p>
+               DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
+               </p>
+              
+               <p>
+                   <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
+               </p>
+              
+            </div>
+          );
+        };
+        
+          const [txtContra, setTxtContra] = useState(() => returnInfoContra());
+        
+          const [currentInfoContra, setCurrentInfoContra] = useState("");
+        
+          const affichageTxtContra = () => {
+            let txtAEnlever = currentInfoContra;
+            let txtAAfficher = txtContra;
+            setCurrentInfoContra(txtAAfficher);
+            setTxtContra(txtAEnlever);
           };
         
-          const [txtContraception, setTxtContraception] = useState(() => returnInfoContraception());
+          const [logoAfficheContra, setLogoAfficheContra] = useState(LightOff);
+  
+          const [logoNonAfficheContra, setLogoNonAfficheContra] = useState(LightOn);
         
-          const [currentInfoContraception, setCurrentInfoContraception] = useState("");
-        
-          const affichageTxtContraception = () => {
-            let txtAEnlever = currentInfoContraception;
-            let txtAAfficher = txtContraception;
-            setCurrentInfoContraception(txtAAfficher);
-            setTxtContraception(txtAEnlever);
+          const changementCouleurSVGContra = () => {
+            let currentLampe = logoAfficheContra;
+            let currentCache = logoNonAfficheContra;
+            setLogoNonAfficheContra(currentLampe);
+            setLogoAfficheContra(currentCache);
+            affichageTxtContra();
           };
-        
-          const [logoAfficheContraception, setLogoAfficheContraception] = useState(LightOff);
-        
-          const [logoNonAfficheContraception, setLogoNonAfficheContraception] = useState(LightOn);
-        
-          const changementCouleurSVGContraception = () => {
-            let currentLampe = logoAfficheContraception;
-            let currentCache = logoNonAfficheContraception;
-            setLogoNonAfficheContraception(currentLampe);
-            setLogoAfficheContraception(currentCache);
-            affichageTxtContraception();
+      
+
+          const handleTypeContra = (e) => {
+  
+     
+      
+      
+            let reponse = {
+              titre: "Type contraception : ",
+              value: e.target.value,
+              reponse : 1
+            };
+           setCurrentTypeContra(reponse);
+          
+            
           };
 
 
 
-
+          const typeContraception = () => {
+            return (
+                <div>
+                    <Form.Group>
+          <Form.Control as="select" size="lg" onChange={(e) => {
+                  handleTypeContra(e);
+                }}>
+                  <option value="">Choisir..</option>
+            <option value="implant">implant</option>
+            <option value="pilule">pilule</option>
+            <option value="patch">patch</option>
+            <option value="anneau vaginal">anneau vaginal</option>
+            <option value="cape cervicale">cape cervicale</option>
+            <option value="diaphragme">diaphragme</option>
+            <option value="préservatif féminin">préservatif féminin</option>
+            <option value="DIU hormonal et DIU au cuivre">DIU hormonal et DIU au cuivre</option>
+            <option value="stérilisation">stérilisation</option>
+            <option value="spermicides">spermicides</option>
+            <option value="contraceptifs injectables">contraceptifs injectables</option>
+          </Form.Control>
+          </Form.Group>
+                </div>
+            )
+        }
+        
+        const [txtTypeContra, setTxtTypeContra] = useState(()=>typeContraception());
+        
+        const [currentTxtTypeContra, setCurrentTxtTypeContra] = useState("");
+        
+        const affichageTxtTypeContra = () => {
+          
+          let txtAAfficher = txtTypeContra;
+          
+          setCurrentTxtTypeContra(txtAAfficher);
+          
+        };
+      
 
 
         ////////////////////////////////////////////////////////////////////////
@@ -480,17 +704,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
         //////////////////// tabac
 
-        const recupTabac = (e) => {
-            e.preventDefault();
-            let reponse = {
-              titre: "Tabac : ",
-              value: e.target.value,
-              reponse : 1
-            };
-            setCurrentTabac(reponse);
-          
-            console.log("Fumeuse : " + reponse.value);
-          };
+       
         
           
         
@@ -525,17 +739,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
         /////////////////// bloc Vécu de l’IVG traumatique :
 
-        const recupVecu = (e) => {
-          e.preventDefault();
-          let reponse = {
-            titre: "Vécu de l’IVG traumatique : ",
-            value: e.target.value,
-            reponse : 1
-          };
-          setCurrentVecu(reponse);
-        
-          console.log("Vécu de l’IVG traumatique : " + reponse.value);
-        };
+       
         const returnInfoVecu = () => {
             return (
               <div className="BulleInfo">
@@ -583,17 +787,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
         //// Bloc Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :
 
-        const recupAvis = (e) => {
-          e.preventDefault();
-          let reponse = {
-            titre: "Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
-            value: e.target.value,
-            reponse : 1
-          };
-          setCurrentAvis(reponse);
-        
-          console.log("Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : " + reponse.value);
-        };
+       
 
        
          
@@ -604,13 +798,12 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           
           
           let reponse = {
-            titre: "Si oui cause : ",
+            titre: " cause : ",
             value: e.target.value,
             reponse : 1
           };
          setCurrentCause(reponse);
         
-          console.log("Si oui cause : " + reponse.value);
           
         };
         const oui = () => {
@@ -858,21 +1051,47 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
             <br></br>
             <div className="ConsultationContainer">
             <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupReco(e);
-            afficheCovid();}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupReco(e);}}>Non</Button>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}}>Oui</Button>
             <br></br>
 
 
 
     <div>{currentOuiCovid}</div>
+
+            <br></br>
+
+
+
+
             </div>
 
 
             <div className="ConsultationContainer">
             <h2>Personne accompagnante majeure ou consentement parental </h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupAcc(e);}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupAcc(e);}}>Non</Button>
+           
+            <Form>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`accOui`}
+        label={`Oui`}
+        value="Oui"
+        name="accompagant"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`accNon`}
+        label={`Non`}
+        value="Non"
+        name="accompagant"
+      />
+      </div>
+      </Form>
+
+
             <input
         onClick={changementCouleurSVGAcc}
         className="Lampe"
@@ -885,7 +1104,11 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
             <div className="ConsultationContainer">
             <h2>Dosage B-HCG : </h2>
 
-<form >
+            <form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
 <input
     value={nouvelleRechercheBHCGInitial}
     onChange={handleChangeBHCGInitial}
@@ -895,7 +1118,11 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
 </form>
 
-<form >
+<form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
 <input
     value={nouvelleRechercheBHCGJour}
     onChange={handleChangeBHCGJour}
@@ -904,156 +1131,222 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 />
 
 </form>
-<Button variant="danger" value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)} onClick={(e)=>{recupResultat(e)}}>Valider</Button>
+<Button className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
+            recupResultat(e);
+            changeCouleurBoutonViolence(e);}}
+        value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
+ 
+        >Valider</Button>
+
 {afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
-
-
-
+<h3>Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>
-<Button variant="secondary" value="Oui" onClick={(e)=>{
-recupTestUri(e);
-afficheUrinaire();
-}}>Oui</Button>
-<Button variant="secondary" value="Non" onClick={(e)=>{recupTestUri(e);}}>Non</Button>
+<Form>
+      <div key={`autoUri-radio`} className="mb-3" onChange={(e)=>{recupRadioAuto(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`autoUriOui`}
+        label={`Oui`}
+        value="Oui"
+        name="autotest"
+        onClick={()=>{
+          
+          afficheUrinaire();
+          }}
+        
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`autoUriNon`}
+        label={`Non`}
+        value="Non"
+        name="autotest"
+        
+      />
+
+      </div>
+      </Form>
+
+
 <div>{currentOuiUri}</div>
-
-
-
 <input
 onClick={changementCouleurSVGDosage}
 className="Lampe"
 type="image"
 src={logoAfficheDosage}
 />
-<div>{currentInfoDosage}</div>
+<div className="ContainerBulle">{currentInfoDosage}</div>
             </div>
       <div className="ConsultationContainer">
       <h2>Contraception choisie par la patiente :</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e);}}>Non</Button>
-      <input
-        onClick={changementCouleurSVGContraception}
+      <Form>
+      <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`contracepOui`}
+        label={`Oui`}
+        value="Oui"
+        name="contraception"
+        onClick={()=>{
+          affichageTxtTypeContra();}}
+      />
+
+<Form.Check 
+        type='radio'
+        id={`contracepNon`}
+        label={`Non`}
+        value="Non"
+        name="contraception"
+        
+      />
+
+      </div>
+      </Form>
+            <div>{currentTxtTypeContra}</div>
+            <input
+        onClick={changementCouleurSVGContra}
         className="Lampe"
         type="image"
-        src={logoAfficheContraception}
+        src={logoAfficheContra}
       />
-      <div>{currentInfoContraception}</div>
+      <div className="ContainerBulle">{currentInfoContra}</div>
       </div>
 
       <div className="ConsultationContainer">
       <h2>Adhésion à cette contraception :</h2>
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+      <Form>
+      <div key={`adhesion-radio`} className="mb-3" >
+      <Form.Check 
+        type='radio'
+        id={`adhesionOui`}
+        label={`Oui`}
+        value="Oui"
+        name="adhesion"
       
+      />
+
+<Form.Check 
+        type='radio'
+        id={`adhesionNon`}
+        label={`Non`}
+        value="Non"
+        name="adhesion"
+        
+      />
+
+      </div>
+      </Form>
       </div>
 
 
       <div className="ConsultationContainer">
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
+      <br></br>
+      <Form>
+      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ISToui`}
+        label={`Oui`}
+        value="Oui"
+        name="ISTantibio"
+      />
 
-<Button variant="secondary" value="Oui" onClick={(e)=>{recupIST(e)}}>Oui</Button>
-<Button variant="secondary" value="Non" onClick={(e)=>{recupIST(e)}}>Non</Button>
-
-
-<p>
-De nombreuses sources numériques existent pour l’information aux patiente(s)
- des IST ainsi que de ces risques.
-  
-  </p>
-
-
-  <p>
-  <a className="Bold" target="_blank" rel="noreferrer noopener" href="http://www.info-ist.fr/index.html">
-   Lien ISt-info
-  </a>
-  <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles">
-  Lien Ameli IST
-  </a>
-  </p>
-  <p>
-   En cliquant ici,
-  ces sites apparaitront sur le résumé de la consultation, à remettre en main
-   propre de la patiente. 
-</p>
-<Button variant="secondary" value="Oui">Oui</Button>
-<input
-  onClick={changementCouleurSVGIST}
-  className="Lampe"
-  type="image"
-  src={logoAfficheIST}
-/>
-<div>{currentInfoIST}</div>
+<Form.Check 
+        type='radio'
+        id={`IstNon`}
+        label={`Non`}
+        value="Non"
+        name="ISTantibio"
+      />
       </div>
-
-      {/* <div className="ConsultationContainer">
-      <h2>Frottis à jour</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupHPV(e);}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupHPV(e);}}>Non</Button>
-      <Button variant="secondary" value="Non concernée" onClick={(e)=>{recupHPV(e);}}>Non concernée</Button>
+      </Form>
+      <br></br>
       <input
-        type="date"
-        name="dateFrotti"
-        id="dateFrotti"
-        onChange={(e) => {
-          handleChange(e);
-        }}
-      ></input>
-      <input
-        onClick={changementCouleurSVGFrotti}
+        onClick={changementCouleurSVGIST}
         className="Lampe"
         type="image"
-        src={logoAfficheFrotti}
+        src={logoAfficheIST}
       />
-      <br></br>
-      <div>{currentInfoFrotti}</div>
-      </div> */}
+      <div className="ContainerBulle">  {currentInfoIST}</div>
+      </div>
 
+      
 
       
       <div className="ConsultationContainer">
       <h2>Tabac :</h2>
       <br></br>
-      <label>
-        <Button
-          value="Oui"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Oui
-        </Button>
-        <Button
-          value="Non"
-          variant="secondary"
-          onClick={(e) => {
-            recupTabac(e);
-          }}
-        >
-          Non
-        </Button>
-      </label>
+      <Form>
+      <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`tabacOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Tabac"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`tabacNon`}
+        label={`Non`}
+        value="Non"
+        name="Tabac"
+        
+      />
+
+      </div>
+      </Form>
+
+
       <br></br>
       
       {/* <input type="text" nom="nbPAquet" id="nbPAquet" onChange={(e)=>{recupNombre(e);}}></input> */}
-      <form >
+      <form  onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
             <input
+                
                 value={nouvelleRecherchePaquet}
                 onChange={handleChangePaquet}
                 type="text"
                 placeholder="Paquet/année"
             />
-            <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
-              handleSubmitPaquet(e)
+            <Button  className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
+              handleSubmitPaquet(e);
+              changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
       </div>
 
         <div className="ConsultationContainer">
         <h2>Vécu de l’IVG traumatique :</h2>
-        <Button variant="secondary" value="Oui" onClick={(e)=>{recupVecu(e)}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupVecu(e)}}>Non</Button>
+        <Form>
+      <div key={`Vecu-radio`} className="mb-3" onChange={(e)=>{recupRadioVecu(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`Vecuoui`}
+        label={`Oui`}
+        value="Oui"
+        name="vecuTrau"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`VecuNon`}
+        label={`Non`}
+        value="Non"
+        name="VecuTrau"
+      />
+      </div>
+      </Form>
+
       <input
         onClick={changementCouleurSVGVecu}
         className="Lampe"
@@ -1061,16 +1354,41 @@ De nombreuses sources numériques existent pour l’information aux patiente(s)
         src={logoAfficheVecu}
       />
       <br></br>
-      <div>{currentInfoVecu}</div>
+      <div className="ContainerBulle">{currentInfoVecu}</div>
         </div>
 
 
       <div className="ConsultationContainer">
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
-      <Button variant="secondary" value="Oui" onClick={(e)=>{
-        recupAvis(e);
-        afficheCause();}}>Oui</Button>
-      <Button variant="secondary" value="Non" onClick={(e)=>{recupAvis(e);}}>Non</Button>
+      <Form>
+      <div key={`Control-radio`} className="mb-3" onChange={(e)=>{recupRadioControl(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`Controloui`}
+        label={`Oui`}
+        value="Oui"
+        name="Control"
+        onClick={(e)=>{
+          
+          afficheCause();}}
+      />
+
+<Form.Check 
+        type='radio'
+        id={`ControlNon`}
+        label={`Non`}
+        value="Non"
+        name="Control"
+      />
+      </div>
+      </Form>
+     
+     
+     
+     
+     
+     
+     
         <div>{currentOui}</div>
         <input
         onClick={changementCouleurSVGAvis}
@@ -1079,13 +1397,14 @@ De nombreuses sources numériques existent pour l’information aux patiente(s)
         src={logoAfficheAvis}
       />
       <br></br>
-      <div>{currentInfoAvis}</div>
+      <div className="ContainerBulle">{currentInfoAvis}</div>
       </div>
 
       <br></br>
 
             
-      <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
+      <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+      changeCouleurBoutonViolence(e);}} variant="danger">Valider mes choix</Button>
         <br></br>
         <div>{currentReponseTarif}</div>
 

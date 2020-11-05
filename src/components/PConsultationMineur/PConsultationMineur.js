@@ -1068,16 +1068,6 @@ const handleSubmitPaquet = event => {
           <div className="ConsultationContainer">
           <h2>Personne accompagnante majeure ou consentement parental</h2>
 
-
-
-
-
-
-
-
-
-
-
           
           <label>
           <Form>
