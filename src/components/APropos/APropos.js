@@ -6,7 +6,7 @@ import "./APropos.css";
 function APropos() {
 
     return (
-        <div className="consultationContainer">
+        <div className="Apropos">
             <h1>Projet IVGclic :</h1>
             <p>
             IVGclic est un outil d’aide numérique à la protocolisation
