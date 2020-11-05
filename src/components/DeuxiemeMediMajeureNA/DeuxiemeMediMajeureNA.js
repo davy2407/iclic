@@ -53,6 +53,38 @@ function DeuxiemeMediMajeureNA(props) {
       };
 
 
+//// button
+const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+const changeCouleurBoutonViolence = (e) => {
+  
+  
+  
+
+  if (e.target.className==couleurBouttonSel) {
+    e.target.className=couleurBouttonBase;
+    
+  }
+  else {
+    e.target.className=couleurBouttonSel;
+
+  }
+
+
+
+}
 
 
 
@@ -762,7 +794,8 @@ Majeure </h1>
 
 
 
-            <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
+            <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+        changeCouleurBoutonViolence(e);}} variant="danger">Valider mes choix</Button>
             <div>{currentReponseTarif}</div>
 
 
