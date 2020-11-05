@@ -17,6 +17,16 @@ import "./DeuxiemeMineureANA.css";
 /// feuille de deuxieme consultation, patiente majeure non anonyme
 function DeuxiemeConsultationMineureANA(props) {
 
+ 
+
+    const submitHandler = (e) => {
+      e.preventDefault();
+  }
+  
+
+
+
+
   const [ globalStateFin, setGlobalStateFin] =useState([])
   /// state global liste
 
@@ -68,6 +78,127 @@ function DeuxiemeConsultationMineureANA(props) {
 
     props.onRecup(liste);
   };
+
+/////////: radio recup
+const recupRadioTabac = (e) => {
+  let reponse = {
+    titre: "Tabac : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentTabac(reponse);
+  
+}
+
+
+
+
+
+
+const recupRadioAcc = (e) => {
+  let reponse = {
+    titre: "Personne accompagnante majeurs ou consentement parental : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentAcc(reponse);
+  
+}
+
+const recupRadioPAtt = (e) => {
+     
+  let reponse = {
+    titre: "Attestation 1ere consultation préalable en main de la patiente : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentAttestation(reponse);
+}
+
+const recupRadioContra = (e) => {
+  let reponse = {
+    titre : "Information contraception postIVG : ",
+    value : e.target.value,
+    reponse : 1
+  };
+  setCurrentInfo(reponse);
+}
+
+const recupRadioAtt = (e) => {
+  let reponse = {
+    titre: "Consultation psychosociale : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentConsultation(reponse)
+}
+
+
+const recupRadioIST = (e) => {
+  let reponse = {
+    titre : "Recherche IST : ",
+    value : e.target.value,
+    reponse : 1
+  };
+  setCurrentIST(reponse);
+}
+
+const recupRadioGro = (e) => {
+  let reponse = {
+    titre: "Grossesse intra-utérine confirmée : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentGrossese(reponse)
+}
+
+const recupRadioBilan = (e) => {
+   
+  let reponse = {
+    titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations+ BHCG quantitatif ) : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentSang(reponse);
+}
+
+
+
+
+
+ //// button
+ const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse");
+
+ const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+ const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+ const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+const changeCouleurBoutonViolence = (e) => {
+   
+   
+   
+ 
+   if (e.target.className==couleurBouttonSel) {
+     e.target.className=couleurBouttonBase;
+     
+   }
+   else {
+     e.target.className=couleurBouttonSel;
+
+   }
+
+
+
+}
+
 
 
 
@@ -215,17 +346,7 @@ function DeuxiemeConsultationMineureANA(props) {
 
 
   ////// Attestation 1ère consultation préalable à l’IVG
-  const recupAttestation = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Attestation 1ere consultation préalable en main de la patiente : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    setCurrentAttestation(reponse);
-    
-    console.log("Attestation 1ere consultation préalable en main de la patiente : " + reponse.value);
-  };
+ 
 
   const attestation = () => {
     return (
@@ -266,17 +387,7 @@ function DeuxiemeConsultationMineureANA(props) {
 
   ///// accompagnant
 
-  const recupAccompagnant = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Personne accompagnante majeurs ou consentement parental : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    setCurrentAcc(reponse)
-    
-    console.log("Personne accompagnante majeurs ou consentement parental : " + reponse.value);
-  };
+  
 
   const accompagnantTXT = () => {
     return (
@@ -315,17 +426,7 @@ function DeuxiemeConsultationMineureANA(props) {
 
   ///// consultation psycho
 
-  const recupPsy = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Attestation Consultation psycho-sociale : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    setCurrentConsultation(reponse)
-    
-    console.log("Consultation psycho-sociale : " + reponse.value);
-  };
+  
 
   const consultationPsy = () => {
     return (
@@ -366,17 +467,58 @@ function DeuxiemeConsultationMineureANA(props) {
 
   /////// grossesse confirmée
 
-  const recupGro = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Grossesse intra-utérine confirmée : ",
-      value: e.target.value,
-      reponse : 1
+
+    /////////////// Bloc Violence 
+
+    const violence = () => {
+      return (
+        <div className="BulleInfo">
+          <p>
+          Cette information ne figurera pas sur le résumé.
+  Cette violence peut être physique, sexuelle, économique,
+   verbale ou psychologique dans un contexte conjugal,
+    professionnel ou plus récemment de cyberviolence. 
+          </p>
+          
+          <p>
+            <a rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/p_3104867/fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple">
+            https://www.has-sante.fr/reperage-des-femmes-victimes-de-violences-au-sein-du-couple
+  
+            </a>
+          </p>
+          <p>
+          Pour toutes questions de prise en charge : <a href="http://www.declicviolence.fr/" rel="noreferrer noopener" target="_blank">http://www.declicviolence.fr/</a>
+          </p>
+        </div>
+      )
+    }
+    const [txtViolence, setTxtViolence] = useState(() => violence());
+  
+    const [currentInfoViolence, setCurrentInfoViolence] = useState("");
+  
+    const affichageTxtViolence = () => {
+      let txtAEnlever = currentInfoViolence;
+      let txtAAfficher = txtViolence;
+      setCurrentInfoViolence(txtAAfficher);
+      setTxtViolence(txtAEnlever);
     };
-    setCurrentGrossese(reponse)
-    
-    console.log("Grossesse intra-utérine confirmée : " + reponse.value);
-  };
+    const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+  
+    const [logoNonAfficheViolence, setLogoNonAfficheViolence] = useState(LightOn);
+    const changementCouleurSVGViolence = () => {
+      let currentLampe = logoAfficheViolence;
+      let currentCache = logoNonAfficheViolence;
+      setLogoNonAfficheViolence(currentLampe);
+      setLogoAfficheViolence(currentCache);
+      affichageTxtViolence();
+    };
+  
+  
+    /////////////////////////////////////////////////////////////////////////
+  
+  
+
+  
 
 
 
@@ -620,17 +762,7 @@ const recupInfoSupp = (e) => {
   setInfoSupp(reponse);
   console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
 };
-    const recupIST = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre : "Recherche IST : ",
-        value : e.target.value,
-        reponse : 1
-      };
-      setCurrentIST(reponse);
-      
-      console.log("Recherche IST : " + reponse.value);
-    }; 
+    
     const returnInfoIST = () => {
       return (
         <div className="BulleInfo">
@@ -657,11 +789,12 @@ const recupInfoSupp = (e) => {
           <label>
             Vous desirez plus d'informations à transmettre ?
             <Button
-              variant="secondary"
-              value="Oui"
-              onClick={(e) => {
-                recupInfoSupp(e);
-              }}
+            className={btnOuiViolenceBase} 
+            onClick={(e)=>{recupInfoSupp(e);
+              changeCouleurBoutonViolence(e);}} 
+            variant="danger"
+            value="Oui"
+              
             >
               Oui
             </Button>
@@ -710,17 +843,7 @@ const recupInfoSupp = (e) => {
     ////// bilan sanguin
     
 
-const recupBilan = (e) => {
-  e.preventDefault();
-  let reponse = {
-    titre: "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) : ",
-    value: e.target.value,
-    reponse : 1
-  };
-  setCurrentSang(reponse);
-  
-  console.log("Bilan sanguin prescrit (incluant groupe rhésus 2 déterminations + BHCG quantitatif ) :" + reponse.value);
-};
+
     const returnInfoSang = () => {
       return (
         <div className="BulleInfo">
@@ -805,17 +928,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
 
     ////////////: contraception post IVG
-    const recupinfoPostIVG = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre : "Information contraception postIVG : ",
-        value : e.target.value,
-        reponse : 1
-      };
-      setCurrentInfo(reponse);
-      
-      console.log("info post ivg " + reponse.value);
-    };
+    
 
     const returnInfoPostIVG = () => {
       return (
@@ -871,17 +984,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
     //// Tabac 
 
-    const recupTabac = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre: "Tabac : ",
-        value: e.target.value,
-        reponse : 1
-      };
-      setCurrentTabac(reponse);
-      
-      console.log("Fumeuse : " + reponse.value);
-    };
+   
   const [nouvelleRecherchePaquet, setNouvelleRecherchePaquet] = useState()
 
 
@@ -925,60 +1028,176 @@ Mineure :
 
 
           <div className="ConsultationContainer">
-          <h2>Attestation 1ère consultation préalable à l’IVG : </h2>
-          <Button variant="secondary" value="Oui" onClick={recupAttestation}>Oui</Button>
-          <Button variant="secondary" value="Non" onClick={recupAttestation}>Non</Button>
+          <h2>Attestation première consultation préalable à l’IVG : </h2>
+          <Form>
+      <div key={`Att-radio`} className="mb-3" onChange={(e)=>{recupRadioPAtt(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`AttOui`}
+        label={`Oui`}
+        value="Oui"
+        name="attestation"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`AttNon`}
+        label={`Non`}
+        value="Non"
+        name="attestation"
+      />
+      </div>
+      </Form>
+
+
+
+
+
           <input
       onClick={changementCouleurSVGAttestation}
       className="Lampe"
       type="image"
       src={logoAfficheAttestation}
     />
-    <div>  {currentInfoAttestation}</div>
+    <div className="ContainerBulle">  {currentInfoAttestation}</div>
           </div>
 
 
 
           <div className="ConsultationContainer">
           <h2>Personne accompagnante majeure ou consentement parental</h2>
-          <Button variant="secondary" value="Oui" onClick={recupAccompagnant}>Oui</Button>
-          <Button variant="secondary" value="Non" onClick={recupAccompagnant}>Non</Button>
+          
+          <Form>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`accOui`}
+        label={`Oui`}
+        value="Oui"
+        name="accompagant"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`accNon`}
+        label={`Non`}
+        value="Non"
+        name="accompagant"
+      />
+      </div>
+      </Form>
+          
+          
           <input
       onClick={changementCouleurSVGAccompagnant}
       className="Lampe"
       type="image"
       src={logoAfficheAccompagnant}
     />
-    <div>  {currentInfoAccompagnant}</div>
+    <div className="ContainerBulle">  {currentInfoAccompagnant}</div>
 
           </div>
 
 
           <div className="ConsultationContainer">
-          <h2>Attestation consultation psycho-sociale  :</h2>
-          <Button variant="secondary" value="Oui" onClick={(e)=>{
-              recupPsy(e);
-              
-              
-            }}>Oui</Button>
             
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupPsy(e);}}>Non</Button>
-     
+          <h2>Attestation consultation psycho-sociale  :</h2>
+
+          <Form>
+      <div key={`sousAtt-radio`} className="mb-3" onChange={(e)=>{recupRadioAtt(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`sousAttOui`}
+        label={`Oui`}
+        value="Oui"
+        name="sousAtte"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`sousAttNon`}
+        label={`Non`}
+        value="Non"
+        name="sousAtte"
+      />
+      </div>
+      </Form>
+
+
+
+
+
+        
           <input
       onClick={changementCouleurSVGConsultationPsy}
       className="Lampe"
       type="image"
       src={logoAfficheConsultationPsy}
     />
-    <div>  {currentInfoConsultationPsy}</div>
+    <div className="ContainerBulle">  {currentInfoConsultationPsy}</div>
           </div>
     
+
+          <div className="ConsultationContainer">
+      <h2>Violences subies en rapport ou non avec l’acte :</h2>
+      <div >
+
+
+      <Form>
+      <div key={`vio-radio`} className="mb-3">
+      <Form.Check 
+        type='radio'
+        id={`Voui`}
+        label={`Oui`}
+        value="Oui"
+        name="violence"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`Vnon`}
+        label={`Non`}
+        value="Non"
+        name="violence"
+      />
+      </div>
+      </Form>
+
+      </div>
+      {/* <Button id={1} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}} >Oui</Button>
+      <Button id={2} variant="danger" className={btnOuiViolenceBase} onClick={(e)=>{changeCouleurBoutonViolence(e);}}>Non</Button> */}
+      <input
+        onClick={changementCouleurSVGViolence}
+        className="Lampe"
+        type="image"
+        src={logoAfficheViolence}
+      />
+      <div className="ContainerBulle">  {currentInfoViolence}</div>
+      </div>    
     
 
           <div className="ConsultationContainer">
           <h2>Grossesse intra-utérine confirmée :</h2>
-          <Button variant="secondary" value="Oui" onClick={recupGro}>Oui</Button>
-          <Button variant="secondary" value="Non" onClick={recupGro}>Non</Button>
+          <Form>
+      <div key={`gro-radio`} className="mb-3" onChange={(e)=>{recupRadioGro(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`groOui`}
+        label={`Oui`}
+        value="Oui"
+        name="grossesse"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`groNon`}
+        label={`Non`}
+        value="Non"
+        name="grossesse"
+      />
+      </div>
+      </Form>
+
           </div>
 
 
@@ -991,7 +1210,8 @@ Mineure :
       value={saisieUtilisateurNbSemaineSA}
       onChange={handleChangeSA}
     />
-    <Button variant="danger" onClick={recupSaisieUtilisateurNbSemaine}>
+    <Button className={btnOuiViolenceBase} variant="danger" onClick={(e)=>{recupSaisieUtilisateurNbSemaine(e);
+      changeCouleurBoutonViolence(e);}}>
       Valider
     </Button>
     <br></br>
@@ -1006,27 +1226,26 @@ Mineure :
     <div div className="ConsultationContainer">
     <h2>Recherche IST +/- antibio-prophylaxie</h2>
     <br></br>
-    <label>
-   
-      <Button
+    <Form>
+      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`ISToui`}
+        label={`Oui`}
         value="Oui"
-        variant="secondary"
-        onClick={(e) => {
-          recupIST(e);
-        }}
-      >
-        Oui
-      </Button>
-      <Button
+        name="ISTantibio"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`IstNon`}
+        label={`Non`}
         value="Non"
-        variant="secondary"
-        onClick={(e) => {
-          recupIST(e);
-        }}
-      >
-        Non
-      </Button>
-    </label>
+        name="ISTantibio"
+      />
+      </div>
+      </Form>
+
     <br></br>
     <input
       onClick={changementCouleurSVGIST}
@@ -1034,7 +1253,7 @@ Mineure :
       type="image"
       src={logoAfficheIST}
     />
-    <div>  {currentInfoIST}</div>
+    <div className="ContainerBulle">  {currentInfoIST}</div>
     </div>
     <div div className="ConsultationContainer">
     <h2>
@@ -1042,27 +1261,26 @@ Mineure :
       quantitatif)
     </h2>
     <br></br>
-    <label>
-      
-      <Button
+    <Form>
+      <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`BilanOui`}
+        label={`Oui`}
         value="Oui"
-        variant="secondary"
-        onClick={(e) => {
-          recupBilan(e);
-        }}
-      >
-        Oui
-      </Button>
-      <Button
+        name="BilanSang"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`BilanNon`}
+        label={`Non`}
         value="Non"
-        variant="secondary"
-        onClick={(e) => {
-          recupBilan(e);
-        }}
-      >
-        Non
-      </Button>
-    </label>
+        name="BilanSang"
+      />
+      </div>
+      </Form>
+
     <input
       onClick={changementCouleurSVGSang}
       className="Lampe"
@@ -1070,22 +1288,27 @@ Mineure :
       src={logoAfficheSang}
     />
     <br></br>
-    <div>{currentInfoSang}</div>
+    <div className="ContainerBulle">{currentInfoSang}</div>
     </div>
 
 
       <div className="ConsultationContainer">
       <h2>Dosage ß-HCG : </h2>
-      <form >
+      <form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }} >
           <input
               value={dosageHCG}
               onChange={handleDosageHCG}
               type="text"
               placeholder="dosage ß-HCG"
           />
-          <Button value={dosageHCG} variant="secondary" onClick={(e)=> {
-            handleSubmitDosageHCG(e)
-          }}>Confirmer</Button>
+          <Button className={btnOuiViolenceBase} value={dosageHCG} variant="danger" onClick={(e)=> {
+              handleSubmitDosageHCG(e);
+              changeCouleurBoutonViolence(e);
+            }}>Confirmer</Button>
           
       </form>
       </div>
@@ -1111,27 +1334,28 @@ Mineure :
       </div>
 <div className="ConsultationContainer">
       <h2>Information contraception post-IVG</h2>
-      <label>
-    
-      <Button
+
+      <Form>
+      <div key={`contra-radio`} className="mb-3" onChange={(e)=>{recupRadioContra(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`contraOui`}
+        label={`Oui`}
         value="Oui"
-        variant="secondary"
-        onClick={(e) => {
-          recupinfoPostIVG(e);
-        }}
-      >
-        Oui
-      </Button>
-      <Button
+        name="contraception"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`contraNon`}
+        label={`Non`}
         value="Non"
-        variant="secondary"
-        onClick={(e) => {
-          recupinfoPostIVG(e);
-        }}
-      >
-        Non
-      </Button>
-    </label>
+        name="contraception"
+      />
+      </div>
+      </Form>
+
+
     <br></br>
     <input
       onClick={changementCouleurSVGPostIVG}
@@ -1140,85 +1364,40 @@ Mineure :
       src={logoAffichePostIVG}
     />
     <br></br>
-    <div>{currentInfoPostIVG}</div>
+    <div className="ContainerBulle">{currentInfoPostIVG}</div>
       </div>
-{/* <div className="ConsultationContainer">
-<h2>Frottis à jour ou test HPV</h2>
-    <br></br>
-    <label>
-    Frottis à jour ou test HPV
-      <Button
-        value="Oui"
-        variant="secondary"
-        onClick={(e) => {
-          recupFrotti(e);
-        }}
-      >
-        Oui
-      </Button>
-      <Button
-        value="Non"
-        variant="secondary"
-        onClick={(e) => {
-          recupFrotti(e);
-        }}
-      >
-        Non
-      </Button>
-      <Button
-        value="Non Concernée"
-        variant="secondary"
-        onClick={(e) => {
-          recupFrotti(e);
-        }}
-      >
-        Non Concernée
-      </Button>
-    </label>
-    <br></br>
-    <label for="dateFrotti">Date : </label>
-    <input
-      type="date"
-      name="dateFrotti"
-      id="dateFrotti"
-      onChange={(e) => {
-        handleChange(e);
-      }}
-    ></input>
-    <br></br>
-    <input
-      onClick={changementCouleurSVGFrotti}
-      className="Lampe"
-      type="image"
-      src={logoAfficheFrotti}
-    />
-    <br></br>
-    <div>{currentInfoFrotti}</div>
-</div> */}
 
 
       <div className="ConsultationContainer">
       <h2>Tabac :</h2>
-      <label>
-      <Button
+      <Form>
+      <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`tabacOui`}
+        label={`Oui`}
         value="Oui"
-        variant="secondary"
-        onClick={(e) => {
-          recupTabac(e);
-        }}
-      >
-        Oui
-      </Button>
-      <Button
+        name="Tabac"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`tabacNon`}
+        label={`Non`}
         value="Non"
-        variant="secondary"
-        onClick={(e) => {
-          recupTabac(e);
-        }}
-      >
-        Non
-      </Button>
-    </label>
+        name="Tabac"
+        
+      />
+
+      </div>
+      </Form>
+
+
+
+
+
+
+    
       <form >
           <input
               value={nouvelleRecherchePaquet}
@@ -1226,16 +1405,18 @@ Mineure :
               type="text"
               placeholder="Paquet/année"
           />
-          <Button value={nouvelleRecherchePaquet} variant="secondary" onClick={(e)=> {
-            handleSubmitPaquet(e)
-          }}>Confirmer</Button>
+          <Button className={btnOuiViolenceBase} value={nouvelleRecherchePaquet} variant="danger" onClick={(e)=> {
+              handleSubmitPaquet(e);
+              changeCouleurBoutonViolence(e);
+            }}>Confirmer</Button>
       </form>
       </div>
 
 
 
 
-      <Button variant="danger" onClick={afficheStateFin}>Valider mes choix</Button>
+      <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();
+        changeCouleurBoutonViolence(e);}} variant="danger">Valider mes choix</Button>
       <br></br>
       <div>{currentReponseTarif}</div>
 

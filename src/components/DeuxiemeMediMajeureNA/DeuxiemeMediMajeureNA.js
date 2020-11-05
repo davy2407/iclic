@@ -52,24 +52,73 @@ function DeuxiemeMediMajeureNA(props) {
     props.onRecup(liste);
       };
 
+
+
+
+
+      //////: recup radio 
+
+
+      const recupRadioMiso = (e) => {
+        let reponse = {
+          titre: "Délivrance du misoprostol : ",
+          value: e.target.value,
+          reponse : 1
+        };
+        
+        setCurrentMiso(reponse);
+      }
+
+      const recupRadioEffet = (e) => {
+        let reponse = {
+          titre: "Effets secondaires de la mifépristone : ",
+          value: e.target.value,
+          reponse : 1
+        };
+        
+        setCurrentMife(reponse);
+      }
+
+
+      const recupRadioArret = (e) => {
+        let reponse = {
+          titre: "Arrêt de travail prescrit : ",
+          value: e.target.value,
+          reponse : 1
+        };
+        
+        setCurrentArret(reponse);
+      }
+
+
+      const recupRadioAnti = (e) => {
+        let reponse = {
+          titre: "Nécessité d’une injection préventive d’Ig anti-D : ",
+          value: e.target.value,
+          reponse : 1
+        };
+        
+        setCurrentAntiG(reponse);
+      }
+
+      const recupRadioContraception = (e) => {
+        let reponse = {
+          titre: "Contraception choisie par la patiente : ",
+          value: e.target.value,
+          reponse : 1
+        };
+        
+        setCurrentContra(reponse);
+        
+      }
+
     /// current reponse
   const [currentMife, setCurrentMife] = useState({
     titre : "Pas de réponses",
     value : "",
     reponse : 0
   });
-  const recupMife = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Effets secondaires de la mifépristone : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentMife(reponse);
-    
-    console.log("Effets secondaires de la mifépristone : " + reponse.value);
-  };
+ 
   //////////////////////////////////////////
 
   const [currentMiso, setCurrentMiso] =useState({
@@ -78,18 +127,7 @@ function DeuxiemeMediMajeureNA(props) {
     reponse : 0
   });
 
-  const recupMiso = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Délivrance du misoprostol : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentMiso(reponse);
-    
-    console.log("Délivrance du misoprostol : " + reponse.value);
-  };
+  
 
   ///////////////////////////////////////////////////////////
 
@@ -100,18 +138,7 @@ function DeuxiemeMediMajeureNA(props) {
     value : "",
     reponse : 0
   });
-  const recupAnti = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Nécessité d’une injection préventive d’Ig anti-D : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentAntiG(reponse);
-    
-    console.log("Nécessité d’une injection préventive d’Ig anti-D : " + reponse.value);
-  };
+ 
 
   const [ currentDateAntiG, setCurrentDateAntiG] =useState({
     titre : "",
@@ -143,18 +170,7 @@ function DeuxiemeMediMajeureNA(props) {
     reponse : 0
   });
 
-  const recupArret = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Arrêt de travail prescrit : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentArret(reponse);
-    
-    console.log("Arrêt de travail prescrit : " + reponse.value);
-  };
+
 
 
 
@@ -169,18 +185,7 @@ function DeuxiemeMediMajeureNA(props) {
     reponse : 0
   });
 
-  const recupContra = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Contraception choisie par la patiente : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentContra(reponse);
-    
-    console.log("Contraception choisie par la patiente : " + reponse.value);
-  };
+ 
 
 
   ///////////////////////////////////////////////////////////////////
@@ -562,35 +567,117 @@ Majeure </h1>
             
             <div className="ConsultationContainer">
             <h2>Effets secondaires de la mifépristone :</h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupMife(e);}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupMife(e);}}>Non</Button>
+            <Form>
+      <div key={`Effets-radio`} className="mb-3" onChange={(e)=>{recupRadioEffet(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`EffetsOui`}
+        label={`Oui`}
+        value="Oui"
+        name="EffetsMife"
+        
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`EffetsNon`}
+        label={`Non`}
+        value="Non"
+        name="EffetsMife"
+        
+      />
+
+      </div>
+      </Form>
+
+
+
+
+
+
+
+
+
+
+
             <input
         onClick={changementCouleurSVGMife}
         className="Lampe"
         type="image"
         src={logoAfficheMife}
       />
-      <div>{currentInfoMife}</div>
+      <div className="ContainerBulle">{currentInfoMife}</div>
             </div>
 
             <div className="ConsultationContainer">
             <h2>Délivrance du misoprostol :</h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupMiso(e)}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupMiso(e)}}>Non</Button>
+
+            <Form>
+      <div key={`Miso-radio`} className="mb-3" onChange={(e)=>{recupRadioMiso(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`MisoOui`}
+        label={`Oui`}
+        value="Oui"
+        name="Misopro"
+        
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`MisoNon`}
+        label={`Non`}
+        value="Non"
+        name="Misopro"
+        
+      />
+
+      </div>
+      </Form>
             <input
         onClick={changementCouleurSVGMiso}
         className="Lampe"
         type="image"
         src={logoAfficheMiso}
       />
-      <div>{currentInfoMiso}</div>
+      <div className="ContainerBulle">{currentInfoMiso}</div>
             </div>
 
             <div className="ConsultationContainer">
             <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupAnti(e);
-            afficheCause();}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupAnti(e)}}>Non</Button>
+
+
+            <Form>
+      <div key={`anti-radio`} className="mb-3" onChange={(e)=>{recupRadioAnti(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`antiOui`}
+        label={`Oui`}
+        value="Oui"
+        name="antiD"
+        onClick={()=>{
+          afficheCause();}}
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`antiNon`}
+        label={`Non`}
+        value="Non"
+        name="antiD"
+        
+      />
+
+      </div>
+      </Form>
+
+
+
+
+
     <div>{currentOui}</div>
             <input
         onClick={changementCouleurSVGAntiD}
@@ -598,27 +685,71 @@ Majeure </h1>
         type="image"
         src={logoAfficheAntiD}
       />
-      <div>{currentInfoAntiD}</div>
+      <div className="ContainerBulle">{currentInfoAntiD}</div>
 
             </div>
             <div className="ConsultationContainer">
             <h2>Arrêt de travail prescrit pour la prise médicamenteuse : </h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupArret(e)}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupArret(e)}}>Non</Button>
+
+            <Form>
+      <div key={`arret-radio`} className="mb-3" onChange={(e)=>{recupRadioArret(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`arretOui`}
+        label={`Oui`}
+        value="Oui"
+        name="arretT"
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`arretNon`}
+        label={`Non`}
+        value="Non"
+        name="arretT"
+        
+      />
+
+      </div>
+      </Form>
+
             <input
         onClick={changementCouleurSVGArret}
         className="Lampe"
         type="image"
         src={logoAfficheArret}
       />
-      <div>{currentInfoArret}</div>
+      <div className="ContainerBulle">{currentInfoArret}</div>
             </div>
 
             <div className="ConsultationContainer">
             <h2>Contraception choisie par la patiente :</h2>
-            <Button variant="secondary" value="Oui" onClick={(e)=>{recupContra(e);
-            affichageTxtTypeContra();}}>Oui</Button>
-            <Button variant="secondary" value="Non" onClick={(e)=>{recupContra(e)}}>Non</Button>
+
+
+            <Form>
+      <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`contracepOui`}
+        label={`Oui`}
+        value="Oui"
+        name="contraception"
+        onClick={()=>{
+          affichageTxtTypeContra();}}
+      />
+
+<Form.Check 
+        type='radio'
+        id={`contracepNon`}
+        label={`Non`}
+        value="Non"
+        name="contraception"
+        
+      />
+
+      </div>
+      </Form>
             <div>{currentTxtTypeContra}</div>
             <input
         onClick={changementCouleurSVGContra}
@@ -626,7 +757,7 @@ Majeure </h1>
         type="image"
         src={logoAfficheContra}
       />
-      <div>{currentInfoContra}</div>
+      <div className="ContainerBulle">{currentInfoContra}</div>
             </div>
 
 

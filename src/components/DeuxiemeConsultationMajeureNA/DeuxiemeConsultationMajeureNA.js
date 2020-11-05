@@ -127,7 +127,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     const recupRadioConsulte = (e) => {
       let reponse = {
-        titre: "Consultation psychosociale : ",
+        titre: "Attestation Consultation psycho-sociale : ",
         value: e.target.value,
         reponse : 1
       };
@@ -406,16 +406,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
     ///// consultation psycho
 
-    const recupPsy = (e) => {
-      e.preventDefault();
-      let reponse = {
-        titre: "Consultation psychosociale : ",
-        value: e.target.value,
-        reponse : 1
-      };
-      setCurrentConsultation(reponse)
-      
-    };
+    
 
     const consultationPsy = () => {
       return (
@@ -457,8 +448,7 @@ function DeuxiemeConsultationMajeureNA(props) {
 
 
 
-      <Button variant="secondary" value="Oui">Oui</Button>
-      <Button variant="secondary" value="Non">Non</Button>
+  
       </div>
     )
   }
