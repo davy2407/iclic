@@ -1205,6 +1205,7 @@ Mineure :
           <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
           {/* faire input comme nb paquet tabac pConsultation */}
           <input
+          min="0"
       type="number"
       name="name"
       value={saisieUtilisateurNbSemaineSA}
@@ -1300,6 +1301,8 @@ Mineure :
       
      }} >
           <input
+                      maxLength="7"
+
               value={dosageHCG}
               onChange={handleDosageHCG}
               type="text"
