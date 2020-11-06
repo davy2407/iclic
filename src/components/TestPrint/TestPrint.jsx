@@ -13,15 +13,15 @@ class TestPrint extends React.Component {
   render() {
     
     return (
-        <div className="containerT" >
-          <div className="Doite">
+        <div className="containerTestPrint" >
+       
           <img src={Logo} className="logoT"></img>
 
 
-          </div>
+       
       <br></br>
       <br></br>
-      <h3>
+      <h3 className="centerEnd">
         Résumé de la consultation de 1er contact médical préalable à l’IVG :{" "}
       </h3>
       <br></br>
@@ -35,7 +35,7 @@ class TestPrint extends React.Component {
       <br></br>
       <br></br>
       
-    <div >{this.state.data.map((objet)=>{
+    <div className="DroiteEnd">{this.state.data.map((objet)=>{
     return (
       <div>
         
@@ -51,15 +51,15 @@ class TestPrint extends React.Component {
       <br></br>
     <br></br>
       <br></br>
-      <p>Il est à noter qu’un délai de 48h entre la consultation psychosociale et la 2eme consultation préalable à l’IVG est à respecter (non obligatoire). </p>
+      <p className="centerEnd">Il est à noter qu’un délai de 48h entre la consultation psychosociale et la 2eme consultation préalable à l’IVG est à respecter (non obligatoire). </p>
       <br></br>
       <br></br>
-      <p>Date et Tampon</p>
+      <p className="dateEnd">Date et Tampon</p>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <p>Ces données ont été recueillies de façon anonyme et gratuite à partir du site IVGclic.com.</p>
+      <p className="centerEnd">Ces données ont été recueillies de façon anonyme et gratuite à partir du site IVGclic.com.</p>
 
       </div>
     );
