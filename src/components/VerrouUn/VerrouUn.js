@@ -12,7 +12,7 @@ function VerrouUn(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title id="contained-modal-title-vcenter" className="Red">
           Verrou
         </Modal.Title>
       </Modal.Header>
@@ -42,7 +42,7 @@ function VerrouUn(props) {
     
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Fermer</Button>
+        <Button variant="danger" onClick={props.onHide}>Fermer</Button>
       </Modal.Footer>
     </Modal>
   );
