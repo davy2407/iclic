@@ -36,7 +36,6 @@ function PConsultation(props) {
 }
 
   const recupRadioViolence = (e) => {
-    console.log("Violence : "+e.target.value);
   }
 
   const recupRadioAcc = (e) => {
@@ -148,7 +147,6 @@ function PConsultation(props) {
 
 
   const recupRadioContexte = (e) => {
-    console.log("Contexte "+e.target.value);
     let reponse = {
       titre: "Contexte Biopsychosocial favorable : ",
       value: e.target.value,
@@ -204,7 +202,6 @@ function PConsultation(props) {
   const [globalStateFin, setGlobalStateFin] = useState([]);
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentDDRSA);
     liste.push(currentDDRDay);
@@ -236,7 +233,6 @@ function PConsultation(props) {
     if (noReponse.length>0) {
 
       /// affiche bloc no reponse
-      console.log(noReponse);
       afficheNoRep(noReponse);
       
     }
@@ -417,7 +413,6 @@ function PConsultation(props) {
     };
     setCurrentContext(reponse);
     setContexteBioPsyFin(reponse);
-    console.log("Contexte biopsychosocial favorable :" + reponse.value);
   };
 
   const [rechercheIstFin, setRechercheIstFin] = useState({});
@@ -449,7 +444,6 @@ function PConsultation(props) {
   const handleChange = (e) => {
     /// recup date frotti
     let myDate = new Date(e.target.valueAsDate);
-    console.log(myDate);
     
     
     let reponse = {
@@ -459,7 +453,6 @@ function PConsultation(props) {
     };
    setCurrentDateHPV(reponse);
 
-    console.log("date frotti : " + reponse.value);
     setDateFrottiFin(reponse);
   };
 
@@ -486,7 +479,6 @@ const handleSubmitPaquet = event => {
  setCurrentNbTabac(reponse);
  
 
-    console.log("nb paquet : "+reponse.value);
     setNbTabacFin(reponse);
   
 
@@ -506,7 +498,6 @@ const handleSubmitPaquet = event => {
     };
     
     setInfoSupp(reponse);
-    console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };
 
   /// info IST
@@ -741,7 +732,6 @@ Cette violence peut être physique, sexuelle, économique,
   //   /// recup date frotti
     
   //   let myDate = new Date(valueDDR.valueAsDate);
-  //   console.log(myDate);
     
   //   e.preventDefault();
     
@@ -763,7 +753,6 @@ Cette violence peut être physique, sexuelle, économique,
   //   liste.push(reponse);
   //   setGlobalStateFin(liste);
 
-  //   console.log("date DDR : " + reponse.value);
     
   // };
 

@@ -424,13 +424,16 @@ const changeCouleurBoutonViolence = (e) => {
                 
             }
 
-            return (
+            if (parseInt(resultat)) {
+              return (
                 <div>
                 <p>{resultat} %</p>
                 <br></br>
                 <p className="Red">{txt}</p>
                 </div>
             )
+              
+            }
         }
 
 
@@ -1121,14 +1124,15 @@ const changeCouleurBoutonViolence = (e) => {
 />
 
 </form>
+
+
+{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 <Button className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
             recupResultat(e);
             changeCouleurBoutonViolence(e);}}
         value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
  
         >Valider</Button>
-
-{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 <h3>Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>

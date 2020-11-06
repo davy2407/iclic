@@ -49,7 +49,6 @@ function MyVerticallyCenteredModal(props) {
     /// l'utilisateur dans le state objetSelection[]
     /// chaque bouton a un id qui est recup lors de l'appel de la function
     let id = event.target.id;
-    console.log(id);
     setBoutonSel(id);
     if (id == 1) {
       MedecinGy();
@@ -389,7 +388,6 @@ function MyVerticallyCenteredModal(props) {
     let liste = objetSelection;
     liste.push(objet);
     setObjetSelection(liste);
-    console.log(liste);
   };
 
   const [patienteMajeure, setPatienteMajeure] = useState(2);
@@ -1010,7 +1008,6 @@ l’IVG médicamenteuse hors établissement de santé.
   };
 
   useEffect(() => {
-    console.log("mise à jour");
   }, []);
   return (
     <Modal
