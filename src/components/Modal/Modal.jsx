@@ -9,6 +9,12 @@ import "./Modal.css";
 // todo list créer objet contenant tout les bouttons existant avec leur texte et ID
 // finir chemin consultation préalable oui
 function MyVerticallyCenteredModal(props) {
+
+
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
   let liste = props.listeRadio;
 
   const [Titre, setTitre] = useState(
@@ -434,7 +440,7 @@ function MyVerticallyCenteredModal(props) {
            ainsi que d’avoir signé une convention avec un centre de rattachement. 
         </p>
         
-        <h5>Covid et IVG : </h5>
+        
         <p>
         Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
         </p>
@@ -473,13 +479,14 @@ Pour en savoir plus :
               
             </a>
           </li>
-        </ul>
-
-        <p>
+          <li>
           <a href={GuideIVG} target="_blank">
           Guide IVG hors établissement de santé praticien
           </a>
-        </p>
+
+          </li>
+        </ul>
+
 
 
         
@@ -960,7 +967,7 @@ l’IVG médicamenteuse hors établissement de santé.
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">IVGclic</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -971,7 +978,11 @@ l’IVG médicamenteuse hors établissement de santé.
         > <div>
           <h1>{Titre}</h1>
         <div>{currentInfoModal}</div>
+
+
           </div>
+          <div>{testText}</div>
+
 
           {newListeRadio.map((type) => (
             <div>
@@ -981,12 +992,13 @@ l’IVG médicamenteuse hors établissement de santé.
               <hr></hr>
             </div>
           ))}
-          <div>{testText}</div>
         </Form>
-        <Button variant="secondary" onClick={RollBack}>retour</Button>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={()=>{
+          props.onHide();
+          refreshPage();
+          }}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
