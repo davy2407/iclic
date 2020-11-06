@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 500px) {
     .Mid {
         width: 100%;
         height:auto;
@@ -32,7 +32,7 @@
   }
 
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 500px) {
   
     .Mid{
         width: 100vw;
@@ -43,7 +43,7 @@
 
     }
     .AppBloc{
-        width: 95vw;
+        width: 100vw;
         height: 60vh;
         
     }

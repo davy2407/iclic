@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 500px) {
    
     .Header{
       height: 30vh;
@@ -6,6 +6,7 @@
 
     .HeaderMenu{
       height: 10vh;
+      width: 100%;
 
     }
     
@@ -52,7 +53,7 @@
   }
   
   
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 500px) {
     
       
       
@@ -66,6 +67,11 @@
         justify-content: center;
         align-items: center;
       
+      }
+      .HeaderMenu{
+        height: 10vh;
+        width: 100%;
+  
       }
       
       .logocontainer{
