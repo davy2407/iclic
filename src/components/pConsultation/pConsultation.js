@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import VerrouUn from "@components/VerrouUn";
 
 // import assets ß
 import LightOn from "@assets/images/lightOn.svg";
@@ -860,7 +861,7 @@ Cette violence peut être physique, sexuelle, économique,
     
   }
   else if (Math.round(semaineSA.weeks)>=7) {
-    affichageVerrou();
+    handleChangeVerrou();
     
   }
   else if (Math.round(semaineSA.weeks)<5) {
@@ -1114,8 +1115,25 @@ Cette violence peut être physique, sexuelle, économique,
     affichageTxtFrotti();
   };
 
+  const [verrouShow, setVerrouShow] = useState(false);
+
+  const handleChangeVerrou = () => {
+    /// affichage modal
+    setVerrouShow(true);
+
+  };
+
   return (
     <div className="consultationContainer">
+      <VerrouUn
+        /// modal les props son les function permettant laffichage ou non du modal ainsi que la liste
+        /// de boutons ( à la base radio ^^) et la fonction affichagedonnée qui sera appelée dans certains cas par la fonction
+        /// recupIdbouton du modal
+        show={verrouShow}
+        onHide={() => setVerrouShow(false)}
+
+
+      ></VerrouUn>
       <h1>Première consultation préalable/Premier contact médical Majeure </h1>
       
       <br></br>

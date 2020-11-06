@@ -1208,12 +1208,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
     setNombreBouton(0);
   };
 
-  const changeStatut = () => {
-    /// je vais faire un check mais surement inutile
-    setListeBouton([]);
-    setNombreBouton(0);
-    setStatut(true);
-  };
+ 
 
   const [modalShow, setModalShow] = useState(false);
   /// affichage modal
