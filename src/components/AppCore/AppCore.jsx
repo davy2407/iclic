@@ -1092,6 +1092,8 @@ signature du praticien ainsi que la date</li>
     }
   };
 
+  const [currentRecap, setCurrentRecap] = useState("");
+
   const AffichageDonnee = (
     listeDonnee,
     id,
@@ -1148,8 +1150,8 @@ signature du praticien ainsi que la date</li>
   ///////////
 
 
-
-    setTexteDemarrage(()=>blocRecap(texte));
+ 
+    setCurrentRecap(()=>blocRecap(texte));
     setListeBouton([]);
     setNombreBouton(0);
     setSelection(liste);
@@ -1239,7 +1241,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
       <div className="txtDebu">{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}
       <div className="Question">
-  <div className="questionDepartAlign">{txtQuestion}</div>
+  <div className="questionDepartAlign">{currentRecap}{txtQuestion}</div>
       {listeBouton.map((btn) => {
         if (btn.id === 2) {
           return (

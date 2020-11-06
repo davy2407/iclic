@@ -798,15 +798,7 @@ const recupInfoSupp = (e) => {
             >
               Oui
             </Button>
-            <Button
-              variant="secondary"
-              value="Non"
-              onClick={(e) => {
-                recupInfoSupp(e);
-              }}
-            >
-              Non
-            </Button>
+            
           </label>
   
           <br></br>
