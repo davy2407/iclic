@@ -1014,7 +1014,7 @@ l’IVG médicamenteuse hors établissement de santé.
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={()=>{
+        <Button variant="secondary" onClick={()=>{
           props.onHide();
           refreshPage();
           }}>Close</Button>
