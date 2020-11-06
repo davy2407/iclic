@@ -14,6 +14,8 @@
     padding: 0.5%;
   }
 
+  .App::-webkit-scrollbar { width: 0 !important };
+
   /* .FooterTest{
     position: absolute;
     bottom: 0;
@@ -36,33 +38,14 @@
 }
 
 
-a:link {
-  color: rgb(152, 118, 245);
+a{
+  
   text-decoration: none;
   font-size: large;
 
 
 }
 
-a:visited {
-  color: rgb(164, 170, 164);
-  text-decoration: none;
-
-}
-
-a:hover {
-  text-decoration: underline;
-  color: rgb(160, 31, 48);
-  font-weight: bold;
-
-}
-
-a:active {
-  text-decoration: underline;
-  color: rgb(160, 31, 48);
-  font-weight: bold;
-
-}
 
 
 .navbar-brand{

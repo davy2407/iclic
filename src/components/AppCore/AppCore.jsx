@@ -91,14 +91,14 @@ function AppCore() {
           Juillet 2001</a>,<a rel="noreferrer noopener"
           target="_blank"
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027221802&categorieLien=id"
-          >Loi avortement du 25 mars 2013 </a>
+          >Loi avortement du 25 mars 2013 </a>.
          
         </p>
 
         <h4>COVID et IVG :  </h4>
         <h5>Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020)</h5>
         <p>
-        La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assurée par l’assurance maladie jusqu’au 31 octobre 2020.  
+        La prise en charge des téléconsultations pour la première consultation et la consultation de contrôle par médecin et sage-femme est assurée par l’assurance maladie jusqu'à la fin de l'état d'urgence sanitaire.  
 Les spécificités sont rappelées lors de chaque étape du site.
 
         </p>
@@ -109,7 +109,16 @@ Les spécificités sont rappelées lors de chaque étape du site.
   }
   const [texteDemarrage, setTexteDemarrage] = useState(()=>accueil());
 
-  const [txtQuestion, setTxtQuestion] = useState("Êtes vous professionel de santé ?")
+
+  const questionDepart = () => {
+    return (
+      <div>
+        <h1>Êtes vous professionel de santé ?</h1>
+      </div>
+    )
+  }
+
+  const [txtQuestion, setTxtQuestion] = useState(()=>questionDepart());
 
   const test = () => {
     let liste = [...stateGlobalPremiereConsulte];
@@ -1230,7 +1239,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
       <div className="txtDebu">{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}
       <div className="Question">
-  <h1>{txtQuestion}</h1>
+  <div className="questionDepartAlign">{txtQuestion}</div>
       {listeBouton.map((btn) => {
         if (btn.id === 2) {
           return (

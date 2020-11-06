@@ -353,13 +353,13 @@ const changeCouleurBoutonViolence = (e) => {
     const recupReco = (e) => {
       e.preventDefault();
       let reponse = {
-        titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
+        titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
         value: e.target.value,
         reponse : 1
       };
       setCurrentReco(reponse);
     
-      console.log("Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : " + reponse.value);
+      console.log("Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : " + reponse.value);
     };
 
 
@@ -1040,7 +1040,7 @@ const changeCouleurBoutonViolence = (e) => {
 
             <br></br>
             <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu’au 31 octobre 2020 :</p>
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
             afficheCovid();
             changeCouleurBoutonViolence(e);}}>Oui</Button>

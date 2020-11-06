@@ -818,7 +818,7 @@ const afficheOuiCovid = (e) => {
 const recupCovid = (e) => {
   e.preventDefault();
   let reponse = {
-    titre: "Téléconsultation (selon recommandation applicable jusqu’au 31 octobre 2020) : ",
+    titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
     value: e.target.value,
     reponse : 1
   };
@@ -839,7 +839,7 @@ return (
     <div className="ConsultationContainer">
     <label>
       Consultation faite dans le cadre des dispositions du Covid valable
-      jusqu’au 31 octobre 2020 : 
+      jusqu'à la fin de l'état d'urgence sanitaire : 
       <Button variant="secondary" value="Oui" 
       className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{ recupCovid(e);
         afficheOuiCovid(e);

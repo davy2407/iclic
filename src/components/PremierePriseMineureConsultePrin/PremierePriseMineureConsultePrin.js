@@ -1186,7 +1186,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           <div className="ConsultationContainer">
           <label>
         Consultation faite dans le cadre des dispositions du Covid valable
-        jusqu’au 31 octobre 2020 : 
+        jusqu'à la fin de l'état d'urgence sanitaire : 
         <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
        
         affichageOuiCovid(); 
