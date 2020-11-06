@@ -889,7 +889,7 @@ const dateDDRInUTC = Date.UTC(
 
 
 const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
-const semaineSAInDays = diffInDays + 14;
+const semaineSAInDays = diffInDays;
 
 const semaineSA = {
   weeks: Math.round(semaineSAInDays /7),
