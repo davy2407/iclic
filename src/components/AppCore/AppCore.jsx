@@ -1230,6 +1230,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         onHide={() => setModalShow(false)}
         listeRadio={listeBoutonRadio}
         onFonctionAffichage={AffichageDonnee}
+        backdrop="static"
       ></MyVerticallyCenteredModal>
       
       <div className="Container">

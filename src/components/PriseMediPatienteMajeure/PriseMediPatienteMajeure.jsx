@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 
 import { Button, Form } from "react-bootstrap";
+import VerrouUn from "@components/VerrouUn";
+
 
 
 import LightOn from "@assets/images/lightOn.svg";
@@ -287,6 +289,9 @@ const recupRadioConsentement = (e) => {
       affichagePlusDeSeptMoinsDouze();
     } else if (nb > 7) {
       affichagePlusDouze();
+      setIdVerrou(()=>testVerrouUn());
+      
+      handleChangeVerrou();
     }
     let reponse = {
       titre: "Echographie de datation/Age gestationnel(SA) : ",
@@ -367,28 +372,12 @@ const recupRadioConsentement = (e) => {
     /// retourne le texte mois de 7 semaines si >12
     return (
       <div>
-        <p> IVG médicamenteuse et chirurgical possible mais en centre de référence seulement. </p>
-        <br></br>
-        <h1 className="Verrou1">VERROU : </h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire d’adresser votre patiente vers le centre de
-          référence duquel dépend la patiente (à défaut aux urgences spécialisés
-          le plus proche). Le degré d’urgence est à établir selon les signes
-          cliniques ou l’âge gestationnel estimé.
-        </p>
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
+        <p> 
+        IVG médicamenteuse et chirurgical possible mais en centre de référence seulement.
+          
+          
+           </p>
+        
       </div>
     );
   };
@@ -404,7 +393,6 @@ const recupRadioConsentement = (e) => {
 
   const affichagePlusDouze = () => {
     /// gère laffichage du texte + 12
-    let txtAEnlever = currentInfoNbSAplusDouze;
     let txtAAfficher = txtPlusDeDouzeSA;
     setcurrentInfoNbSAplusDouze(txtAAfficher);
     setcurrentInfoNbSAplusSeptMoinsDouze("");
@@ -792,10 +780,89 @@ const handleChangeGroupe = (e) => {
   };
 
 
+  /////////////////////////////////////////////////// txt verrou 1
+
+  const testVerrouDeux = () => {
+    return (
+      <div>
+         <p className="Red">
+           Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+           
+         </p>
+         <p className="Red">
+         Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.             </p>
+ 
+             <p className="Red">
+ 
+             Selon le temps estimer de la grossesse, il peut s’agir d’une urgence. 
+                       
+                         </p>
+ 
+                         <p className="Red">
+                         Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+                         </p>
+ 
+ 
+      </div>
+    )
+  }
+ 
+   const testVerrouUn = () => {
+     return (
+       <div>
+          <p className="Red">
+         Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+ 
+           
+         </p>
+         <p className="Red">
+         Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+             </p>
+ 
+             <p className="Red">
+ 
+             Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+             </p>
+ 
+ 
+       </div>
+     )
+   }
+ 
+
+
+  ////// verrou 1
+
+  const [verrouShow, setVerrouShow] = useState(false);
+
+const handleChangeVerrou = () => {
+  /// affichage modal
+  setVerrouShow(true);
+
+};
+
+
+//////// verrou 2 
+
+
+
+
+
+const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
   ///////////////////////////////////////
 
   return (
     <div className="consultationContainer">
+
+<VerrouUn
+      
+        show={verrouShow}
+        onHide={() => setVerrouShow(false)} 
+        onData={idVerrou}
+
+
+      ></VerrouUn>
+    
       <h1>Consultation première prise médicamenteuse : </h1>
       <h2>Prélude</h2>
 
@@ -844,8 +911,8 @@ const handleChangeGroupe = (e) => {
         value="Non"
         name="Echographie"
         onClick={()=>{
-         
-          clicVerrouDeuxaffichage();}}
+          setIdVerrou(()=>testVerrouDeux());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>
@@ -903,8 +970,9 @@ const handleChangeGroupe = (e) => {
         value="Non"
         name="Consentement"
         onClick={()=>{
+          setIdVerrou(()=>testVerrouDeux());
          
-          clicVerrouDeuxaffichage();}}
+          handleChangeVerrou();}}
         
       />
       </div>
@@ -987,8 +1055,8 @@ const handleChangeGroupe = (e) => {
         value="Non"
         name="BilanSang"
         onClick={()=>{
-         
-          clicVerrouDeuxaffichage();}}
+          setIdVerrou(()=>testVerrouDeux());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>

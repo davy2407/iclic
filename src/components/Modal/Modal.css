@@ -3,3 +3,11 @@
     background: rgb(63, 189, 147);
     color: red;
 }
+
+.sizeModal{
+   
+    overflow: scroll;
+}
+
+.sizeModal::-webkit-scrollbar { width: 0 !important };
+

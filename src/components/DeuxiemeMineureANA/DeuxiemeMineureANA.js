@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import VerrouUn from "@components/VerrouUn";
+
 
 // import assets
 import LightOn from "@assets/images/lightOn.svg";
@@ -543,10 +545,12 @@ const changeCouleurBoutonViolence = (e) => {
     let nb = saisieUtilisateurNbSemaineSA;
     if (nb < 7) {
       affichageMoinsDeSept();
-    } else if (nb > 7 && nb < 12) {
+    } else if (nb == 7 ) {
       affichagePlusDeSeptMoinsDouze();
-    } else if (nb > 12) {
+    } else if (nb > 7) {
       affichagePlusDouze();
+      handleChangeVerrou();
+
     }
     let reponse = {
       titre: "Echographie de datation/Age gestationnel : ",
@@ -564,7 +568,7 @@ const changeCouleurBoutonViolence = (e) => {
     /// retourne le texte mois de 7 semaines si <7
     return (
       <div>
-        <p>IVG médicamenteuse et chirurgical possible</p>
+          <p>IVG médicamenteuse </p>
       </div>
     );
   };
@@ -580,10 +584,10 @@ const changeCouleurBoutonViolence = (e) => {
 
   const affichageMoinsDeSept = () => {
     /// gère laffichage du texte - de 7 semaines
-    let txtAEnlever = currentInfoNbSAmoinsSept;
     let txtAAfficher = txtMoinsDeSeptSA;
     setCurrentInfoNbSAmoinsSept(txtAAfficher);
-    setTxtMoinsDeSeptSA(txtAEnlever);
+    setcurrentInfoNbSAplusDouze("");
+      setcurrentInfoNbSAplusSeptMoinsDouze("")
   };
 
   ///
@@ -593,30 +597,9 @@ const changeCouleurBoutonViolence = (e) => {
     return (
       <div>
         <p>
-          IVG médicamenteuse et chirurgical possible mais en centre de référence
-          seulement.
-        </p>
-        <br></br>
-        <h1 className="Verrou1">VERROU :</h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire d’adresser votre patiente vers le centre de
-          référence duquel dépend la patiente (à défaut aux urgences spécialisés
-          le plus proche). Le degré d’urgence est à établir selon les signes
-          cliniques ou l’âge gestationnel estimé.
-        </p>
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
+        IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.          </p>
+        
+       
       </div>
     );
   };
@@ -635,38 +618,18 @@ const changeCouleurBoutonViolence = (e) => {
 
   const affichagePlusDeSeptMoinsDouze = () => {
     /// gère laffichage du texte + de 7 semaines -12
-    let txtAEnlever = currentInfoNbSAplusSeptMoinsDouze;
     let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
     setcurrentInfoNbSAplusSeptMoinsDouze(txtAAfficher);
-    settxtPlusDeSeptSAmoinsDouze(txtAEnlever);
+    setcurrentInfoNbSAplusDouze("");
+    setCurrentInfoNbSAmoinsSept("");
   };
 
   const plusDeDouzetSemaines = () => {
     /// retourne le texte mois de 7 semaines si >12
     return (
       <div>
-        <p>IVG chirurgical seulement en centre de référence</p>
-        <br></br>
-        <h1 className="Verrou1">VERROU : </h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire d’adresser votre patiente vers le centre de
-          référence duquel dépend la patiente (à défaut aux urgences spécialisés
-          le plus proche). Le degré d’urgence est à établir selon les signes
-          cliniques ou l’âge gestationnel estimé.
-        </p>
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
+          <p>IVG médicamenteuse et chirurgical possible en centre de référence seulement. </p>
+        
       </div>
     );
   };
@@ -682,10 +645,10 @@ const changeCouleurBoutonViolence = (e) => {
 
   const affichagePlusDouze = () => {
     /// gère laffichage du texte + 12
-    let txtAEnlever = currentInfoNbSAplusDouze;
     let txtAAfficher = txtPlusDeDouzeSA;
     setcurrentInfoNbSAplusDouze(txtAAfficher);
-    settxtPlusDeDouzeSA(txtAEnlever);
+    setcurrentInfoNbSAplusSeptMoinsDouze("");
+    setCurrentInfoNbSAmoinsSept("");
   };
 
   /// Bloc verrou2
@@ -1002,10 +965,55 @@ setCurrentNbTabac(reponse);
 setNouvelleRecherchePaquet(0);
 };
 
+
+////////////////////////////////////
+
+
+const testVerrouUn = () => {
+  return (
+    <div>
+       <p className="Red">
+      Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+
+        
+      </p>
+      <p className="Red">
+      Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+          </p>
+
+          <p className="Red">
+
+          Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+          </p>
+
+
+    </div>
+  )
+}
+
+const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
+
+const [verrouShow, setVerrouShow] = useState(false);
+
+const handleChangeVerrou = () => {
+  /// affichage modal
+  setVerrouShow(true);
+
+};
+
     /////////////////////////////////////////////////////////////////////////////
 
   return (
       <div className="consultationContainer">
+        <VerrouUn
+        /// modal les props son les function permettant laffichage ou non du modal ainsi que la liste
+        /// de boutons ( à la base radio ^^) et la fonction affichagedonnée qui sera appelée dans certains cas par la fonction
+        /// recupIdbouton du modal
+        show={verrouShow}
+        onHide={() => setVerrouShow(false)} 
+        onData={idVerrou}
+
+      ></VerrouUn>
           <h1>
           Deuxième consultation préalable à l’IVG/Recueil de consentement 
 Mineure : 

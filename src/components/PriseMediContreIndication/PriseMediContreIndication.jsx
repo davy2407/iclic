@@ -3,9 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import FicheVidalMiso from "@assets/pdf/FicheVidalMisoprostol.pdf";
-import FicheVidalMife from "@assets/pdf/FicheVidalMifepristone.pdf";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
+import VerrouUn from "@components/VerrouUn";
 
 import "./PriseMediContreIndication.css";
 
@@ -355,8 +354,54 @@ const changeCouleurBoutonViolence = (e) => {
    
   };
 
+  ////////////////////////////
+
+
+const testVerrouUn = () => {
+  return (
+    <div>
+       <p className="Red">
+      Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+
+        
+      </p>
+      <p className="Red">
+      Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+          </p>
+
+          <p className="Red">
+
+          Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+          </p>
+
+
+    </div>
+  )
+}
+
+const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
+
+
+const [verrouShow, setVerrouShow] = useState(false);
+
+const handleChangeVerrou = () => {
+  /// affichage modal
+  setVerrouShow(true);
+
+};
+
+
+
   return (
     <div className="consultationContainer">
+       <VerrouUn
+        show={verrouShow}
+        onHide={() => setVerrouShow(false)} 
+        onData={idVerrou}
+
+
+
+      ></VerrouUn>
       <h1>Consultation 1ere prise médicamenteuse Contre-indication </h1>
       <br></br>
       
@@ -376,7 +421,7 @@ const changeCouleurBoutonViolence = (e) => {
         name="MifeContreMaj"
         onClick={()=>{
          
-          clicVerrouUnAffichage();}}
+          handleChangeVerrou();}}
         
       />
 
@@ -423,7 +468,7 @@ const changeCouleurBoutonViolence = (e) => {
         name="MisoContreMaj"
         onClick={()=>{
          
-          clicVerrouUnAffichage();}}
+          handleChangeVerrou();}}
         
       />
 
@@ -561,7 +606,7 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Non`}
         value="Non"
         name="biopsychosocialContreMaj"
-        onClick={()=>{clicVerrouUnAffichage();
+        onClick={()=>{handleChangeVerrou();
           }}
         
         

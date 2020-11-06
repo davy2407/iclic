@@ -605,6 +605,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const MedecinGyConventionOUiPatienteMajeure = () => {
@@ -617,6 +619,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const MedecinGyConventionNonConsultationOUi = () => {
@@ -648,6 +652,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalables à l'ivg");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const MedecinGyConventionNonConsultationOUiFin = () => {
@@ -660,6 +666,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalables à l'ivg");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const MedecinGyConventionNonConsultationNon = () => {
@@ -805,6 +813,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackList(newListeRadio);
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
+    setCurrentInfoModal("");
+    setTestText("");
     setTitre("Consultation préalable à l'IVG : ");
   };
 
@@ -818,6 +828,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const SageFemmeMedecinGeneralisteAttestationOui = () => {
@@ -875,6 +887,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation et convention signé");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeureAnonyme = () => {
@@ -938,11 +952,14 @@ l’IVG médicamenteuse hors établissement de santé.
     let nouvelleListeMedecin = [
       { id: 48, name: "Patiente majeure" },
       { id: 49, name: "Patiente mineure" },
+     
     ];
     setRollBackList(newListeRadio);
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   const SageFemmeMedecinGeneralisteAttestationOuiConventionNonConsultationOuiMajeureAnonyme = () => {
@@ -955,6 +972,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
+    setCurrentInfoModal("");
+    setTestText("");
   };
 
   useEffect(() => {
@@ -970,7 +989,7 @@ l’IVG médicamenteuse hors établissement de santé.
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">IVGclic</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="sizeModal">
         <Form
           // onClick={(e) => {
           //   e.preventDefault();
