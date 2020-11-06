@@ -37,6 +37,8 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
                 <li>Peggy Damioli, médecin spécialiste en médecine générale orthogéniste, Bihorel.</li>
                 <li>Sylvie Pauthier, chirurgien spécialiste en  gyneco-obstetrique, Ch Belvedere.</li>
                 <li>Sage-femme conseillère familliale en centre d'orthogénie.</li>
+                <li>Meiffre Maryse, sage-femme enseignante, département de maïeutique de Montpellier - site de Nîmes. UFR de médecine de Montpellier.
+                </li>
 
             </ul>
             <br></br>
