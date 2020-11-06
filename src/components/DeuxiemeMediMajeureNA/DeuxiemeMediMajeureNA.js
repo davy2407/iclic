@@ -14,7 +14,6 @@ import "./DeuxiemeMediMajeureNA.css";
 function DeuxiemeMediMajeureNA(props) {
 
     const afficheStateFin = () => {
-        console.log("state de fin va suivre");
         let liste = [];
         liste.push(currentMife);
         liste.push(currentMiso);
@@ -188,7 +187,6 @@ const changeCouleurBoutonViolence = (e) => {
     };
    setCurrentDateAntiG(reponse);
 
-    console.log("Date injection préventive d’Ig anti-D : " + reponse.value);
     
   };
 
@@ -544,7 +542,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         };
        setCurrentTypeContra(reponse);
       
-        console.log("Type contraception : " + reponse.value);
         
       };
     

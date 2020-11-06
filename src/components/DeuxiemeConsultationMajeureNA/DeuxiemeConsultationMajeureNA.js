@@ -28,7 +28,6 @@ function DeuxiemeConsultationMajeureNA(props) {
   //// function radio
 
   const recupRadioViolence = (e) => {
-    console.log("Violence : "+e.target.value);
   }
 
     const [ globalStateFin, setGlobalStateFin] =useState([])

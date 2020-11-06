@@ -15,7 +15,6 @@ import "./DeuxiemeMediMineureANA.css";
 function DeuxiemeMediMineureANA(props) {
     
     const afficheStateFin = () => {
-        console.log("state de fin va suivre");
         let liste = [];
         liste.push(currentMife);
         liste.push(currentMiso);
@@ -177,7 +176,6 @@ const recupRadioAnti = (e) => {
     
     setCurrentMife(reponse);
     
-    console.log("Effets secondaires de la mifépristone : " + reponse.value);
   };
   //////////////////////////////////////////
 
@@ -197,7 +195,6 @@ const recupRadioAnti = (e) => {
     
     setCurrentMiso(reponse);
     
-    console.log("Délivrance du misoprostol : " + reponse.value);
   };
 
   ///////////////////////////////////////////////////////////
@@ -238,7 +235,6 @@ const recupRadioAnti = (e) => {
     };
    setCurrentDateAntiG(reponse);
 
-    console.log("Date injection préventive d’Ig anti-D : " + reponse.value);
     
   };
 
@@ -634,7 +630,6 @@ L'implant à débuter le jour de la 2eme prise médicamenteuse ou à la consult
         };
        setCurrentTypeContra(reponse);
       
-        console.log("Type contraception : " + reponse.value);
         
       };
     

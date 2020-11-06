@@ -511,7 +511,6 @@ signature du praticien ainsi que la date</li>
   /////////////////////////////////////////////////////////////////////
 
  const testtt = () => {
-   console.log(".")
  }
 
   

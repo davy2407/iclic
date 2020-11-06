@@ -570,7 +570,6 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
     };
    setCurrentDateMife(reponse);
 
-    console.log("Date de prise de la mifépristone : " + reponse.value);
     
   };
 
@@ -636,7 +635,6 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
     };
    setCurrentDateMiso(reponse);
 
-    console.log("Date de prise du misoprotol :  " + reponse.value);
     
   };
 
@@ -757,7 +755,6 @@ HAS recommande la séquence de traitement Per Os.
     
     setCurrentContra(reponse);
     
-    console.log("Contraception choisie par la patiente : " + reponse.value);
   };
 
   const handleTypeContra = (e) => {
@@ -772,7 +769,6 @@ HAS recommande la séquence de traitement Per Os.
     };
    setCurrentTypeContra(reponse);
   
-    console.log("Type contraception : " + reponse.value);
     
   };
 
@@ -942,7 +938,6 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     
     setCurrentIst(reponse);
     
-    console.log("Recherche IST : " + reponse.value);
   };
 
   const recupInfoSupp = () => {
@@ -954,7 +949,6 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     };
     
     setCurrentInfoSupp(reponse);
-    console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
   };
 
 
@@ -1071,7 +1065,6 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     };
    setCurrentDateHPV(reponse);
 
-    console.log("date frotti (ou Test HPV) : " + reponse.value);
     
   };
 
@@ -1136,7 +1129,6 @@ affichageFrotti();
     };
     setCurrentTabac(reponse);
     
-    console.log("Fumeuse : " + reponse.value);
   };
 
   const handleSubmitPaquet = event => {
@@ -1148,7 +1140,6 @@ affichageFrotti();
     };
    setCurrentNbTabac(reponse);
   
-      console.log("nb paquet : "+reponse.value);
       
     
   
