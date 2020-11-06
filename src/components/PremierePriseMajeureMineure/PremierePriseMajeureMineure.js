@@ -783,6 +783,8 @@ HAS recommande la séquence de traitement Per Os.
   <Form.Control as="select" size="lg" onChange={(e) => {
           handleTypeContra(e);
         }}>
+              <option value="">Choisir..</option>
+
     <option value="implant">implant</option>
     <option value="pilule">pilule</option>
     <option value="patch">patch</option>
