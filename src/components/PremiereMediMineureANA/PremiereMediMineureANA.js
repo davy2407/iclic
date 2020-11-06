@@ -374,27 +374,7 @@ const plusDeDouzetSemaines = () => {
   return (
     <div>
       <p> IVG médicamenteuse et chirurgical possible mais en centre de référence seulement. </p>
-      <br></br>
-      <h1 className="Verrou1">VERROU : </h1>
-      <br></br>
-      <p className="Verrou1">
-        Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-        va à l’encontre des recommandations établies actuellement en vigueur
-        en France.
-      </p>
-      <p className="Verrou1">
-        Il est nécessaire d’adresser votre patiente vers le centre de
-        référence duquel dépend la patiente (à défaut aux urgences spécialisés
-        le plus proche). Le degré d’urgence est à établir selon les signes
-        cliniques ou l’âge gestationnel estimé.
-      </p>
-      <br></br>
-      <br></br>
-      <a href="#">Informations et orientation de la patiente.</a>
-      {/* /// liens à finir */}
-      <br></br>
-      <a href="#">Retour vers la page d’accueil.</a>
-      <br></br>
+      
     </div>
   );
 };
@@ -1044,7 +1024,7 @@ return (
     <br></br>
     </div>
     <div className="ConsultationContainer">
-    <h3>Attestation consultation psychosociale :</h3>
+    <h3>Attestation consultation psycho-sociale :</h3>
     <br></br>
 
     <Form>
@@ -1065,6 +1045,10 @@ return (
       label={`Non`}
       value="Non"
       name="attestationBug"
+      onClick={()=>{
+       
+        setIdVerrou(()=>testVerrouDeux());
+        handleChangeVerrou();}} 
       
     />
     </div>
@@ -1193,6 +1177,10 @@ return (
         label={`Non`}
         value="Non"
         name="accompagant"
+        onClick={()=>{
+       
+          setIdVerrou(()=>testVerrouDeux());
+          handleChangeVerrou();}} 
       />
       </div>
       </Form>
