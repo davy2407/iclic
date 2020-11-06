@@ -429,20 +429,12 @@ function MyVerticallyCenteredModal(props) {
     setTestText(rollBackTestText);
   };
 
-  const txtConventionOK = () => {
+
+  const txtCovid = () => {
     return (
       <div>
-        <p>
-        J’atteste sur l’honneur être formé pour pratiquer l’interruption volontaire
-         de grossesse conformément à la <a
-         target="_blank"
-         href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665.">loi L2212</a> du Code de la Santé Publique
-           ainsi que d’avoir signé une convention avec un centre de rattachement. 
-        </p>
-        
-        
-        <p>
-        Depuis le 11 juillet 2020 et jusqu’au 31 octobre, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
+         <p>
+        Depuis le 11 juillet 2020 et jusqu’à la fin de l'état d'urgence sanitaire, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
         </p>
         <p>
         Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultatif.
@@ -488,6 +480,28 @@ Pour en savoir plus :
         </ul>
 
 
+
+      </div>
+    )
+  }
+
+  const [ eltxtCovid, setElTxtCovid] = useState(()=> txtCovid())
+
+  const [currenttxtcovid, setCurrenttxtCovid] = useState("")
+
+  const txtConventionOK = () => {
+    return (
+      <div>
+        <p>
+        J’atteste sur l’honneur être formé pour pratiquer l’interruption volontaire
+         de grossesse conformément à la <a
+         target="_blank"
+         href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665.">loi L2212</a> du Code de la Santé Publique
+           ainsi que d’avoir signé une convention avec un centre de rattachement. 
+        </p>
+        
+        
+       
 
         
       </div>
@@ -581,6 +595,7 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation et convention signées : ");
     setTestText(txtConventionOK());
+    setCurrenttxtCovid(eltxtCovid);
   };
 
   const MedecinGyConventionNon = () => {
@@ -875,6 +890,7 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation et convention signé");
     setTestText(txtConventionOK());
+    setCurrenttxtCovid(eltxtCovid);
   };
 
   const SageFemmeMedecinGeneralisteAttestationOuiConsulationOUiMajeure = () => {
@@ -1012,6 +1028,7 @@ l’IVG médicamenteuse hors établissement de santé.
             </div>
           ))}
         </Form>
+          <div>{currenttxtcovid}</div>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={()=>{
