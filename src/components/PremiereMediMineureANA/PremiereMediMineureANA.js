@@ -967,6 +967,7 @@ return (
     <h3>Age gestationnel :</h3>
     <br></br>
     <input
+    min="0"
       type="number"
       name="name"
       value={saisieUtilisateurNbSemaineSA}
