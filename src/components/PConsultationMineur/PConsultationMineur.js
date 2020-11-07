@@ -180,18 +180,18 @@ function PConsultationMineur(props) {
     
 
 
-
+ 
      /// current reponse
      const [currentDDRSA, setCurrentDDRSA] = useState({
       titre : "Pas de réponses",
       value : "",
-      reponse : 0
+      reponse : 1
     });
   
     const [currentDDRDay, setCurrentDDRDay] =useState({
       titre : "Pas de réponses",
       value : "",
-      reponse : 0
+      reponse : 1
     });
   
     const [currentEcho, setCurrentEcho] = useState({
@@ -1045,6 +1045,26 @@ const handleSubmitPaquet = event => {
   
 };
 
+const txtWarningContra = () => {
+  return (
+    <p className="Red">
+      Attention contraception !
+    </p>
+  )
+}
+
+const [blocWarningContra, setBlocWarningContra] = useState(()=> txtWarningContra());
+
+
+const [currentWarningContra, setCurrentWarningContra] = useState("");
+
+
+const afficheWarningContra = () => {
+  setCurrentWarningContra(blocWarningContra);
+}
+
+
+
 //////////////////////////////////////////////////////////////////
 
 ////////////////////////////
@@ -1126,9 +1146,13 @@ const handleChangeVerrou = () => {
         label={`Non`}
         value="Non"
         name="accompagant"
+        onClick={handleChangeVerrou}
       />
       </div>
       </Form>
+      <p>
+          <a className="Bold" href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
+          </p>
 
           </label>
           
@@ -1383,7 +1407,7 @@ const handleChangeVerrou = () => {
       </a></p>
           </div>
           <div className="ConsultationContainer">
-          <h2>Consultation psycho-sociale proposée</h2>
+          <h2>Consultation psycho-sociale obligatoire :</h2>
       <label>
       <Form>
       <div key={`conPsy-radio`} className="mb-3" onChange={(e)=>{recupRadioPsycho(e);}}>
@@ -1401,6 +1425,7 @@ const handleChangeVerrou = () => {
         label={`Non`}
         value="Non"
         name="PsychoSo"
+        onClick={handleChangeVerrou}
       />
       </div>
       </Form>
@@ -1499,6 +1524,8 @@ const handleChangeVerrou = () => {
         label={`Oui`}
         value="Oui"
         name="Tabac"
+        onClick={afficheWarningContra}
+
       />
 
 <Form.Check 
@@ -1512,6 +1539,7 @@ const handleChangeVerrou = () => {
 
       </div>
       </Form>
+      <div>{currentWarningContra}</div>
 
       <form onSubmit={(e)=>{
         

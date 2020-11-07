@@ -987,7 +987,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         return (
           <div>
             <p className="Red">
-            prévoir en postIVG 
+            Prévoir en post-IVG !
             </p>
           </div>
         )
@@ -1099,7 +1099,57 @@ const handleSubmitPaquet = event => {
   
   setNouvelleRecherchePaquet(0);
 };
+
+const txtWarningContra = () => {
+  return (
+    <p className="Red">
+      Attention contraception !
+    </p>
+  )
+}
+
+const [blocWarningContra, setBlocWarningContra] = useState(()=> txtWarningContra());
+
+
+const [currentWarningContra, setCurrentWarningContra] = useState("");
+
+
+const afficheWarningContra = () => {
+  setCurrentWarningContra(blocWarningContra);
+}
+
+
+
+
 //////////////////////////////////////////
+
+const testVerrouDeux = () => {
+  return (
+    <div>
+       <p className="Red">
+         Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+         
+       </p>
+       <p className="Red">
+       Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.             </p>
+
+           <p className="Red">
+
+           Selon le temps estimer de la grossesse, il peut s’agir d’une urgence. 
+                     
+                       </p>
+
+                       <p className="Red">
+                       Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+                       </p>
+
+
+    </div>
+  )
+}
+
+
+
 const testVerrouUn = () => {
   return (
     <div>
@@ -1184,6 +1234,10 @@ const handleChangeVerrou = () => {
         label={`Non`}
         value="Non"
         name="attestation"
+        onClick={()=>{
+       
+          setIdVerrou(()=>testVerrouDeux());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>
@@ -1238,6 +1292,11 @@ const handleChangeVerrou = () => {
         label={`Oui`}
         value="Oui"
         name="consultation"
+        onClick={()=>{
+          
+          afficheAttestation();
+          
+        }}
       />
 
 <Form.Check 
@@ -1246,11 +1305,7 @@ const handleChangeVerrou = () => {
         label={`Non`}
         value="Non"
         name="consultation"
-        onClick={()=>{
-          
-          afficheAttestation();
-          
-        }}
+        
       />
       </div>
       </Form>
@@ -1460,14 +1515,10 @@ const handleChangeVerrou = () => {
           handleChangeGroupe(e);
         }}>
           <option value="">Choisir..</option>
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="AB">AB</option>
+    <option value="O">O</option>
   </Form.Control>
   </Form.Group>
   </div>
@@ -1571,6 +1622,7 @@ const handleChangeVerrou = () => {
         label={`Oui`}
         value="Oui"
         name="Tabac"
+        onClick={afficheWarningContra}
       />
 
 <Form.Check 
@@ -1585,6 +1637,7 @@ const handleChangeVerrou = () => {
       </div>
       </Form>
       </label>
+      <div>{currentWarningContra}</div>
       <form  onSubmit={(e)=>{
         
         submitHandler(e);

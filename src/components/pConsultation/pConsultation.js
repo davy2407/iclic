@@ -250,13 +250,13 @@ function PConsultation(props) {
   const [currentDDRSA, setCurrentDDRSA] = useState({
     titre : "Date DDR; ",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   const [currentDDRDay, setCurrentDDRDay] =useState({
     titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   const [currentEcho, setCurrentEcho] = useState({
@@ -488,6 +488,27 @@ const handleSubmitPaquet = event => {
 };
 
 
+const txtWarningContra = () => {
+  return (
+    <p className="Red">
+      Attention contraception !
+    </p>
+  )
+}
+
+const [blocWarningContra, setBlocWarningContra] = useState(()=> txtWarningContra());
+
+
+const [currentWarningContra, setCurrentWarningContra] = useState("");
+
+
+const afficheWarningContra = () => {
+  setCurrentWarningContra(blocWarningContra);
+}
+
+
+
+
 
   const recupInfoSupp = (e) => {
     e.preventDefault();
@@ -656,6 +677,37 @@ Cette violence peut être physique, sexuelle, économique,
 
   /////////////////////////////////////////////////////////////////////////
 
+const warningContexte = () => {
+  return (
+    <p className="Red">
+      Consultation psycho-sociale à proposer ! 
+
+
+    </p>
+  )
+};
+
+
+const [ blocWarningContext, setBlocWarningContexte] = useState(()=>warningContexte());
+
+const afficheWarningContexte = () => {
+  setCurrentWarningContexte(blocWarningContext);
+}
+
+
+
+
+const [currentWarningContexte, setCurrentWarningContexte] = useState("");
+
+
+
+
+
+
+
+
+
+
   const [valueDecouverteGro, setDecouverteGro] = useState(
     /// state bouton select ( ne fonctionne pas comme value de base actuellement )
     { value: "Selectionner" }
@@ -667,14 +719,9 @@ Cette violence peut être physique, sexuelle, économique,
     className: "Red",
   });
 
-  const [
-    affichageWarningConsultation,
-    setAffichageWarningConsultation,
-  ] = useState({ texte: "", className: "" });
+  
 
-  const afficheConsultation = () => {
-    setAffichageWarningConsultation(consultationPsychoSo);
-  };
+
 
   /// Consultation psychosociale
   const returnInfo = () => {
@@ -1039,7 +1086,7 @@ Cette violence peut être physique, sexuelle, économique,
     return (
       <div>
         <p className="Red">
-        prévoir en postIVG 
+        Prévoir en post-IVG !
         </p>
       </div>
     )
@@ -1362,9 +1409,11 @@ Cette violence peut être physique, sexuelle, économique,
         label={`Non`}
         value="Non"
         name="contexte"
+        onClick={afficheWarningContexte}
       />
       </div>
       </Form>
+    <div>{currentWarningContexte}</div>
 
 
 
@@ -1400,9 +1449,7 @@ Cette violence peut être physique, sexuelle, économique,
         Non
       </Button> */}
       <br></br>
-      <p className={affichageWarningConsultation.className}>  
-        {affichageWarningConsultation.texte}
-      </p>
+      
       </div>
       <div className="ConsultationContainer">
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
@@ -1572,10 +1619,10 @@ Cette violence peut être physique, sexuelle, économique,
       />
       </div>
       </Form>
+      <div>{currentWarningContexte}</div>
 
-      <p className={affichageWarningConsultation.className}>
-        {affichageWarningConsultation.texte}
-      </p>
+
+  
       <br></br>
       <input
         onClick={changementCouleurSVGPsycho}
@@ -1703,6 +1750,7 @@ Cette violence peut être physique, sexuelle, économique,
         label={`Oui`}
         value="Oui"
         name="Tabac"
+        onClick={afficheWarningContra}
       />
 
 <Form.Check 
@@ -1716,6 +1764,7 @@ Cette violence peut être physique, sexuelle, économique,
 
       </div>
       </Form>
+      <div>{currentWarningContra}</div>
 
 
       <br></br>

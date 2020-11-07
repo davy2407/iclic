@@ -951,16 +951,61 @@ let reponse = {
 setCurrentNbTabac(reponse);
  
 
-  
-
-
-
-
-setNouvelleRecherchePaquet(0);
+setNouvelleRecherchePaquet();
 };
 
 
+const txtWarningContra = () => {
+  return (
+    <p className="Red">
+      Attention contraception !
+    </p>
+  )
+}
+
+const [blocWarningContra, setBlocWarningContra] = useState(()=> txtWarningContra());
+
+
+const [currentWarningContra, setCurrentWarningContra] = useState("");
+
+
+const afficheWarningContra = () => {
+  setCurrentWarningContra(blocWarningContra);
+}
+
+
+
+
+
+
 ////////////////////////////////////
+
+const testVerrouDeux = () => {
+  return (
+    <div>
+       <p className="Red">
+         Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+         
+       </p>
+       <p className="Red">
+       Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.             </p>
+
+           <p className="Red">
+
+           Selon le temps estimer de la grossesse, il peut s’agir d’une urgence. 
+                     
+                       </p>
+
+                       <p className="Red">
+                       Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+                       </p>
+
+
+    </div>
+  )
+}
+
+
 
 
 const testVerrouUn = () => {
@@ -1039,6 +1084,10 @@ Mineure :
         label={`Non`}
         value="Non"
         name="attestation"
+        onClick={()=>{
+       
+          setIdVerrou(()=>testVerrouDeux());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>
@@ -1077,6 +1126,10 @@ Mineure :
         label={`Non`}
         value="Non"
         name="accompagant"
+        onClick={()=>{
+       
+          setIdVerrou(()=>testVerrouUn());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>
@@ -1113,6 +1166,10 @@ Mineure :
         label={`Non`}
         value="Non"
         name="sousAtte"
+        onClick={()=>{
+       
+          setIdVerrou(()=>testVerrouUn());
+          handleChangeVerrou();}}
       />
       </div>
       </Form>
@@ -1318,14 +1375,10 @@ Mineure :
           handleChangeGroupe(e);
         }}>
           <option value="">Choisir..</option>
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="AB">AB</option>
+    <option value="O">O</option>
   </Form.Control>
   </Form.Group>
       </div>
@@ -1375,6 +1428,7 @@ Mineure :
         label={`Oui`}
         value="Oui"
         name="Tabac"
+        onClick={afficheWarningContra}
       />
 
 <Form.Check 
@@ -1388,6 +1442,9 @@ Mineure :
 
       </div>
       </Form>
+
+
+      <div>{currentWarningContra}</div>
 
 
 
