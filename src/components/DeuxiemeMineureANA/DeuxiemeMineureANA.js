@@ -33,7 +33,6 @@ function DeuxiemeConsultationMineureANA(props) {
   /// state global liste
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
   liste.push(currentAttestation);
   liste.push(currentAcc);
@@ -559,7 +558,6 @@ const changeCouleurBoutonViolence = (e) => {
     };
     setCurrentEcho(reponse);
    
-    console.log("Echographie de datation/Age gestationnel : " + nb);
  
 
     setSaisieUtilisateurNbSemaineSA(0);
@@ -723,7 +721,6 @@ const recupInfoSupp = (e) => {
   };
   
   setInfoSupp(reponse);
-  console.log("info supp : " + "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles");
 };
     
     const returnInfoIST = () => {
@@ -852,7 +849,6 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       setCurrentDosage(reponse);
        
     
-        console.log("Dosage ß-HCG :  "+reponse.value);
         setDosageHCG(0);
     };
 
@@ -874,7 +870,6 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       };
      setCurrentGroupe(reponse);
     
-      console.log("Groupe Sanguin : " + reponse.value);
       
     };
     
@@ -956,7 +951,6 @@ let reponse = {
 setCurrentNbTabac(reponse);
  
 
-  console.log("nb paquet : "+reponse.value);
   
 
 
@@ -1205,6 +1199,7 @@ Mineure :
           <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
           {/* faire input comme nb paquet tabac pConsultation */}
           <input
+          min="0"
       type="number"
       name="name"
       value={saisieUtilisateurNbSemaineSA}
@@ -1300,6 +1295,8 @@ Mineure :
       
      }} >
           <input
+                      maxLength="7"
+
               value={dosageHCG}
               onChange={handleDosageHCG}
               type="text"

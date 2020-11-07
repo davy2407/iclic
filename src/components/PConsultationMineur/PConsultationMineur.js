@@ -93,7 +93,6 @@ function PConsultationMineur(props) {
       }
 
       const recupRadioContexte = (e) => {
-        console.log("Contexte "+e.target.value);
         let reponse = {
           titre: "Contexte Biopsychosocial favorable : ",
           value: e.target.value,
@@ -887,12 +886,10 @@ const dateDDRInUTC = Date.UTC(
   dateDDR.getMonth(),
   dateDDR.getDate()
 );
-console.log(todayInUTC);
-console.log(dateDDRInUTC);
 
 
 const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
-const semaineSAInDays = diffInDays + 14;
+const semaineSAInDays = diffInDays;
 
 const semaineSA = {
   weeks: Math.round(semaineSAInDays /7),
@@ -1203,6 +1200,7 @@ const handleChangeVerrou = () => {
       />
       </div>
       </Form>
+      <div className="Red">{currentTextUrgence}</div>
       
       <input
         onClick={changementCouleurSVGEcho}

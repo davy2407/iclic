@@ -14,7 +14,6 @@ import "./DeuxiemeMediMajeureNA.css";
 function DeuxiemeMediMajeureNA(props) {
 
     const afficheStateFin = () => {
-        console.log("state de fin va suivre");
         let liste = [];
         liste.push(currentMife);
         liste.push(currentMiso);
@@ -188,7 +187,6 @@ const changeCouleurBoutonViolence = (e) => {
     };
    setCurrentDateAntiG(reponse);
 
-    console.log("Date injection préventive d’Ig anti-D : " + reponse.value);
     
   };
 
@@ -296,6 +294,10 @@ const changeCouleurBoutonViolence = (e) => {
               <h4>ES mifépristone :</h4>
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection.
+            </p>
+            <h4>ES misoprostol : </h4>
+            <p>
+            nausées/vomissements, diarrhées, crampes abdominales, infection, contractions utérines, saignements utérins, malformations fœtales.
             </p>
             
           </div>
@@ -544,7 +546,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         };
        setCurrentTypeContra(reponse);
       
-        console.log("Type contraception : " + reponse.value);
         
       };
     
@@ -668,13 +669,13 @@ Majeure </h1>
 
       </div>
       </Form>
-            <input
+            {/* <input
         onClick={changementCouleurSVGMiso}
         className="Lampe"
         type="image"
         src={logoAfficheMiso}
       />
-      <div className="ContainerBulle">{currentInfoMiso}</div>
+      <div className="ContainerBulle">{currentInfoMiso}</div> */}
             </div>
 
             <div className="ConsultationContainer">

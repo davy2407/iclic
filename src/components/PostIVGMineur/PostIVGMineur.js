@@ -20,7 +20,6 @@ function PostIVGMineur(props) {
 
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentReco);
     liste.push(currentAcc)
@@ -359,7 +358,6 @@ const changeCouleurBoutonViolence = (e) => {
       };
       setCurrentReco(reponse);
     
-      console.log("Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : " + reponse.value);
     };
 
 
@@ -405,7 +403,6 @@ const changeCouleurBoutonViolence = (e) => {
           };
   setCurrentResultat(reponse);
 
-  console.log("Résultat décroissance dosage sanguin BHCG :  " + reponse.value);
 
         }
 
@@ -424,13 +421,16 @@ const changeCouleurBoutonViolence = (e) => {
                 
             }
 
-            return (
+            if (parseInt(resultat)) {
+              return (
                 <div>
                 <p>{resultat} %</p>
                 <br></br>
                 <p className="Red">{txt}</p>
                 </div>
             )
+              
+            }
         }
 
 
@@ -516,7 +516,6 @@ const changeCouleurBoutonViolence = (e) => {
           
           setCurrentContra(reponse);
           
-          console.log("Contraception choisie par la patiente : " + reponse.value);
         };
 
         const returnInfoContra = () => {
@@ -648,7 +647,6 @@ const changeCouleurBoutonViolence = (e) => {
           
           setCurrentIST(reponse);
           
-          console.log("Recherche IST : " + reponse.value);
         };
 
         const returnInfoIST = () => {
@@ -726,7 +724,6 @@ const changeCouleurBoutonViolence = (e) => {
           setCurrentNbTabac(reponse)
            
         
-            console.log("nb paquet : "+reponse.value);
             
           
         
@@ -948,7 +945,6 @@ const changeCouleurBoutonViolence = (e) => {
           };
           setCurrentTestUri(reponse);
         
-          console.log("Utilisation d’un autotest urinaire : " + reponse.value);
 
         }
 
@@ -961,7 +957,6 @@ const changeCouleurBoutonViolence = (e) => {
           };
           setCurrentPosNe(reponse);
         
-          console.log("résultat autotest urinaire : " + reponse.value);
 
         }
         const ouiUri = () => {
@@ -1121,14 +1116,15 @@ const changeCouleurBoutonViolence = (e) => {
 />
 
 </form>
+
+
+{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 <Button className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
             recupResultat(e);
             changeCouleurBoutonViolence(e);}}
         value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
  
         >Valider</Button>
-
-{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 <h3>Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>

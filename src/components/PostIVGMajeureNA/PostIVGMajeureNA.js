@@ -23,7 +23,6 @@ function PostIVGMajeureNA(props) {
 
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentReco);
     liste.push(currentResultat);
@@ -360,14 +359,13 @@ const recupReco = (e) => {
   };
   setCurrentReco(reponse);
 
-  console.log("Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : " + reponse.value);
 };
 
 ///////////////////////////
 
     //// Bloc Dosage
    
-    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState()
+    const [nouvelleRechercheBHCGInitial, setNouvelleRechercheBHCGInitial] = useState("")
           ///////// dosage initial BHCG
 
   const handleChangeBHCGInitial = event => {
@@ -405,7 +403,6 @@ const recupReco = (e) => {
           };
   setCurrentResultat(reponse);
 
-  console.log("Résultat décroissance dosage sanguin BHCG :  " + reponse.value);
 
         }
 
@@ -430,14 +427,18 @@ const recupReco = (e) => {
                 txt = "Réussite de la méthode selon l’analyse du pourcentage."
                 
             }
-
-            return (
+            if (parseInt(resultat)) {
+              return (
                 <div>
                 <p>{resultat} %</p>
                 <br></br>
                 <p className="Red">{txt}</p>
                 </div>
             )
+              
+            }
+
+           
         }
 
 
@@ -622,7 +623,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           
           setCurrentIST(reponse);
           
-          console.log("Recherche IST : " + reponse.value);
         };
 
         const returnInfoIST = () => {
@@ -772,7 +772,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         const handleChange = (e) => {
           /// recup date frotti
           let myDate = new Date(e.target.valueAsDate);
-          console.log(myDate);
           
           
           let reponse = {
@@ -802,7 +801,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
             };
             setCurrentTabac(reponse);
           
-            console.log("Fumeuse : " + reponse.value);
           };
         
           
@@ -826,7 +824,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           setCurrentNbTabac(reponse);
            
         
-            console.log("nb paquet : "+reponse.value);
             
           
         
@@ -850,7 +847,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           };
           setCurrentVecu(reponse);
         
-          console.log("Vécu de l’IVG traumatique : " + reponse.value);
         };
         const returnInfoVecu = () => {
             return (
@@ -1026,7 +1022,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           };
           setCurrentPosNe(reponse);
         
-          console.log("résultat autotest urinaire : " + reponse.value);
 
         }
         const ouiUri = () => {
@@ -1168,14 +1163,16 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 />
 
 </form>
+
+
+{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
+
 <Button className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
             recupResultat(e);
             changeCouleurBoutonViolence(e);}}
         value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
  
         >Valider</Button>
-
-{afficheResultat(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
 <h3>Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>

@@ -87,56 +87,46 @@ La voie postale est possible. Attention au délai.
 
 
     <div className="Tarification">
-      <h1>Facturation et résumé Mineure : </h1>
+      <h1>Conclusion et tarification :</h1>
+
+      <h2>Tarification : </h2>
       <br></br>
       
       <p>
-      La consultation de 1ere prise médicamenteuse est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. Elle doit être cotée avec l’index FHV + FMV (50 + 87,92 euros). Cette cotation inclut l’éventuelle consultation facultative de 2ème prise médicamenteuse.  
+      La consultation de 1ere prise médicamenteuse est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé.
+      </p>
+      <p>
+      
+       Elle doit être cotée avec l’index FHV + FMV (50 + 87,92 euros).
+       </p>
+       <p>
+       
+       
+       Cette cotation inclut l’éventuelle consultation facultative de 2ème prise médicamenteuse.  
       </p>
 
       <p>
-      Sa tarification peut être faite électroniquement ou par format papier.   
-Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour : 
+      Sa tarification peut être faite électroniquement ou par format papier.  
+
       </p>
-      <ul>
-          <li>
-              <p>
-              Les jeunes filles mineures non émancipées sans consentement parental
-              </p>
-          </li>
-          <li>
-              <p>
-              Les femmes bénéficiaires de la CMU complémentaire 
-              </p>
-          </li>
-          <li>
-              <p>
-              Les femmes bénéficiaires de l’aide médicale de l’État (AME).
-              </p>
-          </li>
-      </ul>
+      <p> 
+Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
+      </p>
+     
 
 
       <p>
-      Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale, d’ores et déjà applicables, (<a target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la sécurité). 
+      Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale (<a target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la sécurité). 
       </p>
       <p>
       Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030). La facturation électronique est exclue dans ce seul cas de figure.
       </p>
 
-      {/* <div className="ConsultationContainer">
-          <label>
-        Consultation faite dans le cadre des dispositions du Covid valable
-        jusqu’au 31 octobre 2020 : 
-        <Button variant="secondary" onClick={()=> {affichageOuiCovid()}}>Oui</Button>
-        <Button variant="secondary" >Non</Button>
-      </label>
-  <div>{currentOui}</div>
-      <br></br>
-          </div> */}
+     
       
 
-      <p>Lien guide IVG ministère :</p>
+     <br></br>
+     <br></br>
       <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
@@ -149,6 +139,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       </a>
       <br></br>
       <br></br>
+
       
   
       <a className="Bold" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
@@ -170,12 +161,14 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
     Il est <span className="Bold" className="Red">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
      transmission préétabli avec votre centre de référence afin de suivre les règles
       préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
-    Un exemplaire doit être remis à la patiente. 
+    <span className="Red">Un exemplaire doit être remis à la patiente</span>. 
     </p>
     <p>
-    Toute mineure depuis le 1er janvier 2020 peut bénéficier d'une contraception gratuite. Quel que soit son âge, elle bénéficie d'une prise en charge complète par l'Assurance Maladie et sans avance de frais. 
+    Toute mineure depuis le 1er janvier 2020 peut bénéficier d'une contraception gratuite. Quel que soit son âge, elle bénéficie d'une prise en charge complète par l'Assurance Maladie et sans avance de frais.
+    </p>
+    <p> 
     <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichJO.do?idJO=JORFCONT000042266235">
-    Journal officiel contraception mineure de moins de 15 ans :
+    Journal officiel contraception mineure de moins de 15 ans.
     </a>
     </p>
     <p>
@@ -184,31 +177,31 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
     <ul>
     Le parcours comprend : 
         <li>
-            <p>
+          
             Une consultation annuelle au cours de laquelle sont prescrits des examens de biologie médicale en vue d’une contraception
-            </p>
+           
         </li>
         <li>
-            <p>
-            Une consultation de suivi, la première année d’accès à la contraception            </p>
+           
+            Une consultation de suivi, la première année d’accès à la contraception         
         </li>
         <li>
-            <p>
+           
             Les actes liés à la pose, au changement ou au retrait d’un dispositif contraceptif
                 
-            </p>
+            
         </li>
         <li>
-            <p>
+            
             Certains examens de biologie médicale (glycémie à jeun, cholestérol total, triglycérides) une fois par an si nécessaire
                 
-            </p>
+          
         </li>
         <li>
-            <p>
+            
             Les contraceptifs remboursables.
                 
-            </p>
+          
         </li>
     </ul>
     <p>

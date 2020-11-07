@@ -28,7 +28,6 @@ function DeuxiemeConsultationMajeureNA(props) {
   //// function radio
 
   const recupRadioViolence = (e) => {
-    console.log("Violence : "+e.target.value);
   }
 
     const [ globalStateFin, setGlobalStateFin] =useState([])
@@ -882,12 +881,20 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       };
 
       const handleSubmitDosageHCG = event => {
-        event.preventDefault();
+       
+
         let reponse = {
           titre : "Dosage ß-HCG : ",
           value : event.currentTarget.value,
           reponse : 1
         };
+
+        for (let index = 0; index < reponse.value.length; index++) {
+          
+          
+        }
+
+        
         setCurrentDosage(reponse);
          
       
@@ -1335,6 +1342,7 @@ const handleChangeVerrou = () => {
             <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
+            min="0"
         type="number"
         name="name"
         value={saisieUtilisateurNbSemaineSA}
@@ -1430,10 +1438,13 @@ const handleChangeVerrou = () => {
       
      }} >
             <input
+            
+            maxLength="7"
                 value={dosageHCG}
                 onChange={handleDosageHCG}
                 type="text"
                 placeholder="dosage ß-HCG"
+             
             />
             <Button  className={btnOuiViolenceBase} value={dosageHCG} variant="danger" onClick={(e)=> {
               handleSubmitDosageHCG(e);

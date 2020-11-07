@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 500px) {
   .App {
    
     /* width: 100vw;
@@ -13,6 +13,10 @@
     
     padding: 0.5%;
   }
+  #contactDisplay{
+    height: 60vh ;
+    width: 100%;
+}
 
   .App::-webkit-scrollbar { width: 0 !important };
 
@@ -24,7 +28,7 @@
    */
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 500px) {
   .App {
     text-align: center;
     width: 100vw;
@@ -35,13 +39,21 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .Mention{
+    height: 100vh;
+  }
+
+  .Contact{
+    height: 100vh;
+  }
 }
 
 
 a{
   
   text-decoration: none;
-  font-size: large;
+
 
 
 }
@@ -71,3 +83,6 @@ h2{
 }
 
 
+input[type="radio"]{
+  background-color: rgb(247, 240, 244);
+}

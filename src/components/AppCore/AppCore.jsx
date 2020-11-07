@@ -46,6 +46,7 @@ import ContreIndicationMineure from "@components/ContreIndicationMineure";
 import PremierePriseMineureConsultePrin from "@components/PremierePriseMineureConsultePrin";
 import TarifPriseMediMineur from "@components/TarifPriseMediMineur";
 import TarifPostMin from "@components/TarifPostMin";
+import NonPro from "@components/NonPro";
 
 
 
@@ -510,7 +511,6 @@ signature du praticien ainsi que la date</li>
   /////////////////////////////////////////////////////////////////////
 
  const testtt = () => {
-   console.log(".")
  }
 
   
@@ -801,6 +801,15 @@ signature du praticien ainsi que la date</li>
       {
         name : "Tarif Post IVG Mineur" ,
          id :31 , objet : TarifPostMin ,
+          
+          fonction : {
+            recupInfo : recupPremiereConsulte,
+            afficheSuite : modifierObjetTarifPremiereConsulteMineur
+          }
+      },
+      {
+        name : "Non Pro" ,
+         id :32 , objet : NonPro ,
           
           fonction : {
             recupInfo : recupPremiereConsulte,
@@ -1195,7 +1204,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
   const Non = () => {
     /// function censé gérer laffichage si lutilisateur nest pas un pro de santé
     
-    setTexteDemarrage(txtNon());
+    setTxtQuestion(listeObjetConsulation[32].objet);  
     setListeBouton([]);
     setNombreBouton(0);
   };

@@ -22,8 +22,7 @@ function PConsultation(props) {
   };
 
   const recupRadioViolence = (e) => {
-    console.log("Violence : " + e.target.value);
-  };
+  }
 
   const recupRadioAcc = (e) => {
     let reponse = {
@@ -119,7 +118,6 @@ function PConsultation(props) {
   };
 
   const recupRadioContexte = (e) => {
-    console.log("Contexte " + e.target.value);
     let reponse = {
       titre: "Contexte Biopsychosocial favorable : ",
       value: e.target.value,
@@ -156,7 +154,6 @@ function PConsultation(props) {
   const [globalStateFin, setGlobalStateFin] = useState([]);
 
   const afficheStateFin = () => {
-    console.log("state de fin va suivre");
     let liste = [];
     liste.push(currentDDRSA);
     liste.push(currentDDRDay);
@@ -183,7 +180,6 @@ function PConsultation(props) {
     setStateNoReponse(noReponse);
     if (noReponse.length > 0) {
       /// affiche bloc no reponse
-      console.log(noReponse);
       afficheNoRep(noReponse);
     } else if (noReponse.length == 0) {
       /// reponse ok affiche bouton tarif
@@ -352,7 +348,6 @@ function PConsultation(props) {
     };
     setCurrentContext(reponse);
     setContexteBioPsyFin(reponse);
-    console.log("Contexte biopsychosocial favorable :" + reponse.value);
   };
 
   const [rechercheIstFin, setRechercheIstFin] = useState({});
@@ -372,8 +367,8 @@ function PConsultation(props) {
   const handleChange = (e) => {
     /// recup date frotti
     let myDate = new Date(e.target.valueAsDate);
-    console.log(myDate);
-
+    
+    
     let reponse = {
       titre: "Date Frotti",
       value: e.target.value,
@@ -381,7 +376,6 @@ function PConsultation(props) {
     };
     setCurrentDateHPV(reponse);
 
-    console.log("date frotti : " + reponse.value);
     setDateFrottiFin(reponse);
   };
 
@@ -403,7 +397,6 @@ function PConsultation(props) {
     };
     setCurrentNbTabac(reponse);
 
-    console.log("nb paquet : " + reponse.value);
     setNbTabacFin(reponse);
   };
 
@@ -416,10 +409,6 @@ function PConsultation(props) {
     };
 
     setInfoSupp(reponse);
-    console.log(
-      "info supp : " +
-        "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
-    );
   };
 
   /// info IST
@@ -667,8 +656,7 @@ function PConsultation(props) {
   //   /// recup date frotti
 
   //   let myDate = new Date(valueDDR.valueAsDate);
-  //   console.log(myDate);
-
+    
   //   e.preventDefault();
 
   //   let reponse = {
@@ -689,7 +677,8 @@ function PConsultation(props) {
   //   liste.push(reponse);
   //   setGlobalStateFin(liste);
 
-  //   console.log("date DDR : " + reponse.value);
+    
+  // };
 
   // };
 
@@ -752,8 +741,8 @@ function PConsultation(props) {
       dateDDR.getDate()
     );
 
-    const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
-    const semaineSAInDays = diffInDays + 14;
+  const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
+  const semaineSAInDays = diffInDays ;
 
     const semaineSA = {
       weeks: Math.round(semaineSAInDays / 7),

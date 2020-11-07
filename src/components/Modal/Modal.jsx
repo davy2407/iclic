@@ -49,7 +49,6 @@ function MyVerticallyCenteredModal(props) {
     /// l'utilisateur dans le state objetSelection[]
     /// chaque bouton a un id qui est recup lors de l'appel de la function
     let id = event.target.id;
-    console.log(id);
     setBoutonSel(id);
     if (id == 1) {
       MedecinGy();
@@ -389,7 +388,6 @@ function MyVerticallyCenteredModal(props) {
     let liste = objetSelection;
     liste.push(objet);
     setObjetSelection(liste);
-    console.log(liste);
   };
 
   const [patienteMajeure, setPatienteMajeure] = useState(2);
@@ -622,6 +620,7 @@ l’IVG médicamenteuse hors établissement de santé.
     setTitre("Attestation");
     setCurrentInfoModal("");
     setTestText("");
+    setCurrenttxtCovid("");
   };
 
   const MedecinGyConventionOUiPatienteMajeure = () => {
@@ -636,6 +635,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setTitre("Attestation");
     setCurrentInfoModal("");
     setTestText("");
+    setCurrenttxtCovid("");
+
   };
 
   const MedecinGyConventionNonConsultationOUi = () => {
@@ -669,6 +670,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setTitre("Consultation préalables à l'ivg");
     setCurrentInfoModal("");
     setTestText("");
+    setCurrenttxtCovid("");
+
   };
 
   const MedecinGyConventionNonConsultationOUiFin = () => {
@@ -683,6 +686,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setTitre("Consultation préalables à l'ivg");
     setCurrentInfoModal("");
     setTestText("");
+    setCurrenttxtCovid("");
+
   };
 
   const MedecinGyConventionNonConsultationNon = () => {
@@ -830,6 +835,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setCurrentInfoModal("");
     setTestText("");
+    setCurrenttxtCovid("");
+
     setTitre("Consultation préalable à l'IVG : ");
   };
 
@@ -844,6 +851,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
     setCurrentInfoModal("");
+    setCurrenttxtCovid("");
+
     setTestText("");
   };
 
@@ -904,6 +913,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Attestation et convention signé");
     setCurrentInfoModal("");
+    setCurrenttxtCovid("");
+
     setTestText("");
   };
 
@@ -975,6 +986,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
     setCurrentInfoModal("");
+    setCurrenttxtCovid("");
+
     setTestText("");
   };
 
@@ -989,11 +1002,12 @@ l’IVG médicamenteuse hors établissement de santé.
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
     setCurrentInfoModal("");
+    setCurrenttxtCovid("");
+
     setTestText("");
   };
 
   useEffect(() => {
-    console.log("mise à jour");
   }, []);
   return (
     <Modal
