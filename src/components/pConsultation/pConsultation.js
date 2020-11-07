@@ -21,8 +21,7 @@ function PConsultation(props) {
     e.preventDefault();
   };
 
-  const recupRadioViolence = (e) => {
-  }
+  const recupRadioViolence = (e) => {};
 
   const recupRadioAcc = (e) => {
     let reponse = {
@@ -367,8 +366,7 @@ function PConsultation(props) {
   const handleChange = (e) => {
     /// recup date frotti
     let myDate = new Date(e.target.valueAsDate);
-    
-    
+
     let reponse = {
       titre: "Date Frotti",
       value: e.target.value,
@@ -656,7 +654,7 @@ function PConsultation(props) {
   //   /// recup date frotti
 
   //   let myDate = new Date(valueDDR.valueAsDate);
-    
+
   //   e.preventDefault();
 
   //   let reponse = {
@@ -677,7 +675,6 @@ function PConsultation(props) {
   //   liste.push(reponse);
   //   setGlobalStateFin(liste);
 
-    
   // };
 
   // };
@@ -741,8 +738,8 @@ function PConsultation(props) {
       dateDDR.getDate()
     );
 
-  const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
-  const semaineSAInDays = diffInDays ;
+    const diffInDays = Math.floor((todayInUTC - dateDDRInUTC) / MS_PER_DAY);
+    const semaineSAInDays = diffInDays;
 
     const semaineSA = {
       weeks: Math.round(semaineSAInDays / 7),
