@@ -1200,6 +1200,7 @@ const handleChangeVerrou = () => {
       />
       </div>
       </Form>
+      <div className="Red">{currentTextUrgence}</div>
       
       <input
         onClick={changementCouleurSVGEcho}
