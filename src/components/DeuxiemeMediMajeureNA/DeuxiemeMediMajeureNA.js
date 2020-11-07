@@ -295,6 +295,10 @@ const changeCouleurBoutonViolence = (e) => {
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection.
             </p>
+            <h4>ES misoprostol : </h4>
+            <p>
+            nausées/vomissements, diarrhées, crampes abdominales, infection, contractions utérines, saignements utérins, malformations fœtales.
+            </p>
             
           </div>
         );
@@ -665,13 +669,13 @@ Majeure </h1>
 
       </div>
       </Form>
-            <input
+            {/* <input
         onClick={changementCouleurSVGMiso}
         className="Lampe"
         type="image"
         src={logoAfficheMiso}
       />
-      <div className="ContainerBulle">{currentInfoMiso}</div>
+      <div className="ContainerBulle">{currentInfoMiso}</div> */}
             </div>
 
             <div className="ConsultationContainer">
