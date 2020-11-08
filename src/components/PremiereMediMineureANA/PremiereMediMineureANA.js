@@ -9,7 +9,9 @@ import { Button, Form } from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import {FaFileDownload} from "react-icons/fa";
-import Formulaire from "@assets/docx/consentementMineure.docx";
+import Formulaire from "@assets/docx/FormulaireConsentement.docx";
+import AccordMaj from "@assets/docx/consentementMineure.docx";
+
 
 
 
@@ -1136,6 +1138,11 @@ return (
       />
       </div>
       </Form>
+      <p><FaFileDownload className="IconDL" />
+      <a href={AccordMaj} target="_blank">
+        Fiche accord référant
+      </a>
+          </p>
 
 
             <input

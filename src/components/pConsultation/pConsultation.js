@@ -10,7 +10,6 @@ import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 
 // import css
 import "./pConsultation.css";
-import { useReactToPrint } from "react-to-print";
 import {FaFileDownload} from "react-icons/fa";
 
 /// service 

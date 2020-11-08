@@ -62,9 +62,15 @@ function Header(props) {
         <NavDropdown.Item onClick={sourceDocs}>Liste des documents disponibles durant le parcours des consultations</NavDropdown.Item>
         
       </NavDropdown>
+    
      
     </Nav>
     
+  </Navbar.Collapse>
+  <Navbar.Collapse className="justify-content-end">
+    <Navbar.Text>
+      Dernière mise à jour du site : 04/11/2020
+    </Navbar.Text>
   </Navbar.Collapse>
 </Navbar>
 

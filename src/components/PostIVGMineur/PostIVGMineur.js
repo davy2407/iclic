@@ -7,8 +7,10 @@ import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
 import VerrouUn from "@components/VerrouUn";
+import AccordMaj from "@assets/docx/consentementMineure.docx";
 
 
+import {FaFileDownload} from "react-icons/fa";
 
 
 import "./PostIVGMineur.css";
@@ -1139,6 +1141,11 @@ const changeCouleurBoutonViolence = (e) => {
       />
       </div>
       </Form>
+      <p><FaFileDownload className="IconDL" />
+      <a href={AccordMaj} target="_blank">
+        Fiche accord référant
+      </a>
+          </p>
 
 
             <input

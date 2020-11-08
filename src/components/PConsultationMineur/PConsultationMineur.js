@@ -9,6 +9,8 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 import ConsentementMineur from "@assets/docx/consentementMineure.docx";
+import AccordMaj from "@assets/docx/consentementMineure.docx";
+
 
 // import css 
 import "./pConsultationMineur.css";
@@ -1132,7 +1134,7 @@ const handleChangeVerrou = () => {
           
           <br></br>
           <div className="ConsultationContainer">
-          <h2>Personne accompagnante majeure ou consentement parental</h2>
+          <h2>Personne accompagnante majeure ou consentement parental obliagtoire :</h2>
 
           
           <label>
@@ -1158,7 +1160,9 @@ const handleChangeVerrou = () => {
       </Form>
       <div className="docContainer">
       <p><FaFileDownload className="IconDL" />
-          <a className="Bold" href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
+      <a href={AccordMaj} target="_blank">
+        Fiche accord référant
+      </a>
           </p>
 
       </div>

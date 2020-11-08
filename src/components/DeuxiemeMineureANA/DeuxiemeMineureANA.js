@@ -7,9 +7,12 @@ import VerrouUn from "@components/VerrouUn";
 // import assets
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
+import AccordMaj from "@assets/docx/consentementMineure.docx";
+
 
 // import css
+import {FaFileDownload} from "react-icons/fa";
+
 import "./DeuxiemeMineureANA.css";
 
 /// service 
@@ -1108,7 +1111,7 @@ Mineure :
 
 
           <div className="ConsultationContainer">
-          <h2>Personne accompagnante majeure ou consentement parental</h2>
+          <h2>Personne accompagnante majeure ou consentement parental obligatoire :</h2>
           
           <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
@@ -1133,6 +1136,11 @@ Mineure :
       />
       </div>
       </Form>
+      <p><FaFileDownload className="IconDL" />
+      <a href={AccordMaj} target="_blank">
+        Fiche accord référant
+      </a>
+          </p>
           
           
           <input

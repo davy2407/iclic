@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: rgb(236, 210, 239);
+    background-color: rgb(240, 225, 241);
   
     min-height: 60vh;
     border: 3px solid rgb(133, 27, 83);
@@ -111,9 +111,9 @@
 .Question button{
     width: 10vw;
     align-self: center;
-    background-color:  rgb(221, 74, 74);
+    background-color: rgb(133, 27, 83);
     border-radius: 20px;
-    box-shadow: 5px 2.5px 2.5px  rgb(133, 27, 36);
+    box-shadow: 5px 2.5px 2.5px  rgb(71, 14, 45);
     text-align: center;
     border: none;
 
