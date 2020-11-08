@@ -9,6 +9,8 @@ import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ProtocolHAS from "@assets/pdf/ProtocoleIVGHASBonUsageMedicament.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
+import {FaFileDownload} from "react-icons/fa";
+
 
 
 
@@ -1577,7 +1579,7 @@ signature du praticien ainsi que la date
         </form>
       </div>
 
-        <br></br>
+        <br></br><FaFileDownload className="IconDL" />
         <a target="_blank" href={ProtocolHAS}>protocole IVG HAS</a>
      
         <a target="_blank" href={ContraceptionHAS}>HAS contraception</a>

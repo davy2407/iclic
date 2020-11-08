@@ -5,6 +5,8 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 import VerrouUn from "@components/VerrouUn";
+import {FaFileDownload} from "react-icons/fa";
+
 
 
 import "./ContreIndicationMineure.css";
@@ -623,9 +625,11 @@ const handleChangeVerrou = () => {
       
       <br></br> 
       <h3>Fiche patient traitement :</h3>
-      <a className="Bold" href={InfoPatiente} target="_blank">
+      <p><FaFileDownload className="IconDL" />
+     <a className="Bold" href={InfoPatiente} target="_blank">
         télécharger PDF
       </a>
+       </p> 
 
 
       <Button className={btnOuiViolenceBase} onClick={(e)=>{afficheStateFin();

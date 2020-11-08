@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import VerrouUn from "@components/VerrouUn";
@@ -12,8 +12,14 @@ import ConsentementMineur from "@assets/docx/consentementMineure.docx";
 
 // import css 
 import "./pConsultationMineur.css";
+import {FaFileDownload} from "react-icons/fa";
+
 
 function PConsultationMineur(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -1150,9 +1156,13 @@ const handleChangeVerrou = () => {
       />
       </div>
       </Form>
-      <p>
+      <div className="docContainer">
+      <p><FaFileDownload className="IconDL" />
           <a className="Bold" href={ConsentementMineur} target="_blank ">Formulaire de consentement pour patiente mineure.</a>
           </p>
+
+      </div>
+      
 
           </label>
           
@@ -1402,9 +1412,20 @@ const handleChangeVerrou = () => {
       </Form>
 
       </label>
-      <p><a href={GuideIVG} target="_blank">
+
+      <div className="docContainer">
+      <p><FaFileDownload className="IconDL" />
+      <a href={GuideIVG} target="_blank">
         PDF Guide IVG
-      </a></p>
+      </a>
+          </p>
+
+      </div>
+
+
+
+
+
           </div>
           <div className="ConsultationContainer">
           <h2>Consultation psycho-sociale obligatoire :</h2>

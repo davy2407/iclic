@@ -5,7 +5,9 @@ import { Button, Form } from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
+import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
+import {FaFileDownload} from "react-icons/fa";
+
 
 
 
@@ -906,6 +908,9 @@ src={logoAfficheMiso}
       />
       <div className="ContainerBulle">{currentInfoContra}</div>
             </div>
+            <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
+            </p>
+    
       <br></br>
 
       

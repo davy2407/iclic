@@ -4,8 +4,9 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
+import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
+import {FaFileDownload} from "react-icons/fa";
+
 
 
 import "./DeuxiemeMediMajeureNA.css";
@@ -291,7 +292,7 @@ const changeCouleurBoutonViolence = (e) => {
     const returnInfoMife = () => {
         return (
           <div className="BulleInfo">
-              <h4>ES mifépristone :</h4>
+              <h4>ES mifépristone :</h4> 
             <p>
             nausées/vomissements, diarrhées, crampes abdominales, infection.
             </p>
@@ -790,8 +791,15 @@ Majeure </h1>
         type="image"
         src={logoAfficheContra}
       />
+                 
+
       <div className="ContainerBulle">{currentInfoContra}</div>
+      
             </div>
+            <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
+            </p>
+            <br></br>
+            <br></br>
 
 
 

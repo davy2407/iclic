@@ -411,7 +411,7 @@ Les spécificités sont rappelées lors de chaque étape du site.
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
 
- 
+  
 
             </p>
             <p>

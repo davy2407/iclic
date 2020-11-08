@@ -9,6 +9,8 @@ import { Button, Form } from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
+import {FaFileDownload} from "react-icons/fa";
+
 
 function PremiereMediMineureANA(props) {
  ///Bloc fonctionnel
@@ -973,9 +975,10 @@ return (
       value={saisieUtilisateurNbSemaineSA}
       onChange={handleChange}
     />
-    <Button variant="danger" onClick={recupSaisieUtilisateurNbSemaine}>
-      Valider
-    </Button>
+ 
+
+    <Button className={btnOuiViolenceBase} onClick={(e)=>{recupSaisieUtilisateurNbSemaine();
+    changeCouleurBoutonViolence(e);}} variant="danger" >Valider</Button>
     <br></br>
     <div>{currentInfoNbSAmoinsSept}</div>
     <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
@@ -1147,14 +1150,10 @@ return (
       }}>
             <option value="">Choisir..</option>
 
-  <option value="A+">A+</option>
-  <option value="A-">A-</option>
-  <option value="B+">B+</option>
-  <option value="B-">B-</option>
-  <option value="AB+">AB+</option>
-  <option value="AB-">AB-</option>
-  <option value="O+">O+</option>
-  <option value="O-">O-</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="AB">AB</option>
+  <option value="O">O</option>
 </Form.Control>
 </Form.Group>
     
@@ -1205,14 +1204,14 @@ return (
     <br></br>
     <div className="ConsultationContainer">
    
-     <p>
-     <a className="Bold" rel="noreferrer noopener"
-          href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
-          target="_blank"
-        >
-          Lien guide IVG
-        </a>
-     </p>
+    <p><FaFileDownload className="IconDL" />
+       <a className="Bold" rel="noreferrer noopener"
+            href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
+            target="_blank"
+          >
+            Lien guide IVG
+          </a>
+       </p>
         
     
      

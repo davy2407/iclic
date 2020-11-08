@@ -1513,7 +1513,10 @@ src={logoAfficheDosage}
       <br></br>
       <div className="ContainerBulle">{currentInfoAvis}</div>
       </div>
+      <p>
+            <a className="Bold" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien protocole HAS</a>
 
+            </p>
       <br></br>
 
             

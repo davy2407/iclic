@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import VerrouUn from "@components/VerrouUn";
@@ -11,6 +11,7 @@ import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 // import css
 import "./pConsultation.css";
 import { useReactToPrint } from "react-to-print";
+import {FaFileDownload} from "react-icons/fa";
 
 /// service 
 
@@ -20,6 +21,9 @@ import { useReactToPrint } from "react-to-print";
 
 /// feuille de premiere consultation, patiente majeure non anonyme ne venant pas du 3d
 function PConsultation(props) {
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
   /// Bloc Fonctionnel
 
 
@@ -1592,9 +1596,14 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <br></br>
       
       <br></br>
-      <a className="Bold" href={GuideIVG} target="_blank">
+      <div className="docContainer">
+      <p><FaFileDownload className="IconDL" />
+      <a href={GuideIVG} target="_blank">
         PDF Guide IVG
       </a>
+          </p>
+
+      </div>
 
       </div>
       <div className="ConsultationContainer">

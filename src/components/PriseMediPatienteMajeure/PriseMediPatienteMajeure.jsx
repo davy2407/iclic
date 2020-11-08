@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 import { Button, Form } from "react-bootstrap";
@@ -8,8 +8,14 @@ import VerrouUn from "@components/VerrouUn";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
+import {FaFileDownload} from "react-icons/fa";
+
 
 function PriseMediPatienteMajeure(props) {
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
+
   ///Bloc fonctionnel
 
   const submitHandler = (e) => {
@@ -1108,14 +1114,10 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         }}>
               <option value="">Choisir..</option>
 
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="AB">AB</option>
+    <option value="O">O</option>
   </Form.Control>
   </Form.Group>
       
@@ -1159,7 +1161,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <br></br>
       <div className="ConsultationContainer">
      
-       <p>
+       <p><FaFileDownload className="IconDL" />
        <a className="Bold" rel="noreferrer noopener"
             href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
             target="_blank"
