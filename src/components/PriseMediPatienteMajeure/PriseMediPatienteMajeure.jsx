@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import VerrouUn from "@components/VerrouUn";
 
 
-
+import Formulaire from "@assets/docx/FormulaireConsentement.docx";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import {FaFileDownload} from "react-icons/fa";
@@ -888,13 +888,13 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <br></br>
       </div>
       <div className="ConsultationContainer">
-        <h3>Protocole et coordonnées du centre de référence remise à la patiente.
-           </h3>
-           <h4>Actuellement en cours de réalisation : à remplir manuellement sur la fiche de liaison.</h4>
+        <h1>Protocole et coordonnées du centre de référence remise à la patiente.
+           </h1>
+           <p>Actuellement en cours de réalisation : à remplir manuellement sur la fiche de liaison.</p>
         
       </div>
-      <br></br>
-      <h2>La patiente a en sa possession :</h2>
+      <br></br> 
+      <h1 className="Titre">La patiente a en sa possession :</h1>
       <br></br>
       <div className="ConsultationContainer">
       <h3>Échographie de datation :</h3>
@@ -923,7 +923,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       </div>
       </Form>
 
-      <div>{currentInfoVerrouDeux}</div>
+       
 
 
 
@@ -984,6 +984,14 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       />
       </div>
       </Form>
+      <p><FaFileDownload className="IconDL" />
+       <a className="Bold" rel="noreferrer noopener"
+            href={Formulaire}
+            target="_blank"
+          >
+            Formulaire de consentement
+          </a>
+       </p>
 
 
 
@@ -993,7 +1001,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
 
 
 
-      <div>{currentInfoVerrouDeux}</div>
+       
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -1075,7 +1083,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
 
      
       <br></br>
-      <div>{currentInfoVerrouDeux}</div>
+       
       <input
         onClick={changementCouleurSVGPriseDesang}
         className="Lampe"

@@ -1488,6 +1488,9 @@ signature du praticien ainsi que la date
       </div>
       </Form>
   <div>{currentTxtTypeContra}</div>
+   <FaFileDownload className="IconDL" />
+     <a target="_blank" href={ContraceptionHAS}>HAS contraception</a>
+
   <input
         onClick={changementCouleurSVGContraception}
         className="Lampe"
@@ -1686,9 +1689,7 @@ signature du praticien ainsi que la date
 
         <br></br><FaFileDownload className="IconDL" />
         <a target="_blank" href={ProtocolHAS}>protocole IVG HAS</a>
-     
-     <a target="_blank" href={ContraceptionHAS}>HAS contraception</a>
-
+      
 
      
        

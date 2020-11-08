@@ -7,6 +7,8 @@ import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
 import {FaFileDownload} from "react-icons/fa";
+import infoPAtiente from "@assets/docx/InfoPatiente.docx";
+
 
 
 
@@ -749,6 +751,9 @@ name="Misopro"
 
 </div>
 </Form>
+<p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={infoPAtiente}>Fiche information patiente</a>
+            </p>
+
 {/* <input
 onClick={changementCouleurSVGMiso}
 className="Lampe"
@@ -759,7 +764,7 @@ src={logoAfficheMiso}
             </div>
 
       <div className="ConsultationContainer">
-      <h2>Personne accompagnante majeure ou consentement parental obligatoire </h2>
+      <h2>Personne accompagnante majeure ou consentement parental obligatoire : </h2>
 
       <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
@@ -842,6 +847,8 @@ src={logoAfficheMiso}
             </div>
 
             <div className="ConsultationContainer">
+            <h2>Arrêt de travail prescrit pour la prise médicamenteuse : </h2>
+
             <Form>
       <div key={`arret-radio`} className="mb-3" onChange={(e)=>{recupRadioArret(e);}}>
       <Form.Check 
@@ -900,6 +907,9 @@ src={logoAfficheMiso}
       </div>
       </Form>
             <div>{currentTxtTypeContra}</div>
+            <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
+            </p>
+
             <input
         onClick={changementCouleurSVGContra}
         className="Lampe"
@@ -908,8 +918,6 @@ src={logoAfficheMiso}
       />
       <div className="ContainerBulle">{currentInfoContra}</div>
             </div>
-            <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
-            </p>
     
       <br></br>
 

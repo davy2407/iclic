@@ -6,6 +6,8 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
+import VerrouUn from "@components/VerrouUn";
+
 
 
 
@@ -964,8 +966,25 @@ const changeCouleurBoutonViolence = (e) => {
             <div>
               <h4> résultat :</h4>
 
-<Button variant="secondary" value="Positif" onClick={(e)=>{recupPosNe(e)}}>Positif</Button>
-      <Button variant="secondary" value="Négatif" onClick={(e)=>{recupPosNe(e)}}>Négatif</Button>
+              <Form>
+      <div key={`resultUri-radio`} className="mb-3" onChange={(e)=>{recupRadioPOsNe(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`resultUriOui`}
+        label={`Positif`}
+        value="Positif"
+        name="resultatUrinaire"
+      />
+
+<Form.Check 
+        type='radio'
+        id={`resultUriNon`}
+        label={`Négatif`}
+        value="Négatif"
+        name="resultatUrinaire"
+      />
+      </div>
+      </Form>
             
         </div>
           )
@@ -1016,14 +1035,58 @@ const changeCouleurBoutonViolence = (e) => {
         }
 
 
+         ////////////////////////////
+
+
+  const testVerrouUn = () => {
+    return (
+      <div>
+         <p className="Red">
+        Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France. 
+
+          
+        </p>
+        <p className="Red">
+        Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+            </p>
+
+            <p className="Red">
+
+            Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+            </p>
+
+
+      </div>
+    )
+  }
+
+  const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
+
+  const [verrouShow, setVerrouShow] = useState(false);
+
+  const handleChangeVerrou = () => {
+    /// affichage modal
+    setVerrouShow(true);
+
+  };
+
+
     
     
     
     return (
         <div className="consultationContainer">
+          <VerrouUn
+        show={verrouShow}
+        onHide={() => setVerrouShow(false)} 
+        onData={idVerrou}
+
+
+
+      ></VerrouUn>
 
             <h1>Consultation post-IVG Mineure :
-            </h1>
+            </h1> 
             
 
 
@@ -1054,7 +1117,7 @@ const changeCouleurBoutonViolence = (e) => {
 
 
             <div className="ConsultationContainer">
-            <h2>Personne accompagnante majeure ou consentement parental </h2>
+            <h2>Personne accompagnante majeure ou consentement parental obligatoire : </h2>
            
             <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
@@ -1072,6 +1135,7 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Non`}
         value="Non"
         name="accompagant"
+        onClick={handleChangeVerrou}
       />
       </div>
       </Form>

@@ -8,8 +8,9 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import {FaFileDownload} from "react-icons/fa";
+import Formulaire from "@assets/docx/consentementMineure.docx";
+
 
 
 function PremiereMediMineureANA(props) {
@@ -397,63 +398,6 @@ const affichagePlusDouze = () => {
   setcurrentInfoNbSAplusDouze(txtAAfficher);
   setcurrentInfoNbSAplusSeptMoinsDouze("");
   setCurrentInfoNbSAmoinsSept("");
-};
-
-/// Bloc verrou2
-
-const verrouDeux = () => {
-  /// retourne le texte verrou 2
-  return (
-    <div>
-      <h1 className="Verrou1">VERROU :</h1>
-      <br></br>
-      <p className="Verrou1">
-        Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-        va à l’encontre des recommandations établies actuellement en vigueur
-        en France.
-      </p>
-      <p className="Verrou1">
-        Il est nécessaire, selon vos réponses, un ajustement et une reprise à
-        la consultation précédente.
-      </p>
-      <p className="Verrou1">
-        Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.
-      </p>
-      <p className="Verrou1">
-        Votre centre de référence peut vous répondre afin d’établir une prise
-        en charge dans les meilleurs conditions pour la patiente.
-      </p>
-      <br></br>
-      <br></br>
-      <a href="#">Informations et orientation de la patiente.</a>
-      {/* /// liens à finir */}
-      <br></br>
-      <a href="#">Retour vers la page d’accueil.</a>
-      <br></br>
-    </div>
-  );
-};
-const [txtVerrouDeux, settxtVerrouDeux] = useState(
-  () => verrouDeux()
-  /// state contenant la fonction retournant le texte plus de 12 semaines
-);
-
-const [currentInfoVerrouDeux, setcurrentInfoVerrouDeux] = useState(
-  /// texte vide affichage de base
-  ""
-);
-
-const affichageVerrouDeux = () => {
-  /// gère laffichage du texte + de 7 semaines -12
-
-  let txtAAfficher = txtVerrouDeux;
-  setcurrentInfoVerrouDeux(txtAAfficher);
-
-};
-
-const clicVerrouDeuxaffichage = (e) => {
- 
-  affichageVerrouDeux();
 };
 
 /// Attestation consultation psychosocial
@@ -952,7 +896,7 @@ return (
     </div>
     </Form>
 
-    <div>{currentInfoVerrouDeux}</div>
+    
 
 
 
@@ -1015,6 +959,14 @@ return (
     />
     </div>
     </Form>
+    <p><FaFileDownload className="IconDL" />
+       <a className="Bold" rel="noreferrer noopener"
+            href={Formulaire}
+            target="_blank"
+          >
+            Formulaire de consentement
+          </a>
+       </p>
 
 
 
@@ -1024,7 +976,7 @@ return (
 
 
 
-    <div>{currentInfoVerrouDeux}</div>
+    
     <br></br>
     </div>
     <div className="ConsultationContainer">
@@ -1111,7 +1063,7 @@ return (
 
    
     <br></br>
-    <div>{currentInfoVerrouDeux}</div>
+    
     <input
       onClick={changementCouleurSVGPriseDesang}
       className="Lampe"
@@ -1160,7 +1112,7 @@ return (
       </div>
 
     <div className="ConsultationContainer">
-    <h3>Personne accompagnante majeurs ou consentement parental :</h3>
+    <h3>Personne accompagnante majeurs ou consentement parental obligatoire :</h3>
     <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
       <Form.Check 
