@@ -47,7 +47,7 @@ function Header(props) {
               <img src={Banniere} className="logoB"></img>
             </div> */}
       <div className="HeaderMenu">
-      <Navbar bg="light" expand="lg" className="NavBar">
+      <Navbar  expand="lg" className="NavBar">
   <Navbar.Brand onClick={refreshPage} className="Reload" >IVG Clic</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
