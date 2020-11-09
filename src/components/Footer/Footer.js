@@ -19,7 +19,7 @@ function Footer() {
     // { nom: 2, backgroundImage: Deux },
     // { nom: 3, backgroundImage: Trois },
     // { nom: 4, backgroundImage: Quatre },
-    { id: 1, nom: 'UniRouen', backgroundImage: Cinq },
+    // { id: 1, nom: 'UniRouen', backgroundImage: Cinq },
     { id: 2, nom: 'Prenat', backgroundImage: logoPrenat },
     { id: 3, nom: 'Natio', backgroundImage: National }
     // { nom: 6, backgroundImage: Six },
