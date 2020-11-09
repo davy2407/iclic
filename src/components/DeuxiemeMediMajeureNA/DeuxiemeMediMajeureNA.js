@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 import infoPAtiente from "@assets/docx/InfoPatiente.docx";
 
 
@@ -671,8 +671,17 @@ Majeure </h1>
 
       </div>
       </Form>
-      <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={infoPAtiente}>Fiche information patiente</a>
-            </p>
+      <p>
+      <a className="NewDocContainer"  href={infoPAtiente} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche information patiente
+      </a>
+        
+                    </p>
 
             {/* <input
         onClick={changementCouleurSVGMiso}
@@ -789,9 +798,19 @@ Majeure </h1>
       </div>
       </Form>
             <div>{currentTxtTypeContra}</div>
-            <p><FaFileDownload className="IconDL" /> <a className="Bold" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
-            </p>
+            <p>
 
+
+            <a className="NewDocContainer"  href={ContraceptionHAS} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
+       HAS contraception PDF
+      </a>
+              
+             </p>
             <input
         onClick={changementCouleurSVGContra}
         className="Lampe"

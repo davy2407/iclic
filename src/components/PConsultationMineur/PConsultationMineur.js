@@ -8,13 +8,13 @@ import VerrouUn from "@components/VerrouUn";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
-import ConsentementMineur from "@assets/docx/consentementMineure.docx";
 import AccordMaj from "@assets/docx/consentementMineure.docx";
 
 
 // import css 
 import "./pConsultationMineur.css";
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
+
 
 
 function PConsultationMineur(props) {
@@ -1159,11 +1159,14 @@ const handleChangeVerrou = () => {
       </div>
       </Form>
       <div className="docContainer">
-      <p><FaFileDownload className="IconDL" />
-      <a href={AccordMaj} target="_blank">
+      <p> <a className="NewDocContainer"  href={AccordMaj} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         Fiche accord référant
-      </a>
-          </p>
+      </a>          </p>
 
       </div>
       
@@ -1418,8 +1421,12 @@ const handleChangeVerrou = () => {
       </label>
 
       <div className="docContainer">
-      <p><FaFileDownload className="IconDL" />
-      <a href={GuideIVG} target="_blank">
+      <p> <a className="NewDocContainer"  href={GuideIVG} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         PDF Guide IVG
       </a>
           </p>

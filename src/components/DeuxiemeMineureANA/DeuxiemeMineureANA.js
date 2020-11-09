@@ -11,7 +11,7 @@ import AccordMaj from "@assets/docx/consentementMineure.docx";
 
 
 // import css
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 
 import "./DeuxiemeMineureANA.css";
 
@@ -1136,8 +1136,12 @@ Mineure :
       />
       </div>
       </Form>
-      <p><FaFileDownload className="IconDL" />
-      <a href={AccordMaj} target="_blank">
+      <p><a className="NewDocContainer"  href={AccordMaj} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         Fiche accord référant
       </a>
           </p>

@@ -8,9 +8,9 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
 
+import newPdfIcon from "@assets/images/PDFicon.svg";
 // import css
 import "./pConsultation.css";
-import {FaFileDownload} from "react-icons/fa";
 
 /// service 
 
@@ -1209,6 +1209,8 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <br></br>
  
       <div className="ConsultationContainer">
+     
+
       <h2>DDR</h2>
       {/* <form >
             <input
@@ -1596,8 +1598,13 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       
       <br></br>
       <div className="docContainer">
-      <p><FaFileDownload className="IconDL" />
-      <a href={GuideIVG} target="_blank">
+      <p> 
+      <a className="NewDocContainer"  href={GuideIVG} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         PDF Guide IVG
       </a>
           </p>

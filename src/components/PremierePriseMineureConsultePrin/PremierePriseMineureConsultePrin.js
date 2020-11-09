@@ -6,10 +6,9 @@ import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 
 
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
 import ProtocolHAS from "@assets/pdf/ProtocoleIVGHASBonUsageMedicament.pdf";
 import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 
@@ -1453,8 +1452,19 @@ signature du praticien ainsi que la date
       </div>
       </Form>
   <div>{currentTxtTypeContra}</div>
-  <FaFileDownload className="IconDL" />
-     <a target="_blank" href={ContraceptionHAS}>HAS contraception</a>
+
+
+  <a className="NewDocContainer"  href={ContraceptionHAS} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
+        HAS contraception
+      </a>
+
+
+
 
   <input
         onClick={changementCouleurSVGContraception}
@@ -1582,9 +1592,19 @@ signature du praticien ainsi que la date
         </form>
       </div>
 
-        <br></br><FaFileDownload className="IconDL" />
-        <a target="_blank" href={ProtocolHAS}>protocole IVG HAS</a>
-     
+        <br></br>
+
+        <a className="NewDocContainer"  href={ProtocolHAS} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
+        protocole IVG HAS
+      </a>
+        
+        
+           
 
 
         <br></br>

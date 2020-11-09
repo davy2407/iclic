@@ -8,9 +8,10 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import {FaFileDownload} from "react-icons/fa";
 import Formulaire from "@assets/docx/FormulaireConsentement.docx";
 import AccordMaj from "@assets/docx/consentementMineure.docx";
+import newPdfIcon from "@assets/images/PDFicon.svg";
+
 
 
 
@@ -286,8 +287,7 @@ const handleChange = (event) => {
 
 /// Bloc nombre de semaines SA
 
-const recupSaisieUtilisateurNbSemaine = (event) => {
-  event.preventDefault();
+const recupSaisieUtilisateurNbSemaine = () => {
   let nb = saisieUtilisateurNbSemaineSA;
   if (nb < 7) {
     affichageMoinsDeSept();
@@ -961,13 +961,16 @@ return (
     />
     </div>
     </Form>
-    <p><FaFileDownload className="IconDL" />
-       <a className="Bold" rel="noreferrer noopener"
-            href={Formulaire}
-            target="_blank"
-          >
+    <p>
+    <a className="NewDocContainer"  href={Formulaire} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
             Formulaire de consentement
-          </a>
+      </a>
+    
        </p>
 
 
@@ -1138,11 +1141,16 @@ return (
       />
       </div>
       </Form>
-      <p><FaFileDownload className="IconDL" />
-      <a href={AccordMaj} target="_blank">
+      <p>
+      <a className="NewDocContainer"  href={AccordMaj} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         Fiche accord référant
       </a>
-          </p>
+                  </p>
 
 
             <input
@@ -1163,13 +1171,24 @@ return (
     <br></br>
     <div className="ConsultationContainer">
    
-    <p><FaFileDownload className="IconDL" />
-       <a className="Bold" rel="noreferrer noopener"
+    <p>
+    <a className="NewDocContainer"  
             href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
-            target="_blank"
-          >
+            target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
             Lien guide IVG
-          </a>
+      </a>
+      
+      
+      
+      
+      
+      
+      
        </p>
         
     

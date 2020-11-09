@@ -8,7 +8,7 @@ import VerrouUn from "@components/VerrouUn";
 import Formulaire from "@assets/docx/FormulaireConsentement.docx";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 function PriseMediPatienteMajeure(props) {
@@ -984,13 +984,17 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       />
       </div>
       </Form>
-      <p><FaFileDownload className="IconDL" />
-       <a className="Bold" rel="noreferrer noopener"
-            href={Formulaire}
-            target="_blank"
-          >
+      <p>
+      <a className="NewDocContainer"  href={Formulaire} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
             Formulaire de consentement
-          </a>
+      </a>
+        
+      
        </p>
 
 
@@ -1169,13 +1173,21 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <br></br>
       <div className="ConsultationContainer">
      
-       <p><FaFileDownload className="IconDL" />
-       <a className="Bold" rel="noreferrer noopener"
-            href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
-            target="_blank"
-          >
+       <p>
+       <a className="NewDocContainer"              href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf"
+ target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
             Lien guide IVG
-          </a>
+      </a>
+         
+         
+         
+         
+        
        </p>
           
       

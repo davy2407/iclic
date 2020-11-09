@@ -4,13 +4,11 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
 import VerrouUn from "@components/VerrouUn";
 import AccordMaj from "@assets/docx/consentementMineure.docx";
 
 
-import {FaFileDownload} from "react-icons/fa";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 import "./PostIVGMineur.css";
@@ -1141,10 +1139,20 @@ const changeCouleurBoutonViolence = (e) => {
       />
       </div>
       </Form>
-      <p><FaFileDownload className="IconDL" />
-      <a href={AccordMaj} target="_blank">
+      <p><a className="NewDocContainer"  href={AccordMaj} target="_blank">
+      <input
+        className="iconPDFNew"
+        type="image"
+        src={newPdfIcon}
+      />
         Fiche accord référant
       </a>
+        
+        
+        
+        
+        
+        
           </p>
 
 
