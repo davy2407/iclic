@@ -1321,7 +1321,7 @@ Mineure :
     </div>
     <div div className="ConsultationContainer">
     <h2>
-      Prise de sang (Groupe sanguin : 2 déterminations, ß-HCG
+      Prise de sang effectuée (Groupe sanguin : 2 déterminations, ß-HCG
       quantitatif)
     </h2>
     <br></br>

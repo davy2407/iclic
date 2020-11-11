@@ -1364,7 +1364,7 @@ const handleChangeVerrou = () => {
 
           </div>
           <div className="ConsultationContainer">
-          <h2>Prise de sang (Groupe sanguin 2 déterminations, ß-HCG quantitatif)</h2>
+          <h2> Prescription prise de sang (Groupe sanguin 2 déterminations, ß-HCG quantitatif)</h2>
 
           <Form>
       <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);}}>

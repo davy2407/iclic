@@ -320,7 +320,7 @@ function AppCore() {
 
   const TexteMineure = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
           L’article <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a>  du Code de la Santé Publique : « Si la femme est mineure non émancipée, le consentement de l’un des titulaires de l’autorité parentale ou, le cas échéant, du représentant légal est recueilli. Ce consentement est joint à la demande qu’elle présente au médecin en dehors de la présence de toute autre personne.
           </p>
@@ -341,7 +341,7 @@ function AppCore() {
 
   const txtPostMin = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
 
@@ -385,7 +385,7 @@ function AppCore() {
 
   const txtDeuxiemeContactMAJ = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
             Cette 2ème consultation peut être effectuée par tout médecin ou sage femme,
              prenant en charge l’IVG ou non. Elle fait partie du tarif forfaitaire à l’IVG. 
@@ -403,7 +403,7 @@ function AppCore() {
 
   const txtPOstMaj = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
 
@@ -419,7 +419,7 @@ function AppCore() {
   }
   const txtDeuxiemePriseMin = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
             Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
@@ -433,7 +433,7 @@ function AppCore() {
 
   const txtDeuxiemePriseMaj = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
             Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
@@ -448,7 +448,7 @@ function AppCore() {
 
   const txtPriseMediMajeure = () => {
     return (
-      <div>
+      <div className="BulleInfo">
       <p>
       Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé.
       </p>
@@ -471,7 +471,7 @@ signature du praticien ainsi que la date</li>
 
   const txtDeuxiemeContactMineure = () => {
     return (
-      <div>
+      <div className="BulleInfo">
         <p>
           Dans le cas particulier de l’IVG, l’article <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a> Lien n°19 du code de la
            santé publique dispose : « Si la femme est mineure non émancipée,
