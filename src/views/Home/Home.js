@@ -9,6 +9,7 @@ import MentionL from "@components/MentionL";
 import Contact from "@components/Contact";
 import SourceLien from "@components/SourceLien";
 import SourceDocs from "@components/SourceDocs";
+import Covid from "@components/Covid";
 
 function Home() {
   const [listeMid, setListeMid] = useState([MidSection, APropos]);
@@ -33,6 +34,10 @@ function Home() {
     setCurrentMid(SourceDocs);
   };
 
+  const afficheCovid = () => {
+    setCurrentMid(Covid);
+  }
+
   const [currentMid, setCurrentMid] = useState(MidSection);
   return (
     <React.Fragment>
@@ -42,6 +47,7 @@ function Home() {
         onContact={afficheContact}
         onSource={afficheSourceLien}
         onDocs={afficheSourceDocs}
+        onCovid={afficheCovid}
       />
 
       <div>{currentMid}</div>

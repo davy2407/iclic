@@ -32,6 +32,10 @@ function Header(props) {
     props.onDocs();
   }
 
+  function covidAff(){
+    props.onCovid();
+  }
+
 
 
   return (
@@ -55,6 +59,9 @@ function Header(props) {
       <Nav.Link onClick={APropos} >À propos</Nav.Link>
       <Nav.Link onClick={Mention}>Mention légale</Nav.Link>
       <Nav.Link onClick={Contact}>Contact</Nav.Link>
+      <Nav.Link onClick={covidAff}>Covid</Nav.Link>
+
+
       
       
       <NavDropdown title="Sources et textes de lois" id="basic-nav-dropdown">

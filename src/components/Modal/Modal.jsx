@@ -606,6 +606,8 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
+    setCurrentInfoModal(txtConsultation)
+
   };
 
   const MedecinGyConventionOUiPatiente = () => {
@@ -756,6 +758,7 @@ l’IVG médicamenteuse hors établissement de santé.
     setRollBackTitre(Titre);
     setNewListeRadio(nouvelleListeMedecin);
     setTitre("Consultation préalable à l'IVG : ");
+    setCurrentInfoModal(txtConsultation)
   };
 
   const SageFemmeMedecinGeneralisteAttestationNonConsulationOUi = () => {
@@ -822,6 +825,23 @@ l’IVG médicamenteuse hors établissement de santé.
         </p>
       </div>
     )
+  }
+
+  const txtConsultation = () => {
+    return (
+
+      <div>
+      <p>
+      Les consultations préalables regroupent 2 type de consultations possible par tous médecins ou sages-femmes.
+      </p>
+      <p>
+      La « première demande d'IVG »  fait partie de ces consultations. Plus d'information par la suite.
+
+      </p>
+    </div>
+
+    )
+   
   }
 
   const SageFemmeMedecinGeneralisteAttestationNonConsulationOUiMajeure = () => {
