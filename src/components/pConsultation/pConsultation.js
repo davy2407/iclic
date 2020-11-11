@@ -27,7 +27,13 @@ function PConsultation(props) {
 
 
 
+////////icon
 
+const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+
+const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon)
   
   
 
@@ -1601,7 +1607,14 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <p> 
       <a className="NewDocContainer"  href={GuideIVG} target="_blank">
       <input
-        className="iconPDFNew"
+        onMouseEnter={()=>{
+          setGlobalCassIcon(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setGlobalCassIcon(classIcon);
+        }}
+        className={globalClassIcon}
         type="image"
         src={newPdfIcon}
       />

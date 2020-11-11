@@ -120,6 +120,8 @@ function AppCore() {
     
   }
 
+   const [classQuestion, setClassQuestion] = useState("Question");
+
   const [nombreBouton, setNombreBouton] = useState(2);
   const [stateGlobalPremiereConsulte,setStateGlobalPremiereConsulte] = useState([]);
 
@@ -662,7 +664,8 @@ signature du praticien ainsi que la date</li>
           fonction : {
             recupInfo : recupPremierePriseMedi,
             afficheSuite : afficheContreIndicationMineure
-          }
+          },
+          txt : txtPriseMediMajeure()
       },
       {
         name : "Premiere prise médicament Majeure A" ,
@@ -884,6 +887,9 @@ signature du praticien ainsi que la date</li>
       idAnonymeOuNon == 1
     ) {
       setObjetConsultationAffiche([liste[4]]);
+      setCurrentINfoConsulte([liste[4].txt]);
+      setClassInfo("NewInfoBloc");
+
     } else if (
       identifiantConsultation == 6 &&
       idMajeureOuNon == 1 &&
@@ -908,7 +914,8 @@ signature du praticien ainsi que la date</li>
     ) {
       /// afficher composant "adresser patiente"
       setObjetConsultationAffiche([liste[3]]);
-      setTxtQuestion([liste[3].txt])
+      setCurrentINfoConsulte([liste[3].txt]);
+      setClassInfo("NewInfoBloc");
     } else if ((
       identifiantConsultation== 1 &&
       idMajeureOuNon == 0 &&
@@ -930,7 +937,9 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[9]]);
-        setTxtQuestion([liste[9].txt])
+        setCurrentINfoConsulte([liste[9].txt]);
+        setClassInfo("NewInfoBloc");
+
       
     }
     else if (
@@ -963,7 +972,9 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[11]]);
-        setTxtQuestion([liste[11].txt])
+        setCurrentINfoConsulte([liste[11].txt]);
+        setClassInfo("NewInfoBloc");
+
       
     } else if ((
       identifiantConsultation== 2 &&
@@ -986,7 +997,9 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[12]]);
-        setTxtQuestion([liste[12].txt])
+        setCurrentINfoConsulte([liste[12].txt]);
+        setClassInfo("NewInfoBloc");
+
       
     } 
     else if (
@@ -996,7 +1009,9 @@ signature du praticien ainsi que la date</li>
 
     ) {
       setObjetConsultationAffiche([liste[13]]);
-      setTxtQuestion([liste[13].txt])
+      setCurrentINfoConsulte([liste[13].txt]);
+      setClassInfo("NewInfoBloc");
+
       
     }
     else if (
@@ -1020,7 +1035,9 @@ signature du praticien ainsi que la date</li>
 
       ) {
         setObjetConsultationAffiche([liste[15]]);
-        setTxtQuestion([liste[15].txt])
+        setCurrentINfoConsulte([liste[15].txt]);
+        setClassInfo("NewInfoBloc");
+
       
     } 
     else if (
@@ -1030,7 +1047,9 @@ signature du praticien ainsi que la date</li>
 
     ) {
       setObjetConsultationAffiche([liste[4]]);
-      setTxtQuestion([liste[4].txt]);
+      setCurrentINfoConsulte([liste[4].txt]);
+      setClassInfo("NewInfoBloc");
+
       
     }
     else if ((
@@ -1045,6 +1064,9 @@ signature du praticien ainsi que la date</li>
       idAnonymeOuNon == 0
     )) {
       setObjetConsultationAffiche([liste[16]]);
+      setCurrentINfoConsulte([liste[16].txt]);
+      setClassInfo("NewInfoBloc");
+
       
     }
     else if (
@@ -1062,7 +1084,9 @@ signature du praticien ainsi que la date</li>
         idAnonymeOuNon == 1
     ) {
       setObjetConsultationAffiche([liste[22]]);
-      setTxtQuestion([liste[22].txt]);
+      setCurrentINfoConsulte([liste[22].txt]);
+      setClassInfo("NewInfoBloc");
+
       
     }
     else if ((
@@ -1077,7 +1101,9 @@ signature du praticien ainsi que la date</li>
       idAnonymeOuNon == 0
     )) {
       setObjetConsultationAffiche([liste[25]]);
-      setTxtQuestion([liste[25].txt]);
+      setCurrentINfoConsulte([liste[25].txt]);
+      setClassInfo("NewInfoBloc");
+
       
     }
     else if (
@@ -1211,6 +1237,13 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
     setNombreBouton(0);
   };
 
+  const [currentINfoConsulte, setCurrentINfoConsulte] = useState("");
+
+  const [ classINfo, setClassInfo] = useState("noneDisplay");
+
+
+  const [ classTxtDebut , setClassTextDebut] = useState("txtDebu");
+
  
 
   const [modalShow, setModalShow] = useState(false);
@@ -1222,6 +1255,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
     setListeBouton([]);
     setNombreBouton(0);
   };
+
 
   return (
     <div className="AppContainer">
@@ -1237,10 +1271,10 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
       ></MyVerticallyCenteredModal>
       
       <div className="Container">
-      <div className="txtDebu">{texteDemarrage}</div>
+      <div className={classTxtDebut}>{texteDemarrage}</div>
       {/* <p>{texteDemarrage}</p> */}
-      <div className="Question">
-  <div className="questionDepartAlign">{currentRecap}{txtQuestion}</div>
+      <div className={classQuestion}>
+  <div className="questionDepartAlign">{txtQuestion}</div>
       {listeBouton.map((btn) => {
         if (btn.id === 2) {
           return (
@@ -1254,6 +1288,8 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
                 handleChange();
                 Oui();
                 setTxtQuestion("");
+                setClassQuestion("noneDisplay");
+                setClassTextDebut("noneDisplay");
               }}
             >
               {btn.txt}
@@ -1262,6 +1298,10 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         }
       })}
       </div>
+    <div  
+     className={classINfo}>
+       {currentRecap}{currentINfoConsulte}
+       </div>
 
       <div className="Newtest">
         {/* partie censé gérer laffichage de la consultaion ou du bloc info à presenter  */}

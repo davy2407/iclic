@@ -225,7 +225,7 @@ const recupRadioAnti = (e) => {
   const [ currentDateAntiG, setCurrentDateAntiG] =useState({
     titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
   const handleChangeAnti = (e) => {
     
