@@ -110,7 +110,6 @@ const changeCouleurBoutonViolence = (e) => {
     setCurrentReponseTarif(pasDeReponseBloc)
   };
 
-  const [ stateNoReponse, setStateNoReponse] = useState([]);
   const pasDeReponse = () => {
     return (
       <div>
@@ -143,56 +142,10 @@ const changeCouleurBoutonViolence = (e) => {
 
   ////////////////////////////////////////////////////////
   /// Verrou
-  const verrouUn = () => {
-    /// retourne le texte verrou 1
-    return (
-      <div>
-        <h1 className="Verrou1">VERROU :</h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire d’adresser votre patiente vers le centre de
-          référence duquel dépend la patiente (à défaut aux urgences spécialisés
-          le plus proche). Le degré d’urgence est à établir selon les signes
-          cliniques ou l’âge gestationnel estimé.
-        </p>
-
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
-      </div>
-    );
-  };
-  const [txtVerrouUn, settxtVerrouUn] = useState(
-    () => verrouUn()
-    /// state contenant la fonction retournant le texte plus de 12 semaines
-  );
-
-  const [currentInfoVerrouUn, setcurrentInfoVerrouUn] = useState(
-    /// texte vide affichage de base
-    ""
-  );
-
-  const affichageVerrouUn = () => {
-    /// gère laffichage du texte verrou
-    let txtAEnlever = currentInfoVerrouUn;
-    let txtAAfficher = txtVerrouUn;
-    setcurrentInfoVerrouUn(txtAAfficher);
-    settxtVerrouUn(txtAEnlever);
-  };
-
-  const clicVerrouUnAffichage = (e) => {
  
-    affichageVerrouUn();
-  };
+ 
+
+
   /// Bloc Mifépristone
   const Mifepristone = () => {
     return (
@@ -440,15 +393,15 @@ const handleChangeVerrou = () => {
 
 
 
-        <div>{currentInfoVerrouUn}</div>
       </label>
       <input
+        alt="Image bulle informative"
         onClick={changementCouleurSVGMife}
         className="Lampe"
         type="image"
         src={logoAfficheMife}
       />
-      <div>{currentInfoMife}</div>
+      <div className="ContainerBulle">{currentInfoMife}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -493,15 +446,15 @@ const handleChangeVerrou = () => {
 
         
        
-        <div>{currentInfoVerrouUn}</div>
       </label>
       <input
-        onClick={changementCouleurSVGMiso}
+          alt="Image bulle informative"
+            onClick={changementCouleurSVGMiso}
         className="Lampe"
         type="image"
         src={logoAfficheMiso}
       />
-      <div>{currentInfoMiso}</div>
+      <div className="ContainerBulle">{currentInfoMiso}</div>
       <br></br>
       </div>
 
@@ -536,12 +489,13 @@ const handleChangeVerrou = () => {
 
       </label>
       <input
+        alt="Image bulle informative"      
         onClick={changementCouleurSVGPresci}
         className="Lampe"
         type="image"
         src={logoAffichePresci}
       />
-      <div>{currentInfoPresci}</div>
+      <div className="ContainerBulle">{currentInfoPresci}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -578,12 +532,13 @@ const handleChangeVerrou = () => {
       </Form>
       </label>
       <input
+        alt="Image bulle informative"
         onClick={changementCouleurSVGInfoEffet}
         className="Lampe"
         type="image"
         src={logoAfficheInfoEffet}
       />
-      <div>{currentInfoEffet}</div>
+      <div className="ContainerBulle">{currentInfoEffet}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -616,7 +571,6 @@ const handleChangeVerrou = () => {
       </div>
       </Form>
 
-        <div>{currentInfoVerrouUn}</div>
       </label>
       </div>
 
@@ -626,8 +580,9 @@ const handleChangeVerrou = () => {
       <br></br> 
       <h3>Fiche patient traitement :</h3>
       <p>
-      <a className="NewDocContainer"  href={InfoPatiente} target="_blank">
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
       <input
+      alt="Image document fiche info patiente"
         className="iconPDFNew"
         type="image"
         src={newPdfIcon}

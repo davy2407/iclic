@@ -28,9 +28,19 @@ function PConsultationMineur(props) {
 }
 
 
+////////icon
+
+const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+
+const [ iconIVG, setIconIVG] = useState(classIcon);
+
+const [iconRefe, setIconRefe] = useState(classIcon);
+
+
  
 
-    const [stateGlobal, setStateGlobal] = useState([]);
     const afficheStateFin = () => {
         /// remonte les données au composant parent
         let liste = [];
@@ -1161,7 +1171,15 @@ const handleChangeVerrou = () => {
       <div className="docContainer">
       <p> <a className="NewDocContainer"  href={AccordMaj} target="_blank">
       <input
-        className="iconPDFNew"
+        alt="Image document accord référant"
+        className={iconRefe}
+        onMouseEnter={()=>{
+          setIconRefe(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconRefe(classIcon);
+        }}
         type="image"
         src={newPdfIcon}
       />
@@ -1423,7 +1441,15 @@ const handleChangeVerrou = () => {
       <div className="docContainer">
       <p> <a className="NewDocContainer"  href={GuideIVG} target="_blank">
       <input
-        className="iconPDFNew"
+      alt="Image PDF Dossier Guide IVG"
+      className={iconIVG}
+      onMouseEnter={()=>{
+        setIconIVG(hoverIcon);
+        
+      }}
+      onMouseOut={()=>{
+        setIconIVG(classIcon);
+      }}
         type="image"
         src={newPdfIcon}
       />

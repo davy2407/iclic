@@ -4,10 +4,6 @@ import { Button} from "react-bootstrap";
 import ResumeDeuxiemePriseMedi from '@components/ResumeDeuxiemePriseMedi';
 import "./TarifDeuxiemePriseMediMajeureNA.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
-import InfoPatiente from "@assets/docx/InfoPatiente.docx";
-import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 import FicheConseil from "@assets/docx/FicheConseilSurveillance.docx";
 
 
@@ -48,7 +44,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
       La  2ème prise médicamenteuse peut se faire au cabinet  du médecin ou au domicile de la patiente si  le medecin a remis les comprimés à la patiente lors du rendez vous precedent. 
       </p>
       <p>
-      <a className="Bold" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
 
       </p>
 

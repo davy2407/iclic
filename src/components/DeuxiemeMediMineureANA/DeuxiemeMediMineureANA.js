@@ -16,6 +16,8 @@ import "./DeuxiemeMediMineureANA.css";
 
 
 function DeuxiemeMediMineureANA(props) {
+
+
     
     const afficheStateFin = () => {
         let liste = [];

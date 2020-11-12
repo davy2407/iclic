@@ -22,6 +22,13 @@ import "./DeuxiemeMineureANA.css";
 /// feuille de deuxieme consultation, patiente majeure non anonyme
 function DeuxiemeConsultationMineureANA(props) {
 
+
+  const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+  const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+  
+  
+  const [iconRefe, setIconRefe] = useState(classIcon);
  
 
     const submitHandler = (e) => {
@@ -1136,9 +1143,17 @@ Mineure :
       />
       </div>
       </Form>
-      <p><a className="NewDocContainer"  href={AccordMaj} target="_blank">
+      <p><a className="NewDocContainer" rel="noreferrer noopener" href={AccordMaj} target="_blank">
       <input
-        className="iconPDFNew"
+        alt="Image document accord référant"
+        className={iconRefe}
+        onMouseEnter={()=>{
+          setIconRefe(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconRefe(classIcon);
+        }}
         type="image"
         src={newPdfIcon}
       />

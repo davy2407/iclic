@@ -4,8 +4,6 @@ import { Button, Form } from "react-bootstrap";
 
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import GuideCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf"
 
   
 
@@ -500,7 +498,7 @@ L’autotest urinaire peut également être utilisé pour juger le succès de l�
            </p>
            <p>
            Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
+Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
            </p>
            <p>
            La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
@@ -612,18 +610,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
         ////////////////////// Bloc IST
 
-        const recupIST = (e) => {
-          e.preventDefault();
-          let reponse = {
-            titre: "Recherche IST : ",
-            value: e.target.value,
-            reponse : 1
-
-          };
-          
-          setCurrentIST(reponse);
-          
-        };
+        
 
         const returnInfoIST = () => {
             return (
@@ -715,7 +702,6 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         const [ currentNonFrotti, setCurrentNonFrotti] = useState("");
       
         const affichageTxtFrottiNon = () => {
-          let txtAEnlever = currentNonFrotti;
           let txtAAfficher = txtNonFrotti;
           setCurrentNonFrotti(txtAAfficher);
           
@@ -771,11 +757,10 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
         const handleChange = (e) => {
           /// recup date frotti
-          let myDate = new Date(e.target.valueAsDate);
           
           
           let reponse = {
-            titre: "Date Frotti",
+            titre: "Date Frotti (ou test HPV) : ",
             value: e.target.value,
             reponse : 1
           };

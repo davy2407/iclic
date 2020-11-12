@@ -4,10 +4,6 @@ import { Button} from "react-bootstrap";
 import ResumeDeuxiemePriseMedi from '@components/ResumeDeuxiemePriseMedi';
 import "./TarifDeuxiemePriseMineureANA.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
-import InfoPatiente from "@assets/docx/InfoPatiente.docx";
-import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 import FicheConseil from "@assets/docx/FicheConseilSurveillance.docx";
 
 
@@ -71,7 +67,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
          La facturation électronique est exclue dans ce seul cas de figure.
       </p>
       <br></br>
-      <a target="_blank" className="Bold" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
+      <a target="_blank" className="Bold" rel="noreferrer noopener" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
 <br></br>
 
       

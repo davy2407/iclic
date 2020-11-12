@@ -4,10 +4,7 @@ import { Button} from "react-bootstrap";
 import ResumeDeuxConsulteMajeureNA from '@components/ResumeDeuxConsulteMajeureNA';
 import "./TarifDeuxiemeConsulteMajeureNA.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
-import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
 
 
@@ -45,7 +42,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
       <p>
       Le consentement doit être téléchargé et signé par la patiente. 
       </p>
-      <a className="Bold" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
 
       <p>
         Copie pour : 
@@ -78,7 +75,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href={InfoPatiente} target="_blank">Fiche info patient traitement</a>
+      <a href={InfoPatiente} rel="noreferrer noopener" target="_blank">Fiche info patient traitement</a>
       
   
 

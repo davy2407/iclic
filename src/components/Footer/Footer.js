@@ -3,13 +3,13 @@ import "./Footer.css";
 
 import Sponsor from "@components/Sponsor";
 
-import Un from "@assets/images/Un.svg";
-import Deux from "@assets/images/Deux.svg";
-import Trois from "@assets/images/Trois.svg";
-import Quatre from "@assets/images/Quatre.svg";
-import Cinq from "@assets/images/Cinq.svg";
-import Six from "@assets/images/Six.svg";
-import Sept from "@assets/images/Sept.svg";
+// import Un from "@assets/images/Un.svg";
+// import Deux from "@assets/images/Deux.svg";
+// import Trois from "@assets/images/Trois.svg";
+// import Quatre from "@assets/images/Quatre.svg";
+// import Cinq from "@assets/images/Cinq.svg";
+// import Six from "@assets/images/Six.svg";
+// import Sept from "@assets/images/Sept.svg";
 import logoPrenat from "@assets/images/logoPerinaNormandie.png";
 import National from "@assets/images/logoNational.jpg";
 

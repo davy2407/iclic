@@ -4,10 +4,7 @@ import { Button} from "react-bootstrap";
 import ResumeDeuxConsulteMajeureNA from '@components/ResumeDeuxConsulteMajeureNA';
 import "./TarifDeuxiemeConsulteMineureANA.css";
 
-import FicheCNGOF from "@assets/pdf/CNGOFinfoPatient.pdf";
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
-import LiaisonHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
 
 
@@ -51,7 +48,7 @@ function TarifDeuxiemeConsulteMineureANA(props) {
       <p>
       Le consentement doit être téléchargé et signé par la patiente : 
       </p>
-      <a className="Bold" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+      <a className="Bold" rel="noreferrer noopener" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
       <br></br>
       <p>Copie pour :</p>
       <ol>
@@ -88,7 +85,7 @@ function TarifDeuxiemeConsulteMineureANA(props) {
       >
         Lien choisirsacontraception.fr
       </a>
-      <a className="Bold" href={InfoPatiente} target="_blank">Fiche info patiente traitement</a>
+      <a className="Bold" rel="noreferrer noopener" href={InfoPatiente} target="_blank">Fiche info patiente traitement</a>
       
   
 

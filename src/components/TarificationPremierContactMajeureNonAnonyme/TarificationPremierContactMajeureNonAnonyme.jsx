@@ -68,7 +68,7 @@ tarif habituel de  consultation
           />
         </Form.Group>
         <p>
-        <a className="Bold" href={Certificat} target="_blank">
+        <a className="Bold" rel="noreferrer noopener" href={Certificat} target="_blank">
       Certificat de 1ère consultation pour IVG, document à compléter
         </a>
 

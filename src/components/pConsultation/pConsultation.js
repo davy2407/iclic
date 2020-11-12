@@ -33,7 +33,7 @@ const [ classIcon, setClassIcon] = useState("iconPDFNew");
 
 const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
 
-const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon)
+const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
   
   
 
@@ -1310,10 +1310,18 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="Red">{currentTextUrgence}</div>
       
       <input
+        alt="Image information préscription"
         onClick={changementCouleurSVGEcho}
         className="Lampe"
         type="image"
         src={logoAfficheEcho}
+        // onMouseEnter={()=>{
+        //   changementCouleurSVGEcho();
+          
+        // }}
+        // onMouseOut={()=>{
+        //   changementCouleurSVGEcho();
+        // }}
       />
       <div className="ContainerBulle">{currentInfoEcho}</div>
       <br></br>

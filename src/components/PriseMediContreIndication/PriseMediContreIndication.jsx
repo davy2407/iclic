@@ -625,8 +625,9 @@ const handleChangeVerrou = () => {
       
       <br></br> 
       <h3>Fiche patient traitement :</h3>
-     <p><a className="NewDocContainer"  href={InfoPatiente} target="_blank">
+     <p><a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
       <input
+        alt="Image document fiche info patiente"
         className="iconPDFNew"
         type="image"
         src={newPdfIcon}
