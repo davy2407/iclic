@@ -1259,7 +1259,7 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
 
   return (
     <div className="AppContainer">
-      <MyVerticallyCenteredModal
+      <MyVerticallyCenteredModal className="ModalTest"
         /// modal les props son les function permettant laffichage ou non du modal ainsi que la liste
         /// de boutons ( à la base radio ^^) et la fonction affichagedonnée qui sera appelée dans certains cas par la fonction
         /// recupIdbouton du modal

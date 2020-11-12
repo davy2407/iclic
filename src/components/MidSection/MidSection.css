@@ -23,9 +23,7 @@
        
     }
 
-    p{
-        font-size: 0.9rem;
-    }
+   
     
     
     
@@ -36,10 +34,11 @@
   
     .Mid{
         width: 100vw;
-        height:60vh ;
+        height:80vh ;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
 
     }
     .AppBloc{
