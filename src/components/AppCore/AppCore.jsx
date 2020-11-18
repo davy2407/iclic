@@ -161,7 +161,7 @@ function AppCore() {
         {recap.map((objet) => {
           return (
             <div>
-          <h4>{objet}</h4>
+          <p>{objet}</p>
           
           </div>
             
