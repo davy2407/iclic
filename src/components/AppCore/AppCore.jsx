@@ -162,7 +162,7 @@ function AppCore() {
           return (
             <div>
           <h4>{objet}</h4>
-          <br></br>
+          
           </div>
             
           );
