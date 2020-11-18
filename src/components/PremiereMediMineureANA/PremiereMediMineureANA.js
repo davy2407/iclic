@@ -129,15 +129,15 @@ const [ currentAttestation, setCurrentAttestation] = useState({
 });
 
 const [currentSang, setCurrentSang] = useState({
-  titre : "Pas de réponses",
+  titre : "",
   value : "",
-  reponse : 0
+  reponse : 1
 });
 
 const [currentDosage, setCurrentDosage] = useState({
-  titre : "Pas de réponses",
+  titre : "",
   value : "",
-  reponse : 0
+  reponse : 1
 });
 
 const [ currentGroupe, setCurrentGroupe] = useState({
@@ -157,8 +157,38 @@ const [ currentCovid, setcurrentCovid] = useState({
   value : "",
   reponse : 1
 });
+const [currentTestUri, setCurrentTestUri] = useState({
+  titre : "",
+  value : "",
+  reponse : 1
+});
+
+const [currentPosNe, setCurrentPosNe] = useState({
+  titre : "",
+  value : "",
+  reponse : 1
+});
 
 //// recup radio
+
+
+const recupRadioAuto = (e) => {
+  let reponse = {
+    titre: "Utilisation d’un autotest urinaire : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentTestUri(reponse);
+};
+
+const recupRadioPOsNe = (e) => {
+  let reponse = {
+    titre: "résultat autotest urinaire : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentPosNe(reponse);
+};
 
 const recupRadioAcc = (e) => {
   let reponse = {
@@ -492,38 +522,11 @@ const clicOuiConsultation = (e) => {
 };
 //////////////////////////////////////////////////////
 
-//////// Consentement
 
-const recupConsentement = (e) => {
-  e.preventDefault();
-  let reponse = {
-    titre: "Consentement à l’IVG : ",
-    value: e.target.value,
-    reponse : 1
-  };
-  
-  setCurrentConssent(reponse);
-  
-};
-
-
-
-
-//////////////////////////////////////////////////////
 
 /// Bloc prise de sang
 
-const recupSang = (e) => {
-  e.preventDefault();
-  let reponse = {
-    titre: "Prise de sang effectuée : ",
-    value: e.target.value,
-    reponse : 1
-  };
-  
-  setCurrentSang(reponse);
-  
-};
+
 
 const priseDeSang = () => {
   return (
@@ -564,6 +567,54 @@ const changementCouleurSVGPriseDesang = () => {
 };
 
 ////////////////////////////////////////////////
+const ouiUri = () => {
+  return (
+    <div>
+      <h4> résultat :</h4>
+      <Form>
+<div key={`resultUri-radio`} className="mb-3" onChange={(e)=>{recupRadioPOsNe(e);}}>
+<Form.Check 
+type='radio'
+id={`resultUriOui`}
+label={`Positif`}
+value="Positif"
+name="resultatUrinaire"
+/>
+
+<Form.Check 
+type='radio'
+id={`resultUriNon`}
+label={`Négatif`}
+value="Négatif"
+name="resultatUrinaire"
+/>
+</div>
+</Form>
+
+
+
+
+
+
+
+    
+</div>
+  ) 
+}
+
+const [afficheOUiUri, setAfficheOUIUri] = useState(()=>ouiUri());
+
+const [currentOuiUri, setCurrentOuiUri] = useState("");
+
+const afficheUrinaire = () => {
+  
+  let txtAAfficher = afficheOUiUri;
+  setCurrentOuiUri(txtAAfficher);
+  
+
+}
+
+
 
 
 
@@ -1060,6 +1111,40 @@ return (
   />
     </div>
     </Form>
+    <h3>Ou</h3>
+
+<h3>Utilisation d’un autotest urinaire :</h3>
+<Form>
+      <div key={`autoUri-radio`} className="mb-3" onChange={(e)=>{recupRadioAuto(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`autoUriOui`}
+        label={`Oui`}
+        value="Oui"
+        name="autotest"
+        onClick={()=>{
+          
+          afficheUrinaire();
+          }}
+        
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`autoUriNon`}
+        label={`Non`}
+        value="Non"
+        name="autotest"
+        
+      />
+
+      </div>
+      </Form>
+
+
+<div>{currentOuiUri}</div>
+
 
 
 
@@ -1107,10 +1192,14 @@ return (
       }}>
             <option value="">Choisir..</option>
 
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="AB">AB</option>
-  <option value="O">O</option>
+            <option value="A-">A-</option>
+    <option value="A+">A+</option>
+    <option value="B-">B-</option>
+    <option value="B+">B+</option>
+    <option value="AB-">AB-</option>
+    <option value="AB+">AB+</option>
+    <option value="O-">O-</option>
+    <option value="O+">O+</option>
 </Form.Control>
 </Form.Group>
     

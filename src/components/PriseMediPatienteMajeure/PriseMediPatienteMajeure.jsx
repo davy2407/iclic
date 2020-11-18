@@ -67,6 +67,8 @@ const changeCouleurBoutonViolence = (e) => {
     liste.push(currentConssent);
     liste.push(currentAttestation);
     liste.push(currentSang);
+    liste.push(currentTestUri);
+    liste.push(currentPosNe);
     liste.push(currentDosage);
     liste.push(currentGroupe);
     liste.push(currentAcc);
@@ -128,21 +130,21 @@ const changeCouleurBoutonViolence = (e) => {
   });
 
   const [currentSang, setCurrentSang] = useState({
-    titre : "Pas de réponses",
+    titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   const [currentDosage, setCurrentDosage] = useState({
-    titre : "Pas de réponses",
+    titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   const [ currentGroupe, setCurrentGroupe] = useState({
-    titre : "Pas de réponses",
+    titre : "",
     value : "",
-    reponse : 0
+    reponse : 1
   });
 
   const [ currentAcc, setCurrentAcc] = useState({
@@ -152,6 +154,17 @@ const changeCouleurBoutonViolence = (e) => {
   });
 
   const [ currentCovid, setcurrentCovid] = useState({
+    titre : "",
+    value : "",
+    reponse : 1
+  });
+  const [currentTestUri, setCurrentTestUri] = useState({
+    titre : "",
+    value : "",
+    reponse : 1
+  });
+
+  const [currentPosNe, setCurrentPosNe] = useState({
     titre : "",
     value : "",
     reponse : 1
@@ -192,6 +205,24 @@ const changeCouleurBoutonViolence = (e) => {
 
 
 }
+
+const recupRadioAuto = (e) => {
+  let reponse = {
+    titre: "Utilisation d’un autotest urinaire : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentTestUri(reponse);
+};
+
+const recupRadioPOsNe = (e) => {
+  let reponse = {
+    titre: "résultat autotest urinaire : ",
+    value: e.target.value,
+    reponse : 1
+  };
+  setCurrentPosNe(reponse);
+};
 
 
 const recupRadioConsentement = (e) => {
@@ -652,6 +683,58 @@ const handleSubmitßHCG = event => {
 };
 ////////////////////////////////////////////////////////
 
+const ouiUri = () => {
+  return (
+    <div>
+      <h4> résultat :</h4>
+      <Form>
+<div key={`resultUri-radio`} className="mb-3" onChange={(e)=>{recupRadioPOsNe(e);}}>
+<Form.Check 
+type='radio'
+id={`resultUriOui`}
+label={`Positif`}
+value="Positif"
+name="resultatUrinaire"
+/>
+
+<Form.Check 
+type='radio'
+id={`resultUriNon`}
+label={`Négatif`}
+value="Négatif"
+name="resultatUrinaire"
+/>
+</div>
+</Form>
+
+
+
+
+
+
+
+    
+</div>
+  ) 
+}
+
+const [afficheOUiUri, setAfficheOUIUri] = useState(()=>ouiUri());
+
+const [currentOuiUri, setCurrentOuiUri] = useState("");
+
+const afficheUrinaire = () => {
+  
+  let txtAAfficher = afficheOUiUri;
+  setCurrentOuiUri(txtAAfficher);
+  
+
+}
+
+
+
+
+
+
 //////////: groupe 
 
 const handleChangeGroupe = (e) => {
@@ -1079,6 +1162,39 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       />
       </div>
       </Form>
+      <h3>Ou</h3>
+
+<h3>Utilisation d’un autotest urinaire :</h3>
+<Form>
+      <div key={`autoUri-radio`} className="mb-3" onChange={(e)=>{recupRadioAuto(e);}}>
+      <Form.Check 
+        type='radio'
+        id={`autoUriOui`}
+        label={`Oui`}
+        value="Oui"
+        name="autotest"
+        onClick={()=>{
+          
+          afficheUrinaire();
+          }}
+        
+        
+      />
+
+<Form.Check 
+        type='radio'
+        id={`autoUriNon`}
+        label={`Non`}
+        value="Non"
+        name="autotest"
+        
+      />
+
+      </div>
+      </Form>
+
+
+<div>{currentOuiUri}</div>
 
 
 
@@ -1094,7 +1210,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         type="image"
         src={logoAffichePriseDeSang}
       />
-      <div>{currentInfoPriseDesang}</div>
+      <div className="ContainerBulle">{currentInfoPriseDesang}</div>
       <br></br>
       </div>
       
@@ -1126,10 +1242,14 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         }}>
               <option value="">Choisir..</option>
 
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="AB">AB</option>
-    <option value="O">O</option>
+              <option value="A-">A-</option>
+    <option value="A+">A+</option>
+    <option value="B-">B-</option>
+    <option value="B+">B+</option>
+    <option value="AB-">AB-</option>
+    <option value="AB+">AB+</option>
+    <option value="O-">O-</option>
+    <option value="O+">O+</option>
   </Form.Control>
   </Form.Group>
       

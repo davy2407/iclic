@@ -16,6 +16,7 @@ class ResumePremiereConsultationMineureANA extends React.Component {
           <div className="Droite">
           <img src={Logo} className="logoT"></img>
 
+
           </div>
       
       <br></br>
@@ -24,17 +25,17 @@ class ResumePremiereConsultationMineureANA extends React.Component {
         Résumé de la consultation de 1er contact médical préalable à l’IVG :{" "}
       </h3>
       <br></br>
-      <p>Nom/prénom et date de naissance :</p>
+      <p className="pStart">Nom/prénom et date de naissance :</p>
       <br></br>
       <br></br>
       
-      <p>Antécédent(s) :</p>
+      <p className="pStart">Antécédent(s) :</p>
       <br></br>
       <br></br>
       
       
       
-    <div>{this.state.data.map((objet)=>{
+    <div className="Gauche">{this.state.data.map((objet)=>{
     return (
       <div>
         
@@ -46,7 +47,7 @@ class ResumePremiereConsultationMineureANA extends React.Component {
     <br></br>
     <br></br>
       <br></br>
-      <p>Pour information : </p>
+      <p className="pStart">Pour information : </p>
       <br></br>
     <br></br>
     <br></br>
@@ -56,7 +57,7 @@ class ResumePremiereConsultationMineureANA extends React.Component {
           Il est obligatoire d’amener à cette prochaine consultation l’attestation d’entretien. </p>
       <br></br>
       <br></br>
-      <p>Date et Tampon</p>
+      <p className="Tampon">Date et Tampon</p>
       <br></br>
       <br></br>
       <br></br>

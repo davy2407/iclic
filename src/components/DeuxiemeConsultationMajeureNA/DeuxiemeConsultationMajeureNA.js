@@ -232,15 +232,15 @@ function DeuxiemeConsultationMajeureNA(props) {
     });
   
     const [currentDosage, setCurrentDosage] = useState({
-      titre : "Pas de réponses",
+      titre : "",
       value : "",
-      reponse : 0
+      reponse : 1
     });
   
     const [currentGroupe, setCurrentGroupe] = useState({
-      titre : "Pas de réponses",
+      titre : "",
       value : "",
-      reponse : 0
+      reponse : 1
     });
   
     const [currentIST, setCurrentIST] = useState({
@@ -558,183 +558,140 @@ Cette violence peut être physique, sexuelle, économique,
 
 
     /// age gestationel
-    const [
-      saisieUtilisateurNbSemaineSA,
-      setSaisieUtilisateurNbSemaineSA,
-    ] = useState(0);
-  
-    const handleChangeSA = (event) => {
-      setSaisieUtilisateurNbSemaineSA(event.currentTarget.value);
-    };
-  
-    /// Bloc nombre de semaines SA
-  
-    const recupSaisieUtilisateurNbSemaine = (event) => {
-      event.preventDefault();
-      let nb = saisieUtilisateurNbSemaineSA;
-      if (nb < 7) {
-        affichageMoinsDeSept();
-      } else if (nb == 7 ) {
-        affichagePlusDeSeptMoinsDouze();
-      } else if (nb > 7) {
-        affichagePlusDouze();
-        handleChangeVerrou();
-      }
-      let reponse = {
-        titre: "Echographie de datation/Age gestationnel : ",
-        value: nb,
-        reponse : 1
-      };
-      setCurrentEcho(reponse); 
-     
-   
-  
-      setSaisieUtilisateurNbSemaineSA(0);
-    };
-    const moinsDeSeptSemaines = () => {
-      /// retourne le texte mois de 7 semaines si <7
-      return (
-        <div>
-          <p>IVG médicamenteuse </p>
-       
-        </div>
-      );
-    };
-    const [txtMoinsDeSeptSA, setTxtMoinsDeSeptSA] = useState(
-      () => moinsDeSeptSemaines()
-      /// state contenant la fonction retournant le texte moins de 7 semaines
-    );
-  
-    const [currentInfoNbSAmoinsSept, setCurrentInfoNbSAmoinsSept] = useState(
-      /// texte vide affichage de base
-      ""
-    );
-  
-    const affichageMoinsDeSept = () => {
-      /// gère laffichage du texte - de 7 semaines
-      let txtAAfficher = txtMoinsDeSeptSA;
-      setCurrentInfoNbSAmoinsSept(txtAAfficher);
-      setcurrentInfoNbSAplusDouze("");
-      setcurrentInfoNbSAplusSeptMoinsDouze("")
-    };
-  
-    ///
-  
-    const plusDeSeptMoinsDouzeSemaines = () => {
-      /// retourne le texte plus de 7 semaines moins de 12 si >7 <12
-      return (
-        <div>
-          <p>
-          IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.          </p>
-        
-        </div>
-      );
-    };
-    const [txtPlusDeSeptSAmoinsDouze, settxtPlusDeSeptSAmoinsDouze] = useState(
-      () => plusDeSeptMoinsDouzeSemaines()
-      /// state contenant la fonction retournant le texte plus de 7 semaines moins 12
-    );
-  
-    const [
-      currentInfoNbSAplusSeptMoinsDouze,
-      setcurrentInfoNbSAplusSeptMoinsDouze,
-    ] = useState(
-      /// texte vide affichage de base
-      ""
-    );
-  
-    const affichagePlusDeSeptMoinsDouze = () => {
-      /// gère laffichage du texte + de 7 semaines -12
-      let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
-      setcurrentInfoNbSAplusSeptMoinsDouze(txtAAfficher);
-      setcurrentInfoNbSAplusDouze("");
-      setCurrentInfoNbSAmoinsSept("");
-    };
-  
-    const plusDeDouzetSemaines = () => {
-      /// retourne le texte mois de 7 semaines si >12
-      return (
-        <div>
-          <p>IVG médicamenteuse et chirurgical possible en centre de référence seulement. </p>
-          
-        </div>
-      );
-    };
-    const [txtPlusDeDouzeSA, settxtPlusDeDouzeSA] = useState(
-      () => plusDeDouzetSemaines()
-      /// state contenant la fonction retournant le texte plus de 12 semaines
-    );
-  
-    const [currentInfoNbSAplusDouze, setcurrentInfoNbSAplusDouze] = useState(
-      /// texte vide affichage de base
-      ""
-    );
-  
-    const affichagePlusDouze = () => {
-      /// gère laffichage du texte + 12
-      let txtAAfficher = txtPlusDeDouzeSA;
-      setcurrentInfoNbSAplusDouze(txtAAfficher);
+
     
-      setcurrentInfoNbSAplusSeptMoinsDouze("");
-      setCurrentInfoNbSAmoinsSept("");
+  const horsDelais = () => {
+    return (
+      <div>
+        <p className="Red">
+        Hors délais pour une IVG en France. Le
+délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’aménorrhée.
+        </p>
+      </div>
+
+    )
+  }
+
+  /// age gestationel
+  const [
+    saisieUtilisateurNbSemaineSA,
+    setSaisieUtilisateurNbSemaineSA,
+  ] = useState(0);
+
+  const handleChangeSA = (event) => {
+    setSaisieUtilisateurNbSemaineSA(event.currentTarget.value);
+  };
+
+  /// Bloc nombre de semaines SA
+
+  const recupSaisieUtilisateurNbSemaine = (event) => {
+    event.preventDefault();
+    let nb = saisieUtilisateurNbSemaineSA;
+    if (nb < 7) {
+      affichageMoinsDeSept();
+    } else if (nb == 7 ) {
+      affichagePlusDeSeptMoinsDouze();
+    } else if (nb > 7 && nb < 9) {
+      affichagePlusDouze();
+      handleChangeVerrou()
+      
+
+    } else if (nb >=9 && nb <=14) {
+      seturrentCheckGesta("Seule IVG chirurgical en centre de référence possible, adressée en urgence selon le terme estimé (limité légale : 14 SA).");
+      handleChangeVerrou()
+      
+    } else if (nb >=15) {
+      seturrentCheckGesta(horsDelais);
+      handleChangeVerrou();
+
+      
+    }
+
+    let reponse = {
+      titre: "Echographie de datation/Age gestationnel : ",
+      value: nb,
+      reponse : 1
     };
+    setCurrentEcho(reponse);
+   
+ 
+
+    setSaisieUtilisateurNbSemaineSA(0);
+  };
+  const moinsDeSeptSemaines = () => {
+    /// retourne le texte mois de 7 semaines si <7
+    return (
+      <div>
+          <p>IVG médicamenteuse </p>
+      </div>
+    );
+  };
+  const [txtMoinsDeSeptSA, setTxtMoinsDeSeptSA] = useState(
+    () => moinsDeSeptSemaines()
+    /// state contenant la fonction retournant le texte moins de 7 semaines
+  );
+
+
+  const affichageMoinsDeSept = () => {
+    /// gère laffichage du texte - de 7 semaines
+    let txtAAfficher = txtMoinsDeSeptSA;
+    seturrentCheckGesta(txtAAfficher);
+  };
+
+  ///
+
+  const plusDeSeptMoinsDouzeSemaines = () => {
+    /// retourne le texte plus de 7 semaines moins de 12 si >7 <12
+    return (
+      <div>
+        <p>
+        IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.          </p>
+        
+       
+      </div>
+    );
+  };
+  const [txtPlusDeSeptSAmoinsDouze, settxtPlusDeSeptSAmoinsDouze] = useState(
+    () => plusDeSeptMoinsDouzeSemaines()
+    /// state contenant la fonction retournant le texte plus de 7 semaines moins 12
+  );
+
+ 
+
+  const affichagePlusDeSeptMoinsDouze = () => {
+    /// gère laffichage du texte + de 7 semaines -12
+    let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
+    seturrentCheckGesta(txtAAfficher);
+
+  };
+
+  const plusDeDouzetSemaines = () => {
+    /// retourne le texte mois de 7 semaines si >12
+    return (
+      <div>
+          <p>IVG médicamenteuse et chirurgical possible en centre de référence seulement. </p>
+        
+      </div>
+    );
+  };
+  const [txtPlusDeDouzeSA, settxtPlusDeDouzeSA] = useState(
+    () => plusDeDouzetSemaines()
+    /// state contenant la fonction retournant le texte plus de 12 semaines
+  );
+
+ 
+
+  const [ currentCheckGesta , seturrentCheckGesta] = useState("");
+
+  const affichagePlusDouze = () => {
+    /// gère laffichage du texte + 12
+    let txtAAfficher = txtPlusDeDouzeSA;
+    seturrentCheckGesta(txtAAfficher);
+  };
   
     /// Bloc verrou2
   
-    const verrouDeux = () => {
-      /// retourne le texte verrou 2
-      return (
-        <div>
-          <h1 className="Verrou1">VERROU :</h1>
-          <br></br>
-          <p className="Verrou1">
-            Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-            va à l’encontre des recommandations établies actuellement en vigueur
-            en France.
-          </p>
-          <p className="Verrou1">
-            Il est nécessaire, selon vos réponses, un ajustement et une reprise à
-            la consultation précédente.
-          </p>
-          <p className="Verrou1">
-            Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.
-          </p>
-          <p className="Verrou1">
-            Votre centre de référence peut vous répondre afin d’établir une prise
-            en charge dans les meilleurs conditions pour la patiente.
-          </p>
-          <br></br>
-          <br></br>
-          <a href="#">Informations et orientation de la patiente.</a>
-          {/* /// liens à finir */}
-          <br></br>
-          <a href="#">Retour vers la page d’accueil.</a>
-          <br></br>
-        </div>
-      );
-    };
-    const [txtVerrouDeux, settxtVerrouDeux] = useState(
-      () => verrouDeux()
-      /// state contenant la fonction retournant le texte plus de 12 semaines
-    );
-  
-    const [currentInfoVerrouDeux, setcurrentInfoVerrouDeux] = useState(
-      /// texte vide affichage de base
-      ""
-    );
-  
-    const affichageVerrouDeux = () => {
-      /// gère laffichage du texte + de 7 semaines -12
-      let txtAEnlever = currentInfoVerrouDeux;
-      let txtAAfficher = txtVerrouDeux;
-      setcurrentInfoVerrouDeux(txtAAfficher);
-      settxtVerrouDeux(txtAEnlever);
-    };
-  
-    const clicVerrouDeuxaffichage = (e) => {
-      e.preventDefault();
-      affichageVerrouDeux();
-    };
+   
   
 
       ////////////////////////////////////////////////////////////////////
@@ -1408,9 +1365,8 @@ const handleChangeVerrou = () => {
         Valider
       </Button>
       <br></br>
-      <div>{currentInfoNbSAmoinsSept}</div>
-      <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
-      <div>{currentInfoNbSAplusDouze}</div>
+      <div>{currentCheckGesta}</div>
+
       <br></br>
 
             </div>
@@ -1473,6 +1429,10 @@ const handleChangeVerrou = () => {
       />
       </div>
       </Form>
+      <p>
+      « Prescrire un dosage des BHCG quantitatif le jour de la prise médicamenteuse.
+Sauf en cas d’utilisation d’un autotest urinaire. »
+      </p>
 
       <input
         onClick={changementCouleurSVGSang}
@@ -1515,10 +1475,14 @@ const handleChangeVerrou = () => {
           handleChangeGroupe(e);
         }}>
           <option value="">Choisir..</option>
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="AB">AB</option>
-    <option value="O">O</option>
+    <option value="A-">A-</option>
+    <option value="A+">A+</option>
+    <option value="B-">B-</option>
+    <option value="B+">B+</option>
+    <option value="AB-">AB-</option>
+    <option value="AB+">AB+</option>
+    <option value="O-">O-</option>
+    <option value="O+">O+</option>
   </Form.Control>
   </Form.Group>
   </div>

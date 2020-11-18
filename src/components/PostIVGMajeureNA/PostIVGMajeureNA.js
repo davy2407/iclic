@@ -1210,7 +1210,7 @@ src={logoAfficheDosage}
         value="Oui"
         name="contraception"
         onClick={()=>{
-          affichageTxtTypeContra();}}
+          affichageTxtTypeContra();}} 
       />
 
 <Form.Check 

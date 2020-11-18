@@ -12,32 +12,37 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
   render() {
      
     return (
-        <div className="containerP" >
-      <img src={Logo} className="logo"></img>
+        <div className="containerR" >
+      <img src={Logo} className="logoT"></img>
       <br></br>
       <br></br>
       <h1>
       Fiche de liaison 1ere prise médicamenteuse
       </h1>
       <br></br>
-      <p>Médecin – sage-femme – établissement de santé :</p>
+      <p className="pStart">Médecin – sage-femme – établissement de santé :</p>
       <br></br>
-      <p>Date de la convention :</p>
+      <p className="pStart">Date de la convention :</p>
       <br></br>
-      <p>Nom/prénom et date de naissance :</p>
+      <p className="pStart">Nom/prénom et date de naissance :</p>
       <br></br>
       <p>Tel :</p>
       <br></br>
-      <p>Antécédent(s) :</p>
-      <br></br>
-      <p>Grossesse : </p>
-      <p>FCS :</p>
-      <p>IVG préalable :</p>
-      <p>GEU :</p>
-      <p>Infections :</p>
-      <p>Autres :</p>
+      <p className="pStart">Antécédent(s) :</p>
       <br></br>
       <br></br>
+      <br></br>
+      <br></br>
+      <p className="pStart">Grossesse : </p>
+      <p className="pStart">FCS :</p>
+      <p className="pStart" >IVG préalable :</p>
+      <p className="pStart">GEU :</p>
+      <p className="pStart">Infections :</p>
+      <p className="pStart">Autres :</p>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
 
 
@@ -50,7 +55,7 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
       
       
       
-    <div>{this.state.data.map((objet)=>{
+    <div className="Gauche">{this.state.data.map((objet)=>{
     return (
       <div>
         
@@ -73,7 +78,7 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
     </p>
       <br></br>
       <br></br>
-      <p>Date et Tampon</p>
+      <p className="Tampon">Date et Tampon</p>
       <br></br>
       <br></br>
       <br></br>

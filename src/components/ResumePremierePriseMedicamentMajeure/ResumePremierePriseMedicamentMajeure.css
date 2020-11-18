@@ -5,10 +5,12 @@
   
   }
 
-  .containerP{
+  .containerR{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    padding: 1.5rem;
-  }
+    height: 4678px;
+    width: 1654px;
+    padding: 100px;
+    }

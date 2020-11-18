@@ -22,18 +22,18 @@ class ResumeDeuxiemePriseMedi extends React.Component {
       Résumé de  la 2ème  consultation de prise médicamenteuse : 
       </h1>
       <br></br>
-      <p>Nom/prénom et date de naissance :</p>
+      <p className="pStart">Nom/prénom et date de naissance :</p>
       <br></br>
       <br></br>
       
-      <p>Antécédent(s) :</p>
+      <p className="pStart">Antécédent(s) :</p>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       
       
-    <div>{this.state.data.map((objet)=>{
+    <div className="Gauche">{this.state.data.map((objet)=>{
     return (
       <div>
         
@@ -45,7 +45,7 @@ class ResumeDeuxiemePriseMedi extends React.Component {
     <br></br>
     <br></br>
       <br></br>
-      <p>Pour information : </p>
+      <p className="pStart">Pour information : </p>
       <br></br>
       <br></br>
       <br></br>
@@ -55,7 +55,7 @@ class ResumeDeuxiemePriseMedi extends React.Component {
            référence lors de la 1ere consultation de prise médicamenteuse.  </p>
       <br></br>
       
-      <p>Date et Tampon</p>
+      <p className="Tampon">Date et Tampon</p>
       <br></br>
       <br></br>
       <br></br>

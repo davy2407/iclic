@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import ArrowD from "@assets/images/downArrow.svg";
 
 
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
@@ -12,6 +13,9 @@ function MyVerticallyCenteredModal(props) {
 
 
 
+
+
+
   function refreshPage() {
     window.location.reload(false);
   }
@@ -21,6 +25,47 @@ function MyVerticallyCenteredModal(props) {
     /// titre premiere question modal
     "Vous êtes professionnel de santé : "
   );
+
+  const [ arrowScroll, setArrowScroll] = useState("Arrow");
+
+  const [ arrowStopScroll, setArrowStopScroll] = useState("noneArrow");
+
+  const [classArrow, setClassArrow] = useState("noneArrow");
+
+ const [ timeArrow, setTimearrow] = useState(null);
+
+ const [ scrollStatut, setScrollStatut] = useState("");
+
+
+
+  const defilement = () => {
+    let time = timeArrow;
+    let statut = scrollStatut;
+    if(time){
+      time=null;
+      setTimearrow(time);
+
+
+    }
+    time = setTimeout(()=>{
+      time = null;
+      console.log("Scroll stoppé");
+      setScrollStatut("Scroll stoppé");
+      setClassArrow(arrowStopScroll);
+      setTimearrow(time);
+
+
+    },1000);
+    if (statut!== 'scrolling') {
+      
+      setClassArrow(arrowScroll);
+      console.log(time);
+      setTimearrow(null);
+
+      
+    }
+
+  }
 
   const [rollBacklist, setRollBackList] = useState([]);
   /// mes debut de travail pour tenter de eprmettre un retour en arriere
@@ -1039,7 +1084,7 @@ l’IVG médicamenteuse hors établissement de santé.
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">IVGclic</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="sizeModal">
+      <Modal.Body className="sizeModal" onScroll={defilement}>
         <Form
           // onClick={(e) => {
           //   e.preventDefault();
@@ -1063,6 +1108,13 @@ l’IVG médicamenteuse hors établissement de santé.
           ))}
         </Form>
           <div>{currenttxtcovid}</div>
+          <input
+        alt="Image flêche défilement"
+        className={classArrow}
+        type="image"
+        src={ArrowD}
+      />
+          
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={()=>{

@@ -127,7 +127,9 @@ function TarifDeuxiemeConsulteMineureANA(props) {
        <li>Consentement à l’IVG signé</li>
        <li>Résumé des 2 consultations préalables</li>
        <li>Échographie de datation</li>
-       <li>Résultat de prise de sang (incluant groupe sanguin, RAI et ß-HCG quantitatif)</li>
+       <li>Résultat de prise de sang (incluant groupe sanguin et BHCG quantitatif) + prescription
+d’un dosage des BHCG quantitatif pour <span className="Red">le jour de la prochaine consultation</span> ou d’un
+autotest urinaire.</li>
    </ul>
    <p>Les centres de planification peuvent vous renseigner et vous orientez pour toutes questions concernant l’IVG directement dans votre département. </p>
     </div>

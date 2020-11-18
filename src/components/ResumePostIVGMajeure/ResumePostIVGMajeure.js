@@ -12,7 +12,7 @@ class ResumePostIVGMajeure extends React.Component {
   render() {
     
     return (
-        <div className="containerT" >
+        <div className="containerT" > 
           <div className="Droite">
           <img src={Logo} className="logoT"></img>
 
