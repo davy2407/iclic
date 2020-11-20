@@ -1076,6 +1076,60 @@ const afficheWarningContra = () => {
 }
 
 
+///////////////// tabac
+
+const returnInfoTabac = () => {
+  return (
+    <div className="BulleInfo">
+      <p>
+       Le calcul du tabac en paquet/année peut vous être calculé sur : 
+      </p>
+
+      <p>
+        <a href="http://medicalcul.free.fr/packyear.html" target="_blank" rel="noreferrer noopener" className="Bold" >
+        http://medicalcul.free.fr/packyear.html.
+        </a>
+      </p>
+
+      <p>
+      1 paquet-année = 1 paquet de cigarette (20 cigarettes) par jour pendant 1 an.
+      </p>
+
+
+     
+    </div>
+  );
+};
+
+const [txtTabac, setTxtTabac] = useState(() => returnInfoTabac());
+
+const [currentInfoTabac, setCurrentInfoTabac] = useState("");
+
+const affichageTxtTabac = () => {
+  let txtAEnlever = currentInfoTabac;
+  let txtAAfficher = txtTabac;
+  setCurrentInfoTabac(txtAAfficher);
+  setTxtTabac(txtAEnlever);
+};
+
+const [logoAfficheTabac, setLogoAfficheTabac] = useState(LightOff);
+
+const [logoNonAfficheTabac, setLogoNonAfficheTabac] = useState(LightOn);
+
+const changementCouleurSVGTabac = () => {
+  let currentLampe = logoAfficheTabac;
+  let currentCache = logoNonAfficheTabac;
+  setLogoNonAfficheTabac(currentLampe);
+  setLogoAfficheTabac(currentCache);
+  affichageTxtTabac();
+};
+
+
+
+
+////////////////////////////
+
+
 
 
 //////////////////////////////////////////
@@ -1619,6 +1673,14 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
               changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
+        <input
+        onClick={changementCouleurSVGTabac}
+        className="Lampe"
+        type="image"
+        src={logoAfficheTabac}
+      />
+      <br></br>
+      <div className="ContainerBulle">{currentInfoTabac}</div>
         </div>
 
 

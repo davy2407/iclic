@@ -34,6 +34,60 @@ const [ classIcon, setClassIcon] = useState("iconPDFNew");
 const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
 
 const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
+
+
+
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBasePrescri, setBackgroundBasePrescri] = useState(backgroundBase);
+
+const [backgroundBaseDDR, setBackgroundBaseDDR] = useState(backgroundBase);
+
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+const [backgroundBaseMode, setBackgroundBaseMode] = useState(backgroundBase);
+
+const [backgroundBaseContexte, setBackgroundBaseContexte] = useState(backgroundBase);
+
+const [backgroundBaseViolence, setBackgroundBaseViolence] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseIVG, setBackgroundBaseIVG] = useState(backgroundBase);
+
+const [backgroundBasePsycho, setBackgroundBasePsycho] = useState(backgroundBase);
+
+const [backgroundBaseInfo, setBackgroundBaseInfo] = useState(backgroundBase);
+
+const [backgroundBaseFrotti, setBackgroundBaseFrotti] = useState(backgroundBase);
+
+const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
 
@@ -44,8 +98,6 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
     e.preventDefault();
 }
 
-  const recupRadioViolence = (e) => {
-  }
 
   const recupRadioAcc = (e) => {
     let reponse = {
@@ -54,6 +106,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentAcc(reponse);
+    setBackgroundBaseAcc(backgroundSelect);
     
   }
 
@@ -65,6 +118,26 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentTabac(reponse);
+    if (e.target.value == "Oui") {
+      setCurrentNbTabac(
+        {
+          titre : "Paquet/Année",
+          value : "",
+          reponse : 0
+        }
+      );
+      setBackgroundBaseTabac(backgroundBase);
+      
+    } else {
+      setCurrentNbTabac(
+        {
+          titre : "Paquet/Année",
+          value : "",
+          reponse : 1
+        }
+      );
+      setBackgroundBaseTabac(backgroundSelect);
+    }
     
   }
 
@@ -75,6 +148,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentInfo(reponse);
+    setBackgroundBaseInfo(backgroundSelect);
   }
 
   const recupRadioPsycho = (e) => {
@@ -84,6 +158,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentConsultation(reponse);
+    setBackgroundBasePsycho(backgroundSelect);
   }
 
 
@@ -95,6 +170,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentIST(reponse);
+    setBackgroundBaseIST(backgroundSelect);
   }
 
 
@@ -107,7 +183,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentMode(reponse);
-    setModeDecouverte(reponse);
+    setBackgroundBaseMode(backgroundSelect);
   }
 
   const recupRadioBilan = (e) => {
@@ -118,6 +194,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentSang(reponse);
+    setBackgroundBaseSang(backgroundSelect);
   }
 
 
@@ -130,6 +207,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
     };
     
     setCurrentEcho(reponse);
+    setBackgroundBasePrescri(backgroundSelect)
     
   }
 
@@ -140,6 +218,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentDossier(reponse);
+    setBackgroundBaseIVG(backgroundSelect);
   }
 
 
@@ -150,6 +229,28 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentHPV(reponse);
+    if (e.target.value == "Oui") {
+      setBackgroundBaseFrotti(backgroundBase);
+      setCurrentDateHPV(
+        {
+          titre : "Date frotti/Test HPV",
+          value : "",
+          reponse : 0
+        }
+      );
+      
+    } else  {
+      setCurrentDateHPV(
+        {
+          titre : "Date frotti/Test HPV",
+          value : "",
+          reponse : 1
+        }
+      );
+      setBackgroundBaseFrotti(backgroundSelect);
+      
+    }
+
   }
 
 
@@ -162,8 +263,13 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
     setCurrentContext(reponse);
-    setContexteBioPsyFin(reponse);
+    setBackgroundBaseContexte(backgroundSelect);
   };
+
+
+  const changeBackgroundViolence = () => {
+    setBackgroundBaseViolence(backgroundSelect);
+  }
   
 
 
@@ -257,7 +363,7 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
   };
   /// current reponse
   const [currentDDRSA, setCurrentDDRSA] = useState({
-    titre : "Date DDR; ",
+    titre : "Date DDR ",
     value : "",
     reponse : 1
   });
@@ -269,31 +375,31 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
   });
 
   const [currentEcho, setCurrentEcho] = useState({
-    titre : "Prescription échographie de datation; ",
+    titre : "Prescription échographie de datation ",
     value : "",
     reponse : 0
   });
 
   const [ currentAcc, setCurrentAcc] =useState({
-    titre : "Personne accompagnante; ",
+    titre : "Personne accompagnante ",
     value : "",
     reponse : 0
   });
 
   const [currentMode, setCurrentMode] = useState({
-    titre : "Mode de découverte de la grossesse; ",
+    titre : "Mode de découverte de la grossesse ",
     value : "",
     reponse : 0
   });
 
   const [currentContext, setCurrentContext] = useState({
-    titre : "Contexte biopsychosocial favorable; ",
+    titre : "Contexte biopsychosocial favorable",
     value : "",
     reponse : 0
   });
 
   const [currentIST, setCurrentIST] = useState({
-    titre : "Recherche IST +/- antibio-prophylaxie; ",
+    titre : "Recherche IST +/- antibio-prophylaxie ",
     value : "",
     reponse : 0
   });
@@ -305,49 +411,49 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
   });
 
   const [currentSang, setCurrentSang] = useState({
-    titre : "Prise de sang; ",
+    titre : "Prise de sang ",
     value : "",
     reponse : 0
   });
 
   const [currentDossier, setCurrentDossier] = useState({
-    titre : "Dossier guide IVG remis; ",
+    titre : "Dossier guide IVG remis ",
     value : "",
     reponse : 0
   });
 
   const [ currentConsultation, setCurrentConsultation] = useState({
-    titre : "Consultation psycho-sociale  obligatoirement proposée; ",
+    titre : "Consultation psycho-sociale  obligatoirement proposée ",
     value : "",
     reponse : 0
   });
 
   const [ currentInfo, setCurrentInfo]= useState({
-    titre : "Information contraception; ",
+    titre : "Information contraception",
     value : "",
     reponse : 0
   });
 
   const [ currentHPV, setCurrentHPV] = useState({
-    titre : "Frottis à jour ou test HPV; ",
+    titre : "Frottis à jour ou test HPV",
     value : "",
     reponse : 0
   });
 
   const [currentDateHPV, setCurrentDateHPV]= useState({
-    titre : "",
+    titre : "Date frotti/Test HPV",
     value : "",
     reponse : 1
   });
 
   const [currentTabac, setCurrentTabac]= useState({
-    titre : "Tabac; ",
+    titre : "Tabac ",
     value : "",
     reponse : 0
   });
 
   const [ currentNbTabac, setCurrentNbTabac] = useState({
-    titre : "",
+    titre : "Paquet/Année",
     value : "",
     reponse : 1
   });
@@ -380,8 +486,9 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
   //////////////////////////////////////////////////////
 
   /////// bloc no reponse
-  const afficheNoRep = () => {
+  const afficheNoRep = (liste) => {
     setCurrentReponseTarif(pasDeReponseBloc)
+    console.log(liste);
   };
 
   const [ stateNoReponse, setStateNoReponse] = useState([]);
@@ -407,44 +514,19 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
 
  
 
-  const [modeDecouverteFin, setModeDecouverte] = useState({});
+
 
   
 
-  const [constexteBioPsyFin, setContexteBioPsyFin] = useState({});
 
-  const recupContexteBio = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Contexte Biopsychosocial favorable : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    setCurrentContext(reponse);
-    setContexteBioPsyFin(reponse);
-  };
 
-  const [rechercheIstFin, setRechercheIstFin] = useState({});
 
   
+ 
 
-  const [bilanSanguinFin, setBilanSanguinFin] = useState({});
-
-  
-
-  const [guideIVGFin, setGuideIVGFin] = useState({});
 
  
 
-  const [consultationPsyFin, setConsultationPsyFin] = useState({});
-
- 
-
-  const [contraPostIVGFin, setContraPostIVGFin] = useState({});
-
- 
-
-  const [frottiFin, setFrottiFin] = useState({});
 
   
 
@@ -461,11 +543,10 @@ const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
       reponse : 1
     };
    setCurrentDateHPV(reponse);
+   setBackgroundBaseFrotti(backgroundSelect);
 
-    setDateFrottiFin(reponse);
   };
 
-  const [tabacFin, setTabacFin] = useState({});
   
 
   const [nBTabacFin, setNbTabacFin] = useState({});
@@ -486,9 +567,10 @@ const handleSubmitPaquet = event => {
     reponse : 1
   };
  setCurrentNbTabac(reponse);
+ setBackgroundBaseTabac(backgroundSelect);
  
 
-    setNbTabacFin(reponse);
+ 
   
 
   
@@ -896,13 +978,13 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   };
   setCurrentDDRDay(reponse2);
     setCurrentDDRSA(reponse);
+    setBackgroundBaseDDR(backgroundSelect);
   
   
  
   setDateDDR(Math.round(semaineSA.weeks))
   if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
     affichageTxtUrgence();
-    setCurrentVerrou("");
     
   }
   else if (Math.round(semaineSA.weeks)>=7) {
@@ -911,7 +993,6 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   }
   else if (Math.round(semaineSA.weeks)<5) {
     setCurrentTextUrgence("");
-    setCurrentVerrou("");
     
   }
 
@@ -962,49 +1043,14 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   }
   
 
-  const verrou = () => {
-    /// retourne le texte mois de 7 semaines si >12
-    return (
-      <div>
-        
-        
-        <h1 className="Verrou1">VERROU : </h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire d’adresser votre patiente vers le centre de
-          référence duquel dépend la patiente (à défaut aux urgences spécialisés
-          le plus proche). Le degré d’urgence est à établir selon les signes
-          cliniques ou l’âge gestationnel estimé.
-        </p>
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
-      </div>
-    );
-  };
-
-  const [Verrou,setVerrou] = useState(()=> verrou());
+ 
+ 
 
 
  
 
-  const [currentVerrou, setCurrentVerrou] = useState("");
 
-  const affichageVerrou = () => {
-    let txtAEnlever = currentVerrou;
-    let txtAAfficher = Verrou;
-    setCurrentVerrou(txtAAfficher);
-    
-  };
+ 
 
 
 
@@ -1161,6 +1207,55 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   };
 
 
+
+  ///////////////// tabac
+
+  const returnInfoTabac = () => {
+    return (
+      <div className="BulleInfo">
+        <p>
+         Le calcul du tabac en paquet/année peut vous être calculé sur : 
+        </p>
+
+        <p>
+          <a href="http://medicalcul.free.fr/packyear.html" target="_blank" rel="noreferrer noopener" className="Bold" >
+          http://medicalcul.free.fr/packyear.html.
+          </a>
+        </p>
+
+        <p>
+        1 paquet-année = 1 paquet de cigarette (20 cigarettes) par jour pendant 1 an.
+        </p>
+
+
+       
+      </div>
+    );
+  };
+
+  const [txtTabac, setTxtTabac] = useState(() => returnInfoTabac());
+
+  const [currentInfoTabac, setCurrentInfoTabac] = useState("");
+
+  const affichageTxtTabac = () => {
+    let txtAEnlever = currentInfoTabac;
+    let txtAAfficher = txtTabac;
+    setCurrentInfoTabac(txtAAfficher);
+    setTxtTabac(txtAEnlever);
+  };
+
+  const [logoAfficheTabac, setLogoAfficheTabac] = useState(LightOff);
+
+  const [logoNonAfficheTabac, setLogoNonAfficheTabac] = useState(LightOn);
+
+  const changementCouleurSVGTabac = () => {
+    let currentLampe = logoAfficheTabac;
+    let currentCache = logoNonAfficheTabac;
+    setLogoNonAfficheTabac(currentLampe);
+    setLogoAfficheTabac(currentCache);
+    affichageTxtTabac();
+  };
+
   ////////////////////////////
 
 
@@ -1214,7 +1309,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       
       <br></br>
  
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseDDR}>
      
 
       <h2>DDR</h2>
@@ -1254,13 +1349,12 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
         Date incertaine ?<Button className={btnOuiViolenceBase} variant="danger" onClick={(e)=>{clicDateIncertaine();
         changeCouleurBoutonViolence(e);}}>Oui</Button>
       </label>
-      <div  className="ContainerBulle">{currentVerrou}</div>
       <div  className="ContainerBulle">{currentIncertaine}</div>
       <br></br>
       
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBasePrescri}>
       <h2>Prescription échographie de datation</h2>
       <Form>
       <div key={`echo-radio`} className="mb-3" onChange={(e)=>{recupRadioEcho(e);}}>
@@ -1326,7 +1420,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="ContainerBulle">{currentInfoEcho}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAcc}>
       <h2>Personne accompagnante</h2>
       <label>
       <Form>
@@ -1361,7 +1455,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       </label>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseMode}>
       <h2>Mode de découverte de la grossesse </h2>
       <br></br>
       <Form>
@@ -1410,7 +1504,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
 
      
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseContexte}>
       <h2>Contexte biopsychosocial favorable :</h2>
       <Form>
       <div key={`psyCho-radio`} className="mb-3" onChange={(e)=>{recupRadioContexte(e);}}>
@@ -1470,11 +1564,11 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <br></br>
       
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseViolence}>
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
 
       <Form>
-      <div key={`Vio-radio`} className="mb-3" >
+      <div key={`Vio-radio`} className="mb-3" onChange={changeBackgroundViolence} >
       <Form.Check 
         type='radio'
         id={`VioOui`}
@@ -1511,7 +1605,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIST}>
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <Form>
@@ -1544,7 +1638,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       {/* Bloc a finir */}
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseSang}>
       <h2>
        Prescription prise de sang (Groupe sanguin : 2 déterminations, ß-HCG
         quantitatif)
@@ -1585,7 +1679,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <br></br>
 
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIVG}>
       <h2>Dossier guide IVG remis :</h2>
       <Form>
       <div key={`guide-radio`} className="mb-3" onChange={(e)=>{recupRadioGuide(e);}}>
@@ -1633,7 +1727,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       </div>
 
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBasePsycho}>
       <h2>Consultation psycho-sociale proposée</h2>
       <br></br>
       <Form>
@@ -1670,7 +1764,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="ContainerBulle">{currentInfoPsycho}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseInfo}>
       <h2>Information contraception post-IVG</h2>
       <br></br>
       <Form>
@@ -1705,7 +1799,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="ContainerBulle">{currentInfoPostIVG}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseFrotti}>
       <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <Form>
@@ -1775,7 +1869,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <div className="ContainerBulle">{currentInfoFrotti}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseTabac}>
       <h2>Tabac :</h2>
       <br></br>
       <Form>
@@ -1823,6 +1917,14 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
               changeCouleurBoutonViolence(e);
             }}>Confirmer</Button>
         </form>
+        <input
+        onClick={changementCouleurSVGTabac}
+        className="Lampe"
+        type="image"
+        src={logoAfficheTabac}
+      />
+      <br></br>
+      <div className="ContainerBulle">{currentInfoTabac}</div>
       </div>
       <br></br>
       <br></br>

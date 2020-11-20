@@ -9,7 +9,7 @@ function PremierePriseMediMajeureA() {
     window.location.reload(false);
   }
   return (
-    <div>
+    <div className="consultationContainer">
       <h1>Consultation IVG : 1ere prise médicamenteuse.
 Patiente majeure anonyme</h1>
       <p>
@@ -19,13 +19,13 @@ Patiente majeure anonyme</h1>
           href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665."
           target="_blank"
         >
-          lien info
+          Lien textes légaux 
         </a>)
       </p>
 
       <br></br>
       <br></br>
-      <Button variant="danger" onClick={refreshPage}>Retourner Page d'acceuil</Button>
+      <Button variant="danger" onClick={refreshPage}>Retourner Page d'acceuil</Button>  
 
         
       

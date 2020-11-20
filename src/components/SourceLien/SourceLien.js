@@ -29,11 +29,7 @@ function SourceLien() {
                             <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id</a>
 
                         </li>
-                        <li>
-                            <a rel="noreferrer noopener" target="_blank" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">
-                            https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse
-                            </a>
-                        </li>
+                        
                         <li>
                             <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">
                             https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf

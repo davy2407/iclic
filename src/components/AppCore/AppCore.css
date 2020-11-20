@@ -74,6 +74,27 @@
     flex-direction: column;
     align-items: center;
     text-shadow: 0px 0.5px 0px grey;
+    transition: 0.3s;
+
+
+}
+
+.ConsultationContainerSelect{
+    width: 100%;
+    background-color: rgb(255, 224, 226);
+    border-radius: 20px;
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+    box-shadow: 5px 2.5px 2.5px rgb(112, 106, 106);
+    font-family: 'PT Sans',cursive ;
+    margin-bottom: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0px 0.5px 0px rgb(112, 106, 106);
+    transition: 0.3s;
+    
 
 }
 

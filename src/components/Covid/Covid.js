@@ -20,8 +20,8 @@ function Covid() {
             Pour de plus amples informations :
             <ul>
                 <li>
-                    <a target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/covid-19-le-point-sur-les-mesures-derogatoires-qui-se-prolongent-pour-les-medecins">
-                    https://www.ameli.fr/covid-19-le-point-sur-les-mesures-derogatoires-qui-se-prolongent-pour-les-medecins.
+                    <a target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse">
+                    https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse.
                     </a>
                 </li>
                 <li>
@@ -40,12 +40,7 @@ function Covid() {
 
                     </a>
                 </li>
-                <li>
-                <a target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse">
-                https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse.
-                        
-                    </a>
-                </li>
+               
                 <li>
                 <a target="_blank" rel="noreferrer noopener" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">
                 https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf.

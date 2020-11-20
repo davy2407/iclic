@@ -25,9 +25,9 @@ function TarificationPremierContactMNA(props) {
  
   return (
     <div className="Tarification">
-      <h1>Tarification et Conclusion de consultation : </h1>
+      <h1>Tarification et Conclusion de consultation</h1>
       <br></br>
-      <h2>Tarification :</h2>
+      <h2>Tarification</h2>
       <p>
       La 1ère consultation préalable ou  1er contact médical :
 ne fait pas partie du “ forfait  IVG hors établissement de santé”

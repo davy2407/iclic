@@ -24,7 +24,7 @@ function TarifDeuxiemePriseMediMajeureNA(props) {
   return (
     <div className="Tarification">
       <h1>
-Conclusion et tarification majeure.</h1>
+Conclusion et tarification majeure</h1>
 <h2>
   Tarification 
 </h2>

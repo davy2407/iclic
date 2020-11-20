@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button} from "react-bootstrap";
 import ResumeDeuxConsulteMajeureNA from '@components/ResumeDeuxConsulteMajeureNA';
@@ -6,6 +6,8 @@ import "./TarifDeuxiemeConsulteMajeureNA.css";
 
 import InfoPatiente from "@assets/docx/InfoPatiente.docx";
 import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
+import newPdfIcon from "@assets/images/PDFicon.svg";
+
 
 
 function TarifDeuxiemeConsulteMajeureNA(props) {
@@ -22,10 +24,18 @@ function TarifDeuxiemeConsulteMajeureNA(props) {
   ///
 
 
+  const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+
+const [ iconConsen, setIconConsen] = useState(classIcon);
+
+
+
  
   return (
     <div className="Tarification">
-      <h1>Conclusion de consultation : </h1>
+      <h1>Conclusion de consultation</h1>
       <h2>Tarification</h2>
       <br></br>
       <p>
@@ -42,7 +52,26 @@ Sa tarification peut être faite électroniquement ou par format papier.
       <p>
       Le consentement doit être téléchargé et signé par la patiente. 
       </p>
-      <a className="Bold" rel="noreferrer noopener" target="_blank" href={FormulaireCon}>Formulaire Consentement IVG à remplir</a>
+
+      <p> <a className="NewDocContainer" rel="noreferrer noopener"  href={FormulaireCon} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Formulaire Consentement IVG à remplir
+      </a>          </p>
+
+
+
 
       <p>
         Copie pour : 

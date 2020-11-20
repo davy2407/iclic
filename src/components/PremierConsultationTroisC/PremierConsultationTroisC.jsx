@@ -26,7 +26,7 @@ function PremierConsultationTroisC() {
           href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665."
           target="_blank"
         >
-          lien info
+          Lien textes légaux 
         </a>
       </p>
       <br></br>

@@ -267,10 +267,13 @@ const changeCouleurBoutonViolence = (e) => {
     return (
       <div className="BulleInfo">
         <p>
-        HAS : antalgiques palier 1 (ibuprofène ou fénoprofène à dose antalgique) et 2 (paracétamol associé à l’opium ; la codéine ; tramadol seul ou en association avec le paracétamol).
+        Fiche réponse HAS Covid et IVG : antalgiques palier 1 (ibuprofène ou fénoprofène à dose antalgique) et 2 (paracétamol associé à l’opium ; la codéine ; tramadol seul ou en association avec le paracétamol).
         </p>
         <p>
-        En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine. <a className="Bold" rel="noreferrer noopener"
+        En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine. 
+        </p>
+        <p>
+        <a className="Bold" rel="noreferrer noopener"
             href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf"
             target="_blank"
           > info
@@ -441,7 +444,6 @@ const handleChangeVerrou = () => {
 
 
 
-        <div>{currentInfoVerrouUn}</div>
       </label>
       <input
         onClick={changementCouleurSVGMife}
@@ -449,7 +451,7 @@ const handleChangeVerrou = () => {
         type="image"
         src={logoAfficheMife}
       />
-      <div>{currentInfoMife}</div>
+      <div className="ContainerBulle">{currentInfoMife}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -493,7 +495,6 @@ const handleChangeVerrou = () => {
 
         
        
-        <div>{currentInfoVerrouUn}</div>
       </label>
       <input
         onClick={changementCouleurSVGMiso}
@@ -501,7 +502,7 @@ const handleChangeVerrou = () => {
         type="image"
         src={logoAfficheMiso}
       />
-      <div>{currentInfoMiso}</div>
+      <div className="ContainerBulle">{currentInfoMiso}</div>
       <br></br>
       </div>
 
@@ -541,7 +542,7 @@ const handleChangeVerrou = () => {
         type="image"
         src={logoAffichePresci}
       />
-      <div>{currentInfoPresci}</div>
+      <div className="ContainerBulle">{currentInfoPresci}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -583,7 +584,7 @@ const handleChangeVerrou = () => {
         type="image"
         src={logoAfficheInfoEffet}
       />
-      <div>{currentInfoEffet}</div>
+      <div className="ContainerBulle">{currentInfoEffet}</div>
       <br></br>
       </div>
       <div className="ConsultationContainer">
@@ -616,7 +617,6 @@ const handleChangeVerrou = () => {
       </div>
       </Form>
 
-        <div>{currentInfoVerrouUn}</div>
       </label>
       </div>
 

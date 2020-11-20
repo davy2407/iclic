@@ -24,8 +24,8 @@ function TarifDeuxiemePriseMineureANA(props) {
  
   return (
     <div className="Tarification">
-      <h1>Consultation 2ème prise médicamenteuse (facultative) :
-Conclusion et facturation mineure .</h1>
+      <h1>Consultation 2ème prise médicamenteuse (facultative)</h1>
+      <h2>Conclusion et facturation mineure</h2>
       <br></br>
       <p>
       Le forfait a été enregistré lors de la 1ère consultation de prise médicamenteuse, il ne doit pas être renouvelé lors de cette consultation.       </p>

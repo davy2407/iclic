@@ -28,7 +28,7 @@ function TarifPremiereMineureANA(props) {
  
   return (
     <div className="Tarification">
-      <h1>Tarification et Conclusion de consultation : </h1>
+      <h1>Tarification et Conclusion de consultation</h1>
       <br></br>
       
       <p>

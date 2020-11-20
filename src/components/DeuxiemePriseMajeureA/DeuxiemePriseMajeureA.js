@@ -18,7 +18,7 @@ function DeuxiemePriseMajeureA(props) {
     
     
     return (
-        <div>
+        <div className="consultationContainer">
 
             <h1>
                 Consultation deuxième prise médicamenteuse (facultative) Majeure Anonyme :
@@ -37,7 +37,7 @@ Pour les femmes majeures, l’avortement anonyme est impossible. Seul un règlem
 <br></br>
 
 <p>
-                  <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665">lien info</a>
+                  <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000006171542&cidTexte=LEGITEXT000006072665">Lien textes légaux </a>
 
 
 
