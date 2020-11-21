@@ -50,7 +50,7 @@ function Home() {
         onCovid={afficheCovid}
       />
 
-      <div>{currentMid}</div>
+      <div className="MidContainerHome">{currentMid}</div>
 
       <Footer className="FooterTest" />
     </React.Fragment>

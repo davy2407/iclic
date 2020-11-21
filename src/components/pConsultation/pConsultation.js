@@ -365,7 +365,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
   const [currentDDRSA, setCurrentDDRSA] = useState({
     titre : "Date DDR ",
     value : "",
-    reponse : 1
+    reponse : 0
   });
 
   const [currentDDRDay, setCurrentDDRDay] =useState({
@@ -1039,6 +1039,14 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   const clicDateIncertaine = () => {
     affichageTxtUrgence();
     affichageDateIncertaine();
+    setCurrentDDRSA(
+      {
+        titre : "Date DDR ",
+        value : "",
+        reponse : 1
+      }
+    );
+    setBackgroundBaseDDR(backgroundSelect);
     
   }
   

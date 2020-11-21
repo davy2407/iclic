@@ -39,6 +39,43 @@ const [ iconIVG, setIconIVG] = useState(classIcon);
 const [iconRefe, setIconRefe] = useState(classIcon);
 
 
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBasePrescri, setBackgroundBasePrescri] = useState(backgroundBase);
+
+const [backgroundBaseDDR, setBackgroundBaseDDR] = useState(backgroundBase);
+
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+const [backgroundBaseMode, setBackgroundBaseMode] = useState(backgroundBase);
+
+const [backgroundBaseContexte, setBackgroundBaseContexte] = useState(backgroundBase);
+
+const [backgroundBaseViolence, setBackgroundBaseViolence] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseIVG, setBackgroundBaseIVG] = useState(backgroundBase);
+
+const [backgroundBasePsycho, setBackgroundBasePsycho] = useState(backgroundBase);
+
+const [backgroundBaseInfo, setBackgroundBaseInfo] = useState(backgroundBase);
+
+
+const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
+
+
  
 
     const afficheStateFin = () => {
@@ -97,6 +134,8 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentAcc(reponse);
+        setBackgroundBaseAcc(backgroundSelect);
+
         
       }
 
@@ -107,6 +146,26 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentTabac(reponse);
+        if (e.target.value == "Oui") {
+          setCurrentNbTabac(
+            {
+              titre : "Paquet/Année",
+              value : "",
+              reponse : 0
+            }
+          );
+          setBackgroundBaseTabac(backgroundBase);
+          
+        } else {
+          setCurrentNbTabac(
+            {
+              titre : "Paquet/Année",
+              value : "",
+              reponse : 1
+            }
+          );
+          setBackgroundBaseTabac(backgroundSelect);
+        }
         
       }
 
@@ -117,6 +176,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentContext(reponse);
+        setBackgroundBaseContexte(backgroundSelect);
        
       };
 
@@ -127,6 +187,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentConsultation(reponse);
+        setBackgroundBasePsycho(backgroundSelect);
       }
     
 
@@ -137,9 +198,12 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentDossier(reponse);
+        setBackgroundBaseIVG(backgroundSelect);
       }
 
-      const recupRadioViolence = (e) => {
+      const recupRadioViolence = () => {
+        setBackgroundBaseViolence(backgroundSelect);
+
         
       }
 
@@ -151,6 +215,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentSang(reponse);
+        setBackgroundBaseSang(backgroundSelect);
       }
 
 
@@ -163,6 +228,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
         };
         
         setCurrentEcho(reponse);
+        setBackgroundBasePrescri(backgroundSelect);
         
       }
 
@@ -173,6 +239,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentIST(reponse);
+        setBackgroundBaseIST(backgroundSelect);
       }
 
       const recupRadioContra = (e) => {
@@ -182,6 +249,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentInfo(reponse);
+        setBackgroundBaseInfo(backgroundSelect);
       }
     
     
@@ -193,6 +261,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
           reponse : 1
         };
         setCurrentMode(reponse);
+        setBackgroundBaseMode(backgroundSelect);
       
       }
     
@@ -203,7 +272,7 @@ const [iconRefe, setIconRefe] = useState(classIcon);
      const [currentDDRSA, setCurrentDDRSA] = useState({
       titre : "Pas de réponses",
       value : "",
-      reponse : 1
+      reponse : 0
     });
   
     const [currentDDRDay, setCurrentDDRDay] =useState({
@@ -928,6 +997,7 @@ let reponse2 = {
 };
 setCurrentDDRDay(reponse2);
     setCurrentDDRSA(reponse);
+    setBackgroundBaseDDR(backgroundSelect);
 
 
 
@@ -983,6 +1053,14 @@ const affichageDateIncertaine = ()=>{
 const clicDateIncertaine = () => {
   affichageTxtUrgence();
   affichageDateIncertaine();
+  setCurrentDDRSA(
+    {
+      titre : "Date DDR ",
+      value : "",
+      reponse : 1
+    }
+  );
+  setBackgroundBaseDDR(backgroundSelect);
   
 }
 
@@ -1042,6 +1120,8 @@ const handleSubmitPaquet = event => {
     reponse : 1
   };
   setCurrentNbTabac(reponse);
+  setBackgroundBaseTabac(backgroundSelect);
+
    
   
 
@@ -1182,7 +1262,7 @@ const handleChangeVerrou = () => {
             </h1>
           
           <br></br>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseAcc}>
           <h2>Personne accompagnante majeure ou consentement parental obliagtoire :</h2>
 
           
@@ -1233,7 +1313,7 @@ const handleChangeVerrou = () => {
 
       <br></br>
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseDDR}>
       <h2>DDR</h2>
       {/* <form >
             <input
@@ -1277,7 +1357,7 @@ const handleChangeVerrou = () => {
       
       <br></br>
       </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBasePrescri}>
           <h2>Prescription échographie de datation</h2>
           <Form>
       <div key={`echo-radio`} className="mb-3" onChange={(e)=>{recupRadioEcho(e);}}>
@@ -1316,7 +1396,7 @@ const handleChangeVerrou = () => {
 
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseMode}>
           <h2>Mode de découverte de la grossesse :</h2>
 
 <label>
@@ -1358,7 +1438,7 @@ const handleChangeVerrou = () => {
 
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseContexte}>
           <h2>Contexte biopsychosocial favorable</h2>
       <label>
      
@@ -1389,7 +1469,7 @@ const handleChangeVerrou = () => {
 
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseIST}>
           <h2>Recherche IST +/- antibio-prophylaxie </h2>
           <Form>
       <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
@@ -1420,7 +1500,7 @@ const handleChangeVerrou = () => {
       <br></br>
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseSang}>
           <h2> Prescription prise de sang (Groupe sanguin 2 déterminations, ß-HCG quantitatif)</h2>
 
           <Form>
@@ -1452,7 +1532,7 @@ const handleChangeVerrou = () => {
 <br></br>
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseIVG}>
           <h2>Dossier guide IVG remis ou à défaut feuille d’information dédiées : </h2>
       <label>
       <Form>
@@ -1503,7 +1583,7 @@ const handleChangeVerrou = () => {
 
 
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBasePsycho}>
           <h2>Consultation psycho-sociale obligatoire :</h2>
       <label>
       <Form>
@@ -1538,7 +1618,7 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">{currentTxtConsultation}</div>
           </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseViolence}>
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <div onChange={(e)=>{recupRadioViolence(e);}}>
       <div>
@@ -1561,7 +1641,7 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseInfo}>
           <h2>Information contraception post-IVG</h2>
       <label>
       
@@ -1592,26 +1672,8 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">{currentTxtPostIVG}</div>
           </div>
-          {/* <div className="ConsultationContainer">
-          <h2>Frottis à jour ou test HPV</h2>
-      <label>
-      Frottis à jour
-      <Button variant="secondary" value="Oui" onClick={(e)=>{recupFrotti(e);}}>Oui</Button>
-        <Button variant="secondary" value="Non" onClick={(e)=>{recupFrotti(e);}}>Non</Button>
-        <Button variant="secondary" value="Non Concernée" onClick={(e)=>{recupFrotti(e);}}>Non Concernée</Button>
-     </label>
-     <label for="dateFrotti">Date : </label>
-      <input type="date" name="dateFrotti" id="dateFrotti" onChange={(e)=>{handleChange(e);}}></input>
-      <br></br>
-     <input
-        onClick={changementCouleurSVGFrotti}
-        className="Lampe"
-        type="image"
-        src={logoAfficheFrotti}
-      />
-      <p>{currentTxtFrotti}</p>
-          </div> */}
-          <div className="ConsultationContainer">
+    
+          <div className={backgroundBaseTabac}>
           <h2>Tabac</h2>
           <Form>
       <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>

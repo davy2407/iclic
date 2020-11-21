@@ -5,6 +5,10 @@
     .Mid {
         width: 100%;
         height:auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         
         
         font-family: 'PT Sans',cursive ;
