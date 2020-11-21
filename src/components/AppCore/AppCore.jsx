@@ -104,6 +104,19 @@ function AppCore() {
   }
   const [texteDemarrage, setTexteDemarrage] = useState(()=>accueil());
 
+  ///// state gérant les class bulle info
+
+  const [classBulleInfoBase, setClassBulleInfoBase] = useState("BulleInfo");
+
+
+  const [classBulleHover, setClassBulleHover] = useState("BulleInfoHover");
+
+  const [classBulleInfo, setClassBulleInfo] = useState(classBulleInfoBase);
+
+
+
+  /////////////
+
 
   const questionDepart = () => {
     return (
@@ -320,7 +333,13 @@ function AppCore() {
 
   const TexteMineure = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover)}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      
+      >
         <p>
           L’article <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a>  du Code de la Santé Publique : « Si la femme est mineure non émancipée, le consentement de l’un des titulaires de l’autorité parentale ou, le cas échéant, du représentant légal est recueilli. Ce consentement est joint à la demande qu’elle présente au médecin en dehors de la présence de toute autre personne.
           </p>
@@ -341,7 +360,12 @@ function AppCore() {
 
   const txtPostMin = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
 
@@ -385,7 +409,12 @@ function AppCore() {
 
   const txtDeuxiemeContactMAJ = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
             Cette 2ème consultation peut être effectuée par tout médecin ou sage femme,
              prenant en charge l’IVG ou non. Elle fait partie du tarif forfaitaire à l’IVG. 
@@ -403,7 +432,12 @@ function AppCore() {
 
   const txtPOstMaj = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
             Cette consultation intervient 14 à 21 jours après la prise médicamenteuse. 
 
@@ -419,7 +453,12 @@ function AppCore() {
   }
   const txtDeuxiemePriseMin = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
             Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
@@ -433,7 +472,12 @@ function AppCore() {
 
   const txtDeuxiemePriseMaj = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
             Cette consultation intervient 36 à 48 heures après la 1ère prise médicamenteuse,
              qui a lieu à domicile ou, si la femme le désire, en présence du médecin ou de la sage-femme.
@@ -448,7 +492,12 @@ function AppCore() {
 
   const txtPriseMediMajeure = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
       <p>
       Médicaments nécessaires à l’acte vendus en pharmacie d’officine. Exclusivement aux médecins ou aux sages-femmes ayant passé convention avec un établissement de santé.
       </p>
@@ -471,7 +520,13 @@ signature du praticien ainsi que la date</li>
 
   const txtDeuxiemeContactMineure = () => {
     return (
-      <div className="BulleInfo">
+      <div 
+      className={classBulleInfo}
+      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);
+      console.log("RENTREEE")}}
+      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+
+      >
         <p>
           Dans le cas particulier de l’IVG, l’article <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031930097&cidTexte=LEGITEXT000006072665&dateTexte=20160128">L. 2212-7</a> Lien n°19 du code de la
            santé publique dispose : « Si la femme est mineure non émancipée,

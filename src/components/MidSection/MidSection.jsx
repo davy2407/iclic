@@ -16,11 +16,11 @@ function MidSection() {
 
   return (
     <div className="Mid">
-            <div className="Marge"></div>
+            {/* <div className="Marge"></div> */}
 
       
       <AppCore></AppCore>
-      <div className="Marge"></div>
+      {/* <div className="Marge"></div> */}
 
     </div>
   );
