@@ -415,7 +415,7 @@ input{
 
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) and (max-width:1800px) {
     .noneArrow{
         display: none;
       }
@@ -429,6 +429,32 @@ input{
     .Marge{
         width: 10%;
         height: 100%;
+    }
+
+    .BulleInfoCons{
+    
+        border: 3px solid rgb(160, 39, 47);
+        color:  rgb(104, 101, 102);
+        background-color: rgb(233, 190, 192);
+        border-radius: 35px;
+        margin-top: 0.5vh;
+        padding-top: 1.5%;
+        padding-left: 0.5%;
+        padding-right: 0.5%;
+        /* text-shadow: 0px 0.5px 0px rgb(184, 177, 177); */
+        box-shadow: inset 0 0 0.1em black, 0 0 0.3em black;
+        min-height: 20vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: 0.5s;
+        
+        font-size: 0.7rem;
+    
+    
     }
 }
 
@@ -484,4 +510,20 @@ input{
 
 .noneDisplay{
     display: none;
+}
+
+
+@media screen and  (min-width:1800px) {
+    .noneArrow{
+        display: none;
+      }
+
+      .Arrow{
+        display: none;
+       
+      
+    }
+
+
+   
 }
