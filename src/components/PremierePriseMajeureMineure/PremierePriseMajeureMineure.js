@@ -24,6 +24,45 @@ function PremierePriseMajeureMineure(props) {
     e.preventDefault();
 }
 
+
+
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+const [backgroundBaseViolence, setBackgroundBaseViolence] = useState(backgroundBase);
+
+const [backgroundBaseAnti, setBackgroundBaseAnti] = useState(backgroundBase);
+
+const [backgroundBaseMife, setBackgroundBaseMife] = useState(backgroundBase);
+
+const [backgroundBaseMiso, setBackgroundBaseMiso] = useState(backgroundBase);
+
+const [backgroundBaseArret, setBackgroundBaseArret] = useState(backgroundBase);
+
+const [backgroundBaseContra, setBackgroundBaseContra] = useState(backgroundBase);
+
+const [backgroundBasePrescri, setBackgroundBasePrescri] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseHPV, setBackgroundBaseHPV] = useState(backgroundBase);
+
+const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
+
     const [globalStateFin, setGlobalStateFin] = useState(props.onData);
 
     const afficheStateFin = () => {
@@ -81,6 +120,27 @@ function PremierePriseMajeureMineure(props) {
       reponse : 1
     };
     setCurrentTabac(reponse);
+    if (e.target.value=="Oui") {
+      setBackgroundBaseTabac(backgroundBase);
+      setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+     
+      
+    } else {
+      setBackgroundBaseTabac(backgroundSelect);
+      setCurrentNbTabac(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+    }
     
   }
 
@@ -92,6 +152,7 @@ function PremierePriseMajeureMineure(props) {
     };
     
     setCurrentArret(reponse);
+    setBackgroundBaseArret(backgroundSelect);
   }
 
   const recupRadioHPV = (e) => {
@@ -101,6 +162,26 @@ function PremierePriseMajeureMineure(props) {
       reponse : 1
     };
     setCurrentHPV(reponse);
+    if (e.target.value=="Oui") {
+      setBackgroundBaseHPV(backgroundBase);
+      setCurrentDateHPV(
+        {
+          titre : "",
+          value : "",
+          reponse : 0
+        }
+      );
+      
+    } else {
+      setBackgroundBaseHPV(backgroundSelect);
+      setCurrentDateHPV(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+    }
   }
 
 
@@ -111,6 +192,7 @@ function PremierePriseMajeureMineure(props) {
       reponse : 1
     };
     setCurrentIst(reponse);
+    setBackgroundBaseIST(backgroundSelect);
   }
 
   const recupRadioContraception = (e) => {
@@ -121,6 +203,27 @@ function PremierePriseMajeureMineure(props) {
     };
     
     setCurrentContra(reponse);
+    if (e.target.value=="Oui") {
+      setBackgroundBaseContra(backgroundBase);
+      setCurrentTypeContra(
+        {
+          titre : "",
+          value : "",
+          reponse : 0
+        }
+      );
+      
+    } else {
+      setBackgroundBaseContra(backgroundSelect);
+      setCurrentTypeContra(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+
+    }
     
   }
 
@@ -131,6 +234,29 @@ function PremierePriseMajeureMineure(props) {
       reponse : 1
     };
     setCurrentInjection(reponse);
+    if (e.target.value=="Oui") {
+      setCurrentDateInjection(
+        {
+          titre : "",
+          value : "",
+          reponse : 0
+        }
+      );
+      setBackgroundBaseAnti(backgroundBase);
+
+
+      
+    } else {
+      setCurrentDateInjection(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+      setBackgroundBaseAnti(backgroundSelect);
+
+    }
   }
 
 
@@ -480,6 +606,7 @@ signature du praticien ainsi que la date
       reponse : 1
     };
    setCurrentDateInjection(reponse);
+   setBackgroundBaseAnti(backgroundSelect);
 
     
   };
@@ -504,7 +631,6 @@ signature du praticien ainsi que la date
   const [currentDateIgAntiD, setCurrentDateIgAntiD] = useState("");
 
   const affichageDateIg = () => {
-    let txtAEnlever = currentNon;
     let txtAAfficher = dateIgAntiD;
     
     setCurrentDateIgAntiD(txtAAfficher);
@@ -570,6 +696,7 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
       reponse : 1
     };
    setCurrentDateMife(reponse);
+   setBackgroundBaseMife(backgroundSelect);
 
     
   };
@@ -635,6 +762,7 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
       reponse : 1
     };
    setCurrentDateMiso(reponse);
+   setBackgroundBaseMiso(backgroundSelect);
 
     
   };
@@ -769,6 +897,7 @@ HAS recommande la séquence de traitement Per Os.
       reponse : 1
     };
    setCurrentTypeContra(reponse);
+   setBackgroundBaseContra(backgroundSelect);
   
     
   };
@@ -1060,11 +1189,12 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     
     
     let reponse = {
-      titre: "Date Frotti",
+      titre: "Date Frotti (ou test HPV)",
       value: e.target.value,
       reponse : 1
     };
    setCurrentDateHPV(reponse);
+   setBackgroundBaseHPV(backgroundSelect);
 
     
   };
@@ -1140,6 +1270,7 @@ affichageFrotti();
       reponse : 1
     };
    setCurrentNbTabac(reponse);
+   setBackgroundBaseTabac(backgroundSelect);
   
       
     
@@ -1285,10 +1416,12 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
            <h4>Actuellement en cours de réalisation : à remplir manuellement sur la fiche de liaison.</h4>
 </div>      
 
-<div className="ConsultationContainer">
+<div className={backgroundBaseViolence}>
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <Form>
-      <div key={`Vio-radio`} className="mb-3" >
+      <div key={`Vio-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseViolence(backgroundSelect);
+      }} >
       <Form.Check 
         type='radio'
         id={`VioOui`}
@@ -1314,9 +1447,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheViolence}
       />
-      <div>  {currentInfoViolence}</div>
+      <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAnti}>
       <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
       <Form>
       <div key={`NeInjMAj-radio`} className="mb-3" onChange={(e)=>{recupRadioIG(e);}} >
@@ -1339,6 +1472,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         label={`Non`}
         value="Non"
         name="NeInjMAj"
+        onClick={()=>{
+          setCurrentDateIgAntiD("");
+        }}
         
       />
 
@@ -1352,10 +1488,10 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheInjection}
       />
-      <div>{currentInfoInjection}</div>
+      <div className="ContainerBulle">{currentInfoInjection}</div>
       </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseMife}>
       <h2>Remise et prise de mifépristone :</h2>
 
 
@@ -1367,6 +1503,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         label={`Oui`}
         value="Oui"
         name="DeliMifeMAJ"
+        onClick={()=>{
+          setBackgroundBaseMife(backgroundBase);
+        }}
         
       />
 
@@ -1376,6 +1515,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         label={`Non`}
         value="Non"
         name="DeliMifeMAJ"
+        onClick={()=>{
+          setBackgroundBaseMife(backgroundSelect);
+        }}
         
       />
 
@@ -1396,12 +1538,12 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAffichePriseMife}
       />
-      <div>{currentInfoPriseMife}</div>
+      <div className="ContainerBulle">{currentInfoPriseMife}</div>
       </div>
 
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseMiso}>
       <h2>Délivrance du misoprostol : </h2>
 
 
@@ -1414,6 +1556,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         label={`Oui`}
         value="Oui"
         name="DeliMisoMAJ"
+        onClick={()=>{
+          setBackgroundBaseMiso(backgroundBase);
+        }}
         
       />
 
@@ -1423,6 +1568,9 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         label={`Non`}
         value="Non"
         name="DeliMisoMAJ"
+        onClick={()=>{
+          setBackgroundBaseMiso(backgroundSelect);
+        }}
         
       />
 
@@ -1443,13 +1591,13 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheDelivranceMiso}
       />
-      <div>{currentInfoDelivranceMiso}</div>
+      <div className="ContainerBulle">{currentInfoDelivranceMiso}</div>
 
      
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseArret}>
       <h2>Arrêt de travail prescrit pour la prise médicamenteuse :</h2>
 
       <Form>
@@ -1481,11 +1629,11 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheArretTravail}
       />
-      <div>{currentInfoArretTravail}</div>
+      <div className="ContainerBulle">{currentInfoArretTravail}</div>
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseContra}>
       <h2>Contraception choisie par la patiente :</h2>
       <Form>
       <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
@@ -1527,14 +1675,16 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheContraception}
       />
-      <div>{currentInfoContraception}</div>
+      <div className="ContainerBulle">{currentInfoContraception}</div>
       </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBasePrescri}>
       <h2>Prescription d’un dosage de ß-HCG à faire pour la consultation de contrôle J15-21 ou d’un autotest urinaire combiné à un suivi téléphonique :</h2>
 
       <Form>
-      <div key={`Prescription-radio`} className="mb-3" >
+      <div key={`Prescription-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBasePrescri(backgroundSelect);
+      }} >
       <Form.Check 
         type='radio'
         id={`PrescriptionMajoui`}
@@ -1560,11 +1710,11 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheDosage}
       />
-      <div>{currentInfoDosage}</div>
+      <div className="ContainerBulle">{currentInfoDosage}</div>
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIST}>
       <h2>Recherche IST +/- antibio-prophylaxie </h2>
       <Form>
       <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
@@ -1592,11 +1742,11 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         type="image"
         src={logoAfficheHAS}
       />
-      <div>{currentInfoHAS}</div>
+      <div className="ContainerBulle">{currentInfoHAS}</div>
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseHPV}>
       <h2>Frottis à jour ou test HPV</h2>
     
       <br></br>
@@ -1669,7 +1819,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseTabac}>
       <h2>Tabac</h2>
       <br></br>
       <Form>
@@ -1719,7 +1869,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
         onClick={changementCouleurSVGTabac}
         className="Lampe"
         type="image"
-        src={logoAfficheTabac}
+        src={logoAfficheTabac} 
       />
       <br></br>
       <div className="ContainerBulle">{currentInfoTabac}</div>

@@ -131,7 +131,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     } else {
       setCurrentNbTabac(
         {
-          titre : "Paquet/Année",
+          titre : "",
           value : "",
           reponse : 1
         }
@@ -242,7 +242,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     } else  {
       setCurrentDateHPV(
         {
-          titre : "Date frotti/Test HPV",
+          titre : "",
           value : "",
           reponse : 1
         }

@@ -58,6 +58,46 @@ const changeCouleurBoutonViolence = (e) => {
 }
 
 
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseEcho, setBackgroundBaseEcho] = useState(backgroundBase);
+
+const [backgroundBaseAge, setBackgroundBaseAge] = useState(backgroundBase);
+
+
+const [backgroundBaseConsentement, setBackgroundBaseConsentement] = useState(backgroundBase);
+
+const [backgroundBaseAtt, setBackgroundBaseAtt] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseDosage, setBackgroundBaseDosage] = useState(backgroundBase);
+
+const [backgroundBaseGroupe, setBackgroundBaseGroupe] = useState(backgroundBase);
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const afficheStateFin = () => {
     let liste = [];
@@ -168,6 +208,7 @@ const changeCouleurBoutonViolence = (e) => {
       reponse : 1
     };
     setCurrentAcc(reponse);
+    setBackgroundBaseAcc(backgroundSelect);
     
   }
 
@@ -180,6 +221,7 @@ const changeCouleurBoutonViolence = (e) => {
     };
     
     setcurrentEcho(reponse);
+    setBackgroundBaseEcho(backgroundSelect);
     
   }
 
@@ -191,6 +233,12 @@ const changeCouleurBoutonViolence = (e) => {
   };
 
   setCurrentAttestation(reponse);
+  if (e.target.value=="Oui") {
+    setBackgroundBaseAtt(backgroundBase);
+    
+  } else {
+    setBackgroundBaseAtt(backgroundSelect);
+  }
 
 
 }
@@ -206,6 +254,7 @@ const recupRadioConsentement = (e) => {
   };
   
   setCurrentConssent(reponse);
+  setBackgroundBaseConsentement(backgroundSelect);
 }
 
   const recupRadioBilan = (e) => {
@@ -216,6 +265,49 @@ const recupRadioConsentement = (e) => {
     };
     
     setCurrentSang(reponse);
+    if (e.target.value=="Non") {
+      setBackgroundBaseDosage(backgroundSelect);
+      setBackgroundBaseGroupe(backgroundSelect);
+      setBackgroundBaseSang(backgroundSelect);
+      setCurrentDosage(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+      setCurrentGroupe(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+
+      );
+
+      
+    } else {
+      setBackgroundBaseSang(backgroundSelect);
+      setBackgroundBaseDosage(backgroundBase);
+      setBackgroundBaseGroupe(backgroundBase);
+      setCurrentDosage(
+        {
+          titre : "",
+          value : "",
+          reponse : 0
+        }
+      );
+      setCurrentGroupe(
+        {
+          titre : "",
+          value : "",
+          reponse : 0
+        }
+
+      );
+
+
+    }
   }
 
 
@@ -309,6 +401,7 @@ const recupRadioConsentement = (e) => {
       reponse : 1
     };
     setCurrentGest(reponse);
+    setBackgroundBaseAge(backgroundSelect);
    
  
 
@@ -507,7 +600,9 @@ const recupRadioConsentement = (e) => {
       <div>
         <h4>attestation :</h4>
         <Form>
-      <div key={`attestationOui-radio`} className="mb-3">
+      <div key={`attestationOui-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseAtt(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`attestationOuiOui`}
@@ -550,7 +645,7 @@ const recupRadioConsentement = (e) => {
     setcurrentConsultationAttestation(txtAAfficher);
   };
 
-  const clicOuiConsultation = (e) => {
+  const clicOuiConsultation = () => {
    
     affichageConsultationAttestation();
   };
@@ -646,6 +741,8 @@ const handleSubmitßHCG = event => {
     reponse : 1
   };
  setCurrentDosage(reponse);
+ setBackgroundBaseDosage(backgroundSelect);
+
 
     
   
@@ -656,7 +753,7 @@ const handleSubmitßHCG = event => {
 };
 ////////////////////////////////////////////////////////
 
-
+ 
 
 
 
@@ -676,6 +773,8 @@ const handleChangeGroupe = (e) => {
     reponse : 1
   };
  setCurrentGroupe(reponse);
+ setBackgroundBaseGroupe(backgroundSelect);
+
 
   
 };
@@ -907,7 +1006,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <br></br> 
       <h1 className="Titre">La patiente a en sa possession :</h1>
       <br></br>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseEcho}>
       <h3>Échographie de datation :</h3>
       <br></br>
 
@@ -947,7 +1046,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
 
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAge}>
       <h3>Age gestationnel :</h3>
       <br></br>
       <input
@@ -966,7 +1065,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <div>{currentInfoNbSAplusDouze}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseConsentement}>
       <h3>Consentement à l’IVG signé :</h3>
       <br></br>
 
@@ -1019,7 +1118,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
        
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAtt}>
       <h3>Attestation consultation psychosociale :</h3>
       <br></br>
 
@@ -1031,8 +1130,8 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         label={`Oui`}
         value="Oui"
         name="attestationBug"
-        onClick={(e)=>{
-          clicOuiConsultation(e);}}
+        onClick={()=>{
+          clicOuiConsultation();}}
       />
 
 <Form.Check 
@@ -1041,6 +1140,9 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         label={`Non`}
         value="Non"
         name="attestationBug"
+        onClick={()=>{
+          setcurrentConsultationAttestation("");
+        }}
         
       />
       </div>
@@ -1059,11 +1161,11 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         type="image"
         src={logoAffichePsy}
       />
-      <div>{currentInfoPsy}</div>
+      <div className="ContainerBulle">{currentInfoPsy}</div>
       <br></br>
       </div>
       <br></br>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseSang}>
       <h3>Prise de sang effectuée :</h3>
       <br></br>
 
@@ -1110,7 +1212,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       <br></br>
       </div>
       
-        <div className="ConsultationContainer">
+        <div className={backgroundBaseDosage}>
         <h3>Dosage ß-HCG :</h3>
         <form onSubmit={(e)=>{
         
@@ -1130,7 +1232,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
             }}>Confirmer</Button>
         </form>
         </div>
-        <div className="ConsultationContainer">
+        <div className={backgroundBaseGroupe}>
         <h3>Groupe sanguin : </h3>
         <Form.Group>
   <Form.Control as="select" size="lg" onChange={(e) => {
@@ -1151,7 +1253,7 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
       
         </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAcc}>
       <h3>Personne accompagnante :</h3>
       <label>
       <Form>

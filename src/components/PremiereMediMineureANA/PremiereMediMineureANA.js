@@ -59,6 +59,45 @@ else {
 }
 
 
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseEcho, setBackgroundBaseEcho] = useState(backgroundBase);
+
+const [backgroundBaseAge, setBackgroundBaseAge] = useState(backgroundBase);
+
+
+const [backgroundBaseConsentement, setBackgroundBaseConsentement] = useState(backgroundBase);
+
+const [backgroundBaseAtt, setBackgroundBaseAtt] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseDosage, setBackgroundBaseDosage] = useState(backgroundBase);
+
+const [backgroundBaseGroupe, setBackgroundBaseGroupe] = useState(backgroundBase);
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const afficheStateFin = () => {
   let liste = [];
@@ -171,6 +210,7 @@ const recupRadioAcc = (e) => {
     reponse : 1
   };
   setCurrentAcc(reponse);
+  setBackgroundBaseAcc(backgroundSelect);
   
 }
 
@@ -183,6 +223,7 @@ const recupRadioEchographie = (e) => {
   };
   
   setcurrentEcho(reponse);
+  setBackgroundBaseEcho(backgroundSelect);
   
 }
 
@@ -194,6 +235,12 @@ const recupRadioAttestation = (e) => {
 };
 
 setCurrentAttestation(reponse);
+if (e.target.value=="Oui") {
+  setBackgroundBaseAtt(backgroundBase);
+  
+} else {
+  setBackgroundBaseAtt(backgroundSelect);
+}
 
 
 }
@@ -207,6 +254,7 @@ let reponse = {
 };
 
 setCurrentConssent(reponse);
+setBackgroundBaseConsentement(backgroundSelect);
 }
 
 const recupRadioBilan = (e) => {
@@ -217,6 +265,49 @@ const recupRadioBilan = (e) => {
   };
   
   setCurrentSang(reponse);
+  if (e.target.value=="Non") {
+    setBackgroundBaseDosage(backgroundSelect);
+    setBackgroundBaseGroupe(backgroundSelect);
+    setBackgroundBaseSang(backgroundSelect);
+    setCurrentDosage(
+      {
+        titre : "",
+        value : "",
+        reponse : 1
+      }
+    );
+    setCurrentGroupe(
+      {
+        titre : "",
+        value : "",
+        reponse : 1
+      }
+
+    );
+
+    
+  } else {
+    setBackgroundBaseSang(backgroundSelect);
+    setBackgroundBaseDosage(backgroundBase);
+    setBackgroundBaseGroupe(backgroundBase);
+    setCurrentDosage(
+      {
+        titre : "",
+        value : "",
+        reponse : 0
+      }
+    );
+    setCurrentGroupe(
+      {
+        titre : "",
+        value : "",
+        reponse : 0
+      }
+
+    );
+
+
+  }
 }
 
 
@@ -309,6 +400,7 @@ const recupSaisieUtilisateurNbSemaine = () => {
     reponse : 1
   };
   setCurrentGest(reponse);
+  setBackgroundBaseAge(backgroundSelect);
  
 
 
@@ -447,7 +539,9 @@ const siOuiConsultationPsy = () => {
     <div>
       <h4>attestation :</h4>
       <Form>
-    <div key={`attestationOui-radio`} className="mb-3">
+    <div key={`attestationOui-radio`} className="mb-3" onChange={()=>{
+      setBackgroundBaseAtt(backgroundSelect);
+    }}>
     <Form.Check 
       type='radio'
       id={`attestationOuiOui`}
@@ -562,6 +656,7 @@ let reponse = {
   reponse : 1
 };
 setCurrentDosage(reponse);
+setBackgroundBaseDosage(backgroundSelect);
 
   
 
@@ -585,6 +680,7 @@ let reponse = {
   reponse : 1
 };
 setCurrentGroupe(reponse);
+setBackgroundBaseGroupe(backgroundSelect);
 
 
 };
@@ -851,7 +947,7 @@ return (
     <br></br>
     <h2>La patiente a en sa possession :</h2>
     <br></br>
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseEcho}>
     <h3>Échographie de datation :</h3>
     <br></br>
 
@@ -891,7 +987,7 @@ return (
 
     <br></br>
     </div>
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseAge}>
     <h3>Age gestationnel :</h3>
     <br></br>
     <input
@@ -911,7 +1007,7 @@ return (
     <div>{currentInfoNbSAplusDouze}</div>
     <br></br>
     </div>
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseConsentement}>
     <h3>Consentement à l’IVG signé :</h3>
     <br></br>
 
@@ -964,7 +1060,7 @@ return (
     
     <br></br>
     </div>
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseAtt}>
     <h3>Attestation consultation psycho-sociale :</h3>
     <br></br>
 
@@ -987,7 +1083,7 @@ return (
       value="Non"
       name="attestationBug"
       onClick={()=>{
-       
+        setcurrentConsultationAttestation("");
         setIdVerrou(()=>testVerrouDeux());
         handleChangeVerrou();}} 
       
@@ -1008,11 +1104,11 @@ return (
       type="image"
       src={logoAffichePsy}
     />
-    <div>{currentInfoPsy}</div>
+    <div className="ContainerBulle">{currentInfoPsy}</div>
     <br></br>
     </div>
     <br></br>
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseSang}>
     <h3>Prise de sang effectuée :</h3>
     <br></br>
 
@@ -1051,11 +1147,11 @@ return (
       type="image"
       src={logoAffichePriseDeSang}
     />
-    <div>{currentInfoPriseDesang}</div>
+    <div className="ContainerBulle">{currentInfoPriseDesang}</div>
     <br></br>
     </div>
     
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseDosage}>
       <h3>Dosage ß-HCG :</h3>
       <form onSubmit={(e)=>{
       
@@ -1075,7 +1171,7 @@ return (
           }}>Confirmer</Button>
       </form>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseGroupe}>
       <h3>Groupe sanguin : </h3>
       <Form.Group>
 <Form.Control as="select" size="lg" onChange={(e) => {
@@ -1096,7 +1192,7 @@ return (
     
       </div>
 
-    <div className="ConsultationContainer">
+    <div className={backgroundBaseAcc}>
     <h3>Personne accompagnante majeurs ou consentement parental obligatoire :</h3>
     <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
@@ -1139,7 +1235,7 @@ return (
         type="image"
         src={logoAfficheAcc}
       />
-      <div>{currentInfoAcc}</div>
+      <div className="ContainerBulle">{currentInfoAcc}</div>
  
   
      

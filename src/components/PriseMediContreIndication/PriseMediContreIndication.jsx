@@ -15,6 +15,37 @@ function PriseMediContreindication(props) {
   useEffect(() => {
     window.scrollTo(0,0);
  }, [])
+
+
+ ///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseMife, setBackgroundBaseMife] = useState(backgroundBase);
+
+const [backgroundBaseMiso, setBackgroundBaseMiso] = useState(backgroundBase);
+
+
+const [backgroundBaseAnta, setBackgroundBaseAnta] = useState(backgroundBase);
+
+const [backgroundBaseEffet, setBackgroundBaseEffet] = useState(backgroundBase);
+
+const [backgroundBaseContext, setBackgroundBaseContext] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
   
   const [globalStateContre, setGlobalStateContre] = useState(props.onData);
 
@@ -356,6 +387,7 @@ const changeCouleurBoutonViolence = (e) => {
     let liste = [...globalStateContre];
     liste.push(reponse);
     setGlobalStateContre(liste);
+    setBackgroundBaseEffet(backgroundSelect);
    
   };
 
@@ -411,13 +443,16 @@ const handleChangeVerrou = () => {
       <br></br>
       
       <br></br>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseMife}>
       <label>
         <h3> Contre-indication médicamenteuse Mifépristone :</h3>
 
 
         <Form>
-      <div key={`MifeMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <div key={`MifeMaj-radio`} className="mb-3" onChange={()=>{
+        augmenteCount();
+        setBackgroundBaseMife(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`MifeContreMajOui`}
@@ -454,7 +489,7 @@ const handleChangeVerrou = () => {
       <div className="ContainerBulle">{currentInfoMife}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseMiso}>
       
       <h3>Contre-indication médicamenteuse Misoprostol :</h3>
 
@@ -463,7 +498,10 @@ const handleChangeVerrou = () => {
 
 
       <Form>
-      <div key={`MisoMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <div key={`MisoMaj-radio`} className="mb-3" onChange={()=>{
+        augmenteCount();
+        setBackgroundBaseMiso(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`MisoContreMajOui`}
@@ -506,14 +544,17 @@ const handleChangeVerrou = () => {
       <br></br>
       </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAnta}>
       <h3>Prescription d’antalgiques : </h3>
   <label>
        
 
 
         <Form>
-      <div key={`AntaMaj-radio`} className="mb-3" onChange={augmenteCount}>
+      <div key={`AntaMaj-radio`} className="mb-3" onChange={()=>{
+        augmenteCount();
+        setBackgroundBaseAnta(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`AntaMajOui`}
@@ -545,7 +586,7 @@ const handleChangeVerrou = () => {
       <div className="ContainerBulle">{currentInfoPresci}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseEffet}>
       <h3>
           Information claires et établies des effets secondaires possibles des
           traitements :
@@ -587,13 +628,14 @@ const handleChangeVerrou = () => {
       <div className="ContainerBulle">{currentInfoEffet}</div>
       <br></br>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseContext}>
       <h3>Contexte biopsychosocial favorable à l’IVG hors établissement :</h3>
 
       <label>
         <Form>
-      <div key={`biopsychosocialCMaj-radio`} className="mb-3" onChange={(e)=>{
-        augmenteCount();}}>
+      <div key={`biopsychosocialCMaj-radio`} className="mb-3" onChange={()=>{
+        augmenteCount();
+        setBackgroundBaseContext(backgroundSelect);}}>
       <Form.Check 
         type='radio'
         id={`biopsychosocialCMajOui`}

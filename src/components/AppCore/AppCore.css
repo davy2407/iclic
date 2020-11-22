@@ -125,6 +125,7 @@
     padding: 0.5%;
     
     height: auto;
+    font-size: 1.1rem;
     
 
 }
@@ -157,6 +158,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: rgb(255, 224, 226);
+    align-self: center;
   
     
     border: 3px solid rgb(160, 39, 47);
@@ -338,13 +340,7 @@ ul{
 
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: rgb(160, 39, 47);
-}
 
-.navbar-light .navbar-brand {
-    color: rgb(160, 39, 47);
-}
 
 
 .consultationContainer{

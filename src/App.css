@@ -12,6 +12,17 @@ html {
 
 }
 
+.MargeHori{
+  width: 100%;
+  height: 10vh;
+}
+
+.MargeHoriPetite{
+  width: 100%;
+  height: 5vh;
+
+}
+
 .MidContainerHome{
   display: flex;
   flex-direction: row;

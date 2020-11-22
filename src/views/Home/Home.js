@@ -49,8 +49,11 @@ function Home() {
         onDocs={afficheSourceDocs}
         onCovid={afficheCovid}
       />
+            <div className="MargeHoriPetite"></div>
+
 
       <div className="MidContainerHome">{currentMid}</div>
+      <div className="MargeHori"></div>
 
       <Footer className="FooterTest" />
     </React.Fragment>

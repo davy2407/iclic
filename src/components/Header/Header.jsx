@@ -47,6 +47,8 @@ function Header(props) {
 
 
       </div>
+      <div className="MargeHoriPetite"></div>
+
       {/* <div className="Banderolle">
               <img src={Banniere} className="logoB"></img>
             </div> */}
