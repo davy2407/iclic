@@ -130,7 +130,7 @@
 }
 
 .NewInfoBloc{
-    width: 45%;
+    width: 55%;
     height: 90vh;
     background-color: rgb(255, 224, 226);
     padding: 1%;
@@ -382,7 +382,7 @@ Button{
 }
 
 .Tarification{
-    width: 100%;
+    width: 50vw;
     height: 100%;
     background-color: rgb(253, 238, 246);
     border-radius: 25px;
