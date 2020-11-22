@@ -17,7 +17,34 @@ function PostIVGMajeureNA(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-}
+};
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseDosageUri, setBackgroundBaseDosageUri] = useState(backgroundBase);
+
+const [backgroundBaseContra, setBackgroundBaseContra] = useState(backgroundBase);
+
+const [backgroundBaseAdhesion, setBackgroundBaseAdhesion] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseHPV, setBackgroundBaseHPV] = useState(backgroundBase);
+
+const [backgroundBaseTabac, setBackGroundBaseTabac] = useState(backgroundBase);
+
+const [backgroundBaseVecu, setBackgroundBaseVecu] = useState(backgroundBase);
+
+const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
+
+
+
 
 
   const afficheStateFin = () => {
@@ -77,6 +104,34 @@ function PostIVGMajeureNA(props) {
         reponse : 1
       };
       setCurrentTestUri(reponse);
+      setCurrentResultat(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+      if (e.target.value=="Oui") {
+        setBackgroundBaseDosageUri(backgroundBase);
+        setCurrentPosNe(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackgroundBaseDosageUri(backgroundSelect);
+        setCurrentPosNe(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+
+      }
     };
 
     const recupRadioPOsNe = (e) => {
@@ -86,6 +141,7 @@ function PostIVGMajeureNA(props) {
         reponse : 1
       };
       setCurrentPosNe(reponse);
+      setBackgroundBaseDosageUri(backgroundSelect);
     }
     const recupRadioContraception = (e) => {
       let reponse = {
@@ -100,7 +156,7 @@ function PostIVGMajeureNA(props) {
 
     const recupRadioControl = (e) => {
       let reponse = {
-        titre: "Nécessité d’ne échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
+        titre: "Nécessité d’une échographie de contrôle et/ou un avis spécialisé au centre de référence : ",
         value: e.target.value,
         reponse : 1
 
@@ -199,7 +255,7 @@ const changeCouleurBoutonViolence = (e) => {
     const [currentResultat, setCurrentResultat] = useState({
       titre : "",
       value : "",
-      reponse : 1
+      reponse : 0
     });
 
     const [currentContra, setCurrentContra] = useState({
@@ -229,7 +285,7 @@ const changeCouleurBoutonViolence = (e) => {
     const [currentDateHPV, setCurrentDateHPV] = useState({
       titre : "",
       value : "",
-      reponse : 1
+      reponse : 0
     });
 
     const [currentTabac, setCurrentTabac] = useState({
@@ -241,7 +297,7 @@ const changeCouleurBoutonViolence = (e) => {
     const [currentNbTabac, setCurrentNbTabac] = useState({
       titre : "",
       value : "",
-      reponse : 1
+      reponse : 0
     });
 
     const [currentVecu, setCurrentVecu] = useState({
@@ -264,7 +320,7 @@ const changeCouleurBoutonViolence = (e) => {
     const [currentTestUri, setCurrentTestUri] = useState({
       titre : "",
       value : "",
-      reponse : 1
+      reponse : 0
     });
 
     const [currentPosNe, setCurrentPosNe] = useState({
@@ -400,6 +456,15 @@ const recupReco = (e) => {
 
           };
   setCurrentResultat(reponse);
+  setBackgroundBaseDosageUri(backgroundSelect);
+  setCurrentTestUri(
+    {
+      titre : "",
+      value : "",
+      reponse : 1
+    }
+  );
+
 
 
         }
@@ -1128,7 +1193,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
             </div>
             {/* lien a finir  */}
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseDosageUri}>
             <h2>Dosage B-HCG : </h2>
 
 <form onSubmit={(e)=>{
@@ -1168,7 +1233,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
  
         >Valider</Button>
-<h3>Ou</h3>
+<h3 className="Red">Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>
 <Form>
@@ -1193,6 +1258,9 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         label={`Non`}
         value="Non"
         name="autotest"
+        onClick={()=>{
+          setCurrentOuiUri("");
+        }}
         
       />
 
@@ -1209,7 +1277,7 @@ src={logoAfficheDosage}
 />
 <div className="ContainerBulle">{currentInfoDosage}</div>
             </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseContra}>
       <h2>Contraception choisie par la patiente :</h2>
       <Form>
       <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
@@ -1245,7 +1313,7 @@ src={logoAfficheDosage}
       </div>
       
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAdhesion}>
       <h2>Adhésion à cette contraception :</h2>
 
       <Form>
@@ -1279,7 +1347,7 @@ src={logoAfficheDosage}
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIST}>
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
 
       <br></br>
@@ -1312,8 +1380,8 @@ src={logoAfficheDosage}
       <div className="ContainerBulle">  {currentInfoIST}</div>
       </div>
 
-      <div className="ConsultationContainer">
-      <h2>Frottis à jour</h2>
+      <div className={backgroundBaseHPV}>
+      <h2>Frottis à jour (ou test HPV)</h2>
       <br></br>
       <Form>
       <div key={`hpv-radio`} className="mb-3" onChange={(e)=>{recupRadioHPV(e);}}>
@@ -1377,9 +1445,7 @@ src={logoAfficheDosage}
       <div className="ContainerBulle">{currentInfoFrotti}</div>
       </div>
 
-
-      
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseTabac}>
       <h2>Tabac :</h2>
       <br></br>
       <Form>
@@ -1435,7 +1501,7 @@ src={logoAfficheDosage}
       <div className="ContainerBulle">{currentInfoTabac}</div>
       </div>
 
-        <div className="ConsultationContainer">
+        <div className={backgroundBaseVecu}>
         <h2>Vécu de l’IVG traumatique :</h2>
 
         <Form>
@@ -1469,7 +1535,7 @@ src={logoAfficheDosage}
         </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAvis}>
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
      
       <Form>

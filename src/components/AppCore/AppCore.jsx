@@ -106,10 +106,10 @@ function AppCore() {
 
   ///// state gérant les class bulle info
 
-  const [classBulleInfoBase, setClassBulleInfoBase] = useState("BulleInfo");
+  const [classBulleInfoBase, setClassBulleInfoBase] = useState("BulleInfoCons");
 
 
-  const [classBulleHover, setClassBulleHover] = useState("BulleInfoHover");
+  const [classBulleHover, setClassBulleHover] = useState("BulleInfoConsHover");
 
   const [classBulleInfo, setClassBulleInfo] = useState(classBulleInfoBase);
 
@@ -170,16 +170,20 @@ function AppCore() {
   const blocRecap =(liste) => {
     let recap = liste;
     return (
-      <div>
+      <div className="Recap">
+        <p>
         {recap.map((objet) => {
           return (
             <div>
-          <p>{objet}</p>
+          {objet}
+          <br></br>
           
           </div>
+         
             
           );
         })}
+        </p>
       </div>
     )
       
@@ -335,8 +339,8 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover)}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+     
+      
 
       
       >
@@ -362,8 +366,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
         <p>
@@ -393,14 +395,6 @@ function AppCore() {
 
 
 
-
-
-
-
-
-
-
-
             
       </div>
     )
@@ -411,8 +405,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
         <p>
@@ -434,8 +426,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
         <p>
@@ -455,8 +445,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
         <p>
@@ -474,8 +462,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
         <p>
@@ -494,8 +480,6 @@ function AppCore() {
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
 
       >
       <p>
@@ -522,9 +506,8 @@ signature du praticien ainsi que la date</li>
     return (
       <div 
       className={classBulleInfo}
-      onMouseEnter={()=>{setClassBulleInfo(classBulleHover);
-      console.log("RENTREEE")}}
-      onMouseOut={()=>{setClassBulleInfo(classBulleInfoBase);}}
+      
+      
 
       >
         <p>
@@ -1354,7 +1337,8 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
       })}
       </div>
     <div  
-     className={classINfo}>
+     className={classINfo}
+     >
        {currentRecap}{currentINfoConsulte}
        </div>
 

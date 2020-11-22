@@ -39,6 +39,50 @@ function DeuxiemeConsultationMineureANA(props) {
 
 
 
+
+  ///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseAtt, setBackgroundBaseAtt] = useState(backgroundBase);
+
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+const [backgroundBaseGros, setBackgroundBaseGros] = useState(backgroundBase);
+
+const [backgroundBaseViolence, setBackgroundBaseViolence] = useState(backgroundBase);
+
+const [backgroundBasePsycho, setBackgroundBasePsycho] = useState(backgroundBase);
+
+const [backgroundBaseAge, setBackgroundBaseAge] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseDosage, setBackgroundBaseDosage] = useState(backgroundBase);
+
+const [backgroundBaseGroupe, setBackgroundBaseGroupe] = useState(backgroundBase);
+
+
+const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
+
+
+const [backgroundBaseInfo, setBackgroundBaseInfo] = useState(backgroundBase);
+
+
+//////////////////////////////////
+
+
+
+
   const [ globalStateFin, setGlobalStateFin] =useState([])
   /// state global liste
 
@@ -98,6 +142,27 @@ const recupRadioTabac = (e) => {
     reponse : 1
   };
   setCurrentTabac(reponse);
+  if (e.target.value == "Oui") {
+    setBackgroundBaseTabac(backgroundBase);
+    setCurrentNbTabac(
+      {
+        titre : "",
+        value : "",
+        reponse : 0
+      }
+    );
+
+    
+  } else {
+    setCurrentNbTabac(
+      {
+        titre : "",
+        value : "",
+        reponse : 1
+      }
+    );
+    setBackgroundBaseTabac(backgroundSelect);
+  }
   
 }
 
@@ -113,6 +178,7 @@ const recupRadioAcc = (e) => {
     reponse : 1
   };
   setCurrentAcc(reponse);
+  setBackgroundBaseAcc(backgroundSelect);
   
 }
 
@@ -124,6 +190,7 @@ const recupRadioPAtt = (e) => {
     reponse : 1
   };
   setCurrentAttestation(reponse);
+  setBackgroundBaseAtt(backgroundSelect);
 }
 
 const recupRadioContra = (e) => {
@@ -133,6 +200,8 @@ const recupRadioContra = (e) => {
     reponse : 1
   };
   setCurrentInfo(reponse);
+  setBackgroundBaseInfo(backgroundSelect);
+
 }
 
 const recupRadioAtt = (e) => {
@@ -141,7 +210,8 @@ const recupRadioAtt = (e) => {
     value: e.target.value,
     reponse : 1
   };
-  setCurrentConsultation(reponse)
+  setCurrentConsultation(reponse);
+  setBackgroundBasePsycho(backgroundSelect)
 }
 
 
@@ -152,6 +222,7 @@ const recupRadioIST = (e) => {
     reponse : 1
   };
   setCurrentIST(reponse);
+  setBackgroundBaseIST(backgroundSelect);
 }
 
 const recupRadioGro = (e) => {
@@ -160,7 +231,8 @@ const recupRadioGro = (e) => {
     value: e.target.value,
     reponse : 1
   };
-  setCurrentGrossese(reponse)
+  setCurrentGrossese(reponse);
+  setBackgroundBaseGros(backgroundSelect);
 }
 
 const recupRadioBilan = (e) => {
@@ -171,6 +243,49 @@ const recupRadioBilan = (e) => {
     reponse : 1
   };
   setCurrentSang(reponse);
+  if (e.target.value=="Non") {
+    setBackgroundBaseDosage(backgroundSelect);
+    setBackgroundBaseGroupe(backgroundSelect);
+    setBackgroundBaseSang(backgroundSelect);
+    setCurrentDosage(
+      {
+        titre : "",
+        value : "",
+        reponse : 1
+      }
+    );
+    setCurrentGroupe(
+      {
+        titre : "",
+        value : "",
+        reponse : 1
+      }
+
+    );
+
+    
+  } else {
+    setBackgroundBaseSang(backgroundSelect);
+    setBackgroundBaseDosage(backgroundBase);
+    setBackgroundBaseGroupe(backgroundBase);
+    setCurrentDosage(
+      {
+        titre : "",
+        value : "",
+        reponse : 0
+      }
+    );
+    setCurrentGroupe(
+      {
+        titre : "",
+        value : "",
+        reponse : 0
+      }
+
+    );
+
+
+  }
 }
 
 
@@ -590,6 +705,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
       reponse : 1
     };
     setCurrentEcho(reponse);
+    setBackgroundBaseAge(backgroundSelect);
    
  
 
@@ -810,6 +926,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         reponse : 1
       };
       setCurrentDosage(reponse);
+      setBackgroundBaseDosage(backgroundSelect);
        
     
         setDosageHCG(0);
@@ -832,6 +949,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
         reponse : 1
       };
      setCurrentGroupe(reponse);
+     setBackgroundBaseGroupe(backgroundSelect);
     
       
     };
@@ -912,6 +1030,7 @@ let reponse = {
   reponse : 1
 };
 setCurrentNbTabac(reponse);
+setBackgroundBaseTabac(backgroundSelect);
  
 
 setNouvelleRecherchePaquet();
@@ -1075,7 +1194,7 @@ Mineure :
 
 
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseAtt}>
           <h2>Attestation première consultation préalable à l’IVG : </h2>
           <Form>
       <div key={`Att-radio`} className="mb-3" onChange={(e)=>{recupRadioPAtt(e);}}>
@@ -1116,7 +1235,7 @@ Mineure :
 
 
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseAcc}>
           <h2>Personne accompagnante majeure ou consentement parental obligatoire :</h2>
           
           <Form>
@@ -1149,6 +1268,7 @@ Mineure :
         onMouseEnter={()=>{
           setIconRefe(hoverIcon);
           
+          
         }}
         onMouseOut={()=>{
           setIconRefe(classIcon);
@@ -1172,7 +1292,7 @@ Mineure :
           </div>
 
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBasePsycho}>
             
           <h2>Attestation consultation psycho-sociale  :</h2>
 
@@ -1215,13 +1335,15 @@ Mineure :
           </div>
     
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseViolence}>
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <div >
 
 
       <Form>
-      <div key={`vio-radio`} className="mb-3">
+      <div key={`vio-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseViolence(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`Voui`}
@@ -1253,7 +1375,7 @@ Mineure :
       </div>    
     
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseGros}>
           <h2>Grossesse intra-utérine confirmée :</h2>
           <Form>
       <div key={`gro-radio`} className="mb-3" onChange={(e)=>{recupRadioGro(e);}}>
@@ -1278,7 +1400,7 @@ Mineure :
           </div>
 
 
-          <div className="ConsultationContainer">
+          <div className={backgroundBaseAge}>
           <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
           {/* faire input comme nb paquet tabac pConsultation */}
           <input
@@ -1299,7 +1421,7 @@ Mineure :
 
 
 
-    <div div className="ConsultationContainer">
+    <div div className={backgroundBaseIST}>
     <h2>Recherche IST +/- antibio-prophylaxie</h2>
     <br></br>
     <Form>
@@ -1331,7 +1453,7 @@ Mineure :
     />
     <div className="ContainerBulle">  {currentInfoIST}</div>
     </div>
-    <div div className="ConsultationContainer">
+    <div div className={backgroundBaseSang}>
     <h2>
       Prise de sang effectuée (Groupe sanguin : 2 déterminations, ß-HCG
       quantitatif)
@@ -1372,7 +1494,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
     </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseDosage}>
       <h2>Dosage ß-HCG : </h2>
       <form onSubmit={(e)=>{
         
@@ -1396,7 +1518,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseGroupe}>
       <h3>Groupe sanguin : </h3>
         <Form.Group>
   <Form.Control as="select" size="lg" onChange={(e) => {
@@ -1414,7 +1536,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
   </Form.Control>
   </Form.Group>
       </div>
-<div className="ConsultationContainer">
+<div className={backgroundBaseInfo}>
       <h2>Information contraception post-IVG</h2>
 
       <Form>
@@ -1449,8 +1571,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
     <div className="ContainerBulle">{currentInfoPostIVG}</div>
       </div>
 
-
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseTabac}>
       <h2>Tabac :</h2>
       <Form>
       <div key={`tabac-radio`} className="mb-3" onChange={(e)=>{recupRadioTabac(e);}}>

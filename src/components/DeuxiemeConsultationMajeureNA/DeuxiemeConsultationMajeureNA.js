@@ -24,6 +24,54 @@ function DeuxiemeConsultationMajeureNA(props) {
 }
 
 
+///// background consulte
+
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseAtt, setBackgroundBaseAtt] = useState(backgroundBase);
+
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+const [backgroundBaseGros, setBackgroundBaseGros] = useState(backgroundBase);
+
+const [backgroundBaseViolence, setBackgroundBaseViolence] = useState(backgroundBase);
+
+const [backgroundBasePsycho, setBackgroundBasePsycho] = useState(backgroundBase);
+
+const [backgroundBaseAge, setBackgroundBaseAge] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseSang, setBackgroundBaseSang] = useState(backgroundBase);
+
+const [backgroundBaseDosage, setBackgroundBaseDosage] = useState(backgroundBase);
+
+const [backgroundBaseGroupe, setBackgroundBaseGroupe] = useState(backgroundBase);
+
+
+const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
+
+const [backgroundBaseHPV, setBackgroundBaseHPV] = useState(backgroundBase);
+
+const [backgroundBaseInfo, setBackgroundBaseInfo] = useState(backgroundBase);
+
+
+
+
+
+
+
+
+
+
+
 
   //// function radio
 
@@ -124,6 +172,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentInfo(reponse);
+      setBackgroundBaseInfo(backgroundSelect);
     }
 
     const recupRadioConsulte = (e) => {
@@ -132,7 +181,13 @@ function DeuxiemeConsultationMajeureNA(props) {
         value: e.target.value,
         reponse : 1
       };
-      setCurrentConsultation(reponse)
+      setCurrentConsultation(reponse);
+      if (e.target.value == "Non") {
+        setBackgroundBasePsycho(backgroundSelect);
+        
+      } else {
+        setBackgroundBasePsycho(backgroundBase);
+      };
     }
 
     const recupRadioGro = (e) => {
@@ -141,7 +196,8 @@ function DeuxiemeConsultationMajeureNA(props) {
         value: e.target.value,
         reponse : 1
       };
-      setCurrentGrossese(reponse)
+      setCurrentGrossese(reponse);
+      setBackgroundBaseGros(backgroundSelect);
     }
 
     const recupRadioTabac = (e) => {
@@ -151,6 +207,27 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentTabac(reponse);
+      if (e.target.value == "Oui") {
+        setBackgroundBaseTabac(backgroundBase);
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+
+        
+      } else {
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+        setBackgroundBaseTabac(backgroundSelect);
+      }
       
     }
 
@@ -161,6 +238,28 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentHPV(reponse);
+      if (e.target.value=="Oui") {
+        setCurrentDateHPV(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        setBackgroundBaseHPV(backgroundBase);
+
+        
+      } else {
+        setCurrentDateHPV(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+        setBackgroundBaseHPV(backgroundSelect);
+
+      }
     }
 
     const recupRadioIST = (e) => {
@@ -170,6 +269,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentIST(reponse);
+      setBackgroundBaseIST(backgroundSelect);
     }
 
     const recupRadioBilan = (e) => {
@@ -180,6 +280,49 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentSang(reponse);
+      if (e.target.value=="Non") {
+        setBackgroundBaseDosage(backgroundSelect);
+        setBackgroundBaseGroupe(backgroundSelect);
+        setBackgroundBaseSang(backgroundSelect);
+        setCurrentDosage(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+        setCurrentGroupe(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+
+        );
+
+        
+      } else {
+        setBackgroundBaseSang(backgroundSelect);
+        setBackgroundBaseDosage(backgroundBase);
+        setBackgroundBaseGroupe(backgroundBase);
+        setCurrentDosage(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        setCurrentGroupe(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+
+        );
+
+
+      }
     }
 
     const recupRadioAcc = (e) => {
@@ -189,6 +332,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentAcc(reponse);
+      setBackgroundBaseAcc(backgroundSelect);
       
     }
 
@@ -200,6 +344,7 @@ function DeuxiemeConsultationMajeureNA(props) {
         reponse : 1
       };
       setCurrentAttestation(reponse);
+      setBackgroundBaseAtt(backgroundSelect);
     }
   
   
@@ -426,7 +571,10 @@ function DeuxiemeConsultationMajeureNA(props) {
       <div>
           <h4>Attestation</h4>
           <Form>
-      <div key={`sousAtt-radio`} className="mb-3">
+      <div key={`sousAtt-radio`} className="mb-3" onChange={()=>{
+                setBackgroundBasePsycho(backgroundSelect);
+
+      }}>
       <Form.Check 
         type='radio'
         id={`sousAttOui`}
@@ -613,6 +761,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
       reponse : 1
     };
     setCurrentEcho(reponse);
+    setBackgroundBaseAge(backgroundSelect);
    
  
 
@@ -853,6 +1002,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
 
         
         setCurrentDosage(reponse);
+        setBackgroundBaseDosage(backgroundSelect);
          
       
           setDosageHCG();
@@ -879,6 +1029,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
           reponse : 1
         };
        setCurrentGroupe(reponse);
+       setBackgroundBaseGroupe(backgroundSelect);
       
         
       };
@@ -966,7 +1117,6 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
     
       const handleChange = (e) => {
         /// recup date frotti
-        let myDate = new Date(e.target.valueAsDate);
         
         
         let reponse = {
@@ -975,6 +1125,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
           reponse : 1
         };
         setCurrentDateHPV(reponse);
+        setBackgroundBaseHPV(backgroundSelect);
     
         
       };
@@ -1047,6 +1198,8 @@ const handleSubmitPaquet = event => {
     reponse : 1
   };
   setCurrentNbTabac(reponse);
+  setBackgroundBaseTabac(backgroundSelect);
+
    
 
     
@@ -1220,7 +1373,7 @@ const handleChangeVerrou = () => {
             <br></br>
             
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseAtt}>
             <h2>Attestation première consultation préalable à l’IVG : </h2>
 
 
@@ -1268,7 +1421,7 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">  {currentInfoAttestation}</div>
             </div>
-           <div className="ConsultationContainer">
+           <div className={backgroundBaseAcc}>
             <h2>Personne accompagnante :</h2>
             <Form>
       <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
@@ -1292,7 +1445,7 @@ const handleChangeVerrou = () => {
 
 
             </div>
-           <div className="ConsultationContainer">
+           <div className={backgroundBasePsycho}>
             <h2>Consultation psycho-sociale réalisée :</h2>
 
             <Form>
@@ -1337,13 +1490,15 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">  {currentInfoConsultationPsy}</div>
             </div>
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseViolence}>
       <h2>Violences subies en rapport ou non avec l’acte :</h2>
       <div >
 
 
       <Form>
-      <div key={`vio-radio`} className="mb-3">
+      <div key={`vio-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseViolence(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`Voui`}
@@ -1373,7 +1528,7 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseGros}>
             <h2>Grossesse intra-utérine confirmée :</h2>
 
             <Form>
@@ -1404,7 +1559,7 @@ const handleChangeVerrou = () => {
 
 
             </div>
-           <div className="ConsultationContainer">
+           <div className={backgroundBaseAge}>
             <h2>Age gestationnel (semaine d'aménorrhée) : </h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
@@ -1424,7 +1579,7 @@ const handleChangeVerrou = () => {
       <br></br>
 
             </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIST}>
       <h2>Recherche IST +/- antibio-prophylaxie</h2>
       <br></br>
       <label>
@@ -1458,7 +1613,7 @@ const handleChangeVerrou = () => {
       />
       <div className="ContainerBulle">  {currentInfoIST}</div>
       </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseSang}>
       <h2>
         Prise de sang effectuée (Groupe sanguin : 2 déterminations, ß-HCG
         quantitatif)
@@ -1499,7 +1654,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
 
 
       </div>
-        <div className="ConsultationContainer">
+        <div className={backgroundBaseDosage}>
         <h2>Dosage ß-HCG : </h2>
         <form onSubmit={(e)=>{
         
@@ -1522,7 +1677,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
             
         </form>
         </div>
-       <div className="ConsultationContainer">
+       <div className={backgroundBaseGroupe}>
         <h3>Groupe sanguin : </h3>
         <Form.Group>
   <Form.Control as="select" size="lg" onChange={(e) => {
@@ -1540,7 +1695,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
   </Form.Control>
   </Form.Group>
   </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseInfo}>
         <h2>Information contraception post-IVG</h2>
         <Form>
       <div key={`contra-radio`} className="mb-3" onChange={(e)=>{recupRadioContra(e);}}>
@@ -1571,7 +1726,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
       <br></br>
       <div className="ContainerBulle">{currentInfoPostIVG}</div>
         </div>
- <div className="ConsultationContainer">
+ <div className={backgroundBaseHPV}>
 <h2>Frottis à jour ou test HPV</h2>
       <br></br>
       <Form>
@@ -1629,7 +1784,7 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
       <br></br>
       <div className="ContainerBulle">{currentInfoFrotti}</div>
 </div>
- <div className="ConsultationContainer">
+ <div className={backgroundBaseTabac}>
         <h2>Tabac :</h2>
         <label>
         <Form>

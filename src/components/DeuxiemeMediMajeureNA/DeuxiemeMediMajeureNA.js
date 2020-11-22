@@ -15,6 +15,29 @@ import "./DeuxiemeMediMajeureNA.css";
 
 function DeuxiemeMediMajeureNA(props) {
 
+
+  const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+
+
+const [backgroundBaseEffet, setBackgroundBaseEffet] = useState(backgroundBase);
+
+
+const [backgroundBaseMiso, setBackgroundBaseMiso] = useState(backgroundBase);
+
+const [backgroundBaseAnti, setBackgroundBaseAnti] = useState(backgroundBase);
+
+const [backgroundBaseArret, setBackgroundBaseArret] = useState(backgroundBase);
+
+const [backgroundBaseContra, setBackgroundBaseContra] = useState(backgroundBase);
+
+
+
+
+
     const afficheStateFin = () => {
         let liste = [];
         liste.push(currentMife);
@@ -100,6 +123,7 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentMiso(reponse);
+        setBackgroundBaseMiso(backgroundSelect);
       }
 
       const recupRadioEffet = (e) => {
@@ -110,6 +134,7 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentMife(reponse);
+        setBackgroundBaseEffet(backgroundSelect);
       }
 
 
@@ -121,6 +146,7 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentArret(reponse);
+        setBackgroundBaseArret(backgroundSelect);
       }
 
 
@@ -132,6 +158,29 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentAntiG(reponse);
+        if (e.target.value=="Oui") {
+          setBackgroundBaseAnti(backgroundBase);
+          setCurrentDateAntiG(
+            {
+              titre : "",
+              value : "",
+              reponse : 1
+            }
+          );
+      
+          
+        } else {
+          setBackgroundBaseAnti(backgroundSelect);
+          setCurrentDateAntiG(
+            {
+              titre : "",
+              value : "",
+              reponse : 0
+            }
+          );
+          
+
+        }
       }
 
       const recupRadioContraception = (e) => {
@@ -142,6 +191,28 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentContra(reponse);
+        if (e.target.value=="Oui") {
+          setBackgroundBaseContra(backgroundBase);
+          setCurrentTypeContra(
+            {
+              titre : "",
+              value : "",
+              reponse : 0
+            }
+          );
+          
+        } else {
+          setBackgroundBaseContra(backgroundSelect);
+          setCurrentTypeContra(
+            {
+              titre : "",
+              value : "",
+              reponse : 1
+            }
+          );
+
+
+        }
         
       }
 
@@ -188,6 +259,7 @@ const changeCouleurBoutonViolence = (e) => {
       reponse : 1
     };
    setCurrentDateAntiG(reponse);
+   setBackgroundBaseAnti(backgroundSelect);
 
     
   };
@@ -392,10 +464,8 @@ const changeCouleurBoutonViolence = (e) => {
     const [currentOui, setCurrentOui] = useState("");
 
     const afficheCause = () => {
-        let txtAEnlever = currentOui;
         let txtAAfficher = afficheOUi;
         setCurrentOui(txtAAfficher);
-        setAfficheOUI(txtAEnlever);
 
     }
 
@@ -547,6 +617,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
           reponse : 1
         };
        setCurrentTypeContra(reponse);
+       setBackgroundBaseContra(backgroundSelect);
       
         
       };
@@ -600,7 +671,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 Majeure </h1>
 
             
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseEffet}>
             <h2>Effets secondaires de la mifépristone :</h2>
             <Form>
       <div key={`Effets-radio`} className="mb-3" onChange={(e)=>{recupRadioEffet(e);}}>
@@ -645,7 +716,7 @@ Majeure </h1>
       <div className="ContainerBulle">{currentInfoMife}</div>
             </div>
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseMiso}>
             <h2>Délivrance du misoprostol :</h2>
 
             <Form>
@@ -692,7 +763,7 @@ Majeure </h1>
       <div className="ContainerBulle">{currentInfoMiso}</div> */}
             </div>
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseAnti}>
             <h2>Nécessité d’une injection préventive d’Ig anti-D :</h2>
 
 
@@ -715,6 +786,9 @@ Majeure </h1>
         label={`Non`}
         value="Non"
         name="antiD"
+        onClick={()=>{
+          setCurrentOui("");
+        }}
         
       />
 
@@ -735,7 +809,7 @@ Majeure </h1>
       <div className="ContainerBulle">{currentInfoAntiD}</div>
 
             </div>
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseArret}>
             <h2>Arrêt de travail prescrit pour la prise médicamenteuse : </h2>
 
             <Form>
@@ -770,7 +844,7 @@ Majeure </h1>
       <div className="ContainerBulle">{currentInfoArret}</div>
             </div>
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseContra}>
             <h2>Contraception choisie par la patiente :</h2>
 
 
@@ -792,6 +866,9 @@ Majeure </h1>
         label={`Non`}
         value="Non"
         name="contraception"
+        onClick={()=>{
+          setCurrentTxtTypeContra("");
+        }}
         
       />
 
