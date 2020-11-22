@@ -21,6 +21,29 @@ function PostIVGMineur(props) {
 }
 
 
+
+const [backgroundBase, setBackgroundBase] = useState("ConsultationContainer");
+
+const [ backgroundSelect, setBackgroundSelect] = useState("ConsultationContainerSelect");
+
+
+const [backgroundBaseAcc, setBackgroundBaseAcc] = useState(backgroundBase);
+
+const [backgroundBaseDosageUri, setBackgroundBaseDosageUri] = useState(backgroundBase);
+
+const [backgroundBaseContra, setBackgroundBaseContra] = useState(backgroundBase);
+
+const [backgroundBaseAdhesion, setBackgroundBaseAdhesion] = useState(backgroundBase);
+
+const [backgroundBaseIST, setBackgroundBaseIST] = useState(backgroundBase);
+
+const [backgroundBaseTabac, setBackGroundBaseTabac] = useState(backgroundBase);
+
+const [backgroundBaseVecu, setBackgroundBaseVecu] = useState(backgroundBase);
+
+const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
+
+
   const afficheStateFin = () => {
     let liste = [];
     liste.push(currentReco);
@@ -115,6 +138,31 @@ const changeCouleurBoutonViolence = (e) => {
 
       };
       setCurrentAvis(reponse);
+      if (e.target.value=="Oui") {
+        setBackGroundBaseAvis(backgroundBase);
+        setCurrentCause(
+          {
+            titre: "",
+            value: "",
+            reponse : 0
+
+          }
+        );
+
+        
+        
+      } else {
+        setBackGroundBaseAvis(backgroundSelect);
+        setCurrentCause(
+          {
+            titre: "",
+            value: "",
+            reponse : 1
+
+          }
+        );
+
+      }
     }
 
 
@@ -125,6 +173,34 @@ const changeCouleurBoutonViolence = (e) => {
         reponse : 1
       };
       setCurrentTestUri(reponse);
+      setCurrentResultat(
+        {
+          titre : "",
+          value : "",
+          reponse : 1
+        }
+      );
+      if (e.target.value=="Oui") {
+        setBackgroundBaseDosageUri(backgroundBase);
+        setCurrentPosNe(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackgroundBaseDosageUri(backgroundSelect);
+        setCurrentPosNe(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+
+      }
     };
 
     const recupRadioPOsNe = (e) => {
@@ -134,6 +210,7 @@ const changeCouleurBoutonViolence = (e) => {
         reponse : 1
       };
       setCurrentPosNe(reponse);
+      setBackgroundBaseDosageUri(backgroundSelect);
     }
 
     const recupRadioVecu = (e) => {
@@ -144,6 +221,7 @@ const changeCouleurBoutonViolence = (e) => {
 
       };
       setCurrentVecu(reponse);
+      setBackgroundBaseVecu(backgroundSelect);
     }
 
     const recupRadioIST = (e) => {
@@ -153,6 +231,7 @@ const changeCouleurBoutonViolence = (e) => {
         reponse : 1
       };
       setCurrentIST(reponse);
+      setBackgroundBaseIST(backgroundSelect);
     }
 
     const recupRadioTabac = (e) => {
@@ -162,6 +241,26 @@ const changeCouleurBoutonViolence = (e) => {
         reponse : 1
       };
       setCurrentTabac(reponse);
+      if (e.target.value=="Oui") {
+        setBackGroundBaseTabac(backgroundBase);
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackGroundBaseTabac(backgroundSelect);
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+      }
       
     }
 
@@ -173,6 +272,26 @@ const changeCouleurBoutonViolence = (e) => {
       };
       
       setCurrentContra(reponse);
+      if (e.target.value=="Oui") {
+        setBackgroundBaseContra(backgroundBase);
+        setCurrentTypeContra(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackgroundBaseContra(backgroundSelect);
+        setCurrentTypeContra(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+      }
       
     }
 
@@ -196,6 +315,7 @@ const changeCouleurBoutonViolence = (e) => {
         reponse : 1
       };
       setCurrentAcc(reponse);
+      setBackgroundBaseAcc(backgroundSelect);
       
     }
 
@@ -404,6 +524,14 @@ const changeCouleurBoutonViolence = (e) => {
             reponse : 1
           };
   setCurrentResultat(reponse);
+  setBackgroundBaseDosageUri(backgroundSelect);
+  setCurrentTestUri(
+    {
+      titre : "",
+      value : "",
+      reponse : 1
+    }
+  );
 
 
         }
@@ -582,6 +710,7 @@ const changeCouleurBoutonViolence = (e) => {
               reponse : 1
             };
            setCurrentTypeContra(reponse);
+           setBackgroundBaseContra(backgroundSelect);
           
             
           };
@@ -724,6 +853,7 @@ const changeCouleurBoutonViolence = (e) => {
             reponse : 1
           };
           setCurrentNbTabac(reponse)
+          setBackGroundBaseTabac(backgroundSelect);
            
         
             
@@ -851,6 +981,7 @@ const changeCouleurBoutonViolence = (e) => {
             reponse : 1
           };
          setCurrentCause(reponse);
+         setBackGroundBaseAvis(backgroundSelect);
         
           
         };
@@ -999,17 +1130,7 @@ const changeCouleurBoutonViolence = (e) => {
 
         }
 
-        const recupPosNe = (e) => {
-          e.preventDefault();
-          let reponse = {
-            titre: "résultat autotest urinaire : ",
-            value: e.target.value,
-            reponse : 1
-          };
-          setCurrentPosNe(reponse);
         
-
-        }
         const ouiUri = () => {
           return (
             <div>
@@ -1165,7 +1286,7 @@ const changeCouleurBoutonViolence = (e) => {
             </div>
 
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseAcc}>
             <h2>Personne accompagnante majeure ou consentement parental obligatoire : </h2>
            
             <Form>
@@ -1214,7 +1335,7 @@ const changeCouleurBoutonViolence = (e) => {
       <div>{currentInfoAcc}</div>
             </div>
 
-            <div className="ConsultationContainer">
+            <div className={backgroundBaseDosageUri}>
             <h2>Dosage B-HCG : </h2>
 
             <form onSubmit={(e)=>{
@@ -1253,7 +1374,7 @@ const changeCouleurBoutonViolence = (e) => {
         value={ResultatFi(nouvelleRechercheBHCGInitial,nouvelleRechercheBHCGJour)}
  
         >Valider</Button>
-<h3>Ou</h3>
+<h3 className="Red">Ou</h3>
 
 <h3>Utilisation d’un autotest urinaire :</h3>
 <Form>
@@ -1278,6 +1399,9 @@ const changeCouleurBoutonViolence = (e) => {
         label={`Non`}
         value="Non"
         name="autotest"
+        onClick={()=>{
+          setCurrentOuiUri("");
+        }}
         
       />
 
@@ -1294,7 +1418,7 @@ src={logoAfficheDosage}
 />
 <div className="ContainerBulle">{currentInfoDosage}</div>
             </div>
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseContra}>
       <h2>Contraception choisie par la patiente :</h2>
       <Form>
       <div key={`contracep-radio`} className="mb-3" onChange={(e)=>{recupRadioContraception(e);}}>
@@ -1314,6 +1438,9 @@ src={logoAfficheDosage}
         label={`Non`}
         value="Non"
         name="contraception"
+        onClick={()=>{
+          setCurrentTxtTypeContra("");
+        }}
         
       />
 
@@ -1329,10 +1456,12 @@ src={logoAfficheDosage}
       <div className="ContainerBulle">{currentInfoContra}</div>
       </div>
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAdhesion}>
       <h2>Adhésion à cette contraception :</h2>
       <Form>
-      <div key={`adhesion-radio`} className="mb-3" >
+      <div key={`adhesion-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseAdhesion(backgroundSelect);
+      }}>
       <Form.Check 
         type='radio'
         id={`adhesionOui`}
@@ -1356,7 +1485,7 @@ src={logoAfficheDosage}
       </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseIST}>
       <h2>Recherche IST +/- antibio-prophylaxie : </h2>
       <br></br>
       <Form>
@@ -1391,7 +1520,7 @@ src={logoAfficheDosage}
       
 
       
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseTabac}>
       <h2>Tabac :</h2>
       <br></br>
       <Form>
@@ -1447,7 +1576,7 @@ src={logoAfficheDosage}
       <div className="ContainerBulle">{currentInfoTabac}</div>
       </div>
 
-        <div className="ConsultationContainer">
+        <div className={backgroundBaseVecu}>
         <h2>Vécu de l’IVG traumatique :</h2>
         <Form>
       <div key={`Vecu-radio`} className="mb-3" onChange={(e)=>{recupRadioVecu(e);}}>
@@ -1480,7 +1609,7 @@ src={logoAfficheDosage}
         </div>
 
 
-      <div className="ConsultationContainer">
+      <div className={backgroundBaseAvis}>
       <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence :</h2>
       <Form>
       <div key={`Control-radio`} className="mb-3" onChange={(e)=>{recupRadioControl(e);}}>
@@ -1501,6 +1630,9 @@ src={logoAfficheDosage}
         label={`Non`}
         value="Non"
         name="Control"
+        onClick={()=>{
+          setCurrentOui("");
+        }}
       />
       </div>
       </Form>

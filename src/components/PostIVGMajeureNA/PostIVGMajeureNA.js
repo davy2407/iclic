@@ -151,6 +151,26 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
       };
       
       setCurrentContra(reponse);
+      if (e.target.value=="Oui") {
+        setBackgroundBaseContra(backgroundBase);
+        setCurrentTypeContra(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackgroundBaseContra(backgroundSelect);
+        setCurrentTypeContra(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+      }
       
     }
 
@@ -162,6 +182,31 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
 
       };
       setCurrentAvis(reponse);
+      if (e.target.value=="Oui") {
+        setBackGroundBaseAvis(backgroundBase);
+        setCurrentCause(
+          {
+            titre: "",
+            value: "",
+            reponse : 0
+
+          }
+        );
+
+        
+        
+      } else {
+        setBackGroundBaseAvis(backgroundSelect);
+        setCurrentCause(
+          {
+            titre: "",
+            value: "",
+            reponse : 1
+
+          }
+        );
+
+      }
     }
 
 
@@ -172,6 +217,26 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
         reponse : 1
       };
       setCurrentTabac(reponse);
+      if (e.target.value=="Oui") {
+        setBackGroundBaseTabac(backgroundBase);
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackGroundBaseTabac(backgroundSelect);
+        setCurrentNbTabac(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        );
+      }
       
     }
 
@@ -183,6 +248,7 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
 
       };
       setCurrentVecu(reponse);
+      setBackgroundBaseVecu(backgroundSelect);
     }
 
 
@@ -193,6 +259,7 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
         reponse : 1
       };
       setCurrentIST(reponse);
+      setBackgroundBaseIST(backgroundSelect);
     }
 
     const recupRadioHPV = (e) => {
@@ -202,6 +269,26 @@ const [backgroundBaseAvis, setBackGroundBaseAvis] = useState(backgroundBase);
         reponse : 1
       };
       setCurrentHPV(reponse);
+      if (e.target.value=="Oui") {
+        setBackgroundBaseHPV(backgroundBase);
+        setCurrentDateHPV(
+          {
+            titre : "",
+            value : "",
+            reponse : 0
+          }
+        );
+        
+      } else {
+        setBackgroundBaseHPV(backgroundSelect);
+        setCurrentDateHPV(
+          {
+            titre : "",
+            value : "",
+            reponse : 1
+          }
+        )
+      }
     }
   
 
@@ -618,6 +705,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         reponse : 1
       };
      setCurrentTypeContra(reponse);
+     setBackgroundBaseContra(backgroundSelect);
     
       
     };
@@ -812,6 +900,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
             reponse : 1
           };
          setCurrentDateHPV(reponse);
+         setBackgroundBaseHPV(backgroundSelect);
       
        
         };
@@ -842,6 +931,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
           };
           setCurrentNbTabac(reponse);
+          setBackGroundBaseTabac(backgroundSelect);
            };
 
 
@@ -978,6 +1068,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
           };
          setCurrentCause(reponse);
+         setBackGroundBaseAvis(backgroundSelect);
         
           
         }; 
@@ -1317,7 +1408,9 @@ src={logoAfficheDosage}
       <h2>Adhésion à cette contraception :</h2>
 
       <Form>
-      <div key={`adhesion-radio`} className="mb-3" >
+      <div key={`adhesion-radio`} className="mb-3" onChange={()=>{
+        setBackgroundBaseAdhesion(backgroundSelect);
+      }} >
       <Form.Check 
         type='radio'
         id={`adhesionOui`}
@@ -1557,6 +1650,9 @@ src={logoAfficheDosage}
         label={`Non`}
         value="Non"
         name="Control"
+        onClick={()=>{
+          setCurrentOui("");
+        }}
       />
       </div>
       </Form>
