@@ -6,8 +6,10 @@ import "./SourceLien.css";
 function SourceLien() {
 
     return (
-        <div className="SourceLien Apropos">
-            <h1>Sources et textes de lois :</h1>
+        <div className="Apropos">
+                    <div className="testMarge"></div>
+                    <div className="Contenu">
+                    <h1>Sources et textes de lois :</h1>
             <br></br>
             <h2>Liste des liens disponibles durant le parcours des consultations :</h2>
             <ol>
@@ -25,22 +27,42 @@ function SourceLien() {
                 </li>
                 <li>IVG et Covid 19
                     <ul>
-                        <li>
-                            <a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id">https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id</a>
+                    <li>
+                    <a href="https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse" target="_blank" rel="noreferrer noopener">
+                    https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse.
 
-                        </li>
-                        
-                        <li>
-                            <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf">
-                            https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf
-                            </a>
-                        </li>
-                        <li>
-                            <a rel="noreferrer noopener" target="_blank" href="https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/">
-                            https://syngof.fr/documents-utiles/mise-a-disposition-gratuite-de-lautotest-check-top-pour-les-professionnels-de-livg-a-destination-des-femmes-realisant-une-ivg-medicamenteuse/
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.ameli.fr/assure/actualites/covid-19-tout-savoir-sur-la-teleconsultation-et-les-actes-distance" target="_blank" rel="noreferrer noopener">
+                    https://www.ameli.fr/assure/actualites/covid-19-tout-savoir-sur-la-teleconsultation-et-les-actes-distance.
 
-                            </a>
-                        </li>
+                    </a>
+                </li>
+                <li>
+                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_fiche_ivg_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
+                Fiche générale Recommandations pour l’adaptation de l’offre en matière d’IVG dans le contexte de l’épidémie COVID-19 
+                    </a>
+                    
+                </li>
+                <li>
+                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_mineures_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
+                Fiche Consultations de télémédecine pour les IVG médicamenteuses avant 9 SA pour les femmes mineures
+                    </a>
+                    
+                </li>
+                <li>
+                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_majeures_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
+                Fiche Consultations de télémédecine pour les IVG médicamenteuses avant 9 SA pour les femmes majeures
+                    </a>
+                    
+                </li>
+                <li>
+                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/fiche_info_pharmacien_ivg_09112020.pdf" target="_blank" rel="noreferrer noopener">
+                Fiche IVG médicamenteuse : conditions de délivrance des médicaments aux femmes dont les mineures à l’officine IVG
+                    </a>
+                    
+                </li>
                     </ul>
                 </li>
                 <li>
@@ -195,6 +217,12 @@ function SourceLien() {
                 </li>
                 
             </ol>
+
+                    </div>
+
+                    <div className="testMarge"></div>
+
+            
         </div>
     )
 

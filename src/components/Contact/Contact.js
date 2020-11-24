@@ -6,8 +6,10 @@ import "./Contact.css";
 function Contact() {
 
     return (
-        <div id="contactDisplay" className="Contact Apropos">
-            <h1>Contact </h1>
+        <div id="contactDisplay" className="Apropos"> 
+        <div className="testMarge"></div>
+        <div className="Contenu">
+        <h1>Contact </h1>
             <br></br>
             <h2>Responsable éditorial : </h2>
             <p>
@@ -28,6 +30,10 @@ function Contact() {
             <p>
             Mr Do rozario Enzo : Chargé de l’aide à la conception.
             </p>
+
+        </div>
+        <div className="testMarge"></div>
+            
         </div>
     )
 

@@ -6,9 +6,10 @@ import "./SourceDocs.css";
 function SourceDocs() {
 
     return (
-        <div className="SourceDocs Apropos">
-
-<h1>Sources et textes de lois :</h1>
+        <div className="Apropos">
+                    <div className="testMarge"></div>
+                    <div className="Contenu">
+                    <h1>Sources et textes de lois :</h1>
             <br></br>
             <h2>Liste des documents disponibles durant le parcours des consultations : </h2>
             
@@ -34,6 +35,13 @@ function SourceDocs() {
 <li>Fiche d’information des traitements dans l’interruption médicamenteuse de grossesse, établie à partir des recommandations de la HAS ainsi que de l’ANSM et du Vidal à destination des patientes. </li>
 <li>Fiche d’information de la méthode d’IVG médicamenteuse sans hospitalisation et conseil de surveillance établie à partir du dossier guide IVG à destination des patientes. </li>
 </ul>
+
+                    </div>
+
+                    <div className="testMarge"></div>
+
+
+
         </div>
     )
 

@@ -307,6 +307,20 @@ ul{
     align-self: flex-start;
 }
 
+.Contenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-shadow: 0px 0.5px 0px grey; */
+    text-align: center;
+    width: 70%;
+}
+
+.testMarge{
+    width: 15%;
+    height: 100%;
+}
+
 
 .Apropos{
 
@@ -317,10 +331,10 @@ ul{
     box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
     padding: 1rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+ 
     /* text-shadow: 0px 0.5px 0px grey; */
-    text-align: center;
+   
 
 }
 .consultationContainerDebut{

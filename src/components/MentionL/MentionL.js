@@ -6,8 +6,10 @@ import "./MentionL.css";
 function MentionL() {
 
     return (
-        <div className="Mention Apropos">
-            <h1>Mention légale </h1>
+        <div className="Apropos">
+                                    <div className="testMarge"></div>
+                                    <div className="Contenu">
+                                    <h1>Mention légale </h1>
             <br></br>
             <p>
             Ce site a été réalisé dans le cadre d’un travail de thèse de Mr PUECH Lilian, étudiant à l’Université de médecine de Rouen sous la direction du Dr LAINE Marianne, spécialiste en médecine générale.
@@ -19,6 +21,12 @@ function MentionL() {
             <p>
             Les données issues de ce site internet ne se substituent pas à la responsabilité de décision et de prescription du praticien.
             </p>
+
+                                    </div>
+
+                                    <div className="testMarge"></div>
+
+            
         </div>
     )
 

@@ -7,7 +7,9 @@ function APropos() {
 
     return (
         <div className="Apropos">
-            <h1>Projet IVGclic :</h1>
+                        <div className="testMarge"></div>
+                        <div className="Contenu">
+                        <h1>Projet IVGclic :</h1>
             <p>
             IVGclic est un outil d’aide numérique à la protocolisation
              de l’IVG médicamenteuse hors établissement à destination des
@@ -58,6 +60,12 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
             <p>
             le site n’accueille aucune forme de publicité.
             </p>
+
+
+                        </div>
+                        <div className="testMarge"></div>
+
+            
 
         </div>
     )
