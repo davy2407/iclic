@@ -88,6 +88,7 @@ const [backgroundBaseInfo, setBackgroundBaseInfo] = useState(backgroundBase);
 
   const afficheStateFin = () => {
     let liste = [];
+    liste.push(currentReco);
   liste.push(currentAttestation);
   liste.push(currentAcc);
   liste.push(currentConsultation);
@@ -329,6 +330,14 @@ const changeCouleurBoutonViolence = (e) => {
 
 
   //// current state 
+
+
+  const [currentReco, setCurrentReco] = useState({
+    titre : "",
+    value : "",
+    reponse : 1
+  });
+
   const [currentAttestation, setCurrentAttestation] = useState({
     titre : "Pas de réponses",
     value : "",
@@ -466,7 +475,92 @@ const changeCouleurBoutonViolence = (e) => {
   
     /////////////////////////////////////////////////////////////
   
-  
+   /////////////////////////////////////////////////////////////
+
+ const ouiCovid = ()=> {
+  return (
+    <div> 
+      <p>
+      Cette consultation doit être effectuée par un professionnel de santé qualifié en orthogénie. 
+      </p>
+      <p>
+      Si vous n’êtes pas le professionnel de santé prenant en charge l’IVG , il convient d’orienter la patiente sans délai vers les professionnels réalisant des IVG et disponibles. <br></br>
+      <ul>
+        <li>
+          <a target="_blank" rel="noreferrer noopener" href="https://ivg.gouv.fr/">
+          Lien ivg.gouv
+          </a>
+        
+        </li>
+        <li>
+          <a target="_blank" rel="noreferrer noopener" href="https://www.ivglesadresses.org/">
+          Lien IVGlesadresses.org
+          </a>
+        
+        </li>
+      </ul>
+      </p>
+      <p>
+      Si vous êtes le professionnel de santé prenant en charge l’IVG, il convient de choisir la « consultation première prise médicamenteuse » lors du choix précédent. 
+      </p>
+
+      <p>
+      La 2ème consultation préalable à l’IVG n’existe pas dans le cadre de l’Etat d’urgence sanitaire. 
+      </p>
+
+    </div>
+  )
+};
+
+const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+const afficheCovid =() => {
+  let affiche = covidTxt;
+  setCurrentOuiCovid(affiche);
+  setCurrentCovidPsycho(()=>PsychoCovid());
+}
+
+
+
+const recupReco = (e) => {
+  e.preventDefault();
+  let reponse = {
+    titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
+    value: e.target.value,
+    reponse : 1
+
+  };
+  setCurrentReco(reponse);
+
+};
+
+
+
+
+
+const PsychoCovid = () => {
+  return (
+    <p>
+      Par visioconférence ou à défaut par téléphone.<br></br> 
+La personne qualifiée en conseil conjugal doit remettre à la femme mineure une attestation de consultation (e-mail possible). 
+    </p>
+  )
+};
+
+
+const [currentCovidPsycho, setCurrentCovidPsycho] = useState();
+
+
+
+
+
+
+
+
   
       /////////////////////////////////////////////////////////////////////////////
 
@@ -1185,6 +1279,20 @@ const handleChangeVerrou = () => {
           Deuxième consultation préalable à l’IVG/Recueil de consentement 
 Mineure : 
           </h1>
+          <br></br>
+
+          <div className="ConsultationContainer">
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
+            <br></br>
+            <div>{currentOuiCovid}</div>
+            </div>
+
+
+
+
           <br></br>
           
 

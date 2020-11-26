@@ -370,6 +370,7 @@ const recupRadioConsentement = (e) => {
 
 
   ////////////////////////////////////////////////////////////////////////////////
+  const [ currentReponseAGe, setCurrentReponseAGe] = useState("")
 
   const [
     saisieUtilisateurNbSemaineSA,
@@ -385,11 +386,17 @@ const recupRadioConsentement = (e) => {
   const recupSaisieUtilisateurNbSemaine = (event) => {
     event.preventDefault();
     let nb = saisieUtilisateurNbSemaineSA;
-    if (nb < 7) {
+    if (nb <= 7) {
       affichageMoinsDeSept();
-    } else if (nb == 7 ) {
+    } else if (nb == 8 ) {
       affichagePlusDeSeptMoinsDouze();
-    } else if (nb > 7) {
+    } else if (nb == 9) {
+      setCurrentReponseAGe("Cadre des dispositions liés à l’Etat d’urgence sanitaire : IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.");
+      
+    }
+    
+    
+    else if (nb > 9) {
       affichagePlusDouze();
       setIdVerrou(()=>testVerrouUn());
       
@@ -420,18 +427,13 @@ const recupRadioConsentement = (e) => {
     /// state contenant la fonction retournant le texte moins de 7 semaines
   );
 
-  const [currentInfoNbSAmoinsSept, setCurrentInfoNbSAmoinsSept] = useState(
-    /// texte vide affichage de base
-    ""
-  );
+
 
   const affichageMoinsDeSept = () => {
     /// gère laffichage du texte - de 7 semaines
    
     let txtAAfficher = txtMoinsDeSeptSA;
-    setCurrentInfoNbSAmoinsSept(txtAAfficher);
-    setcurrentInfoNbSAplusDouze("");
-    setcurrentInfoNbSAplusSeptMoinsDouze("");
+    setCurrentReponseAGe(txtAAfficher);
   };
 
   ///
@@ -441,8 +443,7 @@ const recupRadioConsentement = (e) => {
     return (
       <div>
         <p>
-        IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.
-        </p>
+        IVG médicamenteuse possible dans le cadre des dispositions liés à l’Etat d’urgence sanitaire.        </p>
         
       
         <br></br>
@@ -454,21 +455,12 @@ const recupRadioConsentement = (e) => {
     /// state contenant la fonction retournant le texte plus de 7 semaines moins 12
   );
 
-  const [
-    currentInfoNbSAplusSeptMoinsDouze,
-    setcurrentInfoNbSAplusSeptMoinsDouze,
-  ] = useState(
-    /// texte vide affichage de base
-    ""
-  );
+ 
 
   const affichagePlusDeSeptMoinsDouze = () => {
     /// gère laffichage du texte + de 7 semaines -12
-    let txtAEnlever = currentInfoNbSAplusSeptMoinsDouze;
     let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
-    setcurrentInfoNbSAplusSeptMoinsDouze(txtAAfficher);
-   setcurrentInfoNbSAplusDouze("");
-   setCurrentInfoNbSAmoinsSept("");
+    setCurrentReponseAGe(txtAAfficher);
   };
 
   const plusDeDouzetSemaines = () => {
@@ -489,75 +481,21 @@ const recupRadioConsentement = (e) => {
     /// state contenant la fonction retournant le texte plus de 12 semaines
   );
 
-  const [currentInfoNbSAplusDouze, setcurrentInfoNbSAplusDouze] = useState(
-    /// texte vide affichage de base
-    ""
-  );
+
 
   const affichagePlusDouze = () => {
     /// gère laffichage du texte + 12
     let txtAAfficher = txtPlusDeDouzeSA;
-    setcurrentInfoNbSAplusDouze(txtAAfficher);
-    setcurrentInfoNbSAplusSeptMoinsDouze("");
-    setCurrentInfoNbSAmoinsSept("");
+    setCurrentReponseAGe(txtAAfficher);
   };
 
-  /// Bloc verrou2
 
-  const verrouDeux = () => {
-    /// retourne le texte verrou 2
-    return (
-      <div>
-        <h1 className="Verrou1">VERROU :</h1>
-        <br></br>
-        <p className="Verrou1">
-          Dans le cadre de l’interruption volontaire de grossesse, votre réponse
-          va à l’encontre des recommandations établies actuellement en vigueur
-          en France.
-        </p>
-        <p className="Verrou1">
-          Il est nécessaire, selon vos réponses, un ajustement et une reprise à
-          la consultation précédente.
-        </p>
-        <p className="Verrou1">
-          Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.
-        </p>
-        <p className="Verrou1">
-          Votre centre de référence peut vous répondre afin d’établir une prise
-          en charge dans les meilleurs conditions pour la patiente.
-        </p>
-        <br></br>
-        <br></br>
-        <a href="#">Informations et orientation de la patiente.</a>
-        {/* /// liens à finir */}
-        <br></br>
-        <a href="#">Retour vers la page d’accueil.</a>
-        <br></br>
-      </div>
-    );
-  };
-  const [txtVerrouDeux, settxtVerrouDeux] = useState(
-    () => verrouDeux()
-    /// state contenant la fonction retournant le texte plus de 12 semaines
-  );
 
-  const [currentInfoVerrouDeux, setcurrentInfoVerrouDeux] = useState(
-    /// texte vide affichage de base
-    ""
-  );
+ 
 
-  const affichageVerrouDeux = () => {
-    /// gère laffichage du texte + de 7 semaines -12
-  
-    let txtAAfficher = txtVerrouDeux;
-    setcurrentInfoVerrouDeux(txtAAfficher);
-  
-  };
 
-  const clicVerrouDeuxaffichage = (e) => {
-   
-    affichageVerrouDeux();
-  };
+
+ 
 
   /// Attestation consultation psychosocial
 
@@ -653,17 +591,7 @@ const recupRadioConsentement = (e) => {
 
   //////// Consentement
 
-  const recupConsentement = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Consentement à l’IVG : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentConssent(reponse);
-    
-  };
+
 
   
 
@@ -672,17 +600,7 @@ const recupRadioConsentement = (e) => {
 
   /// Bloc prise de sang
 
-  const recupSang = (e) => {
-    e.preventDefault();
-    let reponse = {
-      titre: "Prise de sang effectuée : ",
-      value: e.target.value,
-      reponse : 1
-    };
-    
-    setCurrentSang(reponse);
-    
-  };
+
 
   const priseDeSang = () => {
     return (
@@ -815,48 +733,20 @@ const handleChangeGroupe = (e) => {
   const ouiCovid = () => {
     return (
       <div>
-        
+
         <p>
-        Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
+        Téléconsultation<br></br>
+        Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG.
         </p>
         <p>
-        Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
+        Dans le cadre de l’Etat d’urgence sanitaire, la 2eme consultation préalable est supprimée. Il est nécessaire d’une deuxième téléconsultation afin d’attester de la prise médicamenteuse, après le passage à la pharmacie de la patiente.
         </p>
-        <ul>
-          <li>
-          <a className="Bold" rel="noreferrer noopener"
-          href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id"
-          target="_blank"
-        >
-          Legifrance.gouv
-        </a>
-
-          </li>
-          <li>
-          <a className="Bold" rel="noreferrer noopener"
-          href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse"
-          target="_blank"
-        >
-          ameli.fr
-        </a>
-            
-          </li>
-          <li>
-          <a className="Bold" rel="noreferrer noopener"
-          href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf"
-          target="_blank"
-        >
-          syngof
-        </a>
-
-            
-          </li>
-        </ul>
-       
+        <p>
+        Le site est en cours de mise à jour.
+Veuillez vous référer à la page dédiée Covid accessible à partir de la page d’accueil.
+        </p>
 
 
-
-        
         
         
         
@@ -1060,9 +950,8 @@ const [ idVerrou, setIdVerrou] = useState(()=>testVerrouUn());
         Valider
       </Button>
       <br></br>
-      <div>{currentInfoNbSAmoinsSept}</div>
-      <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
-      <div>{currentInfoNbSAplusDouze}</div>
+   
+      <div>{currentReponseAGe}</div>
       <br></br>
       </div>
       <div className={backgroundBaseConsentement}>

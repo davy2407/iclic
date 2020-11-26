@@ -370,6 +370,8 @@ const [pasDeReponseBloc, setPasDeReponseBloc] = useState(()=>pasDeReponse())
 
 
 ////////////////////////////////////////////////////////////////////////////////
+const [ currentReponseAGe, setCurrentReponseAGe] = useState("")
+
 
 const [
   saisieUtilisateurNbSemaineSA,
@@ -384,15 +386,21 @@ const handleChange = (event) => {
 
 const recupSaisieUtilisateurNbSemaine = () => {
   let nb = saisieUtilisateurNbSemaineSA;
-  if (nb < 7) {
+  if (nb <= 7) {
     affichageMoinsDeSept();
-  } else if (nb == 7 ) {
+  } else if (nb == 8 ) {
     affichagePlusDeSeptMoinsDouze();
-  } else if (nb > 7) {
+  } else if (nb == 9) {
+    setCurrentReponseAGe("Cadre des dispositions liés à l’Etat d’urgence sanitaire : IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.");
+    
+  }
+  
+  
+  else if (nb > 9) {
     affichagePlusDouze();
     setIdVerrou(()=>testVerrouUn());
-      
-      handleChangeVerrou();
+    
+    handleChangeVerrou();
   }
   let reponse = {
     titre: "Echographie de datation/Age gestationnel(SA) : ",
@@ -428,9 +436,7 @@ const affichageMoinsDeSept = () => {
   /// gère laffichage du texte - de 7 semaines
  
   let txtAAfficher = txtMoinsDeSeptSA;
-  setCurrentInfoNbSAmoinsSept(txtAAfficher);
-  setcurrentInfoNbSAplusDouze("");
-  setcurrentInfoNbSAplusSeptMoinsDouze("");
+  setCurrentReponseAGe(txtAAfficher);
 };
 
 ///
@@ -440,8 +446,7 @@ const plusDeSeptMoinsDouzeSemaines = () => {
   return (
     <div>
       <p>
-      IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.
-      </p>
+      IVG médicamenteuse possible dans le cadre des dispositions liés à l’Etat d’urgence sanitaire.       </p>
       
     
       <br></br>
@@ -463,11 +468,9 @@ const [
 
 const affichagePlusDeSeptMoinsDouze = () => {
   /// gère laffichage du texte + de 7 semaines -12
-  let txtAEnlever = currentInfoNbSAplusSeptMoinsDouze;
   let txtAAfficher = txtPlusDeSeptSAmoinsDouze;
-  setcurrentInfoNbSAplusSeptMoinsDouze(txtAAfficher);
- setcurrentInfoNbSAplusDouze("");
- setCurrentInfoNbSAmoinsSept("");
+  setCurrentReponseAGe(txtAAfficher);
+  
 };
 
 const plusDeDouzetSemaines = () => {
@@ -491,11 +494,8 @@ const [currentInfoNbSAplusDouze, setcurrentInfoNbSAplusDouze] = useState(
 
 const affichagePlusDouze = () => {
   /// gère laffichage du texte + 12
-  let txtAEnlever = currentInfoNbSAplusDouze;
   let txtAAfficher = txtPlusDeDouzeSA;
-  setcurrentInfoNbSAplusDouze(txtAAfficher);
-  setcurrentInfoNbSAplusSeptMoinsDouze("");
-  setCurrentInfoNbSAmoinsSept("");
+  setCurrentReponseAGe(txtAAfficher);
 };
 
 /// Attestation consultation psychosocial
@@ -757,48 +757,16 @@ const ouiCovid = () => {
     <div>
       
       <p>
-      Téléconsultation possible. Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire. 
-      </p>
-      <p>
-      Arrêt de l’allongement du délai de réalisation d’une IVG médicamenteuse (15 avril 2020-11 Juillet 2020).
-      </p>
-      <ul>
-        <li>
-        <a className="Bold" rel="noreferrer noopener"
-        href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000042106233&categorieLien=id"
-        target="_blank"
-      >
-        Legifrance.gouv
-      </a>
-
-        </li>
-        <li>
-        <a className="Bold" rel="noreferrer noopener"
-        href="https://www.ameli.fr/medecin/actualites/covid-19-fin-des-mesures-derogatoires-pour-livg-medicamenteuse"
-        target="_blank"
-      >
-        ameli.fr
-      </a>
-          
-        </li>
-        <li>
-        <a className="Bold" rel="noreferrer noopener"
-        href="https://syngof.fr/wp-content/uploads/2020/04/covid-19_-_medecins_-_ivg.pdf"
-        target="_blank"
-      >
-        syngof
-      </a>
-
-          
-        </li>
-      </ul>
-     
-
-
-
-      
-      
-      
+        Téléconsultation<br></br>
+        Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG.
+        </p>
+        <p>
+        Dans le cadre de l’Etat d’urgence sanitaire, la 2eme consultation préalable est supprimée. Il est nécessaire d’une deuxième téléconsultation afin d’attester de la prise médicamenteuse, après le passage à la pharmacie de la patiente.
+        </p>
+        <p>
+        Le site est en cours de mise à jour.
+Veuillez vous référer à la page dédiée Covid accessible à partir de la page d’accueil.
+        </p>
       
     </div>
   )
@@ -1002,9 +970,8 @@ return (
     <Button className={btnOuiViolenceBase} onClick={(e)=>{recupSaisieUtilisateurNbSemaine();
     changeCouleurBoutonViolence(e);}} variant="danger" >Valider</Button>
     <br></br>
-    <div>{currentInfoNbSAmoinsSept}</div>
-    <div>{currentInfoNbSAplusSeptMoinsDouze}</div>
-    <div>{currentInfoNbSAplusDouze}</div>
+    <div>{currentReponseAGe}</div>
+
     <br></br>
     </div>
     <div className={backgroundBaseConsentement}>

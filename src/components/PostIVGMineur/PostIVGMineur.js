@@ -1181,14 +1181,16 @@ const changeCouleurBoutonViolence = (e) => {
           return (
             <div>
               
-            <p>
-            Dans le cadre du Covid, cette consultation doit être faite par
-             téléconsultation. Sa facturation est facturée de la même manière
-              qu’en présentiel. 
-              
-
-            
-            </p>
+              <p>
+              Téléconsultation<br></br>
+              Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG.
+              </p>
+              <p>
+              Dans le cadre de l’Etat d’urgence sanitaire, La consultation post-IVG peut être effectuée par téléconsultation selon les mêmes recommandations qu’en dehors de toute épidémie.
+              </p>
+              <p>
+              Veuillez vous référer à la page dédiée Covid accessible à partir de la page d’accueil pour plus d’information.
+              </p>
             </div>
           )
         };

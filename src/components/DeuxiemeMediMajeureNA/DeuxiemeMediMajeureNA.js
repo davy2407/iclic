@@ -40,6 +40,7 @@ const [backgroundBaseContra, setBackgroundBaseContra] = useState(backgroundBase)
 
     const afficheStateFin = () => {
         let liste = [];
+        liste.push(currentReco);
         liste.push(currentMife);
         liste.push(currentMiso);
         liste.push(currentAntiG);
@@ -146,7 +147,7 @@ const changeCouleurBoutonViolence = (e) => {
         };
         
         setCurrentArret(reponse);
-        setBackgroundBaseArret(backgroundSelect);
+        setBackgroundBaseArret(backgroundSelect); 
       }
 
 
@@ -217,6 +218,12 @@ const changeCouleurBoutonViolence = (e) => {
       }
 
     /// current reponse
+    const [currentReco, setCurrentReco] = useState({
+      titre : "",
+      value : "",
+      reponse : 1
+    });
+
   const [currentMife, setCurrentMife] = useState({
     titre : "Pas de réponses",
     value : "",
@@ -355,6 +362,79 @@ const changeCouleurBoutonViolence = (e) => {
   
   
     /////////////////////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////////////////////
+
+  const ouiCovid = ()=> {
+    return (
+      <div> 
+
+        
+      <p>
+      Téléconsultation possible.<br></br>
+      Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.<br></br>
+      </p>
+      <p>
+      Dans le cadre de l’Etat d’urgence sanitaire, Il existe une consultation afin d’attester de la prise de mifégyne puis d’une deuxième téléconsultation (facultative) pour la prise de mifépristone.
+      </p>
+      <p>
+      Le site est en cours de mise à jour.<br></br>
+      Veuillez vous référer à la page dédiée Covid accessible à partir de la page d’accueil pour toutes les informations.
+      </p>
+
+
+
+
+
+      
+      </div>
+    )
+  };
+
+  const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+  const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+  const afficheCovid =() => {
+    let affiche = covidTxt;
+    setCurrentOuiCovid(affiche);
+  }
+
+
+
+  const recupReco = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
+      value: e.target.value,
+      reponse : 1
+  
+    };
+    setCurrentReco(reponse);
+  
+  };
+
+
+ 
+
+
+
+  
+
+
+
+
+  
+ 
+
+
+ 
+/////////////////////////////////////////////////////////////////////////////
+
+  
 
   /////////////////////////////////////////////////////////////
 
@@ -669,6 +749,17 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
             <h1>Consultation deuxième prise médicamenteuse (facultative) :
 Majeure </h1>
+<br>
+</br>
+<div className="ConsultationContainer">
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
+            <br></br>
+            <div>{currentOuiCovid}</div>
+            </div>
+            <br></br> 
 
             
             <div className={backgroundBaseEffet}>

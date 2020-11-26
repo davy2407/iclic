@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
 import ResumePremiereConsultationMineureANA from '@components/ResumePremiereConsultationMineureANA';
@@ -24,11 +24,114 @@ function TarifPremiereMineureANA(props) {
 
   ///
 
+  ///
+
+  const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse"); 
+
+  const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+  const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+  const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+ const changeCouleurBoutonViolence = (e) => {
+    
+    
+    
+  
+    if (e.target.className==couleurBouttonSel) {
+      e.target.className=couleurBouttonBase;
+      
+    }
+    else {
+      e.target.className=couleurBouttonSel;
+
+    }
+
+
+
+ }
+
+ const ouiCovid = ()=> {
+  return (
+    <div>
+
+      <p>
+      Le professionnel remet les ordonnances nécessaires :<br></br>
+      <ul>
+        <li>
+        l’échographie de datation.
+        </li>
+        <li>
+        le dosage des Béta HCG + Rhésus sanguin. 
+        </li>
+      </ul>
+      <br></br>
+      Il transmet de plus le certificat de demande d’IVG.
+      </p>
+      <p>
+      Si le professionnel ne pratique pas l’intervention, il se doit d’orienter sans délai vers les professionnels réalisant des IVG et disponibles.
+      </p>
+      <p>
+      Toutes les consultations à l’IVG sont actuellement possibles en téléconsultation depuis l’arrêter du 7 novembre 2020. 
+      </p>
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    </div>
+  )
+};
+
+const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+const afficheCovid =() => {
+  let affiche = covidTxt;
+  setCurrentOuiCovid(affiche);
+}
+
+
+
+
+  ///////////////////////////////////
+
 
  
   return (
     <div className="Tarification">
       <h1>Tarification et Conclusion de consultation</h1>
+      <br></br>
+      <div className="ConsultationContainer">
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
+            <br></br>
+            <div>{currentOuiCovid}</div>
+            </div>
+
+
+
+
       <br></br>
       
       <p>
@@ -42,7 +145,8 @@ function TarifPremiereMineureANA(props) {
         (<a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la Sécurité Sociale 32). 
       </p>
       <p>
-      circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).Ne pas utiliser la carte vitale de la patiente mineur!
+      Circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).
+      <br></br>Ne pas utiliser la carte vitale de la patiente mineur!
       </p>
       
       <br></br>
@@ -106,11 +210,7 @@ function TarifPremiereMineureANA(props) {
           Il est confraternel de faire suivre le résumé et de la remettre en
           main de la patiente.
         </p>
-        <p>
-          La patiente dispose d’un délai de 48h entre la consultation
-          psychosociale (si choisie) et la deuxième consultation préalable à
-          l’IVG.
-        </p>
+        
         <p>
           La 2ème consultation préalable à l’IVG peut être effectuée par le
           professionnel de santé effectuant l’IVG ou non.

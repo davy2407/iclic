@@ -477,9 +477,34 @@ function MyVerticallyCenteredModal(props) {
     return (
       <div>
          <p>
-        Depuis le 11 juillet 2020 et jusqu’à la fin de l'état d'urgence sanitaire, il est possible pour médecin ou sage-femme de réaliser la consultation de prise médicamenteuse et la consultation post IVG sous forme de téléconsultation.
+         Les mesures dérogatoires relatives à l’IVG médicamenteuse instaurées lors du précédent Etat d’urgence sanitaire sont rétablies face à la deuxième vague par arrêté du 7 novembre 2020.
+        </p>
+        <ul>
+          <li>
+          la consultation de prise de médicament par téléconsultation (avec délivrance en pharmacie d’officine des médicaments nécessaires).
+          </li>
+          <li>
+          Prolonger les délais d’IVG médicamenteuse de 7 à 9 semaines d’aménorrhées.
+          </li>
+          <li>
+          Consultation de contrôle (14-21 jours après) peuvent être réalisées par téléconsultation.
+          </li>
+        </ul>
+        <p>
+        Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultatif. Ces consultations sont prises en charge à 100% par l’assurance maladie.
         </p>
         <p>
+        Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. Pour en savoir plus, fermez et voir la page Covid. 
+        </p>
+
+
+
+
+
+
+
+
+        {/* <p>
         Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultatif.
 Ces consultations sont prises en charge à 100% par l’assurance maladie. 
         </p>
@@ -520,7 +545,7 @@ Pour en savoir plus :
           </a>
 
           </li>
-        </ul>
+        </ul> */}
 
 
 

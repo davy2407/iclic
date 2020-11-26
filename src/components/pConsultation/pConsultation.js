@@ -318,6 +318,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
 
   const afficheStateFin = () => {
     let liste = [];
+    liste.push(currentReco);
     liste.push(currentDDRSA);
     liste.push(currentDDRDay);
     liste.push(currentEcho);
@@ -362,6 +363,13 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     props.onRecup(liste);
   };
   /// current reponse
+
+  const [currentReco, setCurrentReco] = useState({
+    titre : "",
+    value : "",
+    reponse : 1
+  });
+
   const [currentDDRSA, setCurrentDDRSA] = useState({
     titre : "Date DDR ",
     value : "",
@@ -510,7 +518,55 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
 
   /////////////////////////////////////////////////////////////
 
-  const [personneAccFin, setPersonneAccFin] = useState({});
+  const ouiCovid = ()=> {
+    return (
+      <div> 
+        
+      <p>
+      Téléconsultation possible.<br></br>
+      Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.<br></br>
+      Délais prolongés à l’IVG médicamenteuse, de 7 à 9 semaines d’aménorrhées.<br></br>
+      Les changements sont signalés durant le déroulement de la consultation. <br></br>
+      <ul>
+        <li>
+        Pour plus d’information : <a target="_blank" rel="noreferrer noopener" href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_majeures_9sa_tlc_09112020.pdf" >
+        Fiche Consultations de télémédecine pour les IVG médicamenteuses avant 9 SA pour les femmes majeures
+        </a>
+        </li>
+      </ul>
+      
+
+      
+      </p>
+      </div>
+    )
+  };
+
+  const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+  const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+  const afficheCovid =() => {
+    let affiche = covidTxt;
+    setCurrentOuiCovid(affiche);
+  }
+
+
+
+  const recupReco = (e) => {
+    e.preventDefault();
+    let reponse = {
+      titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
+      value: e.target.value,
+      reponse : 1
+  
+    };
+    setCurrentReco(reponse);
+  
+  };
+
 
  
 
@@ -526,7 +582,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
 
 
  
-
+/////////////////////////////////////////////////////////////////////////////
 
   
 
@@ -1041,7 +1097,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
     affichageDateIncertaine();
     setCurrentDDRSA(
       {
-        titre : "Date DDR ",
+        titre : "DDR incertaine",
         value : "",
         reponse : 1
       }
@@ -1314,6 +1370,15 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       <br></br>
       
       <br></br>
+      <div className="ConsultationContainer">
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
+            <br></br>
+            <div>{currentOuiCovid}</div>
+            </div>
+           
       
       <br></br>
  

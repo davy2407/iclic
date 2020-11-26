@@ -1,4 +1,4 @@
-import React, { useRef,useEffect } from 'react';
+import React, { useRef,useEffect, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { Button, Form } from "react-bootstrap";
 import TestPrint from '@components/TestPrint';
@@ -21,6 +21,86 @@ function TarificationPremierContactMNA(props) {
 
   ///
 
+  const [couleurBouttonBase, setCouleurBouttonBase] = useState("TestBTNBAse"); 
+
+  const [couleurBouttonSel, setCouleurBouttonSel] = useState("TestBTNSel");
+
+
+
+  const [btnOuiViolenceBase, setBtnOuiViolenceBase] = useState("TestBTNBAse");
+
+  const [btnNonViolenceBase, setBtnNonViolenceBase] = useState("TestBTNBAse");
+
+
+
+
+
+ const changeCouleurBoutonViolence = (e) => {
+    
+    
+    
+  
+    if (e.target.className==couleurBouttonSel) {
+      e.target.className=couleurBouttonBase;
+      
+    }
+    else {
+      e.target.className=couleurBouttonSel;
+
+    }
+
+
+
+ }
+
+ const ouiCovid = ()=> {
+  return (
+    <div>
+
+
+      <p>
+      Les règles de facturation habituelle sont à observer (cotation : TCG, 25€). 
+      </p>
+      <p>
+      Le professionnel remet les ordonnances nécessaires :<br></br>
+      <ul>
+        <li>
+        l’échographie de datation.
+        </li>
+        <li>
+        le dosage des Béta HCG + Rhésus sanguin. 
+        </li>
+        <br></br>
+        Il transmet de plus le certificat de demande d’IVG.
+      </ul>
+      </p>
+      <p>
+      Si le professionnel ne pratique pas l’intervention, il se doit d’orienter sans délai vers les professionnels réalisant des IVG, et disponibles.
+      </p>
+      <p>
+      Toutes les consultations à l’IVG sont actuellement possibles en téléconsultation depuis l’arrêter du 7 novembre 2020. 
+      </p>
+
+    </div>
+  )
+};
+
+const [ covidTxt, setCovidTxt] = useState(()=>ouiCovid());
+
+
+const [ currentOuiCovid, setCurrentOuiCovid] = useState("");
+
+
+const afficheCovid =() => {
+  let affiche = covidTxt;
+  setCurrentOuiCovid(affiche);
+}
+
+
+
+
+  ///////////////////////////////////
+
 
  
   return (
@@ -28,6 +108,18 @@ function TarificationPremierContactMNA(props) {
       <h1>Tarification et Conclusion de consultation</h1>
       <br></br>
       <h2>Tarification</h2>
+
+      <div className="ConsultationContainer">
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
+            afficheCovid();
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
+            <br></br>
+            <div>{currentOuiCovid}</div>
+            </div>
+
+
+
       <p>
       La 1ère consultation préalable ou  1er contact médical :
 ne fait pas partie du “ forfait  IVG hors établissement de santé”

@@ -1234,15 +1234,18 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
         const ouiCovid = ()=> {
           return (
             <div>
-              
-            <p>
-            Dans le cadre du Covid, cette consultation doit être faite par
-             téléconsultation. Sa facturation est facturée de la même manière
-              qu’en présentiel. 
-              
 
-            
-            </p>
+              <p>
+              Téléconsultation<br></br>
+              Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG.
+              </p>
+              <p>
+              Dans le cadre de l’Etat d’urgence sanitaire, La consultation post-IVG peut être effectuée par téléconsultation selon les mêmes recommandations qu’en dehors de toute épidémie.
+              </p>
+              <p>
+              Veuillez vous référer à la page dédiée Covid accessible à partir de la page d’accueil pour plus d’information.
+              </p>
+
             </div>
           )
         };
@@ -1272,10 +1275,10 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
             <br></br>
             <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire :</p>
+            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
             afficheCovid();
-            changeCouleurBoutonViolence(e);}}>Oui</Button>
+            changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
             <br></br>
 
 
