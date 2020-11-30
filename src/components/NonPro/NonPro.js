@@ -6,7 +6,7 @@ import "./NonPro.css";
 function NonPro() {
 
     return (
-        <div className="Apropos">
+        <div className="Contenu">
             <h1>Vous n’êtes pas professionnel de santé :</h1>
         <p>
         Ce site est à destination des professionnels de santé uniquement. 
