@@ -117,7 +117,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre: "Tabac : ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
     setCurrentTabac(reponse);
     if (e.target.value=="Oui") {
@@ -148,7 +149,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre: "Arrêt de travail prescrit : ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 1
     };
     
     setCurrentArret(reponse);
@@ -159,7 +161,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre : "Frottis à jour (ou test HPV) : ",
       value : e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
     setCurrentHPV(reponse);
     if (e.target.value=="Oui") {
@@ -189,7 +192,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre : "Recherche IST : ",
       value : e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
     setCurrentIst(reponse);
     setBackgroundBaseIST(backgroundSelect);
@@ -199,7 +203,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre: "Contraception choisie par la patiente : ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
     
     setCurrentContra(reponse);
@@ -231,7 +236,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     let reponse = {
       titre : "Injection préventive d’Ig anti-D : ",
       value : e.target.value,
-      reponse : 1
+      reponse : 1 ,
+      bloc : 2
     };
     setCurrentInjection(reponse);
     if (e.target.value=="Oui") {
@@ -693,7 +699,8 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
     let reponse = {
       titre: "Date de prise de la mifépristone : ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
    setCurrentDateMife(reponse);
    setBackgroundBaseMife(backgroundSelect);
@@ -759,7 +766,8 @@ Injection IM ou IV de 200 ug d’Ig anti-D. 
     let reponse = {
       titre: "Date de prise du misoprotol :  ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
    setCurrentDateMiso(reponse);
    setBackgroundBaseMiso(backgroundSelect);
@@ -894,7 +902,8 @@ HAS recommande la séquence de traitement Per Os.
     let reponse = {
       titre: "Type contraception : ",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
    setCurrentTypeContra(reponse);
    setBackgroundBaseContra(backgroundSelect);
@@ -1075,7 +1084,8 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     let reponse = {
       titre : "Si ressource cochée oui : ",
       value : "http://www.info-ist.fr/index.html ; https://www.ameli.fr/assure/sante/",
-      reponse : 1
+      reponse : 1, 
+      bloc : 2
     };
     
     setCurrentInfoSupp(reponse);
@@ -1191,7 +1201,8 @@ L’autotest urinaire peut également être utilisé. (A domicile combiné à un
     let reponse = {
       titre: "Date Frotti (ou test HPV)",
       value: e.target.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
    setCurrentDateHPV(reponse);
    setBackgroundBaseHPV(backgroundSelect);
@@ -1267,7 +1278,8 @@ affichageFrotti();
     let reponse = {
       titre : "Nombre Paquet : ",
       value : event.currentTarget.value,
-      reponse : 1
+      reponse : 1,
+      bloc : 2
     };
    setCurrentNbTabac(reponse);
    setBackgroundBaseTabac(backgroundSelect);

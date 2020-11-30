@@ -13,7 +13,12 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
      
     return (
         <div className="containerR" >
-      <img src={Logo} className="logoT"></img>
+          <div className="Bloc1Resume">
+          <div className="Droite">
+          <img src={Logo} className="logoT"></img>
+
+
+          </div>
       <br></br>
       <br></br>
       <h1>
@@ -56,16 +61,44 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
       
       
     <div className="Gauche">{this.state.data.map((objet)=>{
-    return (
-      <div>
+      if (objet.bloc == 1) {
+        return (
+          <div>
+            
+            <p>{objet.titre}  {objet.value}</p>
+            
+          </div>
+        )
         
-        <p>{objet.titre}  {objet.value}</p>
+      }
+    
+  })}
+   <p>
+  Résultat à joindre.
+  </p>
+  </div>
+  <p>
+  Il n’existe pas de contre indication médicamenteuse à l’IVG hors établissement de santé. 
+  </p>
+ 
+          </div>
+          <div className="Bloc2Resume">
+          <div className="Gauche">{this.state.data.map((objet)=>{
+      if (objet.bloc == 2) {
+        return (
+          <div>
+            
+            <p>{objet.titre}  {objet.value}</p>
+            
+          </div>
+        )
         
-      </div>
-    )
-  })}</div>
-    <br></br>
-    <br></br>
+      }
+    
+  })}
+   
+  </div>
+  <br></br>
       <br></br>
       
       
@@ -76,7 +109,7 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
            d’information à l’attention des médecins et es sages-femmes distribués
             par l’ARS et validé par le ministère des affaires sociales et de la santé.
     </p>
-      <br></br>
+    <br></br>
       <br></br>
       <p className="Tampon">Date et Tampon</p>
       <br></br>
@@ -84,6 +117,12 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
       <br></br>
       <br></br>
       <p>Ces données ont été recueillies de façon anonyme et gratuite à partir du site IVGclic.com.</p>
+
+          </div>
+      
+
+   
+     
 
       </div>
     );

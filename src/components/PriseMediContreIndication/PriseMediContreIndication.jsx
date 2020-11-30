@@ -382,7 +382,8 @@ const changeCouleurBoutonViolence = (e) => {
     let reponse = {
       titre: "Une information claires et établies des effets secondaires possibles des traitements a été établie durant la consultation : ",
       value: e.target.value,
-      reponse : 1 
+      reponse : 1,
+      bloc : 2
     };
     let liste = [...globalStateContre];
     liste.push(reponse);
