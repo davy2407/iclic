@@ -35,13 +35,13 @@ html {
     /* width: 100vw;
     height: 100vh; */
     background-color: rgb(255, 242, 243);
-    margin: 0;
+    /* margin: 0; */
    
     
 
     width: 100%;
     
-    padding: 0.5%;
+    /* padding: 0.5%; */
     height: auto;
   }
   #contactDisplay{
@@ -65,11 +65,11 @@ html {
     width: 100vw;
     height: 100vh;
     background-color: rgb(255, 242, 243);
-    margin: 0;
+    /* margin: 0; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 1%;
+    /* padding: 1%; */
   }
 
   .Mention{
@@ -78,6 +78,11 @@ html {
 
   .Contact{
     height: 100vh;
+  }
+
+  .MargeHoriPetite{
+    display: none;
+  
   }
 }
 
