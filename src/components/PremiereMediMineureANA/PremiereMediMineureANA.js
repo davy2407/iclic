@@ -207,7 +207,8 @@ const recupRadioAcc = (e) => {
   let reponse = {
     titre: "Personne accompagnante majeurs ou consentement parental : ",
     value: e.target.value,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
   };
   setCurrentAcc(reponse);
   setBackgroundBaseAcc(backgroundSelect);
@@ -219,7 +220,8 @@ const recupRadioEchographie = (e) => {
   let reponse = {
     titre: "Echographie de datation/age gestationnel : ",
     value: e.target.value,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
   };
   
   setcurrentEcho(reponse);
@@ -231,7 +233,8 @@ const recupRadioAttestation = (e) => {
   let reponse = {
     titre: "Consultation psychosociale :",
     value: e.target.value,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
 };
 
 setCurrentAttestation(reponse);
@@ -250,7 +253,8 @@ const recupRadioConsentement = (e) => {
 let reponse = {
   titre: "Consentement à l’IVG : ",
   value: e.target.value,
-  reponse : 1
+  reponse : 1,
+  bloc : 1
 };
 
 setCurrentConssent(reponse);
@@ -261,7 +265,8 @@ const recupRadioBilan = (e) => {
   let reponse = {
     titre: "Prise de sang effectuée : ",
     value: e.target.value,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
   };
   
   setCurrentSang(reponse);
@@ -405,7 +410,8 @@ const recupSaisieUtilisateurNbSemaine = () => {
   let reponse = {
     titre: "Echographie de datation/Age gestationnel(SA) : ",
     value: nb,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
   };
   setCurrentGest(reponse);
   setBackgroundBaseAge(backgroundSelect);
@@ -475,7 +481,7 @@ const affichagePlusDeSeptMoinsDouze = () => {
 
 const plusDeDouzetSemaines = () => {
   /// retourne le texte mois de 7 semaines si >12
-  return (
+  return ( 
     <div>
       <p> IVG médicamenteuse et chirurgical possible mais en centre de référence seulement. </p>
       
@@ -653,7 +659,8 @@ event.preventDefault();
 let reponse = {
   titre : "ß-HCG : ",
   value : event.currentTarget.value,
-  reponse : 1
+  reponse : 1,
+  bloc : 1
 };
 setCurrentDosage(reponse);
 setBackgroundBaseDosage(backgroundSelect);
@@ -677,7 +684,8 @@ const handleChangeGroupe = (e) => {
 let reponse = {
   titre: "Groupe Sanguin : ",
   value: e.target.value,
-  reponse : 1
+  reponse : 1,
+  bloc : 1
 };
 setCurrentGroupe(reponse);
 setBackgroundBaseGroupe(backgroundSelect);
@@ -796,7 +804,8 @@ const recupCovid = (e) => {
   let reponse = {
     titre: "Téléconsultation (selon recommandation applicable jusqu'à la fin de l'état d'urgence sanitaire) : ",
     value: e.target.value,
-    reponse : 1
+    reponse : 1,
+    bloc : 1
   };
   
   setcurrentCovid(reponse);
