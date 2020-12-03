@@ -49,7 +49,6 @@ function MyVerticallyCenteredModal(props) {
     }
     time = setTimeout(()=>{
       time = null;
-      console.log("Scroll stoppé");
       setScrollStatut("Scroll stoppé");
       setClassArrow(arrowStopScroll);
       setTimearrow(time);
@@ -59,7 +58,6 @@ function MyVerticallyCenteredModal(props) {
     if (statut!== 'scrolling') {
       
       setClassArrow(arrowScroll);
-      console.log(time);
       setTimearrow(null);
 
       

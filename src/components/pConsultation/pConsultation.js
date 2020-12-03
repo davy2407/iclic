@@ -496,7 +496,6 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
   /////// bloc no reponse
   const afficheNoRep = (liste) => {
     setCurrentReponseTarif(pasDeReponseBloc)
-    console.log(liste);
   };
 
   const [ stateNoReponse, setStateNoReponse] = useState([]);
