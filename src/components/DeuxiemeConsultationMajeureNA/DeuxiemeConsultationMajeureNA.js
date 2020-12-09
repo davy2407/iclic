@@ -962,12 +962,12 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
               patiente(s) des IST ainsi que de ces risques
               <a
                 href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
               >
                 Ameli IST
               </a>
               ,{" "}
-              <a href="http://www.info-ist.fr/index.html" target="_blank">
+              <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noopener noreferrer">
                 ISt-info
               </a>
               .
@@ -1512,6 +1512,7 @@ const handleChangeVerrou = () => {
         className="Lampe"
         type="image"
         src={logoAfficheAttestation}
+        alt="logo information attestation"
       />
       <div className="ContainerBulle">  {currentInfoAttestation}</div>
             </div>
@@ -1581,6 +1582,8 @@ const handleChangeVerrou = () => {
         className="Lampe"
         type="image"
         src={logoAfficheConsultationPsy}
+        alt="logo information consultation"
+
       />
       <div className="ContainerBulle">  {currentInfoConsultationPsy}</div>
             </div>
@@ -1619,6 +1622,8 @@ const handleChangeVerrou = () => {
         className="Lampe"
         type="image"
         src={logoAfficheViolence}
+        alt="logo information violence"
+
       />
       <div className="ContainerBulle">  {currentInfoViolence}</div>
       </div>
@@ -1704,6 +1709,8 @@ const handleChangeVerrou = () => {
         className="Lampe"
         type="image"
         src={logoAfficheIST}
+        alt="logo information IST"
+
       />
       <div className="ContainerBulle">  {currentInfoIST}</div>
       </div>
@@ -1742,6 +1749,8 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
         className="Lampe"
         type="image"
         src={logoAfficheSang}
+        alt="logo information bilan sanguin"
+
       />
       <br></br>
       <div className="ContainerBulle">{currentInfoSang}</div>
@@ -1816,6 +1825,8 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
         className="Lampe"
         type="image"
         src={logoAffichePostIVG}
+        alt="logo information contraception post-IVG"
+
       />
       <br></br>
       <div className="ContainerBulle">{currentInfoPostIVG}</div>
@@ -1874,6 +1885,8 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
         className="Lampe"
         type="image"
         src={logoAfficheFrotti}
+        alt="logo information frotti/test HPV"
+
       />
       <br></br>
       <div className="ContainerBulle">{currentInfoFrotti}</div>
@@ -1927,6 +1940,8 @@ Sauf en cas d’utilisation d’un autotest urinaire. »
         className="Lampe"
         type="image"
         src={logoAfficheTabac}
+        alt="logo information tabac"
+
       />
       <br></br>
       <div className="ContainerBulle">{currentInfoTabac}</div>

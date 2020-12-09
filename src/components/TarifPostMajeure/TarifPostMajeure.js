@@ -101,7 +101,7 @@ Un exemplaire doit être remis à la patiente.
   <p>
   Il peut être confraternel de transmettre par courrier le résumé de la consultation afin de prévenir le médecin traitant si vous n’êtes pas celui-ci. 
   </p>
-  <a className="Bold" href={FicheHAS}  target="_blank">    
+  <a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
         Fiche de liaison HAS à télécharger     
      </a>
     </div>
