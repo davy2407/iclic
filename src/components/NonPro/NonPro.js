@@ -23,9 +23,6 @@ Des liens internet d’information sur les modalités d’accès à l’IVG ains
         Un numéro vert gratuit est accessible 7j/7 24h/24 pour toute information au 0800 202 205.
         </p>
         <p>
-          <a rel="noreferrer noopener" target="_blank" href="https://www.ivg.net/">Liens IVG.net</a>
-        </p>
-        <p>
           <a rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">Liens ivglesadresses.org</a>
         </p>
         <p>
