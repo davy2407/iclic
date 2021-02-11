@@ -475,7 +475,9 @@ function MyVerticallyCenteredModal(props) {
     return (
       <div>
          <p>
-         Les mesures dérogatoires relatives à l’IVG médicamenteuse instaurées lors du précédent Etat d’urgence sanitaire sont rétablies face à la deuxième vague par arrêté du 7 novembre 2020.
+         Les mesures dérogatoires relatives à l’IVG médicamenteuse instaurées lors du précédent Etat d’urgence sanitaire sont rétablies face à la deuxième vague par arrêté du 7 novembre 2020. 
+         <br></br>
+         A savoir :
         </p>
         <ul>
           <li>
@@ -485,14 +487,14 @@ function MyVerticallyCenteredModal(props) {
           Prolonger les délais d’IVG médicamenteuse de 7 à 9 semaines d’aménorrhées.
           </li>
           <li>
-          Consultation de contrôle (14-21 jours après) peuvent être réalisées par téléconsultation.
+          Consultation de contrôle (14-21 jours après) par téléconsultation.
           </li>
         </ul>
         <p>
         Le 2ème temps de consultation pour prise médicamenteuse n’est pas mentionné et reste facultatif. Ces consultations sont prises en charge à 100% par l’assurance maladie.
         </p>
         <p>
-        Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. Pour en savoir plus, fermez et voir la page Covid. 
+        Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. Pour en savoir plus, fermer la page et voir la page Covid. 
         </p>
 
 

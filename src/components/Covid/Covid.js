@@ -129,7 +129,14 @@ function Covid() {
             </p>
             <br></br>
             <p>
-            Toutes les spécificités concernant la prise en charge chez les mineures sont disponibles sur le site tout au long des différents consultations. 
+
+            Concernant la femme mineure :
+            <br></br>
+            <br></br>
+            Les mêmes dispositions que chez la femme majeure s’appliquent en prenant en compte les mesures en lien avec le contexte sanitaire.<br></br>
+            Il convient d’expliquer aux femmes, que certains actes du parcours IVG devront nécessiter un déplacement. <br></br>
+            Dans cette période de réglementation des déplacements, l’attestation de déplacement dérogatoire pour les actes en lien avec l’IVG peut être remplie par la mineure. De même l’accompagnant majeur d’une mineure souhaitant garder le secret vis-à-vis des titulaires de l’autorité parentale, doit remplir sa propre attestation au motif de « déplacements pour motif de santé.<br></br>
+            Si des difficultés sont à prévoir pour la réalisation de l’IVG à domicile, notamment en termes de confidentialité vis-à-vis des proches présents, il demeure préférable que la femme se rende en consultation en présence d’un professionnel.
             </p>
             <br></br>
             <p>

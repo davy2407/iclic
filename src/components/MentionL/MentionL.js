@@ -12,7 +12,7 @@ function MentionL() {
                                     <h1>Mention légale </h1>
             <br></br>
             <p>
-            Ce site a été réalisé dans le cadre d’un travail de thèse de Mr PUECH Lilian, étudiant à l’Université de médecine de Rouen sous la direction du Dr LAINE Marianne, spécialiste en médecine générale.
+            Ce site a été réalisé dans le cadre d’un travail de thèse de Dr PUECH Lilian, étudiant à l’Université de médecine de Rouen sous la direction du Dr LAINE Marianne, spécialiste en médecine générale.
             </p>
             <p>
             L’utilisation du site est destinée aux professionnels de santé uniquement, en aucun cas il ne constitue une référence à l’usage des patients.

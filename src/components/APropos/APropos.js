@@ -50,7 +50,7 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
             </p>
             <h2>Liens d’intérêts :</h2>
             <p>
-            Aucun lien d’intérêt n’est à déclarer par le Dr LAINE Marianne ou Mr PUECH Lilian.
+            Aucun lien d’intérêt n’est à déclarer par le Dr LAINE Marianne ou Dr PUECH Lilian.
             </p>
             <h2>Confidentialité :</h2>
             <p>
