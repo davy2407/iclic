@@ -78,7 +78,7 @@ function Header(props) {
   </Navbar.Collapse>
   <Navbar.Collapse className="justify-content-end">
     <Navbar.Text className="majTxt">
-      MAJ : 04/11/2020
+      MAJ : 17/02/2021
     </Navbar.Text>
   </Navbar.Collapse>
 </Navbar>
