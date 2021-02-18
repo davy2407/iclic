@@ -4,6 +4,7 @@ import ArrowD from "@assets/images/downArrow.svg";
 
 
 import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
+import ConventionType from "@assets/pdf/Convention-Réglementaire-medecin_SF_CS-1.pdf";
 
 import "./Modal.css";
 
@@ -796,8 +797,8 @@ l’IVG médicamenteuse hors établissement de santé.
         </p>
 
         <p>
-          <a target="_blank" rel="noreferrer noopener"  href="#">
-            Convention type à télécharger 
+          <a target="_blank" rel="noreferrer noopener"  href={ConventionType}>
+            Convention type à télécharger  
           </a>
         </p>
       </div>
