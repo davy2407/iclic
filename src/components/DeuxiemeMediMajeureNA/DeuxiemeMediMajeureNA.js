@@ -165,7 +165,7 @@ const changeCouleurBoutonViolence = (e) => {
             {
               titre : "",
               value : "",
-              reponse : 1
+              reponse : 0
             }
           );
       
@@ -176,7 +176,7 @@ const changeCouleurBoutonViolence = (e) => {
             {
               titre : "",
               value : "",
-              reponse : 0
+              reponse : 1
             }
           );
           
