@@ -115,7 +115,7 @@
 }
 
 .NavBar{
-  box-shadow: -0.5px 1px 5px 1.5px rgba(88, 88, 88, 0.3) inset;
+  /* box-shadow: -0.5px 1px 5px 1.5px rgba(88, 88, 88, 0.3) inset; */
   background-color:rgb(255, 242, 243);
 
 }
@@ -123,17 +123,17 @@
 
 .majTxt{
   font-weight: lighter;
-  color: black;
+  color: #72959e;
 }
 
 
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgb(160, 39, 47);
+  color: black;
 }
 
 .navbar-light .navbar-brand {
-  color: rgb(160, 39, 47);
+  color: black;
 }
 
 

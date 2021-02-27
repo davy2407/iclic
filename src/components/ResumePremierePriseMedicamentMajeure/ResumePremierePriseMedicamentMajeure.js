@@ -12,7 +12,7 @@ class ResumePremierePriseMedicamentMajeure extends React.Component {
   render() {
      
     return (
-        <div className="containerR" >
+        <div className="containerR" > 
           <div className="Bloc1Resume">
           <div className="Droite">
           <img src={Logo} className="logoT"></img>
