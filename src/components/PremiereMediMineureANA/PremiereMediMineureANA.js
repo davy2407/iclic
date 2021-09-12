@@ -903,7 +903,7 @@ return (
     <br></br>
     <div className="ConsultationContainer">
     <label>
-      Consultation faite dans le cadre des dispositions du Covid valable
+    <p>Consultation faite par téléconsultation :</p>
       jusqu'à la fin de l'état d'urgence sanitaire : 
       <Button variant="secondary" value="Oui" 
       className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{ recupCovid(e);

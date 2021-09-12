@@ -440,7 +440,7 @@ const changeCouleurBoutonViolence = (e) => {
       return (
         <div className="TarifiContainer">
         <Button variant="danger" onClick={props.onSuite}>
-          Tarification
+         Fin de consultation 
         </Button>
         </div>
       )
@@ -777,13 +777,13 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
       affichageMoinsDeSept();
     } else if (nb == 7 ) {
       affichagePlusDeSeptMoinsDouze();
-    } else if (nb > 7 && nb < 9) {
+    } else if (nb > 7 && nb <= 9) {
       affichagePlusDouze();
       handleChangeVerrou()
       
 
-    } else if (nb >=9 && nb <=14) {
-      seturrentCheckGesta("Seule IVG chirurgical en centre de référence possible, adressée en urgence selon le terme estimé (limité légale : 14 SA).");
+    } else if (nb >9 && nb <=14) {
+      seturrentCheckGesta("IVG ce jour, si non habilité, adresser au centre de référence.");
       handleChangeVerrou()
       
     } else if (nb >=15) {
@@ -1282,7 +1282,7 @@ Mineure :
           <br></br>
 
           <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+          <p>Consultation faite par téléconsultation :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
             afficheCovid();
             changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>

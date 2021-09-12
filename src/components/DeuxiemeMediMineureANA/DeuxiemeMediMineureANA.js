@@ -354,7 +354,7 @@ const recupRadioAnti = (e) => {
       return (
         <div className="TarifiContainer">
         <Button variant="danger" onClick={props.onSuite}>
-          Tarification
+         Fin de consultation 
         </Button>
         </div>
       )
@@ -399,7 +399,7 @@ const recupRadioAnti = (e) => {
   
           
         <p>
-        Téléconsultation possible.<br></br>
+       
         Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.<br></br>
         </p>
         <p>
@@ -814,7 +814,7 @@ L'implant à débuter le jour de la 2eme prise médicamenteuse ou à la consult
 
             <h1>Consultation deuxième prise médicamenteuse (facultative) Mineure : </h1>
             <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <p>Consultation faite par téléconsultation :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
             afficheCovid();
             changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>

@@ -4,8 +4,8 @@ import { Button} from "react-bootstrap";
 import ResumeDeuxConsulteMajeureNA from '@components/ResumeDeuxConsulteMajeureNA';
 import "./TarifDeuxiemeConsulteMajeureNA.css";
 
-import InfoPatiente from "@assets/docx/InfoPatiente.docx";
-import FormulaireCon from "@assets/docx/FormulaireConsentement.docx";
+import InfoPatiente from "@assets/pdf/FicheInfoPatiente.pdf";
+import FormulaireCon from "@assets/pdf/FormConsentement.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
 
 

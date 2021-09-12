@@ -5,8 +5,8 @@ import ResumePremiereConsultationMineureANA from '@components/ResumePremiereCons
 import "./TarifPremiereMineureANA.css";
 
 
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
-import ConsentementMineur from "@assets/docx/consentementMineure.docx";
+import Certificat from "@assets/pdf/CertificatIVGMedecin.pdf";
+import ConsentementMineur from "@assets/pdf/consentementMineure.pdf";
 
 
 
@@ -121,7 +121,7 @@ const afficheCovid =() => {
       <h1>Tarification et Conclusion de consultation</h1>
       <br></br>
       <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+      <p>Consultation faite par téléconsultation :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
             afficheCovid();
             changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>

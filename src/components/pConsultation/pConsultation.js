@@ -482,7 +482,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     return (
       <div className="TarifiContainer">
       <Button className={btnOuiViolenceBase} variant="danger" onClick={props.onSuite}>
-        Tarification
+       Fin de consultation 
       </Button>
       </div>
     )
@@ -522,10 +522,9 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
       <div> 
         
       <p>
-      Téléconsultation possible.<br></br>
+      
       Condition : Outils informatique fiable pour les documents nécessaires à la pratique de l’IVG dans le cadre réglementaire.<br></br>
-      Délais prolongés à l’IVG médicamenteuse, de 7 à 9 semaines d’aménorrhées.<br></br>
-      Les changements sont signalés durant le déroulement de la consultation. <br></br>
+      
       <ul>
         <li>
         Pour plus d’information : <a target="_blank" rel="noreferrer noopener" href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_majeures_9sa_tlc_09112020.pdf" >
@@ -533,6 +532,8 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
         </a>
         </li>
       </ul>
+      Voir onglet Covid pour plus d’informations dans le cadre des consultations faites à distance (délivrance des traitements, tarification).
+
       
 
       
@@ -1038,16 +1039,30 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
   
  
   setDateDDR(Math.round(semaineSA.weeks))
-  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
+  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<9) {
     affichageTxtUrgence();
+    stopVerrou();
+
     
   }
-  else if (Math.round(semaineSA.weeks)>=7) {
+  else if (Math.round(semaineSA.weeks)==9&&Math.round(semaineSA.days)<=0) {
+    affichageTxtUrgence();
+    stopVerrou();
+
+    
+  }
+  else if (Math.round(semaineSA.weeks)==9&&Math.round(semaineSA.days)>0) {
+    handleChangeVerrou();
+    
+  }
+  else if (Math.round(semaineSA.weeks)>9) {
     handleChangeVerrou();
     
   }
   else if (Math.round(semaineSA.weeks)<5) {
     setCurrentTextUrgence("");
+    stopVerrou();
+
     
   }
 
@@ -1354,6 +1369,10 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
 
   };
 
+  const stopVerrou =() => {
+    setVerrouShow(false);
+  };
+
   return (
     <div className="consultationContainer">
       <VerrouUn
@@ -1370,7 +1389,7 @@ const [currentWarningContexte, setCurrentWarningContexte] = useState("");
       
       <br></br>
       <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+      <p>Consultation faite par téléconsultation :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{recupReco(e);
             afficheCovid();
             changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>

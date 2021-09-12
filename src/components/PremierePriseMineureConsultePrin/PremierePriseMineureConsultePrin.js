@@ -379,7 +379,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
     return (
       <div className="TarifiContainer">
       <Button variant="danger" onClick={props.onSuite}>
-        Tarification
+       Fin de consultation 
       </Button>
       </div>
     )
@@ -421,7 +421,7 @@ const [backgroundBaseTabac, setBackgroundBaseTabac] = useState(backgroundBase);
           <div>
               
               <p>
-              Téléconsultation possible. 
+        
 Condition : Outils informatique fiable pour les documents nécessaires à la
  pratique de l’IVG dans le cadre réglementaire.  
               </p>
@@ -1270,7 +1270,7 @@ Cette violence peut être physique, sexuelle, économique, verbale ou psychologi
           <h1>Consultation première prise médicamenteuse </h1>
           <div className="ConsultationContainer">
           <label>
-        Consultation faite dans le cadre des dispositions du Covid valable
+          <p>Consultation faite par téléconsultation :</p>
         jusqu'à la fin de l'état d'urgence sanitaire : 
         <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
        

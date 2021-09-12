@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import TestPrint from '@components/TestPrint';
 import "./TarificationPremierContactMajeureNonAnonyme.css";
 
-import Certificat from "@assets/docx/CertificatIVGMedecin.docx";
+import Certificat from "@assets/pdf/CertificatIVGMedecin.pdf";
 
 
 
@@ -105,12 +105,12 @@ const afficheCovid =() => {
  
   return (
     <div className="Tarification">
-      <h1>Tarification et Conclusion de consultation</h1>
+      <h1>Conclusion de consultation</h1>
       <br></br>
       <h2>Tarification</h2>
 
       <div className="ConsultationContainer">
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+      <p>Consultation faite par téléconsultation :</p>
             <Button  className={btnOuiViolenceBase}  variant="danger" onClick={(e)=>{
             afficheCovid();
             changeCouleurBoutonViolence(e);}} value="Oui">Oui</Button>
