@@ -1,13 +1,4 @@
-.Boutton{
-    margin-top: 10px;
-    background: rgb(63, 189, 147);
-    color: red;
+.ModalTest{
+    min-height: 20vh;
+    width: 100%;
 }
-
-.sizeModal{
-   
-    overflow: scroll;
-}
-
-.sizeModal::-webkit-scrollbar { width: 0 !important };
-

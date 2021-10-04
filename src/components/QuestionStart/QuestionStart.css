@@ -1,0 +1,38 @@
+.QuestionStart{
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+.ContainerQuestion{
+    min-width: 50vw;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #72959e;
+    border-radius: 20px;
+    padding: 20px;
+    
+
+}
+
+.BouttonQuestionStart{
+    border-radius: 20px;
+    min-width: 20%;
+    font-size: 1.4rem;
+    height: 5vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ff477b; */
+}

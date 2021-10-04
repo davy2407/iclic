@@ -1,0 +1,55 @@
+.containerT{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 2339px;
+    width: 1654px;
+    padding: 100px; 
+}
+
+
+.Droite{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+.logoT {
+      
+    width: 280px;
+    height: 300px;
+  
+} 
+
+
+.Gauche{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+
+.Tampon{
+    align-self: flex-end;
+  }
+
+
+.pStart{
+  align-self: flex-start;
+}
+
+  
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@ import "./Header.css";
 
 import Logo from "@assets/images/LOGOFull.svg";
 import Banniere from "@assets/images/LOGOShort.svg";
-import {  Navbar, Nav, NavDropdown } from "react-bootstrap";
+import {  Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 function Header(props) {
 
@@ -62,7 +62,7 @@ function Header(props) {
       <Nav.Link onClick={Mention}>Mention légale</Nav.Link>
       <Nav.Link onClick={Contact}>Contact</Nav.Link>
       <Nav.Link onClick={covidAff}>Covid</Nav.Link>
-
+ 
 
       
       
@@ -76,11 +76,11 @@ function Header(props) {
     </Nav>
     
   </Navbar.Collapse>
-  <Navbar.Collapse className="justify-content-end">
+  {/* <Navbar.Collapse className="justify-content-end">
     <Navbar.Text className="majTxt">
       MAJ : 17/02/2021
     </Navbar.Text>
-  </Navbar.Collapse>
+  </Navbar.Collapse> */}
 </Navbar>
 
       </div>

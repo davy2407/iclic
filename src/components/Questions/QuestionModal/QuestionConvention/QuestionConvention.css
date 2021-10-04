@@ -1,0 +1,33 @@
+.QuestionMetierStyle{
+    width: 50vw;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #72959e 1px solid;
+    border-radius: 20px;
+    background-color:#72959e ;
+    color: rgb(252, 245, 241);
+    
+
+}
+
+
+.QuestionMetierStyle[animation="0"] {
+    animation: pulsate-bck 0.8s ease-in-out infinite both;
+}
+
+
+
+@keyframes pulsate-bck {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.98);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

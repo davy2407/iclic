@@ -31,7 +31,7 @@ function Footer() {
   return (
     <div className="SponsorContainer">
       {listeSponsor.map((sponsor) => {
-        return <a target="_blank" rel="noreferrer noopener" href={sponsor.ref}><Sponsor info={sponsor}></Sponsor></a>;
+        return <a target="_blank" rel="noreferrer noopener" href={sponsor.ref}><Sponsor key={sponsor.id} info={sponsor}></Sponsor></a>;
       })}
     </div>
   );

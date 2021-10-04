@@ -1,3 +1,0 @@
-import TarifDeuxiemeConsulteMineureANA from "./TarifDeuxiemeConsulteMineureANA";
-
-export default TarifDeuxiemeConsulteMineureANA;

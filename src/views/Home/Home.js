@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // import iclic components
 import Footer from "@components/Footer";
@@ -11,8 +11,50 @@ import SourceLien from "@components/SourceLien";
 import SourceDocs from "@components/SourceDocs";
 import Covid from "@components/Covid";
 
+
 function Home() {
-  const [listeMid, setListeMid] = useState([MidSection, APropos]);
+  useEffect(() => {
+    window.scrollTo(0,0);
+ }, [])
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [currentMid, setCurrentMid] = useState();
+
+ 
+
+
+
+
+ ////// Liste d'objets contenant les élements affichés sur la midSection
+
+ const [listeElmentMid, setListeElementMid] = useState(
+   [
+    {
+      midSection: "MidSection",
+      id: 0,
+      objet: MidSection,
+      
+      
+    }
+   ]
+ )
+
+ ///////////////////////////
+
 
   const afficheAPropos = () => {
     setCurrentMid(APropos);
@@ -38,9 +80,9 @@ function Home() {
     setCurrentMid(Covid);
   }
 
-  const [currentMid, setCurrentMid] = useState(MidSection);
   return (
     <React.Fragment>
+      
       <Header
         onPropos={afficheAPropos}
         onMention={afficheMention}
@@ -52,7 +94,26 @@ function Home() {
             <div className="MargeHoriPetite"></div>
 
 
-      <div className="MidContainerHome">{currentMid}</div>
+
+
+
+
+{listeElmentMid.map((objet) => {
+          return (
+            <objet.objet
+            key={objet.id}
+            ></objet.objet>
+          );
+        })}
+
+
+
+
+
+
+
+
+
       <div className="MargeHori"></div>
 
       <Footer className="FooterTest" />
