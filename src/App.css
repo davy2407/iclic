@@ -109,6 +109,26 @@ a{
 
 }
 
+.iconPDFNew{
+  height: 6.5vh;
+  outline: none;
+  transition: 0.8s;
+}
+
+.iconPDFNewHover{
+  height: 8vh;
+  outline: none;
+  transition: 0.5s;
+
+}
+
+
+
+.Red{
+  color: red;
+}
+
+
 
 
 
