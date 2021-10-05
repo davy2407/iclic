@@ -32,7 +32,6 @@ function Home() {
 
 
 
-  const [currentMid, setCurrentMid] = useState();
 
  
 
@@ -49,35 +48,87 @@ function Home() {
       objet: MidSection,
       
       
-    }
+    },
+    {
+      midSection: "Covid",
+      id: 1,
+      objet: Covid,
+      
+      
+    },
+    {
+      midSection: "SourceDocs",
+      id: 2,
+      objet: SourceDocs,
+      
+      
+    },
+    {
+      midSection: "SourceLien",
+      id: 3,
+      objet: SourceLien,
+      
+      
+    },
+    {
+      midSection: "Contact",
+      id: 4,
+      objet: Contact,
+      
+      
+    },
+    {
+      midSection: "Mention légales",
+      id: 5,
+      objet: MentionL,
+      
+      
+    },
+    {
+      midSection: "A propos",
+      id: 6,
+      objet: APropos,
+      
+      
+    },
    ]
  )
+
+ const [currentMid, setCurrentMid] = useState([listeElmentMid[0]]);
+
 
  ///////////////////////////
 
 
   const afficheAPropos = () => {
-    setCurrentMid(APropos);
+    let objetAAjouter = listeElmentMid[6];
+    setCurrentMid([objetAAjouter]);
   };
 
   const afficheMention = () => {
-    setCurrentMid(MentionL);
+    let objetAAjouter = listeElmentMid[5];
+    setCurrentMid([objetAAjouter]);
   };
 
   const afficheContact = () => {
-    setCurrentMid(Contact);
+    let objetAAjouter = listeElmentMid[4];
+    setCurrentMid([objetAAjouter]);
   };
 
   const afficheSourceLien = () => {
-    setCurrentMid(SourceLien);
+    let objetAAjouter = listeElmentMid[3];
+    setCurrentMid([objetAAjouter]);
   };
 
   const afficheSourceDocs = () => {
-    setCurrentMid(SourceDocs);
+    let objetAAjouter = listeElmentMid[2];
+    setCurrentMid([objetAAjouter]);
+
   };
 
   const afficheCovid = () => {
-    setCurrentMid(Covid);
+    let objetAAjouter = listeElmentMid[1];
+    setCurrentMid([objetAAjouter]);
   }
 
   return (
@@ -98,7 +149,7 @@ function Home() {
 
 
 
-{listeElmentMid.map((objet) => {
+{currentMid.map((objet) => {
           return (
             <objet.objet
             key={objet.id}

@@ -6,9 +6,10 @@ import "./MentionL.css";
 function MentionL() {
 
     return (
-        <div className="Apropos">
-                                    <div className="testMarge"></div>
-                                    <div className="Contenu">
+        <div className="Mid">
+                                          <div className="BorderApp"></div>
+
+                                    <div className="Core">
                                     <h1>Mention légale </h1>
             <br></br>
             <p>
@@ -24,7 +25,7 @@ function MentionL() {
 
                                     </div>
 
-                                    <div className="testMarge"></div>
+                                    <div className="BorderApp"></div>
 
             
         </div>

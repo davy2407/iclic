@@ -6,9 +6,9 @@ import "./SourceDocs.css";
 function SourceDocs() {
 
     return (
-        <div className="Apropos">
-                    <div className="testMarge"></div>
-                    <div className="Contenu">
+        <div className="Mid">
+                        <div className="BorderApp"></div>
+                    <div className="Core">
                     <h1>Sources et textes de lois :</h1>
             <br></br>
             <h2>Liste des documents disponibles durant le parcours des consultations : </h2>
@@ -38,7 +38,7 @@ function SourceDocs() {
 
                     </div>
 
-                    <div className="testMarge"></div>
+                    <div className="BorderApp"></div>
 
 
 

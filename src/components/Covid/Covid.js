@@ -4,9 +4,9 @@ import React from "react";
 
 function Covid() {
     return(
-        <div className="Apropos">
-            <div className="testMarge"></div>
-            <div className="Contenu">
+        <div className="Mid">
+                        <div className="BorderApp"></div>
+            <div className="Core">
             <p>
             Arrêté du 7 novembre 2020 modifiant l'arrêté du 10 juillet 2020 prescrivant les mesures d'organisation et de fonctionnement du système de santé nécessaires pour faire face à l'épidémie de covid-19 dans le cadre de l'état d'urgence sanitaire.
             </p>
@@ -189,7 +189,7 @@ function Covid() {
             </p>
 
             </div>
-            <div className="testMarge"></div>
+            <div className="BorderApp"></div>
 
             
 

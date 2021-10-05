@@ -6,9 +6,9 @@ import "./SourceLien.css";
 function SourceLien() {
 
     return (
-        <div className="Apropos">
-                    <div className="testMarge"></div>
-                    <div className="Contenu">
+        <div className="Mid">
+                        <div className="BorderApp"></div>
+                    <div className="Core">
                     <h1>Sources et textes de lois :</h1>
             <br></br>
             <h2>Liste des liens disponibles durant le parcours des consultations :</h2>
@@ -220,7 +220,7 @@ function SourceLien() {
 
                     </div>
 
-                    <div className="testMarge"></div>
+                    <div className="BorderApp"></div>
 
             
         </div>

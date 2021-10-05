@@ -6,9 +6,9 @@ import "./APropos.css";
 function APropos() {
 
     return (
-        <div className="Apropos">
-                        <div className="testMarge"></div>
-                        <div className="Contenu">
+        <div className="Mid">
+                        <div className="BorderApp"></div>
+                        <div className="Core">
                         <h1>Projet IVGclic :</h1>
             <p>
             IVGclic est un outil d’aide numérique à la protocolisation
@@ -63,7 +63,7 @@ Concernant les effets indésirables des traitements proposés, seuls les effets
 
 
                         </div>
-                        <div className="testMarge"></div>
+                        <div className="BorderApp"></div>
 
             
 

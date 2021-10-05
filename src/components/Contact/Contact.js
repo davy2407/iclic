@@ -6,9 +6,9 @@ import "./Contact.css";
 function Contact() {
 
     return (
-        <div id="contactDisplay" className="Apropos"> 
-        <div className="testMarge"></div>
-        <div className="Contenu">
+        <div id="contactDisplay" className="Mid"> 
+                        <div className="BorderApp"></div>
+        <div className="Core">
         <h1>Contact </h1>
             <br></br>
             <h2>Responsable éditorial : </h2>
@@ -32,7 +32,7 @@ function Contact() {
             </p>
 
         </div>
-        <div className="testMarge"></div>
+        <div className="BorderApp"></div>
             
         </div>
     )

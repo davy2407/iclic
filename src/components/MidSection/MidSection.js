@@ -1099,7 +1099,7 @@ const recupElTarif = (liste) =>{
 
 
   return (
-    <div className="Mid">
+    <div className="Mid"> 
     
       
       <div className="BorderApp"></div>
