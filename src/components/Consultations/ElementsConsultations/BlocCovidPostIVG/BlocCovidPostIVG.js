@@ -4,17 +4,17 @@ import { Button } from "react-bootstrap";
 
 
 
-import "./BlocCovid.css";
-import OuiCovid from "@components/textApp/OuiCovid";
+import "./BlocCovidPostIVG.css";
+import CovidPostIvg from "@components/textApp/CovidPostIvg";
 
 
-function BlocCovid(props) {
+function BlocCovidPostIVG(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » : ",
+    titre : "Téléconsultation : ",
         value : "Non",
         reponse : 0
       });
@@ -22,7 +22,7 @@ function BlocCovid(props) {
 
     const recupConsultCovid = (e) => {
         let reponse = {
-          titre : "Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » : ",
+          titre : "Téléconsultation : ",
           value: e.target.value,
           reponse : 1
         };
@@ -32,7 +32,7 @@ function BlocCovid(props) {
       }
 
 
-    const [txtCovid, setTxtCovid] = useState(OuiCovid);
+    const [txtCovid, setTxtCovid] = useState(CovidPostIvg);
     const [currentTxt,setCurrentTxt]= useState("");
 
     const afficheTxt = () => {
@@ -45,7 +45,7 @@ function BlocCovid(props) {
 
   return (
     <div className="BlocConsultationStyle">
-            <h2>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) »</h2>
+            <h2>Consultation faite par téléconsultation</h2>
             <Button variant="danger" value="Oui" onClick={(e)=>{
                 recupConsultCovid(e)
                 afficheTxt();
@@ -77,4 +77,4 @@ function BlocCovid(props) {
  
 }
 
-export default BlocCovid;
+export default BlocCovidPostIVG;

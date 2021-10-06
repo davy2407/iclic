@@ -57,6 +57,12 @@ import DeuxiemePriseTarif from "@components/Tarification/DeuxiemePriseTarif";
 import DeuxiemePriseMinTarif from "@components/Tarification/DeuxiemePriseMinTarif";
 import PostIvgTarifMaj from "@components/Tarification/PostIvgTarifMaj";
 import PostIvgTarifMin from "@components/Tarification/PostIvgTarifMin";
+import BlocCovidPostIVG from "@components/Consultations/ElementsConsultations/BlocCovidPostIVG";
+import BlocDosageResultat from "@components/Consultations/ElementsConsultations/BlocDosageResultat";
+import BlocAdhesionContra from "@components/Consultations/ElementsConsultations/BlocAdhesionContra";
+import BlocVecuIVG from "@components/Consultations/ElementsConsultations/BlocVecuIVG";
+import BlocControleEchoOuAvis from "@components/Consultations/ElementsConsultations/BlocControleEchoOuAvis";
+
 
 
 
@@ -1030,20 +1036,40 @@ const recupElTarif = (liste) =>{
           fonctionTarif : afficheTarifPostIVGMaj,
           listeElementsConsulations : [
             {
-              objet : BlocContraChoisie,
+              objet : BlocCovidPostIVG,
               id : 0
             },
             {
-              objet : BlocIST,
+              objet : BlocDosageResultat,
               id : 1
             },
             {
-              objet : BlocHPV,
+              objet : BlocContraChoisie,
               id : 2
             },
             {
-              objet : BlocTabac,
+              objet : BlocAdhesionContra,
               id : 3
+            },
+            {
+              objet : BlocIST,
+              id : 4
+            },
+            {
+              objet : BlocHPV,
+              id : 5
+            },
+            {
+              objet : BlocTabac,
+              id : 6
+            },
+            {
+              objet : BlocVecuIVG,
+              id : 7
+            },
+            {
+              objet : BlocControleEchoOuAvis,
+              id : 8
             }
             
 
@@ -1061,20 +1087,40 @@ const recupElTarif = (liste) =>{
           fonctionTarif : afficheTarifPostIVGMin, 
           listeElementsConsulations : [
             {
-              objet : BlocAcc,
+              objet : BlocCovidPostIVG,
               id : 0
             },
             {
-              objet : BlocContraChoisie,
+              objet : BlocAccMin,
               id : 1
             },
             {
-              objet : BlocIST,
+              objet : BlocDosageResultat,
               id : 2
             },
             {
-              objet : BlocTabac,
+              objet : BlocContraChoisie,
               id : 3
+            },
+            {
+              objet : BlocAdhesionContra,
+              id : 4
+            },
+            {
+              objet : BlocIST,
+              id : 5
+            },
+            {
+              objet : BlocTabac,
+              id : 6
+            },
+            {
+              objet : BlocVecuIVG,
+              id : 7
+            },
+            {
+              objet : BlocControleEchoOuAvis,
+              id : 8
             }
             
 
