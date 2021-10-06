@@ -1,7 +1,7 @@
 import React , {useState,useEffect} from "react";
 
 import {Form,Button} from "react-bootstrap";
-import GuideIVG from "@assets/pdf/GuideIvgPatiente.pdf";
+import ConsentForm from "@assets/pdf/FormConsentement.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
@@ -9,10 +9,10 @@ import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 
-import "./BlocGuideIVG.css";
+import "./BlocConsentmentIVG.css";
 
 
-function BlocGuideIVG(props) {
+function BlocConsentmentIVG(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -27,7 +27,7 @@ function BlocGuideIVG(props) {
   }
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Dossier guide IVG remis ",
+    titre : "Consentement à l’IVG signé : ",
         value : "",
         reponse : 0
       });
@@ -44,7 +44,7 @@ function BlocGuideIVG(props) {
 
       const recupRadioGuide = (e) => {
         let reponse = {
-          titre : "Contexte de l’IVG évoqués :",
+          titre : "Consentement à l’IVG signé : ",
           value : e.target.value,
           reponse : 1
         };
@@ -56,7 +56,7 @@ function BlocGuideIVG(props) {
 
   return (
     <div className="BlocConsultationStyle">
-             <h2>Dossier guide IVG remis</h2>
+             <h2>Consentement à l’IVG signé</h2>
       <Form>
       <div key={`guide-radio`} className="mb-3" onChange={(e)=>{recupRadioGuide(e);changeBtnClass();}}>
       <Form.Check 
@@ -83,7 +83,7 @@ function BlocGuideIVG(props) {
       <br></br>
       <div className="docContainer">
       <p> 
-      <a className="NewDocContainer" rel="noopener noreferrer"  href={GuideIVG} target="_blank">
+      <a className="NewDocContainer" rel="noopener noreferrer"  href={ConsentForm} target="_blank">
       <input
         onMouseEnter={()=>{
           setGlobalCassIcon(hoverIcon);
@@ -95,8 +95,9 @@ function BlocGuideIVG(props) {
         className={globalClassIcon}
         type="image"
         src={newPdfIcon}
+        alt="image pdf consentement IVG"
       />
-        PDF Guide IVG
+        Formulaire de consentement
       </a>
           </p>
 
@@ -129,4 +130,4 @@ function BlocGuideIVG(props) {
  
 }
 
-export default BlocGuideIVG;
+export default BlocConsentmentIVG;

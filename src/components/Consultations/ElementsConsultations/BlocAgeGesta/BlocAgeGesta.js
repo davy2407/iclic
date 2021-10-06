@@ -63,21 +63,13 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
       affichageMoinsDeSept();
     } else if (nb == 7 ) {
       affichagePlusDeSeptMoinsDouze();
-    } else if (nb > 7 && nb <= 9) {
+    } else if (nb > 7 ) {
       affichagePlusDouze();
 
       
 
-    } else if (nb >9 && nb <=14) {
-      seturrentCheckGesta("IVG ce jour, si non habilité, adresser au centre de référence.");
+    } 
 
-      
-    } else if (nb >=15) {
-      seturrentCheckGesta(horsDelais);
-
-
-      
-    }
 
     let reponse = {
       titre: "Age gestationnel (semaine d'aménorrhée) : ",
@@ -141,7 +133,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
     /// retourne le texte mois de 7 semaines si >12
     return (
       <div>
-          <p>IVG médicamenteuse et chirurgical possible en centre de référence seulement. </p>
+          <p>Verrou à faire </p>
         
       </div>
     );

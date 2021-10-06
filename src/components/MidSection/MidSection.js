@@ -62,6 +62,9 @@ import BlocDosageResultat from "@components/Consultations/ElementsConsultations/
 import BlocAdhesionContra from "@components/Consultations/ElementsConsultations/BlocAdhesionContra";
 import BlocVecuIVG from "@components/Consultations/ElementsConsultations/BlocVecuIVG";
 import BlocControleEchoOuAvis from "@components/Consultations/ElementsConsultations/BlocControleEchoOuAvis";
+import BlocCovidPremierePrise from "@components/Consultations/ElementsConsultations/BlocCovidPremierePrise";
+import BlocEchoFaite from "@components/Consultations/ElementsConsultations/BlocEchoFaite";
+import BlocConsentmentIVG from "@components/Consultations/ElementsConsultations/BlocConsentmentIVG";
 
 
 
@@ -941,15 +944,63 @@ const recupElTarif = (liste) =>{
       {
         id : 4,
         elementsCon : {
-          name : "Première prise médicamenteuse majeure"
-          
+          name : "Première prise médicamenteuse majeure", 
+          titre : "Consultation deuxième prise médicamenteuse (facultative) : Majeure",
+          fonctionTarif : afficheDeuxiemePriseTarifMaj, /// a faire
+          listeElementsConsulations : [ /// a faire
+            {
+              objet : BlocCovidPremierePrise,
+              id : 0
+            },
+            {
+              objet : BlocEchoFaite,
+              id : 1
+            },
+            {
+              objet : BlocAgeGesta, /// a faire
+              id : 2
+            },
+            {
+              objet : BlocConsentmentIVG,
+              id : 3
+            },
+            {
+              objet : BlocRealConsult,
+              id : 4
+            },
+            {
+              objet : BlocPriseSangEff,
+              id : 5
+            },
+            {
+              objet : BlocDosage,
+              id : 6
+            },
+            {
+              objet : BlocGroupeSang,
+              id : 7
+            },
+            {
+              objet : BlocAcc,
+              id : 8
+            }
+          ]
+
         }
       },
       {
         id : 5,
         elementsCon : {
-          name : "Première prise médicamenteuse mineure"
-          
+          name : "Première prise médicamenteuse mineure", /// a faire
+          titre : "Consultation deuxième prise médicamenteuse (facultative) : Mineure",
+          fonctionTarif : afficheDeuxiemePriseTarifMaj, 
+          listeElementsConsulations : [
+            {
+              objet : BlocCovidPremierePrise,
+              id : 0
+            }
+          ]
+
         }
       },
       {
@@ -1091,7 +1142,7 @@ const recupElTarif = (liste) =>{
               id : 0
             },
             {
-              objet : BlocAccMin,
+              objet : BlocAccMin, /// a faire
               id : 1
             },
             {
