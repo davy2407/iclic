@@ -1,15 +1,3 @@
 
-@media screen and (max-width: 600px) {
-    .Image {
-      width: 7vw;
-      height: 7vh;
-    }
-  }
 
   
-@media screen and (min-width: 600px) {
-    .Image {
-        width: 8vw;
-        height: 10vh;
-    }
-}

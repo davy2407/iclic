@@ -37,6 +37,7 @@ html {
     /* width: 100vw;
     height: 100vh; */
     /* margin: 0; */
+    
    
     
 
@@ -45,10 +46,103 @@ html {
     /* padding: 0.5%; */
     height: auto;
   }
+
+  .QuestionMetierStyle{
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #72959e 1px solid;
+    border-radius: 20px;
+    background-color:#72959e ;
+    color: rgb(252, 245, 241);
+    padding: 1%;
+    text-align: center;
+
+    
+
+}
+
+  .Image {
+    width: 8vw;
+    height: 10vh;
+}
+
+
   #contactDisplay{
     height: 60vh ;
     width: 100%;
 }
+.SponsorContainer {
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  align-items: center;
+}
+
+.Header{
+  height: 30vh;
+}
+
+.HeaderMenu{
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+
+
+
+
+.HeaderTop {
+
+  width: 100vw; 
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+
+}
+.Banniere{
+  width: 65vw;
+  height: 15vh;
+  cursor: pointer;
+  
+}
+
+
+
+
+
+.logoH {
+  
+  width: 27vw;
+  height: 21.5vh;
+  
+
+}
+
+
+
+.Menu {
+  border: 1px solid black;
+  width: 5vw;
+  height: 10vh;
+}
+
+
+
+
 
   .App::-webkit-scrollbar { width: 0 !important };
 
@@ -60,31 +154,182 @@ html {
    */
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 500px) {
   .App {
     text-align: center;
     width: 100vw;
-    height: 100vh;
-    /* margin: 0; */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    /* margin: 0; */
+    
+ 
     /* padding: 1%; */
   }
 
-  .Mention{
-    height: 100vh;
-  }
+  .BorderApp{
+    width: 1vw;
+}
+.Mid{
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .Contact{
-    height: 100vh;
-  }
+.Core{
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  
+}
+
+.logoH{
+  width: 40vw;
+  height: 20vh;
+}
+
+.Banniere{
+  display: none;
+}
+
+.Header{
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.HeaderTop {
+
+  width: 100vw; 
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  
+
+}
+
+.HeaderMenu{
+  height: 10vh;
+  width: 100%;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+  
+
+}
+
+.QuestionMetierStyle{
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #72959e 1px solid;
+  border-radius: 20px;
+  background-color:#72959e ;
+  color: rgb(252, 245, 241);
+  padding: 1%;
+  text-align: center;
+
+  
+
+}
+
+.ContainerQuestion{
+  text-align: center;
+}
+
+.Image {
+  width: 30vw;
+  height: 15vh;
+}
+.SponsorContainer {
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
 
   .MargeHoriPetite{
     display: none;
   
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 a{
@@ -94,6 +339,7 @@ a{
 
 
 }
+
 
 
 
