@@ -1,20 +1,4 @@
-.QuestionMetierStyle{
-    width: 100%;
-    min-height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: #72959e 1px solid;
-    border-radius: 20px;
-    background-color:#72959e ;
-    color: rgb(252, 245, 241);
-    padding: 1%;
-    text-align: center;
 
-    
-
-}
 
 .ButtonRetour{
   align-self: flex-end;

@@ -48,7 +48,7 @@ html {
   }
 
   .QuestionMetierStyle{
-    width: 100%;
+    width: 50vw;
     min-height: 30vh;
     display: flex;
     flex-direction: column;
@@ -95,6 +95,26 @@ html {
   flex-direction: row;
   justify-content: center;
 
+}
+
+.QuestionConsulationStyle{
+    width: 50vw;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #72959e 1px solid;
+    border-radius: 20px;
+    background-color:#72959e ;
+    color: rgb(252, 245, 241);
+    padding: 1%;
+    
+
+}
+
+.QuestionConsulationStyle Button{
+  width: 40vw;
 }
 
 
@@ -290,6 +310,27 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+
+.QuestionConsulationStyle{
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #72959e 1px solid;
+  border-radius: 20px;
+  background-color:#72959e ;
+  color: rgb(252, 245, 241);
+  padding: 1%;
+  
+
+}
+
+.QuestionConsulationStyle Button{
+  width: 60vw;
+}
+
 
 
 
