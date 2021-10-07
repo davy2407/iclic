@@ -7,10 +7,10 @@ import LightOff from "@assets/images/lightOff.svg";
 
 
 
-import "./BlocIST.css";
+import "./BlocMife.css";
 
 
-function BlocIST(props) {
+function BlocMife(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -25,7 +25,7 @@ function BlocIST(props) {
   }
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Recherche IST +/- antibio-prophylaxie ",
+    titre : "Contre-indication médicamenteuse Mifépristone : ",
         value : "",
         reponse : 0
       });
@@ -41,7 +41,7 @@ function BlocIST(props) {
 
       const recupRadioIST = (e) => {
         let reponse = {
-          titre : "Recherche IST : ",
+          titre : "Contre-indication médicamenteuse Mifépristone : ",
           value : e.target.value,
           reponse : 1
         };
@@ -49,16 +49,7 @@ function BlocIST(props) {
 
       }
 
-      const recupInfoSupp = (e) => {
-        e.preventDefault();
-        let reponse = {
-          titre : "Si ressource cochée oui : ",
-          value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante",
-          reponse : 1
-        };
-        
-        setInfoSupp(reponse);
-      };
+      
     
 
 
@@ -67,43 +58,8 @@ function BlocIST(props) {
         return (
           <div className="BulleInfo">
             <p>
-             HAS : « dépistage recommandé ciblé à toutes les femmes consultant pour une IVG, sans limite d’âge. Systématique chez les femmes de 15 à 25 ans .»
-            </p>
+            Insuffisance surrénale chronique, hypersensibilité à la substance active asthme sévère (non contrôlé par le traitement), porphyrie héréditaire, grossesse non confirmée, grossesse de plus de 63 jours d’aménorrhée, suspicion de grossesse extra-utérine.            </p>
             
-            
-            <p>
-              De nombreuses sources numériques existent pour l’information aux
-              patient(es) des IST ainsi que de ces risques
-              <a rel="noreferrer noopener"
-                href="https://www.ameli.fr/assure/sante/themes/mst/ist/maladies-infections-sexuellement-transmissibles"
-                target="_blank"
-              >
-                Ameli IST
-              </a>
-              ,{" "}
-              <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noreferrer noopener">
-                ISt-info
-              </a>
-              .
-            </p>
-            <br></br>
-    
-            <label>
-              Vous desirez plus d'informations à transmettre à la patiente ?
-              <Button 
-                variant="danger"
-                value="Oui"
-                onClick={(e) => {
-                  recupInfoSupp(e);
-                  
-                }}
-              >
-                Oui
-              </Button>
-            
-            </label>
-    
-     
           </div>
         );
       };
@@ -131,22 +87,56 @@ function BlocIST(props) {
         setLogoAfficheIST(currentCache);
         affichageTxtIST();
       };
+
+
+
+
+
+
+
+      const [ currentVerrou, setCurrentVerrou] = useState("");
+
+      const verrouTxt = () => {
+        return (
+            <div className="Red">
+                <p>
+                Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+                <br></br>
+                <br></br>
+                Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+                <br></br>
+                Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+                </p>
+            </div>
+        )
+    };
+  
+    const [txtVerrou, setTextverrou] = useState(
+        () => verrouTxt()
+    );
+  
+    const afficheverrou = () => {
+      
+      let txtAAfficher = txtVerrou;
+      setCurrentVerrou(txtAAfficher);
+    };
     
 
 
 
   return (
     <div className="BlocConsultationStyle">
-        <h2>Recherche IST +/- antibio-prophylaxie</h2>
+        <h2>Contre-indication médicamenteuse Mifépristone</h2>
       <br></br>
       <Form>
-      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);changeBtnClass();}}>
+      <div key={`Ist-radio`} className="mb-3" onChange={(e)=>{recupRadioIST(e);}}>
       <Form.Check 
         type='radio'
         id={`ISToui`}
         label={`Oui`}
         value="Oui"
         name="ISTantibio"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
       />
 
 <Form.Check 
@@ -155,9 +145,14 @@ function BlocIST(props) {
         label={`Non`}
         value="Non"
         name="ISTantibio"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
       />
       </div>
       </Form>
+      <div>
+          {currentVerrou}
+      </div>
+      <br></br>
       <br></br>
       <input
         onClick={changementCouleurSVGIST}
@@ -193,4 +188,4 @@ function BlocIST(props) {
  
 }
 
-export default BlocIST;
+export default BlocMife;

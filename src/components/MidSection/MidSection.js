@@ -65,6 +65,13 @@ import BlocControleEchoOuAvis from "@components/Consultations/ElementsConsultati
 import BlocCovidPremierePrise from "@components/Consultations/ElementsConsultations/BlocCovidPremierePrise";
 import BlocEchoFaite from "@components/Consultations/ElementsConsultations/BlocEchoFaite";
 import BlocConsentmentIVG from "@components/Consultations/ElementsConsultations/BlocConsentmentIVG";
+import BlocAgeGestaPriseMedi from "@components/Consultations/ElementsConsultations/BlocAgeGestaPriseMedi";
+import BlocMife from "@components/Consultations/ElementsConsultations/BlocMife";
+import BlocMiso from "@components/Consultations/ElementsConsultations/BlocMiso";
+import BlocAntalgique from "@components/Consultations/ElementsConsultations/BlocAntalgique";
+import BlocInfoEffets from "@components/Consultations/ElementsConsultations/BlocInfoEffets";
+import BlocContextFavo from "@components/Consultations/ElementsConsultations/BlocContextFavo";
+
 
 
 
@@ -945,7 +952,7 @@ const recupElTarif = (liste) =>{
         id : 4,
         elementsCon : {
           name : "Première prise médicamenteuse majeure", 
-          titre : "Consultation deuxième prise médicamenteuse (facultative) : Majeure",
+          titre : "Consultation première prise médicamenteuse (facultative) : Majeure",
           fonctionTarif : afficheDeuxiemePriseTarifMaj, /// a faire
           listeElementsConsulations : [ /// a faire
             {
@@ -957,7 +964,7 @@ const recupElTarif = (liste) =>{
               id : 1
             },
             {
-              objet : BlocAgeGesta, /// a faire
+              objet : BlocAgeGestaPriseMedi, 
               id : 2
             },
             {
@@ -983,7 +990,28 @@ const recupElTarif = (liste) =>{
             {
               objet : BlocAcc,
               id : 8
+            },
+            {
+              objet : BlocMife,
+              id : 9
+            },
+            {
+              objet : BlocMiso,
+              id : 10
+            },
+            {
+              objet : BlocAntalgique,
+              id : 11
+            },
+            {
+              objet : BlocInfoEffets,
+              id : 12
+            },
+            {
+              objet : BlocContextFavo,
+              id : 13
             }
+            
           ]
 
         }
@@ -1239,7 +1267,7 @@ const recupElTarif = (liste) =>{
         })}
 
               </div>
-              <div className="CoreInfo"></div>
+              
             </div>
 
       
