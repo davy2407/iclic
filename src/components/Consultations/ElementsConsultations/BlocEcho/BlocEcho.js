@@ -20,6 +20,12 @@ function BlocEcho(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -88,7 +94,7 @@ function BlocEcho(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
         <h2>
         Prescription échographie de datation
         </h2>
@@ -133,8 +139,13 @@ function BlocEcho(props) {
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
+                                setCurrentClassCard(classActifCard);
+
         props.ajoute(currentRep);
-        props.suite(props.keys);
+        setTimeout(() => {
+          props.suite(props.keys);
+
+        }, 501);
              
             }}>Suivant</Button>
 

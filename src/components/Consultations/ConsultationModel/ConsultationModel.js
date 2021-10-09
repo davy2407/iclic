@@ -9,9 +9,21 @@ import "./ConsultationModel.css";
 
 function ConsultationModel(props) {
 
-  
+
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
 
 
+
+  const testAnimationCard = () => {
+    setCurrentClassCard(classActifCard);
+
+    setTimeout(setCurrentClassCard(classBaseCard), 500)
+
+    }
 
  
   

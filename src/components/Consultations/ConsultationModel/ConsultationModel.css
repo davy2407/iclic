@@ -11,6 +11,7 @@
     text-align: center;
     padding: 3%;  
     animation: pulsate-bck 5s ease-in-out infinite both;
+
   
 
 
@@ -75,13 +76,56 @@
     text-align: center;
     border: solid 5px #72959e ;
     background-color: #e3edf0 ;
-    border-radius: 20px;
+    border-radius: 35px;
     padding: 5%;
     width: 60%;
     min-height: 50vh;
+    transition: all 0.5s linear;
+
+
+    /* background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100% 50%;
+    border-radius: 50px; */
+
+   
+
+
     
     
 }
+
+
+.BlocConsultationStyleActiv{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border: solid 15px #478997 ;
+    background-color: #e3edf0 ;
+    color: #e3edf0 ;
+    border-radius: 35px;
+    padding: 5%;
+    width: 60%;
+    min-height: 50vh;
+    transform: rotateY(160deg); 
+    transition: all 0.5s linear;
+
+    /* background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100% 50%;
+    border-radius: 50px; */
+
+ 
+
+
+    
+    
+}
+
+.BlocConsultationStyle[animation="1"] {
+    transform: rotateY(360deg); 
+    transition: all 1s linear;}
 
 
 

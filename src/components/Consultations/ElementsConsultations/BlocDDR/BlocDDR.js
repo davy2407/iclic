@@ -13,6 +13,12 @@ function BlocDDR(props) {
  }, [])
 
 
+ const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+ const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+
+ const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
   const [classBouttonBase,setClassBouttonBase] = useState("BouttonSuivant");
 
   const [classBouttonActif, setClassBouttonActif] = useState("BouttonSuivantActif");
@@ -169,7 +175,7 @@ function BlocDDR(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
             <h2>DDR</h2>
 
             <form>
@@ -219,8 +225,13 @@ function BlocDDR(props) {
             }}>Retour</Button>
 
             <Button variant="info" className={currentClassBtt} onClick={()=>{
-        props.ajoute(valueDDRweek);
-        props.suite(props.keys);
+                  setCurrentClassCard(classActifCard);
+
+                  props.ajoute(valueDDRweek);
+                  setTimeout(() => {
+                    props.suite(props.keys);
+
+                  }, 501);
              
             }}>Suivant</Button>
 
