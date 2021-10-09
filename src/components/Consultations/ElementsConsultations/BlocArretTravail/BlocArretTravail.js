@@ -27,7 +27,9 @@ function BlocArretTravail(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Arrêt de travail prescrit : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
 
 
@@ -35,7 +37,9 @@ function BlocArretTravail(props) {
         let reponse = {
           titre: "Arrêt de travail prescrit : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         
         setCurrentRep(reponse);

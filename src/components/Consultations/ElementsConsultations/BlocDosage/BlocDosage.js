@@ -22,7 +22,9 @@ function BlocDosage(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Dosage ß-HCG : ",
     value : "",
-    reponse : 0
+    reponse : 0,
+    identifiant : 1
+
   });
 
   const changeBtnClass = () => {
@@ -40,7 +42,9 @@ function BlocDosage(props) {
       let reponse = {
         titre : "Dosage ß-HCG : ",
         value : event.currentTarget.value,
-        reponse : 1
+        reponse : 1,
+        identifiant : 1
+
       };
 
      

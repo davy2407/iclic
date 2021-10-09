@@ -26,13 +26,16 @@ function BlocContextFavo(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Contexte biopsychosocial favorable à l’IVG hors établissement : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
 
       const [infoSupp, setInfoSupp] = useState({
         titre : "",
         value : "",
-        reponse : 1
+        reponse : 1,
+
       });
     
     
@@ -42,7 +45,9 @@ function BlocContextFavo(props) {
         let reponse = {
           titre : "Contexte biopsychosocial favorable à l’IVG hors établissement : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         setCurrentRep(reponse);
 

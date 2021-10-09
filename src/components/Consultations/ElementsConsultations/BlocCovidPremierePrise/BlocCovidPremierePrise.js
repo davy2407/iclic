@@ -16,7 +16,9 @@ function BlocCovidPremierePrise(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Consultation faite par téléconsultation : ",
         value : "Non",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1,
+        num : 0
       });
 
 
@@ -24,7 +26,11 @@ function BlocCovidPremierePrise(props) {
         let reponse = {
           titre : "Consultation faite par téléconsultation : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1,
+          num : 0
+
+
         };
         
         setCurrentRep(reponse);

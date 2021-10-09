@@ -27,13 +27,15 @@ function BlocTabac(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Tabac ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
       });
     
       const [ currentNbTabac, setCurrentNbTabac] = useState({
         titre : "Paquet/Année",
         value : "",
-        reponse : 1
+        reponse : 1,
+        identifiant : 2
       });
     
 
@@ -41,7 +43,8 @@ function BlocTabac(props) {
         let reponse = {
           titre: "Tabac : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
         };
         setCurrentRep(reponse);
         if (e.target.value == "Oui") {
@@ -49,7 +52,8 @@ function BlocTabac(props) {
             {
               titre : "Paquet/Année",
               value : "",
-              reponse : 0
+              reponse : 0,
+              identifiant : 2
             }
           );
           
@@ -58,7 +62,8 @@ function BlocTabac(props) {
             {
               titre : "",
               value : "",
-              reponse : 1
+              reponse : 1,
+              identifiant : 2
             }
           );
         }
@@ -77,7 +82,8 @@ function BlocTabac(props) {
       let reponse = {
         titre : "Nombre Paquet : ",
         value : event.currentTarget.value,
-        reponse : 1
+        reponse : 1,
+        identifiant : 2
       };
      setCurrentNbTabac(reponse);
 
@@ -166,7 +172,8 @@ function BlocTabac(props) {
           reponse : reponse.reponse,
           titreBis : reponse2.titre,
           valueBis : reponse2.value,
-          reponseBis : reponse2.reponse
+          reponseBis : reponse2.reponse,
+          identifiant : 2
         }
         props.ajoute(newObjet);
       }

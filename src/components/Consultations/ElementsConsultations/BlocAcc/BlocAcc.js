@@ -26,7 +26,9 @@ function BlocAcc(props) {
     const [ currentRep, setCurrentRep] =useState({
         titre : "Personne accompagnante ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
     
 
@@ -35,7 +37,9 @@ function BlocAcc(props) {
         let reponse = {
           titre: "Accompagnant(e) : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1
+
         };
         setCurrentRep(reponse);
 

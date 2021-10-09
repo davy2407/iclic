@@ -27,7 +27,9 @@ function BlocIST(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Recherche IST +/- antibio-prophylaxie ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
 
       const [infoSupp, setInfoSupp] = useState({
@@ -43,7 +45,9 @@ function BlocIST(props) {
         let reponse = {
           titre : "Recherche IST : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         setCurrentRep(reponse);
 
@@ -54,7 +58,9 @@ function BlocIST(props) {
         let reponse = {
           titre : "Si ressource cochée oui : ",
           value : "http://www.info-ist.fr ; https://www.ameli.fr/assure/sante",
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         
         setInfoSupp(reponse);
@@ -88,7 +94,7 @@ function BlocIST(props) {
             </p>
             <br></br>
     
-            <label>
+            {/* <label>
               Vous desirez plus d'informations à transmettre à la patiente ?
               <Button 
                 variant="danger"
@@ -101,7 +107,7 @@ function BlocIST(props) {
                 Oui
               </Button>
             
-            </label>
+            </label> */}
     
      
           </div>

@@ -28,7 +28,9 @@ function BlocInfoEffets(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Information claires et établies des effets secondaires possibles des traitements : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
 
 
@@ -36,7 +38,9 @@ function BlocInfoEffets(props) {
         let reponse = {
           titre : "Information claires et établies des effets secondaires possibles des traitements : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         setCurrentRep(reponse);
 

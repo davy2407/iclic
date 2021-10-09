@@ -23,15 +23,36 @@ function ConsultationModel(props) {
   const [currentBloc, setCurrentBloc] = useState([listeElCon[0]]);
 
   const [listeReponseConsultation, setListeReponseConsultation] = useState([]);
+
+  const [listeReponseBlocUn, setListeReponseBlocUn] = useState([]);
   
- 
+  const [listeReponseBlocDeux, setListeReponseBlocDeux] = useState([]);
+
   const ajouteReponseCons = (reponse) => {
     let objetAAjouter = reponse;
     let listeRep = [...listeReponseConsultation];
+    let listeBlocUn = [...listeReponseBlocUn];
+    let listeBlocDeux = [...listeReponseBlocDeux];
     listeRep.push(objetAAjouter);
-    console.log(listeRep);
+    // console.log(listeRep);
     setListeReponseConsultation(listeRep);
-    props.onFonction.recup(listeRep);
+    if (objetAAjouter.identifiant==1) {
+
+      listeBlocUn.push(objetAAjouter);
+      setListeReponseBlocUn(listeBlocUn);
+    } else if (objetAAjouter.identifiant==2) {
+      listeBlocDeux.push(objetAAjouter);
+      setListeReponseBlocDeux(listeBlocDeux)
+    }
+    let BlocRep = {
+      blocUn : listeBlocUn,
+      blocDeux : listeBlocDeux
+    };
+
+
+    props.onFonction.recup(listeRep,BlocRep);
+
+    
   }
 
   const afficheSuite = (iden) => {
@@ -51,6 +72,10 @@ function ConsultationModel(props) {
 
   const retourArriere = (iden) => {
     let listeRep = [...listeReponseConsultation];
+    let listeBlocUn = [...listeReponseBlocUn];
+    let listeBlocUnCopie = [...listeReponseBlocUn];
+
+    let listeBlocDeux = [...listeReponseBlocDeux];
     let limite = 0;
     let id = iden;
     
@@ -58,12 +83,19 @@ function ConsultationModel(props) {
       
 
       let newId = id - 1;
+      let newIdBlocDEux = id - 13;
       listeRep.splice(newId);
+      listeBlocUn.splice(newId);
+      listeBlocDeux.splice(newIdBlocDEux);
       setListeReponseConsultation(listeRep);
+      setListeReponseBlocUn(listeBlocUn);
+      setListeReponseBlocDeux(listeBlocDeux);
       setCurrentBloc([listeElCon[newId]]);
-    }
-    console.log(listeRep);
-  }
+
+     
+    console.log(listeRep,listeBlocUn,listeBlocDeux);
+
+  } }
 
 
 

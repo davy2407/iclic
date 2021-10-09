@@ -26,7 +26,9 @@ function BlocEchoFaite(props) {
     const [ currentRep, setCurrentRep] =useState({
         titre : "Échographie de datation : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
     
 
@@ -35,7 +37,9 @@ function BlocEchoFaite(props) {
         let reponse = {
           titre: "Échographie de datation : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1
+
         };
         setCurrentRep(reponse);
 

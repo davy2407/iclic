@@ -29,7 +29,9 @@ function BlocIngeAnti(props) {
         value : "",
         titreBis : "",
         valueBis : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
 
       const [ currentBisRep, setCurrentBisRep] =useState({
@@ -37,7 +39,9 @@ function BlocIngeAnti(props) {
             value : "",
             titreBis : "",
             valueBis : "",
-            reponse : 0
+            reponse : 0,
+            identifiant : 2
+
           });
 
 
@@ -45,7 +49,9 @@ function BlocIngeAnti(props) {
         let reponse = {
           titre: "Nécessité d’une injection préventive d’Ig anti-D : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         if (e.target.value=="Oui") {
             setCurrentBisRep(reponse);
@@ -70,7 +76,9 @@ function BlocIngeAnti(props) {
         let reponse = {
           titre: "Nécessité d’une injection préventive d’Ig anti-D : Oui ; Date injection préventive d’Ig anti-D : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
        setCurrentRep(reponse);
        changeBtnClass();

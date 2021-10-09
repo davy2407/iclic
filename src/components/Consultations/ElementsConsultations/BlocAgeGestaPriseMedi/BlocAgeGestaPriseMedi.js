@@ -26,7 +26,9 @@ function BlocAgeGestaPriseMedi(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Age gestationnel (semaine d'aménorrhée) : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
 
 
@@ -70,7 +72,9 @@ function BlocAgeGestaPriseMedi(props) {
     let reponse = {
       titre: "Age gestationnel (semaine d'aménorrhée) : ",
       value: nb,
-      reponse : 1
+      reponse : 1,
+      identifiant : 1
+
     };
     setCurrentRep(reponse);
    

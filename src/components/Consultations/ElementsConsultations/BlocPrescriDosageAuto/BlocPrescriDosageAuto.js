@@ -7,10 +7,10 @@ import LightOff from "@assets/images/lightOff.svg";
 
 
 
-import "./BlocEcho.css";
+import "./BlocPrescriDosageAuto.css";
 
 
-function BlocEcho(props) {
+function BlocPrescriDosageAuto(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -25,20 +25,20 @@ function BlocEcho(props) {
   }
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Prescription échographie de datation ",
+    titre : "",
         value : "",
         reponse : 0,
-        identifiant : 1
+        identifiant : 2
 
       });
 
 
     const recupRadioEcho = (e) => {
         let reponse = {
-          titre: "Echographie :",
-          value: e.target.value,
+          titre: "",
+          value: "",
           reponse : 1,
-          identifiant : 1
+          identifiant : 2
 
         };
         
@@ -51,14 +51,14 @@ function BlocEcho(props) {
       const echographie = () => {
         return (
           <div className="BulleInfo">
-            <p className="txtInfo">
-            Grossesse précoce, attendre le résultat des ß-HCG pour date d'échographie (œuf visualisé si ß-HCG supérieur à 1000-1500 UI/L).
-    Possibilité de prescription échographie lors de la 2ème consultation préalable à l’IVG selon résultat sanguin.
-            </p>
             <p>
-            Préciser faire « échographie de datation à réaliser en urgence ; IPE  » 
-            sur votre ordonnance (Index pour radiologue « Vérification échographique pré-IVG »)
-            </p>
+            Indispensable pour affirmer la réussite de la méthode.           
+             </p>
+             <p>
+             L’autotest urinaire peut également être utilisé. (A domicile combiné à un suivi téléphonique)
+             </p>
+
+             <a class="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">HAS recommandation</a>
           </div>
         )
       }
@@ -90,7 +90,7 @@ function BlocEcho(props) {
   return (
     <div className="BlocConsultationStyle">
         <h2>
-        Prescription échographie de datation
+        Prescription d’un dosage de ß-HCG à faire pour la consultation de contrôle J15-21 ou d’un autotest urinaire combiné à un suivi téléphonique
         </h2>
             
 
@@ -100,7 +100,7 @@ function BlocEcho(props) {
         type='radio'
         id={`echoOui`}
         label={`Oui`}
-        value="Prescrite"
+        value="Oui"
         name="echographie"
       />
 
@@ -108,7 +108,7 @@ function BlocEcho(props) {
         type='radio'
         id={`echoNon`}
         label={`Non`}
-        value="Non prescrite"
+        value="Non"
         name="echographie"
       />
       </div>
@@ -118,7 +118,7 @@ function BlocEcho(props) {
     
       
       <input
-        alt="Image information préscription"
+        alt="Image information  Prescription d’un dosage de ß-HCG"
         onClick={changementCouleurSVGEcho}
         className="Lampe"
         type="image"
@@ -147,4 +147,4 @@ function BlocEcho(props) {
  
 }
 
-export default BlocEcho;
+export default BlocPrescriDosageAuto;

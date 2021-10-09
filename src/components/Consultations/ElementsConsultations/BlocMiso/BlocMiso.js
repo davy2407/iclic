@@ -33,7 +33,9 @@ function BlocMiso(props) {
       const [infoSupp, setInfoSupp] = useState({
         titre : "",
         value : "",
-        reponse : 1
+        reponse : 1,
+        identifiant : 1
+
       });
     
     
@@ -43,7 +45,9 @@ function BlocMiso(props) {
         let reponse = {
           titre : "Contre-indication médicamenteuse Misoprostol : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1
+
         };
         setCurrentRep(reponse);
 

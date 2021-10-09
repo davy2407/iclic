@@ -27,20 +27,26 @@ function BlocHPV(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Frottis à jour ou test HPV",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 2
+
       });
     
       const [currentDateHPV, setCurrentDateHPV]= useState({
         titre : "Date frotti/Test HPV",
         value : "",
-        reponse : 1
+        reponse : 1,
+        identifiant : 2
+
       });
 
     const recupRadioHPV = (e) => {
         let reponse = {
           titre : "Frottis à jour (ou test HPV) : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
         setCurrentRep(reponse);
         if (e.target.value == "Oui") {
@@ -48,7 +54,9 @@ function BlocHPV(props) {
             {
               titre : "Date frotti/Test HPV",
               value : "",
-              reponse : 0
+              reponse : 0,
+              identifiant : 2
+
             }
           );
           
@@ -57,7 +65,9 @@ function BlocHPV(props) {
             {
               titre : "",
               value : "",
-              reponse : 1
+              reponse : 1,
+              identifiant : 2
+
             }
           );
           
@@ -145,7 +155,9 @@ function BlocHPV(props) {
         let reponse = {
           titre: "Date Frotti",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 2
+
         };
        setCurrentDateHPV(reponse);
 
@@ -162,7 +174,9 @@ function BlocHPV(props) {
           reponse : reponse.reponse,
           titreBis : reponse2.titre,
           valueBis : reponse2.value,
-          reponseBis : reponse2.reponse
+          reponseBis : reponse2.reponse,
+          identifiant : 2
+
         }
         props.ajoute(newObjet);
       }

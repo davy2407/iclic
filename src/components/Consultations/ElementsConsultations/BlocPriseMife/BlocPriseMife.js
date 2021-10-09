@@ -3,18 +3,14 @@ import React , {useState,useEffect} from "react";
 import {Form,Button} from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
-import ContraceptionHAS from "@assets/pdf/ContraceptionPostIVGHAS.pdf";
-import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 
 
+import "./BlocPriseMife.css";
 
 
-import "./BlocContraChoisie.css";
-
-
-function BlocContraChoisie(props) {
+function BlocPriseMife(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -23,27 +19,23 @@ function BlocContraChoisie(props) {
   const [classBouttonActif, setClassBouttonActif] = useState("BouttonSuivantActif");
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
-  
-  const [ classIcon, setClassIcon] = useState("iconPDFNew");
-
-  const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
-  
-  const [ iconConsen, setIconConsen] = useState(classIcon);
 
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
 
   const [ currentRep, setCurrentRep] =useState({
-    titre: "Contraception choisie par la patiente : ",
-    value: "",
-    reponse : 0,
-    identifiant : 2
+    titre : "Remise et prise de mifépristone : ",
+        value : "",
+        titreBis : "",
+        valueBis : "",
+        reponse : 0,
+        identifiant : 2
 
-  });
+      });
 
       const [ currentBisRep, setCurrentBisRep] =useState({
-        titre : "Contraception choisie par la patiente : ",
+        titre : "Remise et prise de mifépristone : ",
             value : "",
             titreBis : "",
             valueBis : "",
@@ -55,8 +47,8 @@ function BlocContraChoisie(props) {
 
       const recupRadioAnti = (e) => {
         let reponse = {
-            titre: "Contraception choisie par la patiente : ",
-            value: e.target.value,
+          titre: "Remise et prise de mifépristone : ",
+          value: e.target.value,
           reponse : 1,
           identifiant : 2
 
@@ -82,7 +74,7 @@ function BlocContraChoisie(props) {
     
     
         let reponse = {
-          titre: "Contraception choisie par la patiente : Oui ; Type contraception : ",
+          titre: "Remise et prise de mifépristone : Oui ; Date : ",
           value: e.target.value,
           reponse : 1,
           identifiant : 2
@@ -98,24 +90,14 @@ function BlocContraChoisie(props) {
       const ouiAnti = () => {
         return (
             <div>
-                <Form.Group>
-      <Form.Control as="select" size="lg" onChange={(e) => {
-              handleChangeAnti(e);
-            }}>
-              <option value="">Choisir..</option>
-        <option value="implant">implant</option>
-        <option value="pilule">pilule</option>
-        <option value="patch">patch</option>
-        <option value="anneau vaginal">anneau vaginal</option>
-        <option value="cape cervicale">cape cervicale</option>
-        <option value="diaphragme">diaphragme</option>
-        <option value="préservatif féminin">préservatif féminin</option>
-        <option value="DIU hormonal et DIU au cuivre">DIU hormonal et DIU au cuivre</option>
-        <option value="stérilisation">stérilisation</option>
-        <option value="spermicides">spermicides</option>
-        <option value="contraceptifs injectables">contraceptifs injectables</option>
-      </Form.Control>
-      </Form.Group>
+                <input
+        type="date"
+        name="dateAnti"
+        id="dateAnti"
+        onChange={(e) => {
+          handleChangeAnti(e);
+        }}
+      ></input>
             </div>
         )
     }
@@ -134,24 +116,9 @@ function BlocContraChoisie(props) {
         return (
           <div className="BulleInfo">
               
-              <p className="Red">
-            la reprise  d’ une contraception efficace est indispensable dès la réalisation de l’IVG.          
-             </p>
-             <p>
-             Rappel : le préservatif : seule méthode efficace contre les IST. 
-Remboursé par l’assurance maladie  (10 décembre 2018 - <a className="Bold" target="_blank" rel="noopener noreferrer" href="https://solidarites-sante.gouv.fr/actualites/presse/communiques-de-presse/article/premier-preservatif-rembourse-par-l-assurance-maladie ">lien info remboursement</a>). 
-             </p>
-             <p>
-             La pilule a débuter au moment de la 1ère prise médicamenteuse ou le lendemain. 
-L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consultation post-IVG(contraception dans l’intervalle).
-             </p>
-             <p>
-             DIU placé lors de la visite de contrôle post-IVG médicamenteuse ou ultérieurement.  
-             </p>
-            
-             <p>
-                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.choisirsacontraception.fr/?gclid=Cj0KCQjwufn8BRCwARIsAKzP695ZxM7VW0eQH96CJa4iLGXVGsSe3laQdLa5O41MToiliObY-cgsHTAaAuoxEALw_wcB" >choisirmacontraception.fr</a>
-             </p>
+            <p>
+            Feuille de suivi de prise médicamenteuse = sécurité du médicament efficace.
+            </p>
             
           </div>
         );
@@ -187,7 +154,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
   return (
     <div className="BlocConsultationStyle">
- <h2>Contraception choisie par la patiente</h2>
+ <h2>Remise et prise de mifépristone</h2>
 
 
 <Form>
@@ -223,32 +190,12 @@ setCurrentOui("");
 
 
 <div>{currentOui}</div>
-<p>
-
-
-            <a className="NewDocContainer"  href={ContraceptionHAS} rel="noopener noreferrer" target="_blank">
-      <input
-        className={iconConsen}
-        onMouseEnter={()=>{
-          setIconConsen(hoverIcon);
-          
-        }}
-        onMouseOut={()=>{
-          setIconConsen(classIcon);
-        }}
-        type="image"
-        alt = "Image pdf Info Contraception HAS"
-        src={newPdfIcon}
-      />
-       HAS contraception PDF
-      </a>
-              
-             </p>
 <input
 onClick={changementCouleurSVGAntiD}
 className="Lampe"
 type="image"
 src={logoAfficheAntiD}
+alt="logo information mifépristone"
 />
 <div className="ContainerBulle">{currentInfoAntiD}</div>
 
@@ -273,4 +220,4 @@ src={logoAfficheAntiD}
 
 }
 
-export default BlocContraChoisie;
+export default BlocPriseMife;

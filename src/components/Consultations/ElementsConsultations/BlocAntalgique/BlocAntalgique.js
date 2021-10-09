@@ -28,7 +28,9 @@ function BlocAntalgique(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Prescription d’antalgiques : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
 
 
@@ -36,7 +38,9 @@ function BlocAntalgique(props) {
         let reponse = {
           titre : "Prescription d’antalgiques : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1
+
         };
         setCurrentRep(reponse);
 

@@ -28,7 +28,9 @@ function BlocViolence(props) {
   const [ currentVio, setCurrentVio] =useState({
     titre : " ",
         value : "",
-        reponse : 1
+        reponse : 1,
+        identifiant : 2
+
       });
 
   

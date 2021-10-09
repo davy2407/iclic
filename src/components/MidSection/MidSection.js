@@ -71,6 +71,10 @@ import BlocMiso from "@components/Consultations/ElementsConsultations/BlocMiso";
 import BlocAntalgique from "@components/Consultations/ElementsConsultations/BlocAntalgique";
 import BlocInfoEffets from "@components/Consultations/ElementsConsultations/BlocInfoEffets";
 import BlocContextFavo from "@components/Consultations/ElementsConsultations/BlocContextFavo";
+import BlocPriseMife from "@components/Consultations/ElementsConsultations/BlocPriseMife";
+import BlocPriseMiso from "@components/Consultations/ElementsConsultations/BlocPriseMiso";
+import BlocPrescriDosageAuto from "@components/Consultations/ElementsConsultations/BlocPrescriDosageAuto";
+import PremierePriseTarifMaj from "@components/Tarification/PremierePriseTarifMaj";
 
 
 
@@ -353,6 +357,11 @@ const afficheDeuxiemePriseTarifMaj = () => {
   setCurrentQuestionPre([objetAAjouter]);
 }
 
+const affichePremierePriseTarifMaj = () => {
+  let objetAAjouter = listeQuestionPre[22]
+  setCurrentQuestionPre([objetAAjouter]);
+}
+
 const afficheDeuxiemePriseTarifMin = () => {
   let objetAAjouter = listeQuestionPre[19]
   setCurrentQuestionPre([objetAAjouter]);
@@ -454,10 +463,13 @@ const selectConsultation = (event, idCons, idMaj) => {
 
 ////////////// state et fonction contenant/recuperant les reponses saisies durant la consulation
 const [ elementTArif, setElementTarif] = useState([]);
+const [ elementBloc , setElementBloc] = useState({});
 
-const recupElTarif = (liste) =>{
+const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
   let objetAAjouter = liste;
   setElementTarif(objetAAjouter);
+  setElementBloc(blocs);
+  console.log(blocs);
 }
 
 
@@ -661,6 +673,12 @@ const recupElTarif = (liste) =>{
         name : "Tarification consultation Post IVG Mineure",
         id : 21,
         objet : PostIvgTarifMin,
+        toggle : toggle
+      },
+      {
+        name : "Facturation et résumé 1ere prise médicamenteuse Majeure",
+        id : 22,
+        objet : PremierePriseTarifMaj,
         toggle : toggle
       }
 
@@ -952,9 +970,9 @@ const recupElTarif = (liste) =>{
         id : 4,
         elementsCon : {
           name : "Première prise médicamenteuse majeure", 
-          titre : "Consultation première prise médicamenteuse (facultative) : Majeure",
-          fonctionTarif : afficheDeuxiemePriseTarifMaj, /// a faire
-          listeElementsConsulations : [ /// a faire
+          titre : "Consultation première prise médicamenteuse : Majeure",
+          fonctionTarif : affichePremierePriseTarifMaj, 
+          listeElementsConsulations : [ 
             {
               objet : BlocCovidPremierePrise,
               id : 0
@@ -1010,6 +1028,46 @@ const recupElTarif = (liste) =>{
             {
               objet : BlocContextFavo,
               id : 13
+            },
+            {
+              objet : BlocViolence,
+              id : 14
+            },
+            {
+              objet : BlocIngeAnti,
+              id : 15
+            },
+            {
+              objet : BlocPriseMife,
+              id : 16
+            },
+            {
+              objet : BlocPriseMiso,
+              id : 17
+            },
+            {
+              objet : BlocArretTravail,
+              id : 18
+            },
+            {
+              objet : BlocContraChoisie,
+              id : 19
+            },
+            {
+              objet : BlocPrescriDosageAuto,
+              id : 20
+            },
+            {
+              objet : BlocIST,
+              id : 21
+            },
+            {
+              objet : BlocHPV,
+              id : 22
+            },
+            {
+              objet : BlocTabac,
+              id : 23
             }
             
           ]
@@ -1245,6 +1303,7 @@ const recupElTarif = (liste) =>{
                   onIdMaj={majMinSelect}
                   onElCons={currentElCons}
                   onElTarif={elementTArif}
+                  onElDoubleTarif={elementBloc}
                   >
 
                   </objet.objet>

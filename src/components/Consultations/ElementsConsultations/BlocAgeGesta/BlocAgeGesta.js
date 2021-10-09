@@ -26,7 +26,9 @@ function BlocAgeGesta(props) {
   const [ currentRep, setCurrentRep] =useState({
     titre : "Age gestationnel (semaine d'aménorrhée) : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
 
 
@@ -74,7 +76,9 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
     let reponse = {
       titre: "Age gestationnel (semaine d'aménorrhée) : ",
       value: nb,
-      reponse : 1
+      reponse : 1,
+      identifiant : 1
+
     };
     setCurrentRep(reponse);
    

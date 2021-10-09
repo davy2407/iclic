@@ -26,7 +26,9 @@ function BlocGroupeSang(props) {
     const [ currentRep, setCurrentRep] =useState({
         titre : "Groupe Sanguin : ",
         value : "",
-        reponse : 0
+        reponse : 0,
+        identifiant : 1
+
       });
     
 
@@ -39,7 +41,9 @@ function BlocGroupeSang(props) {
         let reponse = {
           titre: "Groupe Sanguin : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1
+
         };
        setCurrentRep(reponse);
       
