@@ -18,16 +18,6 @@ function ConsultationModel(props) {
 
 
 
-  const testAnimationCard = () => {
-    setCurrentClassCard(classActifCard);
-
-    setTimeout(setCurrentClassCard(classBaseCard), 500)
-
-    }
-
- 
-  
-
   
 
  
