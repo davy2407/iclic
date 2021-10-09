@@ -1,35 +1,5 @@
-.Consultation{
-    width: 100%;
-    min-height: 60vh;
-    border-radius: 20px;
-    border: 10px solid #72959e;
-    background-color: #72959e13;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 3%;  
-    animation: pulsate-bck 5s ease-in-out infinite both;
-
-  
 
 
-
-}
-
-.BulleInfo{
-    background-color:  rgb(255, 242, 243);
-    border-radius: 20px;
-    width: 80%;
-    margin-bottom: 1.5vh;
-    border: solid 2.5px #72959e ;
-    padding: 1%;
-    text-align: center;
-
-
-
-}
 
 .ContainerBulle{
     display: flex;
@@ -40,6 +10,7 @@
 
 .Consultation H1{
     color: #72959e;
+    font-size: 6vmin;
 }
 
 .ContainerInter{
@@ -65,67 +36,6 @@
 .BouttonRetour{
     align-self: flex-start;
 }
-
-
-.BlocConsultationStyle{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    border: solid 5px #72959e ;
-    background-color: #e3edf0 ;
-    border-radius: 35px;
-    padding: 5%;
-    width: 60%;
-    min-height: 50vh;
-    transition: all 0.5s linear;
-
-
-    /* background-color: rgba(0, 0, 0, 0.3);
-    background-size: 100% 50%;
-    border-radius: 50px; */
-
-   
-
-
-    
-    
-}
-
-
-.BlocConsultationStyleActiv{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    border: solid 15px #478997 ;
-    background-color: #e3edf0 ;
-    color: #e3edf0 ;
-    border-radius: 35px;
-    padding: 5%;
-    width: 60%;
-    min-height: 50vh;
-    transform: rotateY(160deg); 
-    transition: all 0.5s linear;
-
-    /* background-color: rgba(0, 0, 0, 0.3);
-    background-size: 100% 50%;
-    border-radius: 50px; */
-
- 
-
-
-    
-    
-}
-
-.BlocConsultationStyle[animation="1"] {
-    transform: rotateY(360deg); 
-    transition: all 1s linear;}
 
 
 

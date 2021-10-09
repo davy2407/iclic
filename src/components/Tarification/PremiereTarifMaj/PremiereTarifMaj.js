@@ -112,7 +112,7 @@ tarif habituel de  consultation
       <br></br>
      
       <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
-        https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
+        ivg.gouv.fr/guide.pdf
       </a>
       
       <a rel="noreferrer noopener"

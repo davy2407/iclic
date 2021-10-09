@@ -124,7 +124,7 @@ function BlocTabac(props) {
     
             <p>
               <a href="http://medicalcul.free.fr/packyear.html" target="_blank" rel="noreferrer noopener" className="Bold" >
-              http://medicalcul.free.fr/packyear.html.
+              http://medicalcul.fr
               </a>
             </p>
     

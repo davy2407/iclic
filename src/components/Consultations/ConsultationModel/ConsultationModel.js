@@ -1,6 +1,6 @@
 import React , {useState,useEffect} from "react";
 
-import { Button } from "react-bootstrap";
+import ArrowD from "@assets/images/downArrow.svg";
 
 
 
@@ -8,6 +8,45 @@ import "./ConsultationModel.css";
 
 
 function ConsultationModel(props) {
+
+//   const [ arrowScroll, setArrowScroll] = useState("Arrow");
+
+//   const [ arrowStopScroll, setArrowStopScroll] = useState("noneArrow");
+
+//   const [classArrow, setClassArrow] = useState("noneArrow");
+
+//  const [ timeArrow, setTimearrow] = useState(null);
+
+//  const [ scrollStatut, setScrollStatut] = useState("");
+
+
+
+//   const defilement = () => {
+//     let time = timeArrow;
+//     let statut = scrollStatut;
+//     if(time){
+//       time=null;
+//       setTimearrow(time);
+
+
+//     }
+//     time = setTimeout(()=>{
+//       time = null;
+//       setScrollStatut("Scroll stoppé");
+//       setClassArrow(arrowStopScroll);
+//       setTimearrow(time);
+
+
+//     },1000);
+//     if (statut!== 'scrolling') {
+      
+//       setClassArrow(arrowScroll);
+//       setTimearrow(null);
+
+      
+//     }
+
+//   }
 
 
   const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
@@ -123,10 +162,12 @@ function ConsultationModel(props) {
           );
         })}
 
+
+
         </div>
 
           
-         
+       
 
       </div>
     
