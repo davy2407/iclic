@@ -75,6 +75,7 @@ import BlocPriseMife from "@components/Consultations/ElementsConsultations/BlocP
 import BlocPriseMiso from "@components/Consultations/ElementsConsultations/BlocPriseMiso";
 import BlocPrescriDosageAuto from "@components/Consultations/ElementsConsultations/BlocPrescriDosageAuto";
 import PremierePriseTarifMaj from "@components/Tarification/PremierePriseTarifMaj";
+import PremierePriseTarifMin from "@components/Tarification/PremierePriseTarifMin";
 
 
 
@@ -359,6 +360,10 @@ const afficheDeuxiemePriseTarifMaj = () => {
 
 const affichePremierePriseTarifMaj = () => {
   let objetAAjouter = listeQuestionPre[22]
+  setCurrentQuestionPre([objetAAjouter]);
+}
+const affichePremierePriseTarifMin = () => {
+  let objetAAjouter = listeQuestionPre[23]
   setCurrentQuestionPre([objetAAjouter]);
 }
 
@@ -679,6 +684,12 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
         name : "Facturation et résumé 1ere prise médicamenteuse Majeure",
         id : 22,
         objet : PremierePriseTarifMaj,
+        toggle : toggle
+      },
+      {
+        name : "Facturation et résumé 1ere prise médicamenteuse Mineure",
+        id : 23,
+        objet : PremierePriseTarifMin,
         toggle : toggle
       }
 
@@ -1079,12 +1090,101 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
         elementsCon : {
           name : "Première prise médicamenteuse mineure", /// a faire
           titre : "Consultation deuxième prise médicamenteuse (facultative) : Mineure",
-          fonctionTarif : afficheDeuxiemePriseTarifMaj, 
+          fonctionTarif : affichePremierePriseTarifMin, 
           listeElementsConsulations : [
             {
               objet : BlocCovidPremierePrise,
               id : 0
+            },
+            {
+              objet : BlocEchoFaite,
+              id : 1
+            },
+            {
+              objet : BlocAgeGestaPriseMedi, 
+              id : 2
+            },
+            {
+              objet : BlocConsentmentIVG,
+              id : 3
+            },
+            {
+              objet : BlocRealConsultMin,
+              id : 4
+            },
+            {
+              objet : BlocPriseSangEff,
+              id : 5
+            },
+            {
+              objet : BlocDosage,
+              id : 6
+            },
+            {
+              objet : BlocGroupeSang,
+              id : 7
+            },
+            {
+              objet : BlocAccMin,
+              id : 8
+            },
+            {
+              objet : BlocMife,
+              id : 9
+            },
+            {
+              objet : BlocMiso,
+              id : 10
+            },
+            {
+              objet : BlocAntalgique,
+              id : 11
+            },
+            {
+              objet : BlocInfoEffets,
+              id : 12
+            },
+            {
+              objet : BlocContextFavo,
+              id : 13
+            },
+            {
+              objet : BlocViolence,
+              id : 14
+            },
+            {
+              objet : BlocIngeAnti,
+              id : 15
+            },
+            {
+              objet : BlocPriseMife,
+              id : 16
+            },
+            {
+              objet : BlocPriseMiso,
+              id : 17
+            },
+            {
+              objet : BlocArretTravail,
+              id : 18
+            },
+            {
+              objet : BlocContraChoisie,
+              id : 19
+            },
+            {
+              objet : BlocPrescriDosageAuto,
+              id : 20
+            },
+            {
+              objet : BlocIST,
+              id : 21
+            },
+            {
+              objet : BlocTabac,
+              id : 22
             }
+            
           ]
 
         }
