@@ -22,6 +22,13 @@ function BlocConsentmentIVG(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -59,7 +66,7 @@ function BlocConsentmentIVG(props) {
     
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
              <h2>Consentement à l’IVG signé</h2>
       <Form>
       <div key={`guide-radio`} className="mb-3" onChange={(e)=>{recupRadioGuide(e);changeBtnClass();}}>
@@ -112,8 +119,13 @@ function BlocConsentmentIVG(props) {
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

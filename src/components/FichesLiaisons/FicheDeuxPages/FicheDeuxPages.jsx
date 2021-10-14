@@ -84,6 +84,11 @@ class FicheDeuxPages extends React.Component {
  
           </div>
           <div className="Bloc2Resume">
+          <div className="Droite">
+          <img src={Logo} className="logoT"></img>
+
+
+          </div>
           <div className="Gauche">{this.state.dataDeux.map((objet)=>{
      
         return (

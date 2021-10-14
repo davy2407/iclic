@@ -84,7 +84,7 @@ function PremierePriseTarifMaj(props) {
     Il est <span className="Red Bold">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
      transmission préétabli avec votre centre de référence afin de suivre les règles
       préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
-    <sapn className="Red Bold">Un exemplaire doit être remis à la patiente.</sapn> 
+    <sapn className="Red Bold"> Un exemplaire doit être remis à la patiente.</sapn> 
     </p>
 <a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
         Fiche de liaison HAS à télécharger     

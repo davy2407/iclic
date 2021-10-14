@@ -30,6 +30,13 @@ function BlocContraChoisie(props) {
   
   const [ iconConsen, setIconConsen] = useState(classIcon);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -186,7 +193,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
  <h2>Contraception choisie par la patiente</h2>
 
 
@@ -260,8 +267,13 @@ src={logoAfficheAntiD}
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

@@ -19,6 +19,12 @@ function BlocAgeGesta(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -164,7 +170,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
    <h2>Age gestationnel (semaine d'aménorrhée)</h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
@@ -185,8 +191,13 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
+        setCurrentClassCard(classActifCard);
+
         props.ajoute(currentRep);
-        props.suite(props.keys);
+        setTimeout(() => {
+          props.suite(props.keys);
+ 
+        }, 501);
              
             }}>Suivant</Button>
 

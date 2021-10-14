@@ -19,6 +19,12 @@ function BlocDosage(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
   const [ currentRep, setCurrentRep] =useState({
     titre : "Dosage ß-HCG : ",
     value : "",
@@ -75,7 +81,7 @@ function BlocDosage(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
        <h2>Dosage ß-HCG</h2>
         <form onSubmit={(e)=>{
         
@@ -104,8 +110,14 @@ function BlocDosage(props) {
 
 
       <Button variant="info" className={currentClassBtt} onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+               setCurrentClassCard(classActifCard);
+
+               props.ajoute(currentRep);
+               setTimeout(() => {
+                 props.suite(props.keys);
+        
+               }, 501);
+       
              
             }}>Suivant</Button>
 
