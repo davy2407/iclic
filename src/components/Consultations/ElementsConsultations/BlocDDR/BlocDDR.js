@@ -66,6 +66,36 @@ function BlocDDR(props) {
     
   };
 
+  
+
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red">
+            <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+            <br></br>
+            Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
+
+
 
 
 
@@ -116,14 +146,20 @@ function BlocDDR(props) {
   setDateDDR(Math.round(semaineSA.weeks))
   if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
     affichageTxtUrgence();
+    setCurrentVerrou("");
+    changeBtnClass();
     
   }
   else if (Math.round(semaineSA.weeks)>=7) {
-   alert("Verrou");
-    
+    setCurrentClassBtt(classBouttonBase);  
+
+    afficheverrou();
   }
   else if (Math.round(semaineSA.weeks)<5) {
-    setCurrentTextUrgence("");
+    setCurrentTextUrgence(""); 
+    setCurrentVerrou("");
+    changeBtnClass();
+
     
   }
 
@@ -186,7 +222,7 @@ function BlocDDR(props) {
         onChange={(e)=> {
           let myDate = new Date(e.target.valueAsDate);
           DDR(myDate);
-          changeBtnClass();}}
+          }}
         
         
       ></input>
@@ -195,6 +231,8 @@ function BlocDDR(props) {
 
       <p><span className="Bold">SA : </span>{valueDDRweek.value}</p>
         <p><span className="Bold">Jour : </span>{valueDDRweek.valueBis}</p>
+        {currentVerrou}
+
       
       
       <br></br>

@@ -55,6 +55,35 @@ function BlocAcc(props) {
 
         
       }
+
+      
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red">
+            <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+            <br></br>
+            Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
+
     
 
 
@@ -69,13 +98,15 @@ function BlocAcc(props) {
 
         <label>
       <Form>
-      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);changeBtnClass();}}>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);}}>
       <Form.Check 
         type='radio'
         id={`accOui`}
         label={`Oui`}
         value="Oui"
         name="accompagant"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
+
       />
 
 <Form.Check 
@@ -84,9 +115,13 @@ function BlocAcc(props) {
         label={`Non`}
         value="Non"
         name="accompagant"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
+
       />
       </div>
       </Form>
+      {currentVerrou}
+
       <p>
         <a className="NewDocContainer" rel="noreferrer noopener"  href={ConsentementMineur} target="_blank">
       <input

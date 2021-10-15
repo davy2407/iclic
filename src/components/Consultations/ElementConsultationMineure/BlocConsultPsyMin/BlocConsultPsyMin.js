@@ -31,6 +31,36 @@ function BlocConsultPsyMin(props) {
     setCurrentClassBtt(classBouttonActif);
   };
 
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red">
+            <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+            <br></br>
+            Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
+
+    
+
+
   const [ currentRep, setCurrentRep] =useState({
     titre : "Consultation psycho-sociale  obligatoirement proposée ",
         value : "",
@@ -101,13 +131,15 @@ function BlocConsultPsyMin(props) {
       <h2>Consultation psycho-sociale obligatoire</h2>
       <br></br>
       <Form>
-      <div key={`conPsy-radio`} className="mb-3" onChange={(e)=>{recupRadioPsycho(e);changeBtnClass();}}>
+      <div key={`conPsy-radio`} className="mb-3" onChange={(e)=>{recupRadioPsycho(e);}}>
       <Form.Check 
         type='radio'
         id={`conPsyOui`}
         label={`Oui`}
         value="Oui"
         name="PsychoSo"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
+
       />
 
 <Form.Check 
@@ -116,9 +148,14 @@ function BlocConsultPsyMin(props) {
         label={`Non`}
         value="Non"
         name="PsychoSo"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
+
+        
       />
       </div>
       </Form>
+      {currentVerrou}
+
 
       <br></br>
       <input
