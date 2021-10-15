@@ -20,6 +20,13 @@ function BlocEffetMife(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+ 
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -84,7 +91,7 @@ function BlocEffetMife(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
         <h2>
         Effets secondaires de la mifépristone
         </h2>
@@ -129,8 +136,13 @@ function BlocEffetMife(props) {
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

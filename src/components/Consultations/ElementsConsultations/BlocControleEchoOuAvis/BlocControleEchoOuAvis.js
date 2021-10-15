@@ -28,6 +28,14 @@ function BlocControleEchoOuAvis(props) {
   
   const [ iconConsen, setIconConsen] = useState(classIcon);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+ 
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -172,7 +180,7 @@ function BlocControleEchoOuAvis(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
  <h2>Nécessité d’une échographie de contrôle et /ou un avis spécialisé au centre de référence</h2>
 
 
@@ -235,8 +243,13 @@ src={logoAfficheAntiD}
             }}>Retour</Button>
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

@@ -27,6 +27,13 @@ function BlocDeliMiso(props) {
   
   const [ iconConsen, setIconConsen] = useState(classIcon);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+ 
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   };
@@ -55,7 +62,7 @@ function BlocDeliMiso(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
         <h2>
         Délivrance du misoprostol
         </h2>
@@ -108,8 +115,13 @@ function BlocDeliMiso(props) {
 
 
       <Button variant="info" className={currentClassBtt} onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

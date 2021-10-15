@@ -19,6 +19,14 @@ function BlocAdhesionContra(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+ 
+  
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   };
@@ -35,7 +43,7 @@ function BlocAdhesionContra(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
         <h2>
         Adhésion à cette contraception
                 </h2>
@@ -70,8 +78,13 @@ function BlocAdhesionContra(props) {
 
 
       <Button variant="info" className={currentClassBtt} onClick={()=>{
-        props.ajoute(currentRep);
-        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

@@ -13,6 +13,13 @@ function BlocCovidPostIVG(props) {
     window.scrollTo(0,300);
  }, [])
 
+ const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+ const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+
+ const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
+
   const [ currentRep, setCurrentRep] =useState({
     titre : "Téléconsultation : ",
         value : "Non",
@@ -44,7 +51,7 @@ function BlocCovidPostIVG(props) {
 
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
             <h2>Consultation faite par téléconsultation</h2>
             <Button variant="danger" value="Oui" onClick={(e)=>{
                 recupConsultCovid(e)
@@ -59,8 +66,13 @@ function BlocCovidPostIVG(props) {
              
             }}>Suivant</Button> */}
                   <Button variant="info" className="BouttonSuivantActif" onClick={()=>{
-                        props.ajoute(currentRep);
-                        props.suite(props.keys);
+                               setCurrentClassCard(classActifCard);
+
+                               props.ajoute(currentRep);
+                               setTimeout(() => {
+                                 props.suite(props.keys);
+                        
+                               }, 501);
              
             }}>Suivant</Button>
 

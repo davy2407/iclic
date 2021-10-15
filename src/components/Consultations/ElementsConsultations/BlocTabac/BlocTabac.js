@@ -20,6 +20,13 @@ function BlocTabac(props) {
 
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
+  const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
+
+  const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
+ 
+  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -186,7 +193,7 @@ function BlocTabac(props) {
     
 
   return (
-    <div className="BlocConsultationStyle">
+    <div className={currentClassCard}>
 <h2>Tabac :</h2>
       <br></br>
       <Form>
@@ -248,9 +255,15 @@ function BlocTabac(props) {
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
         // props.ajoute(currentRep);
         // props.ajoute(currentNbTabac);
-        cocanation(currentRep,currentNbTabac);
 
-        props.suite(props.keys);
+        setCurrentClassCard(classActifCard);
+
+        cocanation(currentRep,currentNbTabac);
+        setTimeout(() => {
+          props.suite(props.keys);
+ 
+        }, 501);
+
              
             }}>Suivant</Button>
 
