@@ -32,6 +32,34 @@ function BlocAttPremier(props) {
     setCurrentClassBtt(classBouttonActif);
   };
 
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red Verrou">
+            <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.           <br></br>
+            Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.<br></br>
+            Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
+
+
   const [ currentRep, setCurrentRep] =useState({
     titre : "Attestation première consultation préalable à l’IVG : ",
         value : "",
@@ -93,13 +121,15 @@ function BlocAttPremier(props) {
       <h2>Attestation première consultation préalable à l’IVG</h2>
       <br></br>
       <Form>
-      <div key={`conPsy-radio`} className="mb-3" onChange={(e)=>{recupRadioPsycho(e);changeBtnClass();}}>
+      <div key={`conPsy-radio`} className="mb-3" onChange={(e)=>{recupRadioPsycho(e);}}>
       <Form.Check 
         type='radio'
         id={`conPsyOui`}
         label={`Oui`}
         value="Oui"
         name="PsychoSo"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
+
       />
 
 <Form.Check 
@@ -108,9 +138,12 @@ function BlocAttPremier(props) {
         label={`Non`}
         value="Non"
         name="PsychoSo"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
+
       />
       </div>
       </Form>
+      {currentVerrou}
 
       <br></br>
       <input

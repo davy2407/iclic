@@ -47,6 +47,34 @@ function BlocConsentmentIVG(props) {
 
     const [ globalClassIcon, setGlobalCassIcon] = useState(classIcon);
 
+    const [ currentVerrou, setCurrentVerrou] = useState("");
+
+    const verrouTxt = () => {
+      return (
+          <div className="Red Verrou">
+              <p>
+              Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+              <br></br>
+              <br></br>
+              Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.           <br></br>
+              Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.<br></br>
+              Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+              </p>
+          </div>
+      )
+  };
+  
+  const [txtVerrou, setTextverrou] = useState(
+      () => verrouTxt()
+  );
+  
+  const afficheverrou = () => {
+    
+    let txtAAfficher = txtVerrou;
+    setCurrentVerrou(txtAAfficher);
+  };
+  
+
 
     
 
@@ -69,13 +97,15 @@ function BlocConsentmentIVG(props) {
     <div className={currentClassCard}>
              <h2>Consentement à l’IVG signé</h2>
       <Form>
-      <div key={`guide-radio`} className="mb-3" onChange={(e)=>{recupRadioGuide(e);changeBtnClass();}}>
+      <div key={`guide-radio`} className="mb-3" onChange={(e)=>{recupRadioGuide(e);}}>
       <Form.Check 
         type='radio'
         id={`guideOui`}
         label={`Oui`}
         value="Oui"
         name="guideIVG"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
+
       />
 
 <Form.Check 
@@ -84,9 +114,14 @@ function BlocConsentmentIVG(props) {
         label={`Non`}
         value="Non"
         name="guideIVG"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
+
       />
       </div>
       </Form>
+
+      {currentVerrou}
+
 
 
       <br></br>

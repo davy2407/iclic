@@ -5,6 +5,17 @@ import "./MidSection.css";
 import QuestionStart from "@components/QuestionStart";
 import TxtStart from "@components/textApp/TextAcceuil";
 import TextNonPro from "@components/textApp/NonPro";
+import TxtPremierConsMin from "@components/textApp/TxtPremierConsMin";
+import TxtDeuxiemeConMaj from "@components/textApp/TxtDeuxiemeConMaj";
+import TxtDeuxiemeConMin from "@components/textApp/TxtDeuxiemeConMin";
+import TxtPremierePriseMaj from "@components/textApp/TxtPremierePriseMaj";
+import TxtDeuxiemePriseMaj from "@components/textApp/TxtDeuxiemePriseMaj";
+import TxtPostIVG from "@components/textApp/TxtPostIVG";
+
+
+
+
+
 import QuestionMetier from "@components/Questions/QuestionModal/QuestionMetier";
 import QuestionConvention from "@components/Questions/QuestionModal/QuestionConvention";
 import QuestionConsultationConv from "@components/Questions/QuestionModal/QuestionConsultationConv";
@@ -133,7 +144,49 @@ function MidSection(props) {
        id : 1,
        toggle : toggle
 
-     }
+     },
+     {
+      name : "Texte Première Consultation Mineure",
+      objet : TxtPremierConsMin,
+      id : 2,
+      toggle : toggle
+
+    },
+    {
+      name : "Texte Deuxième Consultation Majeure",
+      objet : TxtDeuxiemeConMaj,
+      id : 3,
+      toggle : toggle
+
+    },
+    {
+      name : "Texte Deuxième Consultation Mineure",
+      objet : TxtDeuxiemeConMin,
+      id : 4,
+      toggle : toggle
+
+    },
+    {
+      name : "Texte Premiere Prise Médicamenteuse",
+      objet : TxtPremierePriseMaj,
+      id : 5,
+      toggle : toggle
+
+    },
+    {
+      name : "Texte Deuxième Prise Médicamenteuse",
+      objet : TxtDeuxiemePriseMaj,
+      id : 6,
+      toggle : toggle
+
+    },
+    {
+      name : "Texte Consultation Post-IVG",
+      objet : TxtPostIVG,
+      id : 7,
+      toggle : toggle
+
+    }
 
    ]
 
@@ -168,6 +221,52 @@ function MidSection(props) {
   };
 
   /////////////////////////
+  const changeTextePremiereConsMin = () => {
+    let objetAAjouter =  listeText[2];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+
+  const changeTexteDeuxiemeConMAj = () => {
+    let objetAAjouter =  listeText[3];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+  const changeTexteDeuxiemeConMin = () => {
+    let objetAAjouter =  listeText[4];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+  const changeTextePremierePriseMaj = () => {
+    let objetAAjouter =  listeText[5];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+  const changeTexteDeuxiemePriseMaj = () => {
+    let objetAAjouter =  listeText[6];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+
+  const changeTextePostIvg = () => {
+    let objetAAjouter =  listeText[7];
+
+
+    setCurrentText([objetAAjouter]);
+  };
+
+
+
 
 
   ///// fonction gérant l'affichage question métier
@@ -405,6 +504,7 @@ const selectConsultation = (event, idCons, idMaj) => {
     let elementAAjouter = listeElConsultation[1].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTextePremiereConsMin();
   }
   else if (idConsultation=="1"&&idMajMin=="1"&&idAno=="2"||idConsultation=="2"&&idMajMin=="1"&&idAno=="2"||idConsultation=="3"&&idMajMin=="1"&&idAno=="2"||idConsultation=="4"&&idMajMin=="1"&&idAno=="2"||idConsultation=="5"&&idMajMin=="1"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[12];
@@ -415,48 +515,57 @@ const selectConsultation = (event, idCons, idMaj) => {
     let elementAAjouter = listeElConsultation[2].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTexteDeuxiemeConMAj();
   }
   else if (idConsultation=="2"&&idMajMin=="2"&&idAno=="1"||idConsultation=="2"&&idMajMin=="2"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[3].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTexteDeuxiemeConMin();
   }
   else if (idConsultation=="3"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[4].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTextePremierePriseMaj();
   }
   else if (idConsultation=="3"&&idMajMin=="2"&&idAno=="1"||idConsultation=="3"&&idMajMin=="2"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[5].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTextePremierePriseMaj();
+
   }
   else if (idConsultation=="4"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[6].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTexteDeuxiemePriseMaj();
   }
   else if (idConsultation=="4"&&idMajMin=="2"&&idAno=="1"||idConsultation=="4"&&idMajMin=="2"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[7].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTexteDeuxiemePriseMaj();
   }
   else if (idConsultation=="5"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[8].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTextePostIvg();
   }
   else if (idConsultation=="5"&&idMajMin=="2"&&idAno=="1"||idConsultation=="5"&&idMajMin=="2"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[9].elementsCon;
     setCurrentElCons(elementAAjouter);
     setCurrentQuestionPre([objetAAjouter]);
+    changeTextePostIvg(); 
   }
   
 }
@@ -1413,7 +1522,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
 
               
               
-
+<br></br>
               <div className="ContainerTextes">
               {currentText.map((objet) => {
           return (

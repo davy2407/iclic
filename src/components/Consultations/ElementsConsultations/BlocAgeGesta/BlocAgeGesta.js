@@ -25,6 +25,35 @@ function BlocAgeGesta(props) {
  
   const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
 
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red Verrou">
+             <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire d’adresser votre patiente vers le centre de référence duquel dépend la patiente (à défaut aux urgences spécialisés le plus proche).
+            <br></br>
+            Le degré d’urgence est à établir selon les signes cliniques ou l’âge gestationnel estimé.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
+
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
@@ -67,12 +96,19 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
   const recupSaisieUtilisateurNbSemaine = (event) => {
     event.preventDefault();
     let nb = saisieUtilisateurNbSemaineSA;
-    if (nb < 7) {
+    if (nb>0&&nb < 7) {
       affichageMoinsDeSept();
+      changeBtnClass();
+      setCurrentVerrou("");
+
     } else if (nb == 7 ) {
       affichagePlusDeSeptMoinsDouze();
+      changeBtnClass();
+      setCurrentVerrou("");
     } else if (nb > 7 ) {
-      affichagePlusDouze();
+      afficheverrou();
+      setCurrentClassBtt(classBouttonBase);
+      seturrentCheckGesta("")
 
       
 
@@ -180,11 +216,13 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
         value={saisieUtilisateurNbSemaineSA}
         onChange={handleChangeSA}
       />
-      <Button variant="danger" onClick={(e)=>{recupSaisieUtilisateurNbSemaine(e);changeBtnClass();}}>
+      <Button variant="danger" onClick={(e)=>{recupSaisieUtilisateurNbSemaine(e);}}>
         Valider
       </Button>
       <br></br>
       <div>{currentCheckGesta}</div>
+      {currentVerrou}
+
       <Button variant="info" className="BouttonRetour" onClick={()=>{
         props.retour(props.keys);
              

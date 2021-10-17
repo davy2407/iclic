@@ -166,6 +166,7 @@ function Home() {
 
 
       <div className="MargeHori"></div>
+      dernière MAJ : 17/10/2021
 
       <Footer className="FooterTest" />
     </React.Fragment>

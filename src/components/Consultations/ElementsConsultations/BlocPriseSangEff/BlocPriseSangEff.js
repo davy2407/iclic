@@ -28,7 +28,34 @@ function BlocPriseSangEff(props) {
 
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
-  }
+  };
+
+  const [ currentVerrou, setCurrentVerrou] = useState("");
+
+  const verrouTxt = () => {
+    return (
+        <div className="Red Verrou">
+            <p>
+            Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
+            <br></br>
+            <br></br>
+            Il est nécessaire, selon vos réponses, un ajustement et une reprise à la consultation précédente.           <br></br>
+            Selon le temps estimer de la grossesse, il peut s’agir d’une urgence.<br></br>
+            Votre centre de référence peut vous répondre afin d’établir une prise en charge dans les meilleurs conditions pour la patiente.
+            </p>
+        </div>
+    )
+};
+
+const [txtVerrou, setTextverrou] = useState(
+    () => verrouTxt()
+);
+
+const afficheverrou = () => {
+  
+  let txtAAfficher = txtVerrou;
+  setCurrentVerrou(txtAAfficher);
+};
 
   const [ currentRep, setCurrentRep] =useState({
     titre : "Bilan Sanguin prescrit (incluant groupe rhésus 2 déterminations+ BHCG quantitatif ) : ",
@@ -96,16 +123,18 @@ function BlocPriseSangEff(props) {
   return (
     <div className={currentClassCard}>
             <h2>
-             Prise de sang effectuée (Groupe sanguin : 2 déterminations, ß-HCG quantitatif)
+             Prise de sang effectuée
       </h2>
       <Form>
-      <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);changeBtnClass();}}>
+      <div key={`Bilan-radio`} className="mb-3" onChange={(e)=>{recupRadioBilan(e);}}>
       <Form.Check 
         type='radio'
         id={`BilanOui`}
         label={`Oui`}
         value="Oui"
         name="BilanSang"
+        onClick={()=>{setCurrentVerrou("");changeBtnClass();}}
+
       />
 
 <Form.Check 
@@ -114,11 +143,14 @@ function BlocPriseSangEff(props) {
         label={`Non`}
         value="Non"
         name="BilanSang"
+        onClick={()=>{afficheverrou();setCurrentClassBtt(classBouttonBase);}}
+
       />
       </div>
       </Form>
-      <p>« Prescrire un dosage des BHCG quantitatif le jour de la prise médicamenteuse. Sauf en cas d’utilisation d’un autotest urinaire. »
-          </p>
+
+          {currentVerrou}
+
 
 
 

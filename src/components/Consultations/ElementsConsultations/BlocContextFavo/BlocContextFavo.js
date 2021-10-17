@@ -73,7 +73,7 @@ function BlocContextFavo(props) {
 
       const verrouTxt = () => {
         return (
-            <div className="Red">
+            <div className="Red Verrou">
                 <p>
                 Dans le cadre de l’interruption volontaire de grossesse, votre réponse va à l’encontre des recommandations établies actuellement en vigueur en France.
                 <br></br>
