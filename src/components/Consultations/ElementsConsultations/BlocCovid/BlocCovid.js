@@ -51,7 +51,7 @@ function BlocCovid(props) {
 
   return (
     <div className={currentClassCard}>
-            <h2>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) »</h2>
+            <h2>Consultation faite par téléconsultation :</h2>
             <Button variant="danger" value="Oui" onClick={(e)=>{
                 recupConsultCovid(e)
                 afficheTxt();

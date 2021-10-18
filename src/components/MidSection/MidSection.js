@@ -955,7 +955,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           fonctionTarif : afficheDeuxiemeTarifMaj,
           listeElementsConsulations : [
             {
-              objet : BlocDeuxiemeCovid,
+              objet : BlocCovid,
               id : 0
             },
             {
@@ -1026,7 +1026,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           fonctionTarif : afficheDeuxiemeTarifMin,
           listeElementsConsulations : [
             {
-              objet : BlocDeuxiemeCovid,
+              objet : BlocCovid,
               id : 0
             },
             {
@@ -1198,7 +1198,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
         id : 5,
         elementsCon : {
           name : "Première prise médicamenteuse mineure", /// a faire
-          titre : "Consultation deuxième prise médicamenteuse (facultative) : Mineure",
+          titre : "Consultation première prise médicamenteuse : Mineure",
           fonctionTarif : affichePremierePriseTarifMin, 
           listeElementsConsulations : [
             {

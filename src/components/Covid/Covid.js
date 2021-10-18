@@ -7,186 +7,238 @@ function Covid() {
         <div className="Mid">
                         <div className="BorderApp"></div>
             <div className="Core">
-            <p>
-            Arrêté du 7 novembre 2020 modifiant l'arrêté du 10 juillet 2020 prescrivant les mesures d'organisation et de fonctionnement du système de santé nécessaires pour faire face à l'épidémie de covid-19 dans le cadre de l'état d'urgence sanitaire.
-            </p>
-            <p>
-            Le rétablissement des mesures dérogatoires relatives à l’IVG médicamenteuse instaurées lors du précédent Etat d’urgence sanitaire.
-            </p>
-            <p>
-                <ul>
-                    <li>
-                    La consultation de prise de médicament par téléconsultation (avec délivrance en pharmacie d’officine des médicaments nécessaires).
-                    </li>
-                    <li>
-                    Prolonger les délais d’IVG médicamenteuse de 7 à 9 semaines d’aménorrhées.
-                    </li>
-                    <li>
-                    Consultation de contrôle (14-21 jours après) peuvent être réalisées par téléconsultation.
-                    </li>
-                </ul>
-            </p>
-            <br></br>
-            <h1>
-            Concernant le protocole médicamenteux : 
-            </h1>
-            <p>
-            Pour les IVG médicamenteuses avant 7SA, le protocole habituel est applicable :
-            <ul>
-                <li>
-                mifépristone, 600 mg par voie orale (Mifégyne® 3 comprimés à 200 mg, en une prise)
-                </li>
-                <li>
-                suivi 36 à 48h après de misoprostol, par voie orale (soit Gymiso® 400 μg : 2 comprimés à 200 μg, enune prise ; soit MisoOne® 400 μg : 1 comprimé à 400 μg)
-                </li>
-            </ul>
-            </p>
-            <p>
-            Pour les IVG médicamenteuses entre 7SA et 9SA, la réponse rapide de la HAS d’avril 2020 préconise l’utilisation exceptionnelle au vu de la période Covid 19, de spécialités hors AMM.
-            </p>
-            <p>
-            Le protocole proposé est le suivant :
-            <ul>
-                <li>
-                une prise de 200 mg de mifépristone par voie orale suivie, 24 à 48 h plus tard,de 800 μg de misoprostol par voie orale, sub-linguale ou jugale (encore appelée buccale) 
-                </li>
-                <li>
-                une prise de 600 mg de mifépristone par voie orale suivie 24 à 48 h plus tard,de 800 μg de misoprostol par voie orale, sub-linguale ou jugale.
-                </li>
-            </ul>
-            </p>
-            <br></br>
-            <h1>
-            Concernant les médicaments : 
-            </h1>
-            <p>
-            Le professionnel de santé, prescrit les traitements abortifs en mentionnant le nom de la pharmacie d’officine désignée par la femme, et transmet la prescription à cette pharmacie selon les modalités de télémédecine dont il dispose. Le nom, les dosages, la posologie, la voie d’administration des médicaments doivent figurer sur l’ordonnance sans ambiguïté.
-            </p>
-            <p>
-            Le professionnel de santé contacte la pharmacie désignée pour s’assurer de la bonne réception de l’ordonnance.
-            </p>
-            <p>
-            Lors du passage de la femme à la pharmacie concernée, le pharmacien d’officine lui délivre les traitements dans un conditionnement adapté à une prise individuelle. Le pharmacien appose sur l'ordonnance le timbre de la pharmacie d’officine, la date de délivrance, les numéros d’enregistrement et la mention « délivrance exceptionnelle ». Il informe ensuite le prescripteur de la délivrance des médicaments à la femme. Cette délivrance s’effectue sans frais pour les femmes concernées, et anonymement.
-            </p>
-            <p>
-            L’ordonnance doit être envoyé par le professionnel de santé prenant en charge l’IVG lors de la 2ème consultation préalable à l’IVG. En pratique, la deuxième consultation préalable est supprimée. Une téléconsultation supplémentaire est ajoutée afin d’attester de la prise médicamenteuse. 
-            </p>
-            <br></br>
-            <h1>
-            Concernant les consultations : 
-            </h1>
-            <p>
-                <ul>
-                    <li>
-                    Seule la première consultation préalable à l’IVG est possible par tous professionnels de santé.
 
-                    </li>
-                    <li>
-                    La deuxième consultation préalable à l’IVG est remplacée par l’équivalent de la consultation de première prise médicamenteuse et doit par conséquent être effectuée par un professionnel de santé qualifié en orthogénie.
-                        
-                        </li>
+                <h1>
+                Page Covid
+                </h1>
 
-                        <li>
-                        La consultation de 1ère prise médicamenteuse se déroule en téléconsultation après être allée cherchée les traitements nécessaires en pharmacie, prescrits lors de la téléconsultation précédente.
-                        
-                        </li>
+                <p>
+                Fin de l’état d’urgence sanitaire en date du 1er juin 2021. 
+                </p>
 
-                        <li>
-                        Le deuxième temps de consultation pour prise de médicamenteuse reste facultative.
-                        
-                        </li>
+                <p>
+                Cependant, les recommandations de bonne pratique HAS en date du 12 avril 2021 « actualise ses recommandations concernant l’intervention par méthode médicamenteuse. Outre le fait de pérenniser la possibilité de recourir à une IVG médicamenteuse en ville jusqu’à 9 semaines, ces recommandations précisent le protocole médicamenteux adapté ainsi que les conditions de la prise en charge de cette méthode d’IVG, des consultations médicales jusqu’au suivi post-intervention. »
+                </p>
 
-                        <li>
-                        La consultation post-IVG est possible en téléconsultation. La réussite de la méthode peut être faite par dosage sanguin des BHCG ou par autotest urinaire à domicile.
-                        
-                        </li>
-    
-                </ul>
-            </p>
-            <br></br>
-            <h1>
-            Concernant la tarification : 
-            </h1>
+                <p>
+                De plus, il est précisé que « L'accès à l'IVG doit être simple et rapide : chaque femme doit obtenir un rendez-vous dans les 5 jours suivant son appel. Les consultations médicales préalables à l’IVG peuvent se faire en présentiel ou en téléconsultation, avec l’accord de la femme et si le médecin ou la sage-femme l’estiment possible.
+La séquence des consultations relatives à l’IVG médicamenteuse à domicile ou à l’hôpital reste identique.
+                 </p>  
+
+
+
+                 <p>
+                 Par ailleurs le ministère de la Santé a saisi l’ANSM : 
+                 <br></br>
+                 <ul>
+                     <li>
+                     pour une recommandation temporaire d’utilisation (RTU) pour encadrer et sécuriser la prescription, en dehors des AMM, des spécialités pharmaceutiques à base de mifépristone et celles à base de misoprostol
+                     </li>
+                     <li>
+                     pour donner un avis sur l’autotest urinaire pour le contrôle de l’IVG. 
+Cette recommandation est actuellement en attente de la part de l’ANSM.  
+                     </li>
+                 </ul>
+
+
+
+                  </p>   
+
+
+                  <h2>
+                  Concernant le protocole médicamenteux
+                      
+                      </h2> 
+
+
+                      <p>
+
+                      Pour les IVG médicamenteuses avant 7SA, le protocole habituel est applicable :
+                      <ul>
+                          <li>
+                          mifépristone, 600 mg par voie orale (Mifégyne® 3 comprimés à 200 mg, en une prise) suivi 36 à 48h après de 400 μg misoprostol, par voie orale (soit Gymiso® 400 μg : 2 comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 1 comprimé à 400 μg).
+                          </li>
+                          <li>
+                          Mifépristone, 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise) suivi 24-48h plus tard de 400 μg misoprostol, par voie transmuqueuse ou sub-linguale (soit Gymiso® 400 μg : 2 comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 1 comprimé à 400 μg).
+                          </li>
+
+                      </ul>
+                      </p>
+
+                      <p>
+                      Pour les IVG médicamenteuses entre 7SA et 9SA, la HAS préconise en date du 12 avril 2021 le protocole suivant :
+
+                      <ul>
+                          <li>
+                          Une prise de 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise) suivie, 24 à 48 h plus tard, de 800 μg de misoprostol (soit Gymiso® 400 μg : 4 comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 2 comprimé à 400 μg) en une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM). 
+                          </li>
+                          <li>
+                          Il n’est pas recommandé́ d’utiliser la voie vaginale. Voie transmuqueuse orale : les comprimés sont mis en place entre la joue et la gencive et les femmes doivent avaler les fragments résiduels au bout de 30 minutes. 
+                          </li>
+                      </ul>
+                      </p>   
+
+
+
+                      <h2>
+                          
+                      Concernant les médicaments (en cas de téléconsultation, non à jour au 12 Avril 2021, pour information)</h2> 
+
+
+
+
+                    
+                        <p>
+                        Le professionnel de santé, prescrit les traitements abortifs en mentionnant le nom de la pharmacie d’officine désignée par la femme, et transmet la prescription à cette pharmacie selon les modalités de télémédecine dont il dispose. Le nom, les dosages, la posologie, la voie d’administration des médicaments doivent figurer sur l’ordonnance sans ambiguïté.
+
+                        </p>
+
+                        <p>
+                        Le professionnel de santé contacte la pharmacie désignée pour s’assurer de la bonne réception de l’ordonnance.
+                        </p>
+
+
+                        <p>
+                        Lors du passage de la femme à la pharmacie concernée, le pharmacien d’officine lui délivre les traitements dans un conditionnement adapté à une prise individuelle. Le pharmacien appose sur l'ordonnance le timbre de la pharmacie d’officine, la date de délivrance, les numéros d’enregistrement et la mention « délivrance exceptionnelle ». Il informe ensuite le prescripteur de la délivrance des médicaments à la femme. Cette délivrance s’effectue sans frais pour les femmes concernées, et anonymement.
+                            </p>
+
+                            <p>
+                            L’ordonnance doit être envoyé par le professionnel de santé prenant en charge l’IVG lors de la 2ème consultation préalable à l’IVG. En pratique, la deuxième consultation préalable est supprimée. 
+                                </p>
+
+
+                                <p>
+                                Une téléconsultation supplémentaire est ajoutée afin d’attester de la prise médicamenteuse.
+                                 </p>  
+
+
+
+                              <p>
+
+                              L’anonymisation de la délivrance par les pharmaciens des médicaments de l’IVG est valable pour toutes les femmes mineures et majeures pour éviter des levées non voulues de confidentialité notamment sur les relevés de remboursement de l’assurance maladie. 
+                               </p>
+
+
+                            <p>Au 12 Avril 2021 : les différents traitements sont remis à la patiente lors des consultations en présentiels. Le misoprostol peut être prescrit afin que la patiente puisse les récupérer directement à la pharmacie. La cotation « forfait médicament » ne doit pas être appliqué dans ce seul cas. </p>          
+
+
+
+                        <h2>
+                        Concernant les téléconsultations (non à jour au 12 Avril 2021, pour information)
+                        </h2>
+
+
+
+<p>
+                        <ul>
+                            <li>
+                            Seule la première consultation préalable à l’IVG est possible par tous professionnels de santé.
+                            </li>
+                            <li>
+                            La deuxième consultation préalable à l’IVG est remplacée par l’équivalent de la consultation de première prise médicamenteuse et doit par conséquent être effectuée par un professionnel de santé qualifié en orthogénie.
+                            </li>
+                            <li>
+                            La consultation de 1ère prise médicamenteuse se déroule en téléconsultation après être allée chercher les traitements nécessaires en pharmacie, prescrits lors de la téléconsultation précédente. 
+                            </li>
+                            <li>
+                            Le deuxième temps de consultation pour prise de médicamenteuse reste facultative.
+                            </li>
+                            <li>
+                            La consultation post-IVG est possible en téléconsultation. La réussite de la méthode peut être faite par dosage sanguin des BHCG ou par autotest urinaire à domicile.
+                            </li>
+                            
+
+                            </ul>
+                            Au 12 Avril 2021 : Les consultations médicales préalables à l’IVG peuvent se faire en présentiel ou en téléconsultation, avec l’accord de la femme et si le médecin ou la sage-femme l’estiment possible.
+                            </p>
+
+
+            <h2>
+            Concernant la tarification (non à jour au 12 Avril 2021, pour information)
+            </h2>
+
+
             <p>
-            En termes de codage des téléconsultations ainsi réalisées, sont applicables les cotations prévues en matière d’IVG. Pour tenir compte de la possible délivrance en pharmacie du médicament abortif si la consultation est réalisée à distance, les professionnels sont invité à ôter le forfait médicament de la facturation et à coder ainsi :
+            En termes de codage des téléconsultations ainsi réalisées, sont applicables les cotations prévues en matière d’IVG. Pour tenir compte de la possible délivrance en pharmacie du médicament abortif si la consultation est réalisée à distance, les professionnels sont invités à ôter le forfait médicament de la facturation et à coder ainsi :
+
+
             <ul>
                 <li>
                 Pour les médecins généralistes : IC + FHV + IC
-
                 </li>
                 <li>
-                Pour les médecins spécialistes : ICS + FHV + ICS 
-
+                Pour les médecins spécialistes : ICS + FHV + ICS
                 </li>
                 <li>
-                Pour les sages-femmes : IC/ICS + FHV + IC/ICS
-
+                Pour les sages-femmes : IC/ICS + FHV + IC/ICS  
                 </li>
             </ul>
-            </p>
-            <p>
-            La prise en charge sera assurée par l’Assurance maladie obligatoire à 100% comme toutes les téléconsultations pendant la période de l’épidémie.
-            </p>
-            <br></br>
-            <p>
+            La prise en charge sera assurée par l’Assurance maladie obligatoire à 100% AMO. Une tarification dégradée ou une FSP (Feuille de Soins Papier) peuvent être effectués. 
+             </p> 
 
-            Concernant la femme mineure :
-            <br></br>
-            <br></br>
-            Les mêmes dispositions que chez la femme majeure s’appliquent en prenant en compte les mesures en lien avec le contexte sanitaire.<br></br>
-            Il convient d’expliquer aux femmes, que certains actes du parcours IVG devront nécessiter un déplacement. <br></br>
-            Dans cette période de réglementation des déplacements, l’attestation de déplacement dérogatoire pour les actes en lien avec l’IVG peut être remplie par la mineure. De même l’accompagnant majeur d’une mineure souhaitant garder le secret vis-à-vis des titulaires de l’autorité parentale, doit remplir sa propre attestation au motif de « déplacements pour motif de santé.<br></br>
-            Si des difficultés sont à prévoir pour la réalisation de l’IVG à domicile, notamment en termes de confidentialité vis-à-vis des proches présents, il demeure préférable que la femme se rende en consultation en présence d’un professionnel.
-            </p>
-            <br></br>
-            <p>
-            Pour plus d’information : 
-            <ul>
-                <li>
-                    <a href="https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse" target="_blank" rel="noreferrer noopener">
-                    https://www.ameli.fr/rouen-elbeuf-dieppe-seine-maritime/pharmacien/actualites/covid-19-les-mesures-derogatoires-pour-la-prise-en-charge-de-livg-medicamenteuse.
 
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.ameli.fr/assure/actualites/covid-19-tout-savoir-sur-la-teleconsultation-et-les-actes-distance" target="_blank" rel="noreferrer noopener">
-                    https://www.ameli.fr/assure/actualites/covid-19-tout-savoir-sur-la-teleconsultation-et-les-actes-distance.
 
-                    </a>
-                </li>
-            </ul>
-            </p>
-            <br></br>
-            <p>
-            Documentations téléchargeables : 
-            <ul>
-                <li>
-                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_fiche_ivg_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
-                Fiche générale Recommandations pour l’adaptation de l’offre en matière d’IVG dans le contexte de l’épidémie COVID-19 
-                    </a>
-                    
-                </li>
-                <li>
-                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_mineures_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
-                Fiche Consultations de télémédecine pour les IVG médicamenteuses avant 9 SA pour les femmes mineures
-                    </a>
-                    
-                </li>
-                <li>
-                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/covid-19_annexe_ivg_medicamenteuse_majeures_9sa_tlc_09112020.pdf" target="_blank" rel="noreferrer noopener">
-                Fiche Consultations de télémédecine pour les IVG médicamenteuses avant 9 SA pour les femmes majeures
-                    </a>
-                    
-                </li>
-                <li>
-                <a href="https://solidarites-sante.gouv.fr/IMG/pdf/fiche_info_pharmacien_ivg_09112020.pdf" target="_blank" rel="noreferrer noopener">
-                Fiche IVG médicamenteuse : conditions de délivrance des médicaments aux femmes dont les mineures à l’officine IVG
-                    </a>
-                    
-                </li>
-            </ul>
+             <p>
 
-            </p>
+
+             Concernant la femme mineure :
+             <br></br>
+             Les mêmes dispositions que chez la femme majeure s’appliquent en prenant en compte les mesures spécifique au patiente mineure.
+             
+             </p>   
+
+             <p>
+             A savoir : 
+             <br></br>
+             Pour les IVG faites entre 7-9SA :  modification de facturation pour les médicaments. 
+             <br></br>
+             Il est nécessaire d’associés une tarification dégradés avec FSP, dans le cas d’un refus de paiement de l’assurance maladie. La patiente peut également récupérer les traitements à la pharmacie selon les dispositions expliquées précédemment afin que la facturation soit effectuée par les pharmacies elle-même. 
+             <br></br>
+             Il n’existe actuellement pas de nouveau code de facturation dans ce cas précis. 
+
+
+              </p>  
+
+<br></br>
+
+              <p>
+              Pour plus d’information :
+              <br></br>
+              <ul>
+              <li>
+                      <a href="https://www.ameli.fr/" target="_blank" rel="noreferrer noopener">
+                      Ameli.fr
+                      </a>, rubrique IVG médicamenteuse. 
+                      
+                  </li>
+                  <li>
+                  Réseau périnatalité Eure et Seine Maritime : <a href="https://www.reseaux-perinat-hn.com/" target="_blank" rel="noreferrer noopener">https://www.reseaux-perinat-hn.com/
+
+                  </a>.
+                  </li>
+                  
+              </ul>
+
+              </p> 
+
+              <p>
+              Documentations téléchargeables :
+
+              <ul>
+                  <li>
+                  Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Résumé. 
+                  </li>
+                  <li>
+                  Protocole IVG médicamenteuse hors établissement : <a href="https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png" target="_blank" rel="noreferrer noopener">https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png</a> 
+                  </li>
+                  <li>
+                  Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Argumentaire.    
+                  </li>
+              </ul>
+              </p>           
+
+
+
 
             </div>
             <div className="BorderApp"></div>

@@ -48,20 +48,42 @@ function BlocDDR(props) {
   const Urgence = ()=> {
     return (
       <div>
-        <p className="red" >
-          Urgence
+        <p>
+                 <span className="Red">Urgence</span>
         </p>
       </div>
     )
-  }
+  };
+
+  const txtSA = ()=> {
+    return (
+      <div>
+        <p >
+          <span className="Red">Urgence</span>
+          </p>
+          <p>
+          <span className="Red">Adaptation du protocole médicamenteux</span> : Une prise de 200 mg de mifépristone par voie orale suivie, 24 à 48 h plus tard, de 800 μg de misoprostol en une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM). 
+        </p>
+      </div>
+    )
+  };
 
   const [txtUrgence, setTxtUrgence] = useState(()=> Urgence());
+
+  const [ txtSeptSA, setTxtSeptSA] = useState(()=> txtSA());
 
   const [currentTextUrgence, setCurrentTextUrgence] = useState("");
 
   const affichageTxtUrgence = () => {
    
     let txtAAfficher = txtUrgence;
+    setCurrentTextUrgence(txtAAfficher);
+    
+  };
+
+  const affichageTxtplusSeptMoinsNeufSA = () => {
+   
+    let txtAAfficher = txtSeptSA;
     setCurrentTextUrgence(txtAAfficher);
     
   };
@@ -144,23 +166,59 @@ const afficheverrou = () => {
   
  
   setDateDDR(Math.trunc(semaineSA.weeks))
-  if (Math.trunc(semaineSA.weeks)>=5&&Math.trunc(semaineSA.weeks)<7) {
-    affichageTxtUrgence();
-    setCurrentVerrou("");
-    changeBtnClass();
-    
-  }
-  else if (Math.trunc(semaineSA.weeks)>=7) {
-    setCurrentClassBtt(classBouttonBase);  
-
-    afficheverrou();
-  }
-  else if (Math.trunc(semaineSA.weeks)<5) {
+   if (Math.trunc(semaineSA.weeks)<5) {
     setCurrentTextUrgence(""); 
     setCurrentVerrou("");
     changeBtnClass();
 
     
+  }
+  else if (Math.trunc(semaineSA.weeks)>=5&&Math.trunc(semaineSA.weeks)<7) {
+    affichageTxtUrgence();
+    setCurrentVerrou("");
+    changeBtnClass();
+    
+  }
+  else if (Math.trunc(semaineSA.weeks)==7&&Math.trunc(semaineSA.days)==0) {
+    affichageTxtUrgence();
+    setCurrentVerrou("");
+    changeBtnClass();
+  }
+  else if (Math.trunc(semaineSA.weeks)==7&&Math.trunc(semaineSA.days)>0) {
+    affichageTxtplusSeptMoinsNeufSA();
+    setCurrentVerrou("");
+    changeBtnClass();
+
+    
+  }
+  else if (Math.trunc(semaineSA.weeks)>7&&Math.trunc(semaineSA.weeks)<9) {
+    affichageTxtplusSeptMoinsNeufSA();
+    setCurrentVerrou("");
+    changeBtnClass();
+
+  }
+
+  else if (Math.trunc(semaineSA.weeks)==9&&Math.trunc(semaineSA.days)==0) {
+    affichageTxtplusSeptMoinsNeufSA();
+    setCurrentVerrou("");
+    changeBtnClass();
+
+  }
+
+  else if (Math.trunc(semaineSA.weeks)==9&&Math.trunc(semaineSA.days)>0) {
+    afficheverrou();
+    setCurrentClassBtt(classBouttonBase);
+    setCurrentTextUrgence(""); 
+
+
+  }
+
+  else {
+    afficheverrou();
+    setCurrentClassBtt(classBouttonBase);
+    setCurrentTextUrgence(""); 
+
+
   }
 
   
@@ -232,6 +290,7 @@ const afficheverrou = () => {
       <p><span className="Bold">SA : </span>{valueDDRweek.value}</p>
         <p><span className="Bold">Jour : </span>{valueDDRweek.valueBis}</p>
         {currentVerrou}
+        {currentTextUrgence}
 
       
       
