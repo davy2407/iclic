@@ -123,7 +123,7 @@ const afficheverrou = () => {
   const semaineSAInDays = diffInDays ;
 
   const semaineSA = {
-    weeks: Math.round(semaineSAInDays /7),
+    weeks: Math.trunc(semaineSAInDays /7),
     days: semaineSAInDays % 7,
   };
   
@@ -143,19 +143,19 @@ const afficheverrou = () => {
   
   
  
-  setDateDDR(Math.round(semaineSA.weeks))
-  if (Math.round(semaineSA.weeks)>=5&&Math.round(semaineSA.weeks)<7) {
+  setDateDDR(Math.trunc(semaineSA.weeks))
+  if (Math.trunc(semaineSA.weeks)>=5&&Math.trunc(semaineSA.weeks)<7) {
     affichageTxtUrgence();
     setCurrentVerrou("");
     changeBtnClass();
     
   }
-  else if (Math.round(semaineSA.weeks)>=7) {
+  else if (Math.trunc(semaineSA.weeks)>=7) {
     setCurrentClassBtt(classBouttonBase);  
 
     afficheverrou();
   }
-  else if (Math.round(semaineSA.weeks)<5) {
+  else if (Math.trunc(semaineSA.weeks)<5) {
     setCurrentTextUrgence(""); 
     setCurrentVerrou("");
     changeBtnClass();
