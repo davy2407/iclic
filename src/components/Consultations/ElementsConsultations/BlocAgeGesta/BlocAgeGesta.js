@@ -59,7 +59,7 @@ const afficheverrou = () => {
   }
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Age gestationnel (semaine d'aménorrhée) : ",
+    titre : "Age gestationnel réel ou estimé (en semaine d’aménorrhée) : ",
         value : "",
         reponse : 0,
         identifiant : 1
@@ -116,7 +116,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
 
 
     let reponse = {
-      titre: "Age gestationnel (semaine d'aménorrhée) : ",
+      titre: "Age gestationnel réel ou estimé (en semaine d’aménorrhée) : ",
       value: nb,
       reponse : 1,
       identifiant : 1
@@ -207,7 +207,7 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
 
   return (
     <div className={currentClassCard}>
-   <h2>Age gestationnel (semaine d'aménorrhée)</h2>
+   <h2>Age gestationnel réel ou estimé (en semaine d’aménorrhée)</h2>
             {/* faire input comme nb paquet tabac pConsultation */}
             <input
             min="0"

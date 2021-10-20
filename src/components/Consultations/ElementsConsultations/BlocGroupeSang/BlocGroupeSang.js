@@ -77,6 +77,7 @@ function BlocGroupeSang(props) {
     <option value="AB+">AB+</option>
     <option value="O-">O-</option>
     <option value="O+">O+</option>
+    <option value="Non connu/Non réalisé">Non connu/Non réalisé</option>
   </Form.Control>
   </Form.Group>
       <Button variant="info" className="BouttonRetour" onClick={()=>{

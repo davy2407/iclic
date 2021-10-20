@@ -15,10 +15,10 @@ function OuiCovidDeuxiemeCon() {
     <div> 
         
     <p>
-    Cette consultation doit être effectuée par un professionnel de santé qualifié en orthogénie.
+    Consultation possible par téléconsultation par tous professionnels de santé.     
     <br></br>
     <br></br>
-    Si vous n’êtes pas le professionnel de santé prenant en charge l’IVG , il convient d’orienter la patiente sans délai vers les professionnels réalisant des IVG et disponibles.
+    Si vous n’êtes pas le professionnel de santé prenant en charge l’IVG, il convient d’orienter la patiente vers un professionnel orthogéniste par la suite de cette consultation. 
     <br></br>
     <ul>
         <li>
@@ -38,12 +38,10 @@ function OuiCovidDeuxiemeCon() {
     
     </p>
     <p>
-      Si vous êtes le professionnel de santé prenant en charge l’IVG, il convient de choisir la « consultation première prise médicamenteuse » lors du choix précédent. 
+    Pour plus d’informations, se reporter à l’onglet « Covid » dans le cadre des consultations faites à distance (consultation préalable uniquement). 
       </p>
 
-      <p>
-      La 2ème consultation préalable à l’IVG n’existe pas dans le cadre de l’Etat d’urgence sanitaire. 
-      </p>
+     
     </div>
   );
 

@@ -118,8 +118,22 @@ Sa tarification peut être faite électroniquement ou par format papier.
       >
         Lien choisirsacontraception.fr
       </a>
-      <a href={InfoPatiente} rel="noreferrer noopener" target="_blank">Fiche info patient traitement</a>
-      
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche info patient traitement
+      </a> 
   
         
 
@@ -145,17 +159,26 @@ Sa tarification peut être faite électroniquement ou par format papier.
 
       <p>
     SI  vous n’êtes pas le professionnel de santé effectuant l’IVG, adresser la patiente à un professionnel de santé pouvant effectuer l’acte
-      (<a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
+      <ul>
+        <li>
+        <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.ivglesadresses.org/">
           https://www.ivglesadresses.org/
           </a>
-           <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
+        </li>
+        <li>
+        <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/les-centres-de-planification.html">
            Centre de planification :  https://ivg.gouv.fr/les-centres-de-planification.html
-               </a>)
+               </a>
+          </li>
+          
+        
+        
+        </ul>
+          
     </p>
 
    <p>
-   Les documents nécessaires pour le bon déroulement de l’IVG sont : 
-   </p>
+   Pour rappel à la patiente, les documents nécessaires pour le bon déroulement de l’IVG sont :   </p>
    <ul>
        <li>Certificat de 1ère consultation</li>
        <li>Consentement de l’IVG signé</li>

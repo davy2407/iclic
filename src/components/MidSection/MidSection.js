@@ -955,7 +955,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           fonctionTarif : afficheDeuxiemeTarifMaj,
           listeElementsConsulations : [
             {
-              objet : BlocCovid,
+              objet : BlocDeuxiemeCovid,
               id : 0
             },
             {
@@ -1026,7 +1026,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           fonctionTarif : afficheDeuxiemeTarifMin,
           listeElementsConsulations : [
             {
-              objet : BlocCovid,
+              objet : BlocDeuxiemeCovid,
               id : 0
             },
             {

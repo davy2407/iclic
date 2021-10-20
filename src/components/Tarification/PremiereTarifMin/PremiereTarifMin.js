@@ -96,7 +96,7 @@ function PremiereTarifMin(props) {
       <h2>Tarification</h2>
 
       <div>
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <p>Téléconsultation ?</p>
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
             <br></br>
@@ -116,7 +116,7 @@ function PremiereTarifMin(props) {
       </p>
       <p>
       Circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).
-      <br></br>Ne pas utiliser la carte vitale de la patiente mineur!
+      <br></br>Ne pas utiliser la carte vitale de la patiente mineure !
       </p>
       
       <br></br>
