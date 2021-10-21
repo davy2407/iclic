@@ -1345,12 +1345,13 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
             //   objet : BlocDeuxiemePriseCovid,
             //   id : 0
             // },
+            
             {
-              objet : BlocAccMin,
+              objet : BlocEffetMife,
               id : 0
             },
             {
-              objet : BlocEffetMife,
+              objet : BlocAccMin,
               id : 1
             },
             {

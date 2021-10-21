@@ -130,10 +130,10 @@ function BlocEffetMife(props) {
       />
       <div className="ContainerBulle">{currentInfoEcho}</div>
       <br></br>
-      <Button variant="info" className="BouttonRetour" onClick={()=>{
+      {/* <Button variant="info" className="BouttonRetour" onClick={()=>{
         props.retour(props.keys);
              
-            }}>Retour</Button>
+            }}>Retour</Button> */}
 
       <Button variant="info" className={currentClassBtt}  onClick={()=>{
                                setCurrentClassCard(classActifCard);

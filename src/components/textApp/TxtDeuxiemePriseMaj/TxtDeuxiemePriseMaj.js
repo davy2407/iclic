@@ -28,7 +28,6 @@ function TxtDeuxiemePriseMaj() {
 
             </p> 
             <p>
-            <a className="Bold" rel="noreferrer noopener" target="_blank" href={ContraceptionHAS}>HAS contraception PDF</a>
             <a className="NewDocContainer" rel="noreferrer noopener"  href={ContraceptionHAS} target="_blank">
       <input
         alt="Image document fiche conseil"
