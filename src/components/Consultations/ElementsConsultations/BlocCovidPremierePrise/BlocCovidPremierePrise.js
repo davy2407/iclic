@@ -21,8 +21,8 @@ function BlocCovidPremierePrise(props) {
 
 
   const [ currentRep, setCurrentRep] =useState({
-    titre : "Consultation faite par téléconsultation : ",
-        value : "Non",
+    titre : "",
+        value : "",
         reponse : 0,
         identifiant : 1,
         num : 0
@@ -31,8 +31,8 @@ function BlocCovidPremierePrise(props) {
 
     const recupConsultCovid = (e) => {
         let reponse = {
-          titre : "Consultation faite par téléconsultation : ",
-          value: e.target.value,
+          titre : "",
+          value: "",
           reponse : 1,
           identifiant : 1,
           num : 0
@@ -58,14 +58,14 @@ function BlocCovidPremierePrise(props) {
 
   return (
     <div className={currentClassCard}>
-            <h2>Consultation faite par téléconsultation</h2>
+            {/* <h2>Consultation faite par téléconsultation</h2>
             <Button variant="danger" value="Oui" onClick={(e)=>{
                 recupConsultCovid(e)
                 afficheTxt();
             }}>Oui</Button>
             <br></br>
             <div>{currentTxt}</div>
-            <br></br>
+            <br></br> */}
             {/* <Button variant="info" className="BouttonSuivant" onClick={()=>{
                props.animation();
               props.suite(props.keys);

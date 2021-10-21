@@ -2,7 +2,7 @@ import React , {useState,useEffect,useRef} from "react";
 import { Button } from "react-bootstrap";
 import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
 import { useReactToPrint } from 'react-to-print';
-import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
+// import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 
 
 
@@ -30,8 +30,9 @@ function PostIvgTarifMin(props) {
             
             className="Consultation">
 
-<h1>Conclusion et tarification mineure</h1>
-      <h2>Tarification</h2>
+<h1>Fin de consultation</h1>
+
+<h2>Tarification et conclusion de consultation</h2>
       <br></br>
       
       <p>
@@ -44,7 +45,10 @@ function PostIvgTarifMin(props) {
       <p>
 
 
-Sa tarification peut être faite électroniquement ou par format papier.   
+Sa tarification peut être faite électroniquement ou par format papier. 
+<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+
 </p>
 <p>
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côté avec l’index IVE (30,24 euros).
@@ -92,9 +96,9 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
   <p>
   Il est <span className="Red Bold">obligatoire</span> de transmettre la fiche de liaison selon des modalités de transmission préétabli avec votre centre de référence afin de suivre les règles préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
 Un exemplaire doit être remis à la patiente.  </p>
-<a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
+{/* <a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
         Fiche de liaison HAS à télécharger     
-     </a>
+     </a> */}
 
       </div>
     

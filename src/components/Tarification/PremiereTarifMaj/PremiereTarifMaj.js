@@ -89,12 +89,12 @@ function PremiereTarifMaj(props) {
 
 
 
-<h1>Tarification et Conclusion de consultation</h1>
-      <br></br>
-      <h2>Tarification</h2>
+        <h1>Fin de consultation</h1>
+
+      <h2>Tarification et conclusion de consultation</h2>
 
       <div>
-            <p>Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » :</p>
+            <p>« Téléconsultation : </p>
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
             <br></br>
@@ -123,7 +123,7 @@ tarif habituel de  consultation
       </a>
       <a href="https://ivg.gouv.fr/ou-avorter.html" target="_blank" rel="noreferrer noopener" >Lien ouavorter.gouv</a>
 
-
+      « Les documents nécessaire pour le bon déroulement de l’IVG sont : »
 
       <br></br>
   <br></br>

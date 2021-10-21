@@ -27,18 +27,17 @@ class FicheDeuxPages extends React.Component {
       </h1>
       <br></br>
       <p className="pStart">Médecin – sage-femme – établissement de santé :</p>
-      <br></br>
-      <p className="pStart">Date de la convention :</p>
-      <br></br>
+     
+
       <p className="pStart">Nom/prénom et date de naissance :</p>
-      <br></br>
+ 
       <p>Tel :</p>
-      <br></br>
+    
       <p className="pStart">Antécédent(s) :</p>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
+     
+    
       <p className="pStart">Grossesse : </p>
       <p className="pStart">FCS :</p>
       <p className="pStart" >IVG préalable :</p>
@@ -47,7 +46,7 @@ class FicheDeuxPages extends React.Component {
       <p className="pStart">Autres :</p>
       <br></br>
       <br></br>
-      <br></br>
+   
       <br></br>
 
 

@@ -6,6 +6,7 @@ import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
 import { useReactToPrint } from 'react-to-print';
 
 
+
 import "./PremiereTarifMin.css";
 
 
@@ -91,12 +92,13 @@ function PremiereTarifMin(props) {
 
 
 
-<h1>Tarification et Conclusion de consultation</h1>
-      <br></br>
-      <h2>Tarification</h2>
+        <h1>Fin de consultation</h1>
+
+        <h2>Tarification et conclusion de consultation</h2>
+
 
       <div>
-            <p>Téléconsultation ?</p>
+      <p>« Téléconsultation : </p>
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
             <br></br>

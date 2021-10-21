@@ -5,6 +5,8 @@ import { useReactToPrint } from 'react-to-print';
 import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 import FicheConseil from "@assets/pdf/FicheConseilSurveillance.pdf";
 import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
+import newPdfIcon from "@assets/images/PDFicon.svg";
+
 
 
 
@@ -26,6 +28,11 @@ function PremierePriseTarifMin(props) {
   });
 
  
+  const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+
+const [ iconConsen, setIconConsen] = useState(classIcon);
 
 
   return (
@@ -33,9 +40,10 @@ function PremierePriseTarifMin(props) {
             
             className="Consultation">
 
-<h1>Conclusion et tarification</h1>
+<h1>Fin de consultation</h1>
 
-      <h2>Tarification</h2>
+
+<h2>Tarification et conclusion de consultation</h2>
       <br></br>
       
       <p>
@@ -44,6 +52,11 @@ function PremierePriseTarifMin(props) {
       <p>
       
        Elle doit être cotée avec l’index FHV + FMV (50 + 87,92 euros).
+       <br></br>
+        Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique
+pouvant inclure un remboursement du misoprostol supplémentaire.<br></br>
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la
+pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
        </p>
        <p>
        
@@ -53,6 +66,9 @@ function PremierePriseTarifMin(props) {
 
       <p>
       Sa tarification peut être faite électroniquement ou par format papier.  
+      <br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+
 
       </p>
       <p> 
@@ -88,15 +104,29 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
 
       
   
-      <a className="Bold" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
 
-      
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseil} target="_blank">
+      <input
+        alt="Image document fiche conseil"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+  Fiche information et conseil de surveillance à télécharger
+      </a> 
         
         <div style={{display:'none'}}>
         <FicheDeuxPages ref={componentRef} data={props.onElDoubleTarif}/>
 
         </div>
-      <Button variant="danger" onClick={handlePrint}>Imprimer Résumé consultation post-IVG médicamenteuse</Button>
+      <Button variant="danger" onClick={handlePrint}>Imprimer résumé de consultation/fiche de liaison</Button>
       <br></br>
 
       <p>
@@ -149,7 +179,8 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
     <p>
     Une consultation dédiée de première consultation de contraception et de prévention des maladies sexuellement transmissibles pour les jeunes filles de 15 à 18 ans. Elle est applicable depuis le 1er novembre 2017 pour les médecins de spécialité médecine générale ou gynécologie. Elle est cotée selon le code CCP avec prise en charge à 100% (46 euros). Elle ne peut pas s’additionner au forfait IVG.
     </p>
-    <a className="Bold" target="_blank" href={FicheHAS}>Fiche de liaison HAS à télécharger</a>
+    <a className="Bold" target="_blank" href={FicheHAS}> Fiche de liaison « type » HAS.    
+</a>
       </div>
     
   );

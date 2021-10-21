@@ -49,8 +49,9 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
             
             className="Consultation">
 
-<h1>Conclusion de consultation</h1>
-      <h2>Tarification</h2>
+<h1>Fin de consultation</h1>
+
+<h2>Tarification et conclusion de consultation</h2>
       <br></br>
       <p>
       L’IVG est prise en charge à 100% dans le cadre d’un tarif forfaitaire avec dispense totale d’avance de frais pour les patientes.       </p>
@@ -158,9 +159,8 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
                </a>)
     </p>
 
-   <p>
-   Les documents nécessaires pour le bon déroulement de l’IVG sont : 
-   </p>
+    <p>
+   Pour rappel à la patiente, les documents nécessaires pour le bon déroulement de l’IVG sont :   </p>
    <ul>
        <li>Certificat de 1ère consultation</li>
        <li>Consentement à l’IVG signé</li>

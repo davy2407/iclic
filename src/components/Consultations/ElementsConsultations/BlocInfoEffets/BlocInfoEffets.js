@@ -3,6 +3,10 @@ import React , {useState,useEffect} from "react";
 import {Form,Button} from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
+import InfoPatiente from "@assets/pdf/FicheInfoPatiente.pdf";
+import newPdfIcon from "@assets/images/PDFicon.svg";
+
+
 
 
 
@@ -26,6 +30,12 @@ function BlocInfoEffets(props) {
   const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
  
   const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
+
+  const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+  const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+  
+  const [ iconConsen, setIconConsen] = useState(classIcon);
 
 
   const changeBtnClass = () => {
@@ -131,6 +141,23 @@ function BlocInfoEffets(props) {
       <br></br>
       <div className="ContainerBulle">{currentInfoPsycho}</div>
       <br></br>
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche info patient traitement
+      </a> 
+
       <Button variant="info" className="BouttonRetour" onClick={()=>{
         props.retour(props.keys);
              

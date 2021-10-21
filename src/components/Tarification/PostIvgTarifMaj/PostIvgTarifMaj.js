@@ -2,7 +2,7 @@ import React , {useState,useEffect,useRef} from "react";
 import { Button } from "react-bootstrap";
 import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
 import { useReactToPrint } from 'react-to-print';
-import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
+// import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
 
 
 
@@ -47,10 +47,9 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       <div  
             
             className="Consultation">
+<h1>Fin de consultation</h1>
 
-<h1> 
-Conclusion et tarification</h1>
-<h2>Tarification</h2>
+<h2>Tarification et conclusion de consultation</h2>
       <br></br>
       
       <p>
@@ -60,7 +59,10 @@ Conclusion et tarification</h1>
        Elle doit être cotée avec l’index IC ou ICS (tarif de 25euros).
        </p>
        <p>
-Sa tarification peut être faite électroniquement ou par format papier.   
+Sa tarification peut être faite électroniquement ou par format papier.  
+<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+
 </p>
 <p>
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côter avec l’index IVE (30,24 euros).
@@ -106,9 +108,9 @@ Un exemplaire doit être remis à la patiente.
   <p>
   Il peut être confraternel de transmettre par courrier le résumé de la consultation afin de prévenir le médecin traitant si vous n’êtes pas celui-ci. 
   </p>
-  <a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
+  {/* <a className="Bold" href={FicheHAS} rel="noopener noreferrer"  target="_blank">    
         Fiche de liaison HAS à télécharger     
-     </a>
+     </a> */}
 
       </div>
     

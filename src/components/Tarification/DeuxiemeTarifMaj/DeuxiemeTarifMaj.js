@@ -49,8 +49,8 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
             
             className="Consultation">
 
-<h1>Conclusion de consultation</h1>
-      <h2>Tarification</h2>
+<h1>Fin de consultation</h1>
+      <h2>Tarification et conclusion de consultation</h2>
       <br></br>
       <p>
       La consultation de recueil de consentement (deuxième consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. 
@@ -59,6 +59,8 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       <p>
       Cotée IC ou ICS 25 euros.  
 Sa tarification peut être faite électroniquement ou par format papier.  
+<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
       </p>
       
       

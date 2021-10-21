@@ -1305,29 +1305,29 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           titre : "Consultation deuxième prise médicamenteuse (facultative) : Majeure",
           fonctionTarif : afficheDeuxiemePriseTarifMaj, 
           listeElementsConsulations : [
+            // {
+            //   objet : BlocDeuxiemePriseCovid,
+            //   id : 0
+            // },
             {
-              objet : BlocDeuxiemePriseCovid,
+              objet : BlocEffetMife,
               id : 0
             },
             {
-              objet : BlocEffetMife,
+              objet : BlocDeliMiso,
               id : 1
             },
             {
-              objet : BlocDeliMiso,
+              objet : BlocIngeAnti,
               id : 2
             },
             {
-              objet : BlocIngeAnti,
+              objet : BlocArretTravail,
               id : 3
             },
             {
-              objet : BlocArretTravail,
-              id : 4
-            },
-            {
               objet : BlocContraChoisie,
-              id : 5
+              id : 4
             }
 
           ]
@@ -1341,33 +1341,33 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
           titre : "Consultation deuxième prise médicamenteuse (facultative) : Mineure",
           fonctionTarif : afficheDeuxiemePriseTarifMin, 
           listeElementsConsulations : [
+            // {
+            //   objet : BlocDeuxiemePriseCovid,
+            //   id : 0
+            // },
             {
-              objet : BlocDeuxiemePriseCovid,
+              objet : BlocAccMin,
               id : 0
             },
             {
-              objet : BlocAccMin,
+              objet : BlocEffetMife,
               id : 1
             },
             {
-              objet : BlocEffetMife,
+              objet : BlocDeliMiso,
               id : 2
             },
             {
-              objet : BlocDeliMiso,
+              objet : BlocIngeAnti,
               id : 3
             },
             {
-              objet : BlocIngeAnti,
+              objet : BlocArretTravail,
               id : 4
             },
             {
-              objet : BlocArretTravail,
-              id : 5
-            },
-            {
               objet : BlocContraChoisie,
-              id : 6
+              id : 5
             }
 
           ]

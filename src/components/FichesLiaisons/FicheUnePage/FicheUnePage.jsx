@@ -30,11 +30,11 @@ class FicheUnePage extends React.Component {
       <br></br>
       <p className="pStart">Nom/prénom et date de naissance :</p>
       <br></br>
-      <br></br>
+ 
       
       <p className="pStart">Antécédent(s) :</p>
       <br></br>
-      <br></br>
+   
       <br></br>
       <br></br>
       

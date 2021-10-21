@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
 import { useReactToPrint } from 'react-to-print';
 import FicheConseil from "@assets/pdf/FicheConseilSurveillance.pdf";
+import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
 
@@ -25,6 +26,12 @@ function DeuxiemePriseTarif(props) {
 
 
 
+  const [ classIcon, setClassIcon] = useState("iconPDFNew");
+
+  const [ hoverIcon, setHoverIcon] = useState("iconPDFNewHover");
+  
+  const [ iconConsen, setIconConsen] = useState(classIcon);
+
 
 
 
@@ -45,11 +52,10 @@ function DeuxiemePriseTarif(props) {
             
             className="Consultation">
 
-<h1>
-Conclusion et tarification majeure</h1>
-<h2>
-  Tarification 
-</h2>
+<h1>Fin de consultation</h1>
+
+<h2>Tarification et conclusion de consultation</h2>
+
 
 <p>
       Le forfait a été enregistré lors de la 1ère consultation de prise médicamenteuse, il ne doit pas être renouvelé lors de cette consultation.       </p>
@@ -60,15 +66,33 @@ Conclusion et tarification majeure</h1>
         le tarif forfaitaire à l’IVG hors établissement de santé. Elle doit être
          cotée avec l’index FHV + FMV (50 + 87,92 euros). 
 Sa tarification peut être faite électroniquement ou par format papier.
+<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+
       </p>
 
       <p>
       La  2ème prise médicamenteuse peut se faire au cabinet  du médecin ou au domicile de la patiente si  le medecin a remis les comprimés à la patiente lors du rendez vous precedent. 
       </p>
       <p>
-      <a className="Bold" rel="noreferrer noopener" target="_blank" href={FicheConseil}>Fiche information et conseil de surveillance à télécharger</a>
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseil} target="_blank">
+      <input
+        alt="Image document fiche conseil"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+  Fiche information et conseil de surveillance à télécharger
+      </a>
 
-      </p>
+      </p> 
 
       <br></br>
       
@@ -133,10 +157,7 @@ médicamenteuse.
 Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
     </p>
 
-    <p>
-    <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien HAS recommandation</a> 
-
-    </p>
+   
 
       </div>
     

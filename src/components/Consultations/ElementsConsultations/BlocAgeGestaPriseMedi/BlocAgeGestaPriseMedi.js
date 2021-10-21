@@ -121,7 +121,23 @@ function BlocAgeGestaPriseMedi(props) {
     /// retourne le texte mois de 7 semaines si <7
     return (
       <div>
-          <p>IVG médicamenteuse </p>
+          <p>IVG médicamenteuse
+            <br></br>
+            <ul>
+              <li>
+              Mifépristone, 600 mg par voie orale (Mifégyne® 3 comprimés à 200 mg, en une
+prise) suivi 36 à 48h après de 400 μg misoprostol, par voie orale (soit Gymiso® 400 μg
+: 2 comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 1 comprimé à 400 μg).
+              </li>
+              <li>
+              Mifépristone, 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise)
+suivi 24-48h plus tard de 400 μg misoprostol, par voie transmuqueuse ou sub-
+linguale (soit Gymiso® 400 μg : 2 comprimés à 200 μg, en une prise ; soit MisoOne®
+400 μg : 1 comprimé à 400 μg).
+              </li>
+            </ul>
+            
+             </p>
       </div>
     );
   };
@@ -144,7 +160,21 @@ function BlocAgeGestaPriseMedi(props) {
     return (
       <div>
         <p>
-        IVG médicamenteuse possible dans le cadre des dispositions liés à l’Etat d’urgence sanitaire.         </p>
+        IVG médicamenteuse possible dans le cadre des dispositions liés à l’Etat d’urgence sanitaire.    
+        <br></br>
+            <ul>
+              <li>
+              « Une prise de 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise)
+suivie, 24 à 48 h plus tard, de 800 μg de misoprostol (soit Gymiso® 400 μg : 4
+comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 2 comprimé à 400 μg) en
+une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM).
+              </li>
+              <li>
+              Il n’est pas recommandé́ d’utiliser la voie vaginale.
+              </li>
+            </ul>
+        
+             </p>
         
        
       </div>
@@ -168,7 +198,22 @@ function BlocAgeGestaPriseMedi(props) {
     /// retourne le texte mois de 7 semaines si >12
     return (
       <div>
-          <p>Cadre des dispositions liés à l’Etat d’urgence sanitaire : IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.</p>
+          <p>Cadre des dispositions liés à l’Etat d’urgence sanitaire : IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.
+
+
+          <br></br>
+            <ul>
+            <li>
+              « Une prise de 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise)
+suivie, 24 à 48 h plus tard, de 800 μg de misoprostol (soit Gymiso® 400 μg : 4
+comprimés à 200 μg, en une prise ; soit MisoOne® 400 μg : 2 comprimé à 400 μg) en
+une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM).
+              </li>
+              <li>
+              Il n’est pas recommandé́ d’utiliser la voie vaginale.
+              </li>
+            </ul>
+          </p>
         
       </div>
     );
