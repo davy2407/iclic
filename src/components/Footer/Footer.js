@@ -13,6 +13,8 @@ import Sponsor from "@components/Sponsor";
 import logoPrenat from "@assets/images/logoPerinaNormandie.png";
 import National from "@assets/images/logoNational.jpg";
 import LogoKitmedical from "@assets/images/LogoKitmedical.svg";
+import Original from "@assets/images/Original.png";
+
 
 function Footer() {
   const [listeSponsor, setListeSponsor] = useState([
@@ -23,7 +25,9 @@ function Footer() {
     // { id: 1, nom: 'UniRouen', backgroundImage: Cinq },
     { id: 2, nom: 'Prenat', backgroundImage: logoPrenat, ref : "https://www.perinatbn.org/" },
     { id: 3, nom: 'Natio', backgroundImage: National, ref : "https://www.conseil-national.medecin.fr/" },
-    { id : 4, nom : 'KitMe', backgroundImage : LogoKitmedical, ref : "https://kitmedical.fr/"}
+    { id : 4, nom : 'KitMe', backgroundImage : LogoKitmedical, ref : "https://kitmedical.fr/"},
+    { id : 5, nom : 'insititut médical simone veil', backgroundImage : Original, ref : "https://www.ivg-rouen.fr/"}
+
     // { nom: 6, backgroundImage: Six },
     // { nom: 7, backgroundImage: Sept },
   ]);
