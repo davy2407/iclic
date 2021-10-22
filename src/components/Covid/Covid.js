@@ -1,4 +1,6 @@
 import React from "react";
+import RecommandationIVG from "@assets/pdf/RecommandationIVG.pdf";
+import Argumentaire from "@assets/pdf/Argumentaire.pdf";
 
 
 
@@ -226,13 +228,14 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 
               <ul>
                   <li>
-                  Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Résumé. 
+                  <a href={RecommandationIVG} target="_blank" rel="noreferrer noopener">Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Résumé. 
+</a> 
                   </li>
                   <li>
                   Protocole IVG médicamenteuse hors établissement : <a href="https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png" target="_blank" rel="noreferrer noopener">https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png</a> 
                   </li>
                   <li>
-                  Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Argumentaire.    
+                  <a href={Argumentaire} target="_blank" rel="noreferrer noopener">Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Argumentaire.</a>  
                   </li>
               </ul>
               </p>           
