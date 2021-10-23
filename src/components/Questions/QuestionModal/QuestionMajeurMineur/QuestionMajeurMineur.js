@@ -7,12 +7,15 @@ import "./QuestionMajeurMineur.css";
 
 
 function QuestionMajeurMineur(props) {
+
   const [animation, setAnimation] = useState(0);
 
   const toggle = props.toggle;
   
   useEffect(() => {
-    renderAnimations()
+    window.scrollTo(0,0);
+
+    renderAnimations();
  }, [toggle]);
 
  const renderAnimations = () => {
