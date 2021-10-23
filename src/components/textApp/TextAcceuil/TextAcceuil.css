@@ -1,17 +1,3 @@
-.TextStart{
-    text-align: center;
-    width: 70%;
-    font-size: 1.4rem;
-    min-height: 70vh;
-    font-weight: 600;
-
-}
-
-
-
-.TextStart[animation="1"] {
-    animation: heartbeat 1.5s ease-in-out both;
-}
 
 
 

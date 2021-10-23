@@ -47,6 +47,22 @@ html {
     height: auto;
   }
 
+  .TextStart{
+    text-align: center;
+    width: 70%;
+    font-size: 1.4rem;
+    min-height: 70vh;
+    font-weight: 600;
+
+}
+
+
+
+.TextStart[animation="1"] {
+    animation: heartbeat 1.5s ease-in-out both;
+}
+
+
   .QuestionMetierStyle{
     width: 50vw;
     min-height: 30vh;
@@ -327,8 +343,25 @@ html {
   }
 
   .BorderApp{
-    width: 1vw;
+    display: none;
 }
+
+
+.TextStart{
+  text-align: center;
+  width: 90%;
+  font-size: 1.4rem;
+  min-height: 70vh;
+  font-weight: 600;
+
+}
+
+
+
+.TextStart[animation="1"] {
+  animation: heartbeat 1.5s ease-in-out both;
+}
+
 .Mid{
   width: 100%;
   min-height: 70vh;
@@ -458,7 +491,7 @@ html {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    border: solid 1px #72959e ;
+    border: solid 3px #72959e ;
     background-color: #e3edf0 ;
     border-radius: 35px;
     padding: 5%;
@@ -485,7 +518,7 @@ html {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border: solid 5px #478997 ;
+  border: solid 3px #478997 ;
   background-color: #e3edf0 ;
   color: #e3edf0 ;
   border-radius: 35px;
@@ -511,7 +544,7 @@ html {
   width: 100%;
   min-height: 95vh;
   border-radius: 20px;
-  border: 10px solid #72959e;
+  border: 3px solid #72959e;
   background-color: #72959e13;
   display: flex;
   flex-direction: column;
