@@ -52,7 +52,7 @@ function TextAcceuil(props) {
           href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027221802&categorieLien=id"
           >Loi avortement du 25 mars 2013 </a>.
           <br></br>
-          N’hésitez pas à nous contacter via contact.ivgclic@gmail.com.
+          N’hésitez pas à nous contacter via contact.ivgclic@gmail.com
          
         </p>
 
