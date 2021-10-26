@@ -166,7 +166,7 @@ function Home() {
 
 
       <div className="MargeHori"></div>
-      dernière MAJ : 17/10/2021
+      <span className="Large">Mise à jour : 17/10/2021</span>
 
       <Footer className="FooterTest" />
     </React.Fragment>

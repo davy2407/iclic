@@ -31,6 +31,11 @@ html {
   justify-content: center;
 }
 
+.Large{
+  font-style: oblique;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 500px) {
   .App {
    
