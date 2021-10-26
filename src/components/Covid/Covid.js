@@ -216,7 +216,7 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
                       
                   </li>
                   <li>
-                  Réseau périnatalité Eure et Seine Maritime : <a href="https://www.reseaux-perinat-hn.com/" target="_blank" rel="noreferrer noopener">https://www.reseaux-perinat-hn.com/
+                  Réseau périnatalité Eure et Seine Maritime : <a href="https://www.reseaux-perinat-hn.com/" target="_blank" rel="noreferrer noopener">reseaux-perinat-hn.com
 
                   </a>.
                   </li>
@@ -231,7 +231,7 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 </a> 
                   </li>
                   <li>
-                  Protocole IVG médicamenteuse hors établissement : <a href="https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png" target="_blank" rel="noreferrer noopener">https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png</a> 
+                  Protocole IVG médicamenteuse hors établissement : <a href="https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel_2021-03-25_09-31-31_282.png" target="_blank" rel="noreferrer noopener">https://www.has-sante.fr/upload/docs/image/png/2021-03/reco406_synthese_ivg_mel</a> 
                   </li>
                   <li>
                   <a href={Argumentaire} target="_blank" rel="noreferrer noopener">Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Argumentaire.</a>  
