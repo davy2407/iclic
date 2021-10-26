@@ -203,6 +203,8 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 
 <br></br>
 
+             
+
               <p>
               Pour plus d’information :
               <br></br>
@@ -220,10 +222,7 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
                   </li>
                   
               </ul>
-
-              </p> 
-
-              <p>
+              <br></br>
               Documentations téléchargeables :
 
               <ul>
