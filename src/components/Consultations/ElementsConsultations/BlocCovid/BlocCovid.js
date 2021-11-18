@@ -19,11 +19,21 @@ function BlocCovid(props) {
 
  const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
 
+ const [classBouttonBase,setClassBouttonBase] = useState("BouttonSuivant");
+
+ const [classBouttonActif, setClassBouttonActif] = useState("BouttonSuivantActif");
+
+ const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
+
   const [ currentRep, setCurrentRep] =useState({
     titre : "Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » : ",
-        value : "Non",
+        value : "",
         reponse : 0
       });
+
+      const changeBtnClass = () => {
+        setCurrentClassBtt(classBouttonActif);
+      }
 
 
     const recupConsultCovid = (e) => {
@@ -51,11 +61,21 @@ function BlocCovid(props) {
 
   return (
     <div className={currentClassCard}>
-            <h2>Consultation faite par téléconsultation :</h2>
+            <h2>Consultation faite par téléconsultation</h2>
             <Button variant="danger" value="Oui" onClick={(e)=>{
                 recupConsultCovid(e)
                 afficheTxt();
+                changeBtnClass();
             }}>Oui</Button>
+            <br></br>
+            <Button variant="danger" value="Non" onClick={(e)=>{
+                recupConsultCovid(e);
+                setCurrentTxt("");
+                changeBtnClass();
+              
+            }}>Non
+
+            </Button>
             <br></br>
             <div>{currentTxt}</div>
             <br></br>
@@ -64,7 +84,7 @@ function BlocCovid(props) {
               props.suite(props.keys);
              
             }}>Suivant</Button> */}
-                  <Button variant="info" className="BouttonSuivantActif" onClick={()=>{
+                  <Button variant="info" className={currentClassBtt} onClick={()=>{
                         setCurrentClassCard(classActifCard);
                         props.ajoute(currentRep);
                         setTimeout(() => {
