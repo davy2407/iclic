@@ -10,41 +10,55 @@ function Covid() {
                         <div className="BorderApp"></div>
             <div className="Core">
 
-                <h1>
-                Page Covid
-                </h1>
+                <h1>Page Actualité</h1>
+                <p>
+                Le décret n° 2022-212 du 19 février 2022 relatif aux conditions de réalisation des interruptions volontaires de grossesse par voie médicamenteuse hors établissements de santé perrinise les dispositions concernant la <bold>téléconsultation, l’abolition du délai de réflexion de 2 jours pour les femmes majeures ainsi que l’allongement du délai à 9SA</bold>.
+                </p>
+                <p>
+                La HAS rappelle que « L’objectif est d’étendre de manière pérenne le délai d’une IVG en ville jusqu’à 9 SA en répondant à plusieurs enjeux : réduire le délai d’accès à l’IVG médicamenteuse, élargir l’offre de soin qui doit être possible en ville comme à l’hôpital mais aussi alléger la charge des établissements de santé qui doivent pouvoir se concentrer sur les IVG chirurgicales »
+                    </p> 
+
+                <p>
+                Depuis le mercredi 23 février 2022, Le parlement a voté la loi autorisant l’allongement du délai pour la réalisation des IVG chirurgicales en établissement de santé, passant de 14 à 16 SA, ainsi que l’ouverture à la possibilité pour cet acte aux sages-femmes.
+                </p>    
+                <p>
+                Par ailleurs le ministère de la Santé a saisi l’ANSM qui publie en date du 23/02/2022 : 
+                <ul>
+                    <li>
+                        <p>
+                        L’Agence nationale de sécurité du médicament et des produits de santé (ANSM) a établi un Cadre de Prescription Compassionnelle (CPC) pour encadrer et sécuriser la prescription du misoprostol en association avec la mifépristone dans l’interruption volontaire de grossesse (IVG) par voie médicamenteuse, au cours de la 8ème et de la 9ème semaine d’aménorrhée, soit lors de la 6ème et de la 7ème semaine de grossesse.
+                        </p>
+                        <p>
+                        Ce CPC a été établi sur la base des nouvelles dispositions introduites par le décret n° 2022-164 du 11 février 2022 relatif aux cadres de prescription compassionnelle et modifiant les dispositions du code de la santé publique relatives aux autorisations d'accès précoce et compassionnel.
+                        </p>
+                        <p>
+                        En outre, l’ANSM a modifié les conditions de prescription et de délivrance des autorisations de mise sur le marché de la mifepristone et du misoprostol afin de permettre la délivrance de ces médicaments directement en pharmacie d’officine après une téléconsultation.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                        Un avis sur l’autotest urinaire pour le contrôle de l’IVG est toujours attendu et en attente de la part de l’ANSM. 
+                        </p>
+                    </li>
+                </ul>
+                </p>
+
+
 
                 <p>
                 Fin de l’état d’urgence sanitaire en date du 1er juin 2021. 
                 </p>
 
                 <p>
-                Cependant, les recommandations de bonne pratique HAS en date du 12 avril 2021 « actualise ses recommandations concernant l’intervention par méthode médicamenteuse. Outre le fait de pérenniser la possibilité de recourir à une IVG médicamenteuse en ville jusqu’à 9 semaines, ces recommandations précisent le protocole médicamenteux adapté ainsi que les conditions de la prise en charge de cette méthode d’IVG, des consultations médicales jusqu’au suivi post-intervention. »
-                </p>
+                Cependant, les recommandations de bonne pratique HAS en date du 12 avril 2021 « actualise ses recommandations concernant l’intervention par méthode médicamenteuse. Outre le fait de pérenniser la possibilité de recourir à une IVG médicamenteuse en ville jusqu’à 9 semaines, ces recommandations précisent le protocole médicamenteux adapté ainsi que les conditions de la prise en charge de cette méthode d’IVG, des consultations médicales jusqu’au suivi post-intervention. »                </p>
 
                 <p>
-                De plus, il est précisé que « L'accès à l'IVG doit être simple et rapide : chaque femme doit obtenir un rendez-vous dans les 5 jours suivant son appel. Les consultations médicales préalables à l’IVG peuvent se faire en présentiel ou en téléconsultation, avec l’accord de la femme et si le médecin ou la sage-femme l’estiment possible.
-La séquence des consultations relatives à l’IVG médicamenteuse à domicile ou à l’hôpital reste identique.
-                 </p>  
+                De plus, il est précisé que « L'accès à l'IVG doit être simple et rapide : chaque femme doit obtenir un rendez-vous dans les 5 jours suivant son appel. Les consultations médicales préalables à l’IVG peuvent se faire en présentiel ou en téléconsultation, avec l’accord de la femme et si le médecin ou la sage-femme l’estiment possible. »
+La séquence des consultations relatives à l’IVG médicamenteuse à domicile ou à l’hôpital reste identique.                 </p>  
 
 
 
-                 <p>
-                 Par ailleurs le ministère de la Santé a saisi l’ANSM : 
-                 <br></br>
-                 <ul>
-                     <li>
-                     pour une recommandation temporaire d’utilisation (RTU) pour encadrer et sécuriser la prescription, en dehors des AMM, des spécialités pharmaceutiques à base de mifépristone et celles à base de misoprostol
-                     </li>
-                     <li>
-                     pour donner un avis sur l’autotest urinaire pour le contrôle de l’IVG. 
-Cette recommandation est actuellement en attente de la part de l’ANSM.  
-                     </li>
-                 </ul>
-
-
-
-                  </p>   
+               
 
 
                   <h2>
@@ -126,7 +140,7 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 
 
                         <h2>
-                        Concernant les téléconsultations (non à jour au 12 Avril 2021, pour information)
+                        Concernant les téléconsultations 
                         </h2>
 
 
@@ -156,7 +170,7 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 
 
             <h2>
-            Concernant la tarification (non à jour au 12 Avril 2021, pour information)
+            Concernant la tarification 
             </h2>
 
 
@@ -220,6 +234,13 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
 
                   </a>.
                   </li>
+                 <li>
+                 <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045190889" target="_blank" rel="noreferrer noopener">
+                 Légifrance 22 février 2022 :</a></li> 
+               <li>Sénat 28 février 2022 : Proposition de loi visant à renforcer le droit à l'avortement.<a href="http://www.senat.fr/rap/l20-263/l20-2634.html" target="_blank" rel="noreferrer noopener">
+               http://www.senat.fr/rap/l20-263/l20-2634.html
+               </a>.
+                   </li>  
                   
               </ul>
               <br></br>
@@ -235,6 +256,10 @@ Cette recommandation est actuellement en attente de la part de l’ANSM.
                   </li>
                   <li>
                   <a href={Argumentaire} target="_blank" rel="noreferrer noopener">Recommandation, les bonnes pratiques, interruption volontaire de grossesse par méthode médicamenteuse – mise à jour. Argumentaire.</a>  
+                  </li>
+
+                  <li>
+                      ANSM : <a href="https://ansm.sante.fr/actualites/ivg-medicamenteuses-maintien-de-la-possibilite-de-les-realiser-jusqua-la-7-semaine-de-grossesse-en-dehors-dun-etablissement-de-sante" target="_blank" rel="noreferrer noopener">lien Information</a>
                   </li>
               </ul>
               </p>           

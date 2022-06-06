@@ -743,60 +743,77 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
       },
       {
         name : "Premiere Tarification Majeure",
+        name2 : "Première consultation préalable/Premier contact médical Majeure - Résumé",
         id : 14,
         objet : PremiereTarifMaj,
         toggle : toggle
       },
       {
         name : "Premiere Tarification Mineure",
+        name2 : "Première consultation préalable/Premier contact médical Mineure - Résumé",
+
         id : 15,
         objet : PremiereTarifMin,
         toggle : toggle
       },
       {
         name : "Deuxième Tarification Majeure",
+        name2 : "Deuxième consultation préalable Majeure - Résumé",
+
         id : 16,
         objet : DeuxiemeTarifMaj,
         toggle : toggle
       },
       {
         name : "Deuxième Tarification Mineure",
+        name2 : "Deuxième consultation préalable Mineure - Résumé",
+
         id : 17,
         objet : DeuxiemeTarifMin,
         toggle : toggle
       },
       {
         name : "Deuxième Prise Médicamenteuse Tarification Majeure",
+        name2 : "Deuxième Prise Médicamenteuse Majeure - Résumé",
         id : 18,
         objet : DeuxiemePriseTarif,
         toggle : toggle
       },
       {
         name : "Deuxième Prise Médicamenteuse Tarification Mineure",
+        name2 : "Deuxième Prise Médicamenteuse Mineure - Résumé",
+
         id : 19,
         objet : DeuxiemePriseMinTarif,
         toggle : toggle
       },
       {
         name : "Tarification consultation Post IVG Majeure",
+        name2 : "Consultation Post-IVG Majeure - Résumé",
+
         id : 20,
         objet : PostIvgTarifMaj,
         toggle : toggle
       },
       {
         name : "Tarification consultation Post IVG Mineure",
+        name2 : "Consultation Post-IVG Mineure - Résumé",
+
         id : 21,
         objet : PostIvgTarifMin,
         toggle : toggle
       },
       {
         name : "Facturation et résumé 1ere prise médicamenteuse Majeure",
+        name2 : "Résumé 1ere prise médicamenteuse Majeure",
         id : 22,
         objet : PremierePriseTarifMaj,
         toggle : toggle
       },
       {
         name : "Facturation et résumé 1ere prise médicamenteuse Mineure",
+        name2 : "Résumé 1ere prise médicamenteuse Mineure",
+
         id : 23,
         objet : PremierePriseTarifMin,
         toggle : toggle
@@ -1514,6 +1531,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
                   onElCons={currentElCons}
                   onElTarif={elementTArif}
                   onElDoubleTarif={elementBloc}
+                  onTestTitre={objet.name2}
                   >
 
                   </objet.objet>

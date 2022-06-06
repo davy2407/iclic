@@ -148,7 +148,7 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
 
         
         <div style={{display:'none'}}>
-        <FicheUnePage ref={componentRef} data={props.onElTarif}/>
+        <FicheUnePage ref={componentRef} titre={props.onTestTitre} data={props.onElTarif}/>
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Résumé de 2ème consultation PDF</Button>

@@ -7,7 +7,8 @@ class FicheDeuxPages extends React.Component {
         super(props);
         this.state = {
             dataUn : this.props.data.blocUn,
-            dataDeux : this.props.data.blocDeux
+            dataDeux : this.props.data.blocDeux,
+            titre : this.props.titre
         }
     }
   render() {
@@ -23,7 +24,8 @@ class FicheDeuxPages extends React.Component {
       <br></br>
       <br></br>
       <h1>
-      Fiche de liaison 1ere prise médicamenteuse
+      
+      {this.state.titre}
       </h1>
       <br></br>
       <p className="pStart">Médecin – sage-femme – établissement de santé :</p>

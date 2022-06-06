@@ -100,7 +100,7 @@ pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information
 
         
         <div style={{display:'none'}}>
-        <FicheDeuxPages ref={componentRef} data={props.onElDoubleTarif}/>
+        <FicheDeuxPages ref={componentRef} titre={props.onTestTitre} data={props.onElDoubleTarif}/>
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer résumé de consultation/fiche de liaison</Button>

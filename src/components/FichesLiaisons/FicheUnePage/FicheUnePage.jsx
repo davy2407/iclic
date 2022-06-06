@@ -7,7 +7,9 @@ class FicheUnePage extends React.Component {
      
         super(props);
         this.state = {
-            data : this.props.data
+            data : this.props.data,
+            titre : this.props.titre
+
         }
     }
     
@@ -25,7 +27,7 @@ class FicheUnePage extends React.Component {
       <br></br>
       <br></br>
       <h3>
-        Résumé de la consultation
+      {this.state.titre}
       </h3>
       <br></br>
       <p className="pStart">Nom/prénom et date de naissance :</p>

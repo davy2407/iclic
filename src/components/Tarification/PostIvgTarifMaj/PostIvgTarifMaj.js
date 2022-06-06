@@ -93,7 +93,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
 
         
         <div style={{display:'none'}}>
-        <FicheUnePage ref={componentRef} data={props.onElTarif}/>
+        <FicheUnePage ref={componentRef} titre={props.onTestTitre} data={props.onElTarif}/>
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé consultation post-IVG médicamenteuse</Button>

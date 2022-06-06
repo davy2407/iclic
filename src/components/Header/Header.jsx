@@ -61,7 +61,7 @@ function Header(props) {
       <Nav.Link onClick={APropos} >À propos</Nav.Link>
       <Nav.Link onClick={Mention}>Mention légale</Nav.Link>
       <Nav.Link onClick={Contact}>Contact</Nav.Link>
-      <Nav.Link onClick={covidAff}>Covid</Nav.Link>
+      <Nav.Link onClick={covidAff}>Actualité</Nav.Link>
  
 
       
