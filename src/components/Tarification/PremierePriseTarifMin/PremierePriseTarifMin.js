@@ -123,14 +123,14 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       </a> 
         
         <div style={{display:'none'}}>
-        <FicheDeuxPages ref={componentRef} data={props.onElDoubleTarif}/>
+        <FicheDeuxPages ref={componentRef} titre={props.onTestTitre} data={props.onElDoubleTarif}/>
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer résumé de consultation/fiche de liaison</Button>
       <br></br>
 
       <p>
-    Il est <span className="Bold" className="Red">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
+    Il est <span className="Bold Red">obligatoire</span> de transmettre la fiche de liaison selon des modalités de
      transmission préétabli avec votre centre de référence afin de suivre les règles
       préconisées par la Commission Nationale de l’Informatique et des Libertés (CNIL). 
     <span className="Red">Un exemplaire doit être remis à la patiente</span>. 

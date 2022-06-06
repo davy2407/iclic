@@ -145,7 +145,7 @@ tarif habituel de  consultation
 
         
         <div style={{display:'none'}}>
-        <FicheUnePage ref={componentRef} data={props.onElTarif}  />
+        <FicheUnePage ref={componentRef} titre={props.onTestTitre} data={props.onElTarif}  />
 
         </div>
       <Button variant="danger" onClick={handlePrint}>Imprimer Résumé Consultation</Button>
