@@ -1,6 +1,7 @@
 import React , {useState,useEffect} from "react";
 import InfoPatiente from "@assets/pdf/InfoPatiente.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
+import FicheConseilSurveillance from "@assets/pdf/FicheConseilSurveillance.pdf";
 
 import {Form,Button} from "react-bootstrap";
 
@@ -104,6 +105,23 @@ function BlocDeliMiso(props) {
         src={newPdfIcon}
       />
         Fiche information patiente
+      </a>
+
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseilSurveillance} target="_blank">
+      <input
+        alt="Image document fiche conseil"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+  Fiche information et conseil de surveillance à télécharger
       </a>
         </p>
         

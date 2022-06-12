@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 import FicheDeuxPages from "@components/FichesLiaisons/FicheDeuxPages";
 import { useReactToPrint } from 'react-to-print';
 import FicheHAS from "@assets/pdf/FicheDeLiaisonHAS.pdf";
-import FicheConseil from "@assets/pdf/FicheConseilSurveillance.pdf";
-import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
+import InfoPatiente from "@assets/pdf/FicheInfoPatiente.pdf";
+import FicheConseilSurveillance from "@assets/pdf/FicheConseilSurveillance.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
@@ -56,7 +56,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
         Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique
 pouvant inclure un remboursement du misoprostol supplémentaire.<br></br>
 Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la
-pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
        </p>
        <p>
        
@@ -67,7 +67,7 @@ pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information
       <p>
       Sa tarification peut être faite électroniquement ou par format papier.  
       <br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
 
 
       </p>
@@ -105,7 +105,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       
   
 
-      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseil} target="_blank">
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseilSurveillance} target="_blank">
       <input
         alt="Image document fiche conseil"
         className={iconConsen}
@@ -121,6 +121,23 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
       />
   Fiche information et conseil de surveillance à télécharger
       </a> 
+
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche info patient traitement
+      </a>
         
         <div style={{display:'none'}}>
         <FicheDeuxPages ref={componentRef} titre={props.onTestTitre} data={props.onElDoubleTarif}/>

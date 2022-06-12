@@ -4,6 +4,7 @@ import {Form,Button} from "react-bootstrap";
 import LightOn from "@assets/images/lightOn.svg";
 import LightOff from "@assets/images/lightOff.svg";
 import InfoPatiente from "@assets/pdf/FicheInfoPatiente.pdf";
+import FicheConseilSurveillance from "@assets/pdf/FicheConseilSurveillance.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
 
 
@@ -156,6 +157,23 @@ function BlocInfoEffets(props) {
         src={newPdfIcon}
       />
         Fiche info patient traitement
+      </a>
+
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseilSurveillance} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche information et conseil de surveillance 
       </a> 
 
       <Button variant="info" className="BouttonRetour" onClick={()=>{

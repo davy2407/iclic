@@ -4,6 +4,8 @@ import FicheUnePage from "@components/FichesLiaisons/FicheUnePage";
 import { useReactToPrint } from 'react-to-print';
 import FicheConseil from "@assets/pdf/FicheConseilSurveillance.pdf";
 import newPdfIcon from "@assets/images/PDFicon.svg";
+import InfoPatiente from "@assets/pdf/FicheInfoPatiente.pdf";
+
 
 
 
@@ -67,7 +69,7 @@ function DeuxiemePriseTarif(props) {
          cotée avec l’index FHV + FMV (50 + 87,92 euros). 
 Sa tarification peut être faite électroniquement ou par format papier.
 <br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Covid pour plus d’information.
+Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à Actualité Covid pour plus d’information.
 
       </p>
 
@@ -90,6 +92,23 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
         src={newPdfIcon}
       />
   Fiche information et conseil de surveillance à télécharger
+      </a>
+
+      <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
+      <input
+        alt="Image document consentement"
+        className={iconConsen}
+        onMouseEnter={()=>{
+          setIconConsen(hoverIcon);
+          
+        }}
+        onMouseOut={()=>{
+          setIconConsen(classIcon);
+        }}
+        type="image"
+        src={newPdfIcon}
+      />
+        Fiche info patient traitement
       </a>
 
       </p> 
