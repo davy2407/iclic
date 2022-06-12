@@ -50,9 +50,6 @@ function PremiereTarifMaj(props) {
         <p>
         Si le professionnel ne pratique pas l’intervention, il se doit d’orienter sans délai vers les professionnels réalisant des IVG, et disponibles.
         </p>
-        <p>
-        Toutes les consultations à l’IVG sont actuellement possibles en téléconsultation depuis l’arrêter du 7 novembre 2020. 
-        </p>
   
       </div>
     )
@@ -94,7 +91,7 @@ function PremiereTarifMaj(props) {
       <h2>Tarification et conclusion de consultation</h2>
 
       <div>
-            <p>« Téléconsultation : </p>
+            <p>Téléconsultation : </p>
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
             <br></br>
@@ -105,8 +102,8 @@ function PremiereTarifMaj(props) {
 
             <p>
       La 1ère consultation préalable ou  1er contact médical :
-ne fait pas partie du “ forfait  IVG hors établissement de santé”
-tarif habituel de  consultation 
+ne fait pas partie du “ forfait  IVG hors établissement de santé” : <br></br> 
+<span classname="Bold">tarif habituel de  consultation</span>. 
       </p>
       
       <br></br>
@@ -123,7 +120,6 @@ tarif habituel de  consultation
       </a>
       <a href="https://ivg.gouv.fr/ou-avorter.html" target="_blank" rel="noreferrer noopener" >Lien ouavorter.gouv</a>
 
-      « Les documents nécessaire pour le bon déroulement de l’IVG sont : »
 
       <br></br>
   <br></br>
@@ -159,7 +155,7 @@ tarif habituel de  consultation
         <p>
         Obligation légale et déontologique pour tout praticien  de remettre à la patiente une attestation de demande d’IVG.
           
-La patiente dispose d’un délai de 48h entre la consultation psychosociale (si choisie) et la deuxième consultation préalable à l’IVG.
+
         </p>
         <p>
         La 2ème consultation préalable à l’IVG peut être effectuée par le professionnel de santé effectuant l’IVG ou non.

@@ -23,7 +23,7 @@ function TxtPostIVG() {
 
             </p>
             <p>
-            <a className="Bold" rel="noopener noreferrer" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien protocole HAS</a>
+            <a  rel="noopener noreferrer" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">Lien protocole HAS</a>
 
             </p>
  

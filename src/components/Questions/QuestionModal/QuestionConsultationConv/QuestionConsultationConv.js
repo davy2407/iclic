@@ -63,19 +63,21 @@ function QuestionConsultationConv(props) {
 
 
             <p>
-            Les mesures dérogatoires en date d’avril 2021 autorise :</p>
+            Autorisation depuis le vote du décret en date du 19 février 2022 :</p>
             <ul>
                 <li>
                 La prise en charge de l’IVG médicamenteuse en ville jusqu’à 9 semaines d’aménorrhée. 
                 </li>
                 <li>
-                Autorisation à la téléconsultation pour les 2 consultations préalables. 
+                La possibilité des téléconsultations pour la prise en charge complète de l’interruption volontaire de grossesse par voie médicamenteuse jusqu’à 9 semaines d’aménorrhée.
+                </li>
+                <li>
+                Abolition du délai de réflexion de 48h pour les femmes majeures après consultation psycho-sociale. 
                 </li>
             </ul>
             <p>
 
-            Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. Pour en savoir plus, merci de vous rendre sur l’onglet « Covid ». 
-            </p>
+            Les différents changements sont intégrés et notifiés lors de l’avancement sur le site. Pour en savoir plus, merci de vous rendre sur l’onglet « actualité ».            </p>
 
             
          

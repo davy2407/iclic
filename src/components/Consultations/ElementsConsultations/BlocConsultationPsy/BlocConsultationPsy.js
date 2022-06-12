@@ -53,10 +53,6 @@ function BlocConsultationPsy(props) {
       const returnInfo = () => {
         return (
           <div className="BulleInfo">
-            <p>
-            Elle n’est pas obligatoire pour les personnes majeures. Mais obligation légale de la proposer.  Délai de 48h de réflexion avant de signer le consentement après la consultation psycho-sociale.
-    
-            </p>
             <br></br>
             <p>Elle peut avoir lieu : </p>
             <br></br>

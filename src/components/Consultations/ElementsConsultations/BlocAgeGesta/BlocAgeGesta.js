@@ -101,11 +101,19 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
       changeBtnClass();
       setCurrentVerrou("");
 
-    } else if (nb == 7 ) {
+    } else if (nb == 7) {
       affichagePlusDeSeptMoinsDouze();
       changeBtnClass();
       setCurrentVerrou("");
-    } else if (nb > 7 ) {
+    }else if (nb == 8) {
+      affichagePlusDeSeptMoinsDouze();
+      changeBtnClass();
+      setCurrentVerrou("");
+    }else if (nb == 9) {
+      affichagePlusDeSeptMoinsDouze();
+      changeBtnClass();
+      setCurrentVerrou("");
+    } else if (nb > 9 ) {
       afficheverrou();
       setCurrentClassBtt(classBouttonBase);
       seturrentCheckGesta("")
@@ -155,8 +163,8 @@ délai légal pour l’IVG chirurgical est actuellement de 14 semaines d’amén
     return (
       <div>
         <p>
-        IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.          </p>
-        
+        URGENCE
+       </p>         
        
       </div>
     );

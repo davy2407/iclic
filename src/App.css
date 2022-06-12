@@ -5,6 +5,10 @@
 html {
   font-size: 100%;
 }
+
+html .Bold{
+  font-weight: bold;
+}
 .App{
   /* font-family: 'PT Sans',cursive ; */
   font-size: 1.3rem;

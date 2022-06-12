@@ -35,7 +35,7 @@ function TxtPremierConsMin(props) {
           Une jeune fille mineure non émancipée doit donner au médecin son consentement pour avorter sans que ses parents, son tuteur ou toute autre personne ne soient présents afin qu'elle n'agisse pas sous la contrainte.
           </p>
           <p>
-          <a className="Bold" rel="noreferrer noopener" href={ConsentementMineur} target="_blank">Formulaire de consentement pour patiente mineure.</a>
+          <a  rel="noreferrer noopener" href={ConsentementMineur} target="_blank">Formulaire de consentement pour patiente mineure.</a>
           </p>
 
 

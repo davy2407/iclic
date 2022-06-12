@@ -64,7 +64,7 @@ function BlocAntalgique(props) {
             <p>
             En cas de Covid 19, l’ibuprofène, antalgique de référence dans l’IVG médicamenteuse, est remplacé par le paracétamol associé à l’opium ou à la codéine.
             </p>
-            <a className="Bold" rel="noreferrer noopener"
+            <a rel="noreferrer noopener"
             href="https://www.has-sante.fr/upload/docs/application/pdf/2020-04/reponse_rapide_ivg__09_04_2020_coiv8.pdf"
             target="_blank"
           > info

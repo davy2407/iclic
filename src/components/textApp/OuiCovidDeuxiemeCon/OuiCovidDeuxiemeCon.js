@@ -38,8 +38,9 @@ function OuiCovidDeuxiemeCon() {
     
     </p>
     <p>
-    Pour plus d’informations, se reporter à l’onglet « Covid » dans le cadre des consultations faites à distance (consultation préalable uniquement). 
-      </p>
+   Pour plus d’informations, se reporter à l’onglet « actualité ». 
+Le décret n° 2022-212 du 19 février 2022 autorise les téléconsultations pour les interruptions par voie médicamenteuse hors établissement de santé. 
+   </p>
 
      
     </div>

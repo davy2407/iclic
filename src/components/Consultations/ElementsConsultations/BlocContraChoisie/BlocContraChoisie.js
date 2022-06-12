@@ -121,6 +121,8 @@ function BlocContraChoisie(props) {
         <option value="stérilisation">stérilisation</option>
         <option value="spermicides">spermicides</option>
         <option value="contraceptifs injectables">contraceptifs injectables</option>
+        <option value="pas de contraception">pas de contraception</option>
+
       </Form.Control>
       </Form.Group>
             </div>
