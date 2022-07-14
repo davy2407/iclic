@@ -33,10 +33,11 @@ class FicheDeuxPages extends React.Component {
 
       <p className="pStart">Nom/prénom et date de naissance :</p>
  
-      <p>Tel :</p>
-    
+      <p className="pStart">Tel :</p>
+      <br></br>
       <p className="pStart">Antécédent(s) :</p>
       <br></br>
+      <p className="pStart">Allergie(s) ::</p>
       <br></br>
      
     
@@ -91,7 +92,7 @@ class FicheDeuxPages extends React.Component {
 
           </div>
           <div className="Gauche">{this.state.dataDeux.map((objet)=>{
-     
+            
         return (
           <div>
             

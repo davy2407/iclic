@@ -42,7 +42,9 @@ function BlocInfoContra(props) {
         let reponse = {
           titre : "Information contraception postIVG : ",
           value : e.target.value,
-          reponse : 1
+          reponse : 1,
+          testFin : 2
+
         };
         setCurrentRep(reponse);
 

@@ -87,6 +87,7 @@ import BlocPriseMiso from "@components/Consultations/ElementsConsultations/BlocP
 import BlocPrescriDosageAuto from "@components/Consultations/ElementsConsultations/BlocPrescriDosageAuto";
 import PremierePriseTarifMaj from "@components/Tarification/PremierePriseTarifMaj";
 import PremierePriseTarifMin from "@components/Tarification/PremierePriseTarifMin";
+import BlocPIllule from "@components/Consultations/ElementsConsultations/BlocPIllule";
 
 
 
@@ -860,42 +861,47 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 4
             },
             {
-              objet : BlocContext,
+              objet : BlocPIllule,
               id : 5
+
             },
             {
-              objet : BlocViolence,
+              objet : BlocContext,
               id : 6
             },
             {
-              objet : BlocIST,
+              objet : BlocViolence,
               id : 7
+            },
+            {
+              objet : BlocIST,
+              id : 8
 
             },
             {
               objet : BlocPriseSang,
-              id : 8
-            },
-            {
-              objet : BlocGuideIVG,
               id : 9
             },
             {
-              objet : BlocConsultationPsy,
+              objet : BlocGuideIVG,
               id : 10
             },
             {
-              objet : BlocInfoContra,
+              objet : BlocConsultationPsy,
               id : 11
             },
             {
-              objet : BlocHPV,
+              objet : BlocInfoContra,
               id : 12
+            },
+            {
+              objet : BlocHPV,
+              id : 13
 
             },
             {
               objet : BlocTabac,
-              id : 13
+              id : 14
             }
           ]
          

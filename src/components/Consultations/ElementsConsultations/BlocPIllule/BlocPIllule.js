@@ -6,10 +6,10 @@ import {Form,Button} from "react-bootstrap";
 
 
 
-import "./BlocAcc.css";
+import "./BlocPIllule.css";
 
 
-function BlocAcc(props) {
+function BlocPIllule(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -30,20 +30,23 @@ function BlocAcc(props) {
   };
 
     const [ currentRep, setCurrentRep] =useState({
-        titre : "Personne accompagnante ",
+        titre : "Pilule du lendemain : ",
         value : "",
         reponse : 0,
-        identifiant : 1
+        identifiant : 1,
 
       });
     
 
 
-    const recupRadioAcc = (e) => {
+    const recupRadioPil = (e) => {
         let reponse = {
-          titre: "Accompagnant(e) : ",
+          titre: "Pilule du lendemain : ",
           value: e.target.value,
-          reponse : 1
+          reponse : 1,
+          identifiant : 1,
+
+
         };
         setCurrentRep(reponse);
 
@@ -57,19 +60,19 @@ function BlocAcc(props) {
   return (
     <div className={currentClassCard}>
         <h2>
-        Personne accompagnante
+        Une pilule du lendemain a-t-elle été prise par la patiente ?
         </h2>
 
 
         <label>
       <Form>
-      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioAcc(e);changeBtnClass();}}>
+      <div key={`acc-radio`} className="mb-3" onChange={(e)=>{recupRadioPil(e);changeBtnClass();}}>
       <Form.Check 
         type='radio'
         id={`accOui`}
         label={`Oui`}
         value="Oui"
-        name="accompagant"
+        name="pillule"
       />
 
 <Form.Check 
@@ -77,7 +80,7 @@ function BlocAcc(props) {
         id={`accNon`}
         label={`Non`}
         value="Non"
-        name="accompagant"
+        name="pillule"
       />
       </div>
       </Form>
@@ -109,10 +112,10 @@ function BlocAcc(props) {
 
 
 
- 
+
 
   
  
 }
 
-export default BlocAcc;
+export default BlocPIllule;

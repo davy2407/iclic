@@ -38,9 +38,25 @@ class FicheUnePage extends React.Component {
       <br></br>
    
       <br></br>
+      <p className="pStart">Allergie(s) :</p>
       <br></br>
       
     <div className="Gauche" >{this.state.data.map((objet)=>{
+      if(objet.testFin==1){
+        return <p>Identification personne accompagnante (à remplir manuellement) : <br></br>
+        {objet.titre}  {objet.value} <br></br>
+        {objet.titreBis}  {objet.valueBis}
+        </p>
+                
+      }
+      else if(objet.testFin==2){
+        return <p>Lieux de la consultation psychosociale (à remplir manuellement) : <br></br>
+        {objet.titre}  {objet.value} <br></br>
+        {objet.titreBis}  {objet.valueBis}
+        </p>
+                
+      }
+
     return (
       <div>
         

@@ -100,7 +100,7 @@ function BlocContraChoisie(props) {
     
         
       };
-
+ 
 
       const ouiAnti = () => {
         return (

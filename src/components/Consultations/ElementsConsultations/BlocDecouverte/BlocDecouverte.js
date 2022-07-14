@@ -25,26 +25,144 @@ function BlocDecouverte(props) {
  
   const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
 
+  const [dosageHCG, setDosageHCG] = useState();
+
+  const [ currentRep, setCurrentRep] =useState({
+    titre : "Mode de découverte de la grossesse : ",
+        value : "",
+        reponse : 0
+      });
+
+      const [ currentBisRep, setCurrentBisRep] =useState({
+        titre : "Mode de découverte de la grossesse : ",
+            value : "",
+            titreBis : "",
+            valueBis : "",
+            reponse : 0,
+            identifiant : 2
+
+          });
+
+
+          const recupRadioMode = (e) => {
+            let reponse = {
+              titre : "Mode de découverte de la grossesse :",
+              value : e.target.value,
+              reponse : 1
+            };
+            if (e.target.value=="Test Sanguin") {
+              setCurrentBisRep(reponse);
+              setCurrentClassBtt(classBouttonBase);
+    
+    
+          }
+          else if (e.target.value=="Échographie") {
+            setCurrentBisRep(reponse);
+            setCurrentClassBtt(classBouttonBase);
+    
+    
+        }else {
+          setCurrentRep(reponse);
+          changeBtnClass();
+          
+      }
+    
+          }
+
+
   const changeBtnClass = () => {
     setCurrentClassBtt(classBouttonActif);
   }
 
-  const [ currentRep, setCurrentRep] =useState({
-    titre : "Mode de découverte de la grossesse ",
-        value : "",
-        reponse : 0
-      });
+
+
+  const handleDosageHCG = (e) => {
+    setDosageHCG(e.currentTarget.value);
+  };
+
+  const handleSubmitDosageHCG = (e) => {
+   
+
+    let reponse = {
+      titre : "Mode de découverte de la grossesse :Test Sanguin ; Dosage ß-HCG : ",
+      value : e.currentTarget.value,
+      reponse : 1,
+      identifiant : 1
+
+    };
+    console.log(e.target.value)
+
+   
+
+    
+    setCurrentRep(reponse);
+     
+  
+      setDosageHCG();
+  };
+
+
+  
+  
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+}
     
 
-    const recupRadioMode = (e) => {
-        let reponse = {
-          titre : "Mode de découverte de la grossesse :",
-          value : e.target.value,
-          reponse : 1
-        };
-        setCurrentRep(reponse);
+    
 
-      }
+
+//////////////////////////////////////////////////
+
+
+  
+const ouiTstSanguin = () => {
+  return (
+      <div>
+          <form onSubmit={(e)=>{
+        
+        submitHandler(e);
+      
+     }}>
+            <input
+            
+            maxLength="7"
+                value={dosageHCG}
+                onChange={handleDosageHCG}
+                type="text"
+                placeholder="dosage ß-HCG"
+             
+            />
+            <Button   value={dosageHCG} variant="danger" onClick={(e)=> {
+              handleSubmitDosageHCG(e);
+              changeBtnClass();
+            }}>Confirmer</Button>
+            
+        </form>
+      </div>
+  )
+}
+
+const [afficheSang, setAfficheOUI] = useState(()=>ouiTstSanguin());
+
+
+const [currentOui, setCurrentOui] = useState("");
+
+const afficheSanguin = () => {
+  let txtAAfficher = afficheSang;
+  setCurrentOui(txtAAfficher);
+
+}
+
+
+
+
+
+
+
+
+
 
    
 
@@ -56,13 +174,14 @@ function BlocDecouverte(props) {
       <h2>Mode de découverte de la grossesse </h2>
       <br></br>
       <Form>
-      <div key={`uri-radio`} className="mb-3" onChange={(e)=>{recupRadioMode(e);changeBtnClass();}}>
+      <div key={`uri-radio`} className="mb-3" >
       <Form.Check 
         type='radio'
         id={`uriTest`}
         label={`Test Urinaire`}
         value="Test Urinaire"
         name="mode"
+        onClick={(e)=>{recupRadioMode(e);}}
       />
 
 <Form.Check 
@@ -71,6 +190,7 @@ function BlocDecouverte(props) {
         label={`Test Sanguin`}
         value="Test Sanguin"
         name="mode"
+        onClick={(e)=>{recupRadioMode(e);afficheSanguin();}}
       />
       <Form.Check 
         type='radio'
@@ -78,6 +198,8 @@ function BlocDecouverte(props) {
         label={`Échographie`}
         value="Échographie"
         name="mode"
+        onClick={(e)=>{recupRadioMode(e);}}
+
       />
       <Form.Check 
         type='radio'
@@ -85,9 +207,16 @@ function BlocDecouverte(props) {
         label={`Clinique`}
         value="Clinique"
         name="mode"
+        onClick={(e)=>{recupRadioMode(e);}}
+
       />
       </div>
       </Form>
+
+
+      <div>{currentOui}</div>
+
+
       <Button variant="info" className="BouttonRetour" onClick={()=>{
         props.retour(props.keys);
              
