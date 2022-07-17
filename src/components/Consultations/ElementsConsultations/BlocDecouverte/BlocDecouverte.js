@@ -64,6 +64,8 @@ function BlocDecouverte(props) {
         }else {
           setCurrentRep(reponse);
           changeBtnClass();
+          setCurrentOui("");
+          
           
       }
     
