@@ -1573,4 +1573,6 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
   );
 }
 
+
+
 export default MidSection;
