@@ -88,6 +88,8 @@ import BlocPrescriDosageAuto from "@components/Consultations/ElementsConsultatio
 import PremierePriseTarifMaj from "@components/Tarification/PremierePriseTarifMaj";
 import PremierePriseTarifMin from "@components/Tarification/PremierePriseTarifMin";
 import BlocPIllule from "@components/Consultations/ElementsConsultations/BlocPIllule";
+import BlocAgeGestaSemaineJour from "@components/Consultations/ElementsConsultations/BlocAgeGestaSemaineJour";
+
 
 
 
@@ -1002,7 +1004,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 5
             },
             {
-              objet : BlocAgeGesta,
+              objet : BlocAgeGestaSemaineJour,
               id : 6
             },
             {
@@ -1073,7 +1075,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 5
             },
             {
-              objet : BlocAgeGesta,
+              objet : BlocAgeGestaSemaineJour,
               id : 6
             },
             {

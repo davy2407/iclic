@@ -51,25 +51,52 @@ function BlocAgeGestaPriseMedi(props) {
     setSaisieUtilisateurNbSemaineSA(event.currentTarget.value);
   };
 
+  const [jourSa, setJourSa] = useState(0);
+
+  const handleChangJour = (event) => {
+    setJourSa(event.currentTarget.value);
+  };
+
+
+
   /// Bloc nombre de semaines SA
 
   const recupSaisieUtilisateurNbSemaine = (event) => {
     event.preventDefault();
     let nb = saisieUtilisateurNbSemaineSA;
-    if (nb> 0 && nb <= 7) {
+    let nbJour = jourSa;
+
+    if (nb> 0 && nb <7 && nbJour>=0) {
       affichageMoinsDeSept();
       changeBtnClass();
-    } else if (nb == 8 ) {
+    } else if (nb == 7 && nbJour==0 ) {
+      affichageMoinsDeSept();
+      changeBtnClass();
+    } else if (nb == 7 && nbJour>0 ) {
+      affichagePlusDeSeptMoinsDouze();
+      changeBtnClass();    }
+    
+    else if (nb == 8 && nbJour==0 ) {
       affichagePlusDeSeptMoinsDouze();
       changeBtnClass();
-    } else if (nb == 9 ) {
+    }  else if (nb == 8 && nbJour>0 ) {
+      affichagePlusDouze();
+      changeBtnClass();    }
+    
+    else if (nb == 9&&nbJour==0 ) {
       affichagePlusDouze();
       changeBtnClass();
-    } else if (nb > 9) {
+    } else if (nb == 9&&nbJour>0) {
         afficheverrou();
         setCurrentClassBtt(classBouttonBase);
         
-    } else if (nb == 0) {
+    } else if (nb > 9&&nbJour>=0) {
+      afficheverrou();
+      setCurrentClassBtt(classBouttonBase);
+      
+  }
+    
+    else if (nb == 0) {
         setCurrentClassBtt(classBouttonBase);
 
     }
@@ -80,14 +107,15 @@ function BlocAgeGestaPriseMedi(props) {
       titre: "Age gestationnel réel ou estimé (en semaine d’aménorrhée) : ",
       value: nb,
       reponse : 1,
-      identifiant : 1
+      identifiant : 1,
+      titreBis : " + jour : ",
+      valueBis : nbJour
 
     };
     setCurrentRep(reponse);
    
  
 
-    setSaisieUtilisateurNbSemaineSA(0);
   };
 
 
@@ -160,8 +188,7 @@ linguale (soit Gymiso® 400 μg : 2 comprimés à 200 μg, en une prise ; soit M
     return (
       <div>
         <p>
-        IVG médicamenteuse possible dans le cadre des dispositions liés à l’Etat d’urgence sanitaire.    
-        <br></br>
+        
             <ul>
               <li>
               « Une prise de 200mg par voie orale (Mifégyne® 1 comprimé à 200mg, en une prise)
@@ -198,7 +225,7 @@ une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM).
     /// retourne le texte mois de 7 semaines si >12
     return (
       <div>
-          <p>Cadre des dispositions liés à l’Etat d’urgence sanitaire : IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.
+          <p>IVG ce jour à votre cabinet, si non habilité, adresser au centre de référence.
 
 
           <br></br>
@@ -243,12 +270,22 @@ une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM).
     <div className={currentClassCard}>
    <h2>Age gestationnel réel ou estimé (en semaine d’aménorrhée)</h2>
             {/* faire input comme nb paquet tabac pConsultation */}
+            <h3>Semaines</h3>
             <input
-            min="0"
+            min={0}
         type="number"
         name="name"
         value={saisieUtilisateurNbSemaineSA}
         onChange={handleChangeSA}
+      />
+      <h4>Jour</h4>
+      <input
+            min={0}
+            max={7}
+        type="number"
+        name="nameJ"
+        value={jourSa}
+        onChange={handleChangJour}
       />
       <Button variant="danger" onClick={(e)=>{recupSaisieUtilisateurNbSemaine(e);}}>
         Valider
