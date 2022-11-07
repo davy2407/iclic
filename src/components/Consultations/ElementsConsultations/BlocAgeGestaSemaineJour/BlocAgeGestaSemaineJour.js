@@ -113,11 +113,11 @@ function BlocAgeGestaSemaineJour(props) {
           setCurrentVerrou("");
     
         } else if (nb == 7&&nbJour==0) {
-          affichagePlusDeSeptMoinsDouze();
+          affichageMoinsDeSept();
           changeBtnClass();
           setCurrentVerrou("");
         } else if (nb == 7&&nbJour>0) {
-            affichagePlusDeSeptMoinsDouze();
+          affichageMoinsDeSept();
           changeBtnClass();
           setCurrentVerrou("");
         }
@@ -125,17 +125,17 @@ function BlocAgeGestaSemaineJour(props) {
         
         
         else if (nb ==8 && nbJour==0) {
-          affichagePlusDeSeptMoinsDouze();
+          affichageMoinsDeSept();
           changeBtnClass();
           setCurrentVerrou("");
         } else if (nb == 8&&nbJour>0) {
-            affichagePlusDeSeptMoinsDouze();
+          affichageMoinsDeSept();
             changeBtnClass();
             setCurrentVerrou("");
           }
         
         else if (nb == 9 &&nbJour==0) {
-          affichagePlusDeSeptMoinsDouze();
+          affichageMoinsDeSept();
           changeBtnClass();
           setCurrentVerrou("");
         }  else if (nb == 9 &&nbJour>0) {
@@ -264,7 +264,7 @@ function BlocAgeGestaSemaineJour(props) {
 
           <input
                 min={0}
-                max={7}
+                max={6}
             type="number"
             name="nameJ"
             value={jourSa}

@@ -281,7 +281,7 @@ une seule prise, par voie transmuqueuse orale ou sublinguale (hors AMM).
       <h4>Jour</h4>
       <input
             min={0}
-            max={7}
+            max={6}
         type="number"
         name="nameJ"
         value={jourSa}

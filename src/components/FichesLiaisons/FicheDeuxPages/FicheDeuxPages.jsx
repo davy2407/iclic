@@ -68,7 +68,11 @@ class FicheDeuxPages extends React.Component {
         return (
           <div>
             
-            <p>{objet.titre}  {objet.value}</p>
+            <p>{objet.titre}  {objet.value}<br></br>
+            {objet.titreBis}  {objet.valueBis}
+
+            </p>
+
             
           </div>
         )
@@ -96,8 +100,11 @@ class FicheDeuxPages extends React.Component {
         return (
           <div>
             
-            <p>{objet.titre}  {objet.value}</p>
-            
+            <p>{objet.titre}  {objet.value}<br></br>
+            {objet.titreBis}  {objet.valueBis}
+
+            </p>
+
           </div>
         )
         

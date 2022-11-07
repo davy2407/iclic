@@ -1132,6 +1132,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
             },
             {
               objet : BlocConsentmentIVG,
+              
               id : 3
             },
             {
