@@ -115,7 +115,7 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
       </a>
       
       <a className="Bold" rel="noreferrer noopener"
-        href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
+        href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
         Lien choisirsacontraception.fr
@@ -187,7 +187,7 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
        <li>Résumé des 2 consultations préalables</li>
        <li>Échographie de datation</li>
        <li>Résultat de prise de sang (incluant groupe sanguin et BHCG quantitatif) + prescription
-d’un dosage des BHCG quantitatif pour <span className="Red">le jour de la prochaine consultation</span> ou d’un
+d’un dosage des BHCG quantitatif pour <span className="Red">le jour de la consultation post IVG</span> ou d’un
 autotest urinaire.</li>
    </ul>
    <p>Les centres de planification peuvent vous renseigner et vous orientez pour toutes questions concernant l’IVG directement dans votre département. </p>

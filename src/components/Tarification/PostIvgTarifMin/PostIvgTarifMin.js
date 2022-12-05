@@ -74,7 +74,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
       </a>
       
       <a className="Bold" rel="noreferrer noopener"
-        href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
+        href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
         Lien choisirsacontraception.fr

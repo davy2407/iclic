@@ -192,8 +192,8 @@ function SourceLien() {
                     </a>
                 </li>
                 <li>
-                    <a rel="noreferrer noopener" target="_blank" href="http://www.info-ist.fr/index.html">
-                    Lien ISt-info pour patiente
+                    <a rel="noreferrer noopener" target="_blank" href="https://questionsexualite.fr/">
+                    Lien IST-info pour patiente
 
                     </a>
                 </li>

@@ -93,8 +93,8 @@ function BlocIST(props) {
                 Ameli IST
               </a>
               ,{" "}
-              <a href="http://www.info-ist.fr/index.html" target="_blank" rel="noreferrer noopener">
-                ISt-info
+              <a href="https://questionsexualite.fr/" target="_blank" rel="noreferrer noopener">
+                IST-info
               </a>
               .
             </p>
