@@ -78,21 +78,25 @@ function BlocDecouverte(props) {
 
 
 
-  const handleDosageHCG = (e) => {
-    setDosageHCG(e.currentTarget.value);
+  const handleDosageHCG = event => {
+    let rep = event.currentTarget.value
+    setDosageHCG(rep);
+    console.log(event.currentTarget.value);
+    console.log(rep);
   };
 
-  const handleSubmitDosageHCG = (e) => {
-   
+  const handleSubmitDosageHCG = val => {
+     
 
     let reponse = {
       titre : "Mode de découverte de la grossesse :Test Sanguin ; Dosage ß-HCG : ",
-      value : e.currentTarget.value,
+      value : val,
       reponse : 1,
       identifiant : 1
 
     };
-    console.log(e.target.value)
+
+   
 
    
 
@@ -139,6 +143,7 @@ const ouiTstSanguin = () => {
             <Button   value={dosageHCG} variant="danger" onClick={(e)=> {
               handleSubmitDosageHCG(e);
               changeBtnClass();
+              console.log(e.target.value);
             }}>Confirmer</Button>
             
         </form>

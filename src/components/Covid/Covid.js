@@ -203,17 +203,7 @@ La séquence des consultations relatives à l’IVG médicamenteuse à domicile 
              
              </p>   
 
-             <p>
-             A savoir : 
-             <br></br>
-             Pour les IVG faites entre 7-9SA :  modification de facturation pour les médicaments. 
-             <br></br>
-             Il est nécessaire d’associés une tarification dégradés avec FSP, dans le cas d’un refus de paiement de l’assurance maladie. La patiente peut également récupérer les traitements à la pharmacie selon les dispositions expliquées précédemment afin que la facturation soit effectuée par les pharmacies elle-même. 
-             <br></br>
-             Il n’existe actuellement pas de nouveau code de facturation dans ce cas précis. 
-
-
-              </p>  
+             
 
 <br></br>
 

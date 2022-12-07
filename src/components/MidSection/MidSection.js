@@ -89,6 +89,8 @@ import PremierePriseTarifMaj from "@components/Tarification/PremierePriseTarifMa
 import PremierePriseTarifMin from "@components/Tarification/PremierePriseTarifMin";
 import BlocPIllule from "@components/Consultations/ElementsConsultations/BlocPIllule";
 import BlocAgeGestaSemaineJour from "@components/Consultations/ElementsConsultations/BlocAgeGestaSemaineJour";
+import BlocContextMin from "@components/Consultations/ElementConsultationMineure/BlocContextMin";
+
 
 
 
@@ -937,7 +939,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 4
             },
             {
-              objet : BlocContext,
+              objet : BlocContextMin,
               id : 5
             },
             {

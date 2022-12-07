@@ -5,10 +5,10 @@ import {Form,Button} from "react-bootstrap";
 
 
 
-import "./BlocContext.css"; 
+import "./BlocContextMin.css"; 
 
 
-function BlocContext(props) {
+function BlocContextMin(props) {
   useEffect(() => {
     window.scrollTo(0,300);
  }, [])
@@ -71,7 +71,30 @@ function BlocContext(props) {
       
       
       
+      const [ currentVerrou, setCurrentVerrou] = useState("");
+
+      const verrouTxt = () => {
+        return (
+            <div className="Red Verrou">
+                <p>
+                Prise en charge Hospitalière recommandée ! 
+                </p>
+            </div> 
+        )
+    };
+    
+    const [txtVerrou, setTextverrou] = useState(
+        () => verrouTxt()
+    );
+    
+    const afficheverrou = () => {
       
+      let txtAAfficher = txtVerrou;
+      setCurrentVerrou(txtAAfficher);
+    };
+    
+        
+    
     
 
 
@@ -83,13 +106,14 @@ function BlocContext(props) {
 
 
         <Form>
-      <div key={`psyCho-radio`} className="mb-3" onChange={(e)=>{recupRadioContexte(e);changeBtnClass();}}>
+      <div key={`psyCho-radio`} className="mb-3" >
       <Form.Check 
         type='radio'
         id={`psyChoOui`}
         label={`Oui`}
         value="Oui"
         name="contexte"
+        onClick={(e)=>{setCurrentVerrou("");recupRadioContexte(e);changeBtnClass();}}
       />
 
 <Form.Check 
@@ -98,10 +122,13 @@ function BlocContext(props) {
         label={`Non`}
         value="Non"
         name="contexte"
-        onClick={afficheWarningContexte}
+        onClick={()=>{console.log("test");afficheverrou();setCurrentClassBtt(classBouttonBase);}}
       />
       </div>
       </Form>
+
+      {currentVerrou}
+
     <div>{currentWarningContexte}</div>
     <Button variant="info" className="BouttonRetour" onClick={()=>{
         props.retour(props.keys);
@@ -150,4 +177,4 @@ function BlocContext(props) {
  
 }
 
-export default BlocContext;
+export default BlocContextMin;
