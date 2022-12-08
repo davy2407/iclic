@@ -50,10 +50,7 @@ function PremierePriseTarifMaj(props) {
        <p> Elle doit
         être cotée avec l’index FHV + FMV (50 + 87,92 euros).
         <br></br>
-        Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique
-pouvant inclure un remboursement du misoprostol supplémentaire.<br></br>
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la
-pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
+    
         </p>
         <p> Cette cotation
          inclut l’éventuelle consultation facultative prise en charge à 100% avec exonération du

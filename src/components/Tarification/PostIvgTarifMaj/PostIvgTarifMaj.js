@@ -60,21 +60,13 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
        </p>
        <p>
 Sa tarification peut être faite électroniquement ou par format papier.  
-<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
+<br></br>
 
 </p>
 <p>
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côter avec l’index IVE (30,24 euros).
       </p>
-      <p>
-      Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour : 
-      <ul>
-          <li>Les femmes bénéficiaires de la CMU complémentaire </li>
-        <li>Les femmes bénéficiaires de l’Aide Médicale de l’État (AME).</li>
-      </ul>
-     
-      </p>
+      
 
      <br></br>
      

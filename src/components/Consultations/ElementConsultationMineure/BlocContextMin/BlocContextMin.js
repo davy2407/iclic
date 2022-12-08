@@ -77,7 +77,7 @@ function BlocContextMin(props) {
         return (
             <div className="Red Verrou">
                 <p>
-                Prise en charge Hospitalière recommandée ! 
+                Prise en charge hospitalière recommandée ! 
                 </p>
             </div> 
         )

@@ -65,11 +65,7 @@ function DeuxiemePriseTarif(props) {
       <p>
       La consultation de 2ème prise médicamenteuse est facultative et peut être
        réalisée au choix du médecin ou de la patiente. Elle est tarifée dans
-        le tarif forfaitaire à l’IVG hors établissement de santé. Elle doit être
-         cotée avec l’index FHV + FMV (50 + 87,92 euros). 
-Sa tarification peut être faite électroniquement ou par format papier.
-<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à Actualité Covid pour plus d’information.
+        le tarif forfaitaire à l’IVG hors établissement de santé. 
 
       </p>
 
