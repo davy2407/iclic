@@ -51,7 +51,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       </p>
       <p>
       
-       Elle doit être cotée avec l’index FHV + FMV (50 + 87,92 euros).
+      
        <br></br>
   
        </p>
@@ -63,8 +63,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
 
       <p>
       Sa tarification peut être faite électroniquement ou par format papier.  
-      <br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
+      <br></br>
 
 
       </p>
