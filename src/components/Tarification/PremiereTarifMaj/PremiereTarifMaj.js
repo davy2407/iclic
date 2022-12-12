@@ -108,7 +108,7 @@ ne fait pas partie du “ forfait  IVG hors établissement de santé” : <br></
       
       <br></br>
      
-      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         ivg.gouv.fr/guide.pdf
       </a>
       

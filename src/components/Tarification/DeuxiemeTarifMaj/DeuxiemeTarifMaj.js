@@ -53,14 +53,13 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       <h2>Tarification et conclusion de consultation</h2>
       <br></br>
       <p>
-      La consultation de recueil de consentement (deuxième consultation préalable à l’IVG), est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé. 
+      La consultation de recueil de consentement (deuxième consultation préalable à l’IVG), est comprise dans le tarif forfaitaire à l’IVG hors établissement de santé. 
       </p>
 
       <p>
       Cotée IC ou ICS 25 euros.  
 Sa tarification peut être faite électroniquement ou par format papier.  
-<br></br>Dans le cas du protocole entre 7 et 9 SA, il n’existe pas, pour le moment, de cotation spécifique pouvant inclure un remboursement du misoprostol supplémentaire. 
-Une ordonnance peut être faite à la patiente afin de récupérer le traitement directement à la pharmacie. Merci de vous référer à l’onglet Actualité pour plus d’information.
+<br></br>
       </p>
       
       
@@ -110,7 +109,7 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
       
 
  
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -118,7 +117,7 @@ Une ordonnance peut être faite à la patiente afin de récupérer le traitement
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
       <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
       <input

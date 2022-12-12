@@ -122,7 +122,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       
 
      
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -130,7 +130,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite.fr 
       </a>
       <a className="Bold" rel="noreferrer noopener" href={InfoPatiente} target="_blank">Fiche info patiente traitement</a>
       

@@ -47,9 +47,17 @@ function PremierePriseTarifMaj(props) {
       <p>
       La consultation de 1ere prise médicamenteuse est tarifée dans le
        tarif forfaitaire à l’IVG hors établissement de santé.</p>
-       <p> Elle doit
-        être cotée avec l’index FHV + FMV (50 + 87,92 euros).
-        <br></br>
+       <p> La cotation est la suivante :
+        <ul>
+          <li>Moins de 7 SA : FHV (50) + FMV (83,57) = 133,57</li>
+          <li>Plus de 7 SA : FHV (50) + FMV (96,53) = 146,53</li>
+        </ul>
+        A savoir que le forfait peut être côté d’emblée (avec la deuxième consultation « recueil du consentement » et la consultation post IVG) si vous êtes le praticien qui reverra la patiente lors de cette consultation post IVG. 
+     <ul>
+      <li>
+      IC x2 (50) + FHV (50) + FMV (83,57/96,53) = 183,57/196,53 
+      </li>
+     </ul>
     
         </p>
         <p> Cette cotation
@@ -64,7 +72,7 @@ function PremierePriseTarifMaj(props) {
       
 
  
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
      
@@ -72,7 +80,7 @@ function PremierePriseTarifMaj(props) {
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
       <br></br>
       <br></br>

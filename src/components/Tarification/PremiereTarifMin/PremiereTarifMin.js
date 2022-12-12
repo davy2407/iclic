@@ -109,6 +109,9 @@ function PremiereTarifMin(props) {
             <p>
       L’IVG est prise en charge à 100% dans le cadre d’un tarif forfaitaire avec dispense totale d’avance de frais pour toutes les patientes 
       </p>
+      <p>
+      La première consultation préalable ne rentre pas dans le forfait IVG, et se cote comme une consultation classique.
+      </p>
      
       
       <p>
@@ -122,7 +125,7 @@ function PremiereTarifMin(props) {
       </p>
       
       <br></br>
-      <a href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank" rel="noreferrer noopener">
+      <a href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank" rel="noreferrer noopener">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -130,7 +133,7 @@ function PremiereTarifMin(props) {
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite.fr
       </a>
       <a rel="noreferrer noopener" target="_blank" href="https://ivg.gouv.fr/ou-avorter.html">Lien ou-avorter.gouv</a>
       {/* lien a finir  */}

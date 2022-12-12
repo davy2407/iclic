@@ -53,8 +53,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côté avec l’index IVE (30,24 euros).
       </p>
       <p>
-        L'IVG est prise en charge à 100% dans le cadre d'un tarif forfaitaire avec dispense totale d'avance de frais pour toutes les patientes. 
-
+      pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
       </p>
      
       
@@ -68,7 +67,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
       Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030). La facturation électronique est exclue dans ce seul cas de figure.
       </p>
  
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -76,7 +75,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
 
         

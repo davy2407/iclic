@@ -56,7 +56,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       La consultation post-IVG est tarifée dans le tarif forfaitaire à l’IVG hors établissement de santé.
       </p>
       <p>
-       Elle doit être cotée avec l’index IC ou ICS (tarif de 25euros).
+       Elle doit être cotée avec l’index IC ou ICS (tarif de 25euros). Sauf si cotation complète de l’ensemble du forfait au moment de la première prise de médicament 
        </p>
        <p>
 Sa tarification peut être faite électroniquement ou par format papier.  
@@ -66,13 +66,16 @@ Sa tarification peut être faite électroniquement ou par format papier.
 <p>
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côter avec l’index IVE (30,24 euros).
       </p>
+      <p>
+      pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
+      </p>
       
 
      <br></br>
      
       
     
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -80,7 +83,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
 
         

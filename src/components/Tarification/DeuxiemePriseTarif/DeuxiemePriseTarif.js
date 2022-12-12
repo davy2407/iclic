@@ -67,6 +67,16 @@ function DeuxiemePriseTarif(props) {
        réalisée au choix du médecin ou de la patiente. Elle est tarifée dans
         le tarif forfaitaire à l’IVG hors établissement de santé. 
 
+        <br></br>
+        Pour rappel, la cotation est la suivante : 
+        <ul>
+          <li>
+            Moins de 7 SA : FHV (50) + FMV (83,57) = 133,57
+          </li>
+          <li>
+            Plus de 7 SA : FHV (50) + FMV (96,53) = 146,53
+          </li>
+        </ul>
       </p>
 
       <p>
@@ -122,7 +132,7 @@ function DeuxiemePriseTarif(props) {
       
 
    
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
@@ -130,7 +140,7 @@ function DeuxiemePriseTarif(props) {
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
 
 

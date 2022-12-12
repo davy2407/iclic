@@ -61,24 +61,17 @@ function DeuxiemePriseMinTarif(props) {
       
       <p>
       La consultation de 2ème prise médicamenteuse est facultative et peut être
-       réalisée au choix du médecin ou de la patiente. Elle est tarifée dans
+       réalisée au choix du médecin ou de la patiente. Elle est comprise dans
         le tarif forfaitaire à l’IVG hors établissement de santé. 
 
       </p>
 
       <p>
-      Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour :
+      Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
       </p>
       
      
-      <ul>
-          <li>
-          Les jeunes filles mineures non émancipées sans consentement parental
-          </li>
-          
-        <li>Les femmes bénéficiaires de la CMU complémentaire</li>
-        <li>Les femmes bénéficiaires de l’Aide Médicale de l’État (AME).</li>
-      </ul>
+      
 
       <p>
       Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure
@@ -131,15 +124,15 @@ function DeuxiemePriseMinTarif(props) {
 <br></br>
 
       
-      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf" target="_blank">
+      <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf
       </a>
       
       <a className="Bold" rel="noreferrer noopener"
-        href="https://www.choisirsacontraception.fr/?gclid=CjwKCAjwiaX8BRBZEiwAQQxGx09bqLm7t5_O6Yi_5xe9ZEVR9ePUqUSpruG5nRH7BkxAGpo3Mxb5thoCP7EQAvD_BwE"
+        href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien choisirsacontraception.fr
+        Lien questionsexualite/choisir-sa-contraception.fr
       </a>
 
         
