@@ -67,7 +67,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
 Si une échographie de contrôle est réalisée au moment de l’examen, il conviendra de côter avec l’index IVE (30,24 euros).
       </p>
       <p>
-      pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
+      Pour rappel, cette consultation est prise en charge à 100% avec exonération du ticket modérateur pour toutes les femmes.
       </p>
       
 
@@ -83,7 +83,7 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien questionsexualite/choisir-sa-contraception.fr
+        Lien questionsexualite.fr
       </a>
 
         

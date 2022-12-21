@@ -142,9 +142,7 @@ function BlocControleEchoOuAvis(props) {
                   
                 </p>
                 <p>
-                <a  target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
-                  HAS recommandation
-                  </a>
+                
                 </p>
             
           </div>

@@ -80,7 +80,7 @@ function PremierePriseTarifMaj(props) {
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien questionsexualite/choisir-sa-contraception.fr
+        Lien questionsexualite.fr
       </a>
       <br></br>
       <br></br>

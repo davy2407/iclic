@@ -59,7 +59,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
          Moins de 7 SA : FHV (50) + FMV (83,57) = 133,57
         </li>
         <li>
-          PLus de 7 SA : FHV (50) + FMV (96,53) = 146,53
+          Plus de 7 SA : FHV (50) + FMV (96,53) = 146,53
         </li>
        </ul>
        A savoir que le forfait peut être côté d’emblée (avec la deuxième consultation « recueil du consentement » et la consultation post IVG) si vous êtes le praticien qui reverra la patiente lors de cette consultation post IVG.
@@ -108,7 +108,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien questionsexualite/choisir-sa-contraception.fr
+        Lien questionsexualite.fr
       </a>
       <br></br>
       <br></br>

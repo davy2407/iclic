@@ -117,7 +117,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
         href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg"
         target="_blank"
       >
-        Lien questionsexualite/choisir-sa-contraception.fr
+        Lien questionsexualite.fr
       </a>
       <a className="NewDocContainer" rel="noreferrer noopener"  href={InfoPatiente} target="_blank">
       <input

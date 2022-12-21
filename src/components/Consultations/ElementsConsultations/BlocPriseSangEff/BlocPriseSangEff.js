@@ -87,7 +87,7 @@ const afficheverrou = () => {
         return (
           <div className="BulleInfo">
             <p>
-            « (Groupe sanguin 2 déterminations, HCG quantitatif) Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. »
+            « (Groupe sanguin 2 déterminations, βHCG quantitatif) Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et de rhésus positif ou inconnue chez le partenaire, avant toute IVG ou dans les 72h suivant tout saignement. »
             </p>
             
           </div>

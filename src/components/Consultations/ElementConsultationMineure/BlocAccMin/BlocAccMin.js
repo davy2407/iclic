@@ -96,7 +96,7 @@ const afficheverrou = () => {
   return (
     <div className={currentClassCard}>
         <h2>
-        Personne accompagnante majeure ou consentement parental obliagtoire
+        Personne accompagnante majeure ou consentement parental obligatoire
         </h2>
 
 
