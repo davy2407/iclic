@@ -43,7 +43,7 @@ function BlocCovidPostIVG(props) {
 
     const recupConsultCovid = (e) => {
         let reponse = {
-          titre : "Téléconsultation : ",
+          titre : "Consultation faite par téléconsultation : ",
           value: e.target.value,
           reponse : 1
         };

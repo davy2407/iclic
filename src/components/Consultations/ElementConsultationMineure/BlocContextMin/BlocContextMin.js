@@ -75,9 +75,9 @@ function BlocContextMin(props) {
 
       const verrouTxt = () => {
         return (
-            <div className="Red Verrou">
+            <div className="Red VerrouMin">
                 <p>
-                Prise en charge hospitalière recommandée ! 
+                   Prise en charge hospitalière recommandée ! 
                 </p>
             </div> 
         )

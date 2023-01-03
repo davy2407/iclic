@@ -68,6 +68,11 @@ function PremiereTarifMaj(props) {
   
 
 
+  const nonTele =() => {
+    let clear = "";
+    setCurrentOuiCovid(clear);
+  }
+  
 
   
 
@@ -94,6 +99,10 @@ function PremiereTarifMaj(props) {
             <p>Téléconsultation : </p>
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
+            <br></br>
+            <br></br>
+            <Button variant="danger" onClick={(e)=>{
+            nonTele();}} value="Oui">Non</Button>
             <br></br>
             <div>{currentOuiCovid}</div>
             </div>

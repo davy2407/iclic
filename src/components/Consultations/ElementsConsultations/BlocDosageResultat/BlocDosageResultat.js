@@ -142,9 +142,9 @@ return (
 L’autotest urinaire peut également être utilisé pour juger le succès de l’IVG
 médicamenteuse. Celui-ci peut être réalisé à domicile combiné à un suivi téléphonique
     </p>
-    <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
+    {/* <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">
      Lien HAS recommandation 
-    </a>
+    </a> */}
   </div>
 );
 };

@@ -71,6 +71,12 @@ function PremiereTarifMin(props) {
     let affiche = covidTxt;
     setCurrentOuiCovid(affiche);
   }
+
+
+  const nonTele =() => {
+    let clear = "";
+    setCurrentOuiCovid(clear);
+  }
   
 
 
@@ -102,6 +108,9 @@ function PremiereTarifMin(props) {
             <Button variant="danger" onClick={(e)=>{
             afficheCovid();}} value="Oui">Oui</Button>
             <br></br>
+            <br></br>
+            <Button variant="danger" onClick={(e)=>{
+            nonTele();}} value="Oui">Non</Button>
             <div>{currentOuiCovid}</div>
             </div>
 

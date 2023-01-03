@@ -50,18 +50,19 @@ function BlocDecouverte(props) {
               value : e.target.value,
               reponse : 1
             };
-            if (e.target.value=="Test Sanguin") {
-              setCurrentBisRep(reponse);
-              setCurrentClassBtt(classBouttonBase);
+          //   if (e.target.value=="Test Sanguin") {
+          //     setCurrentBisRep(reponse);
+          //     setCurrentClassBtt(classBouttonBase);
     
     
-          }
-          else if (e.target.value=="Échographie") {
-            setCurrentBisRep(reponse);
-            setCurrentClassBtt(classBouttonBase);
+          // }
+        //   else if (e.target.value=="Échographie") {
+        //     setCurrentBisRep(reponse);
+        //     setCurrentClassBtt(classBouttonBase);
     
     
-        }else {
+        // }
+        // else {
           setCurrentRep(reponse);
           changeBtnClass();
           setCurrentOui("");
@@ -69,7 +70,7 @@ function BlocDecouverte(props) {
           
       }
     
-          }
+          
 
 
   const changeBtnClass = () => {
@@ -197,7 +198,7 @@ const afficheSanguin = () => {
         label={`Test Sanguin`}
         value="Test Sanguin"
         name="mode"
-        onClick={(e)=>{recupRadioMode(e);afficheSanguin();}}
+        onClick={(e)=>{recupRadioMode(e);}}
       />
       <Form.Check 
         type='radio'

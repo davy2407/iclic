@@ -90,6 +90,8 @@ import PremierePriseTarifMin from "@components/Tarification/PremierePriseTarifMi
 import BlocPIllule from "@components/Consultations/ElementsConsultations/BlocPIllule";
 import BlocAgeGestaSemaineJour from "@components/Consultations/ElementsConsultations/BlocAgeGestaSemaineJour";
 import BlocContextMin from "@components/Consultations/ElementConsultationMineure/BlocContextMin";
+import BlocViolenceMin from "@components/Consultations/ElementConsultationMineure/BlocViolenceMin";
+
 
 
 
@@ -959,7 +961,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 9
             },
             {
-              objet : BlocViolence,
+              objet : BlocViolenceMin,
               id : 10
             },
             {
@@ -1069,7 +1071,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 3
             },
             {
-              objet : BlocViolence,
+              objet : BlocViolenceMin,
               id : 4
             },
             {
@@ -1286,7 +1288,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 13
             },
             {
-              objet : BlocViolence,
+              objet : BlocViolenceMin,
               id : 14
             },
             {
