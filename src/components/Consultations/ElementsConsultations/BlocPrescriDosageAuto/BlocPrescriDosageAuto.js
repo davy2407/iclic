@@ -65,7 +65,7 @@ function BlocPrescriDosageAuto(props) {
              L’autotest urinaire peut également être utilisé. (A domicile combiné à un suivi téléphonique)
              </p>
 
-             <a class="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">HAS recommandation</a>
+             {/* <a class="Bold" rel="noreferrer noopener" target="_blank" href="https://www.has-sante.fr/jcms/c_2857715/fr/ivg-medicamenteuse-les-protocoles-a-respecter">HAS recommandation</a> */}
           </div>
         )
       }

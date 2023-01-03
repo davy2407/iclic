@@ -38,7 +38,7 @@ function BlocCovid(props) {
 
     const recupConsultCovid = (e) => {
         let reponse = {
-          titre : "Consultation faite dans le cadre des dispositions du Covid valable jusqu'à la fin de l'état d'urgence sanitaire « (téléconsultation) » : ",
+          titre : "Téléconsultation : ",
           value: e.target.value,
           reponse : 1
         };

@@ -69,11 +69,7 @@ class FicheUnePage extends React.Component {
     <br></br>
     <br></br>
       <br></br>
-      <p className="pStart">Pour information : </p>
-      <br></br>
-    <br></br>
-      <br></br>
-      <p>Il est à noter qu’un délai de 48h entre la consultation psychosociale et la 2eme consultation préalable à l’IVG est à respecter (non obligatoire). </p>
+     
       <br></br>
       <br></br>
       <p className="Tampon">Date et Tampon</p>

@@ -113,17 +113,18 @@ class FicheDeuxPages extends React.Component {
   })}
    
   </div>
+  <p>
+          Cette fiche de liaison a été établie à partir des recommandations du livret
+           d’information à l’attention des médecins et des sages-femmes distribués
+            par l’ARS et validé par le ministère des affaires sociales et de la santé.
+    </p>
   <br></br>
       <br></br>
       
       
    
       
-      <p>
-          Cette fiche de liaison a été établie à partir des recommandations du livret
-           d’information à l’attention des médecins et des sages-femmes distribués
-            par l’ARS et validé par le ministère des affaires sociales et de la santé.
-    </p>
+     
     <br></br>
       <br></br>
       <p className="Tampon">Date et Tampon</p>

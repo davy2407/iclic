@@ -70,7 +70,7 @@ const afficheverrou = () => {
 
       const recupRadioPsycho = (e) => {
         let reponse = {
-          titre : "Consultation psycho-sociale proposée : ",
+          titre : "Consultation psycho-sociale obligatoire : ",
           value : e.target.value,
           reponse : 1
         };

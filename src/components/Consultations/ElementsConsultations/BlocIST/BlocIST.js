@@ -94,7 +94,7 @@ function BlocIST(props) {
               </a>
               ,{" "}
               <a href="https://questionsexualite.fr/" target="_blank" rel="noreferrer noopener">
-                IST-info
+                Questionsexualite.fr
               </a>
               .
             </p>

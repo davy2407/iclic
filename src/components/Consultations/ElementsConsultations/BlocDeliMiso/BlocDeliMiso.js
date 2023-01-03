@@ -106,6 +106,8 @@ function BlocDeliMiso(props) {
       />
         Fiche information patiente
       </a>
+      </p>
+      <p>
 
       <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseilSurveillance} target="_blank">
       <input
