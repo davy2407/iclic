@@ -59,9 +59,7 @@ function BlocInfoContra(props) {
              Aborder la contraception dès cette consultation. Site d’information à transmettre à la patiente : </p>
               
               <p>
-              <a target="_blank" rel="noreferrer noopener" href="https://www.choisirsacontraception.fr/?gclid=EAIaIQobChMI8_jf5raj7AIVD9d3Ch2qZwTZEAAYASAAEgIlxvD_BwE">
-                choisirsacontraception.com
-              </a>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg" >Questionsexualite.fr</a>
             </p>
             <br></br>
           </div>

@@ -159,7 +159,7 @@ L’implant a débuter le jour de la 1ere prise médicamenteuse ou à la consul
              </p>
             
              <p>
-                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg" >choisirmacontraception.fr</a>
+                 <a className="Bold" rel="noreferrer noopener" target="_blank" href="https://questionsexualite.fr/choisir-sa-contraception/l-interruption-volontaire-de-grossesse/quelle-contraception-choisir-apres-une-ivg" >Questionsexualite.fr</a>
              </p>
             
           </div>
