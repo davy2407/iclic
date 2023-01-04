@@ -97,6 +97,14 @@ function BlocViolenceMin(props) {
         setTxtViolence(txtAEnlever);
       };
       const [logoAfficheViolence, setLogoAfficheViolence] = useState(LightOff);
+
+
+
+
+      const afficheClear = () => {
+        let txtAAfficher= ""
+        setCurrentWarningContexte(txtAAfficher);
+      }
     
 
    
@@ -139,6 +147,7 @@ function BlocViolenceMin(props) {
         label={`Non`}
         value="Non"
         name="violence"
+        onClick={afficheClear}
       />
       </div>
       </Form>

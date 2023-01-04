@@ -97,21 +97,7 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
 
 
 
-      <p>Copie pour :</p>
-      <ol>
-        <li>
-        patiente après signature.
-
-        </li>
-        <li>
-        médecin ou sage femme
-          
-        </li>
-        <li>
-        pour le praticien orthogéniste
-          
-        </li>
-      </ol>
+      
   
 
 

@@ -102,9 +102,9 @@ function BlocControleEchoOuAvis(props) {
             }}>
         <option value="">Cause</option>
         <option value="Un échec après analyse de la décroissance du taux de B-HCG. ">1. Un échec après analyse de la décroissance du taux de B-HCG. </option>
-        <option value="Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).">2. Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).</option>
-        <option value="Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.">3. Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.</option>
-        <option value="Des douleurs ne s’atténuant pas par la prise de médicaments.">4. Des douleurs ne s’atténuant pas par la prise de médicaments.</option>
+        <option value="Des saignements abondants (sans signes cliniques d’anémie ou facteurs de risques/comorbidité).">2. Des saignements abondants (sans signes cliniques d'anémie ou facteurs de risques/comorbidité).</option>
+        <option value="Une fièvre pouvant être le signe d’une infection post-IVG médicamenteuse.">3. Une fièvre pouvant être le signe d'une infection post-IVG médicamenteuse.</option>
+        <option value="Des douleurs ne s’atténuant pas par la prise de médicaments.">4. Des douleurs ne s'atténuant pas par la prise de médicaments.</option>
        
       </Form.Control>
       </Form.Group>
