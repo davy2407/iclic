@@ -90,6 +90,9 @@ function BlocContext(props) {
         label={`Oui`}
         value="Oui"
         name="contexte"
+        onClick={()=>{
+          setCurrentWarningContexte("");
+        }}
       />
 
 <Form.Check 

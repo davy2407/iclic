@@ -91,6 +91,18 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
         Formulaire Consentement IVG à remplir
       </a>          </p>
 
+      <p>
+        Copie pour : 
+      </p>
+      <p>
+      <ol>
+        <li>patiente après signature.</li>
+        <li>médecin ou sage femme, à conserver dans le dossier médical</li>
+      </ol>
+
+      </p>
+
+
 
 
       <br></br>

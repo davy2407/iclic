@@ -50,9 +50,12 @@ function BlocDecouverte(props) {
               value : e.target.value,
               reponse : 1
             };
-          //   if (e.target.value=="Test Sanguin") {
-          //     setCurrentBisRep(reponse);
-          //     setCurrentClassBtt(classBouttonBase);
+            if (e.target.value=="Test Sanguin") {
+             
+              console.log("OUIII");
+              setCurrentClassBtt(classBouttonBase);
+
+            }
     
     
           // }
@@ -62,12 +65,12 @@ function BlocDecouverte(props) {
     
     
         // }
-        // else {
+        else {
           setCurrentRep(reponse);
           changeBtnClass();
           setCurrentOui("");
           
-          
+        }
       }
     
           
@@ -80,18 +83,15 @@ function BlocDecouverte(props) {
 
 
   const handleDosageHCG = event => {
-    let rep = event.currentTarget.value
-    setDosageHCG(rep);
-    console.log(event.currentTarget.value);
-    console.log(rep);
+    setDosageHCG(event.currentTarget.value);
   };
 
-  const handleSubmitDosageHCG = val => {
+  const handleSubmitDosageHCG =event  => {
      
 
     let reponse = {
       titre : "Mode de découverte de la grossesse :Test Sanguin ; Dosage ß-HCG : ",
-      value : val,
+      value : event.currentTarget.value,
       reponse : 1,
       identifiant : 1
 
@@ -127,7 +127,7 @@ function BlocDecouverte(props) {
 const ouiTstSanguin = () => {
   return (
       <div>
-          <form onSubmit={(e)=>{
+          <Form onSubmit={(e)=>{
         
         submitHandler(e);
       
@@ -144,10 +144,9 @@ const ouiTstSanguin = () => {
             <Button   value={dosageHCG} variant="danger" onClick={(e)=> {
               handleSubmitDosageHCG(e);
               changeBtnClass();
-              console.log(e.target.value);
             }}>Confirmer</Button>
             
-        </form>
+        </Form>
       </div>
   )
 }
@@ -182,14 +181,14 @@ const afficheSanguin = () => {
       <h2>Mode de découverte de la grossesse </h2>
       <br></br>
       <Form>
-      <div key={`uri-radio`} className="mb-3" >
+      <div key={`uri-radio`} className="mb-3" onChange={(e)=>{recupRadioMode(e);}} >
       <Form.Check 
         type='radio'
         id={`uriTest`}
         label={`Test Urinaire`}
         value="Test Urinaire"
         name="mode"
-        onClick={(e)=>{recupRadioMode(e);}}
+        onClick={()=>{setCurrentOui("")}}
       />
 
 <Form.Check 
@@ -198,7 +197,7 @@ const afficheSanguin = () => {
         label={`Test Sanguin`}
         value="Test Sanguin"
         name="mode"
-        onClick={(e)=>{recupRadioMode(e);}}
+        onClick={()=>{afficheSanguin();}}
       />
       <Form.Check 
         type='radio'
@@ -206,7 +205,6 @@ const afficheSanguin = () => {
         label={`Échographie`}
         value="Échographie"
         name="mode"
-        onClick={(e)=>{recupRadioMode(e);}}
 
       />
       <Form.Check 
@@ -215,7 +213,8 @@ const afficheSanguin = () => {
         label={`Clinique`}
         value="Clinique"
         name="mode"
-        onClick={(e)=>{recupRadioMode(e);}}
+        onClick={()=>{setCurrentOui("")}}
+
 
       />
       </div>

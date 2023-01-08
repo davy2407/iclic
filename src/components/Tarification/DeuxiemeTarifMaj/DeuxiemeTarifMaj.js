@@ -94,8 +94,7 @@ Sa tarification peut être faite électroniquement ou par format papier.
       <p>
       <ol>
         <li>patiente après signature.</li>
-        <li>médecin ou sage femme</li>
-        <li>adressée au centre d’orthogenie referent</li>
+        <li>médecin ou sage femme, à conserver dans le dossier médical</li>
       </ol>
 
       </p>
