@@ -52,7 +52,7 @@ function BlocDecouverte(props) {
             };
             if (e.target.value=="Test Sanguin") {
              
-              console.log("OUIII");
+              
               setCurrentClassBtt(classBouttonBase);
 
             }

@@ -91,6 +91,8 @@ import BlocPIllule from "@components/Consultations/ElementsConsultations/BlocPIl
 import BlocAgeGestaSemaineJour from "@components/Consultations/ElementsConsultations/BlocAgeGestaSemaineJour";
 import BlocContextMin from "@components/Consultations/ElementConsultationMineure/BlocContextMin";
 import BlocViolenceMin from "@components/Consultations/ElementConsultationMineure/BlocViolenceMin";
+import BlocNouveauDecouverte from "@components/Consultations/ElementsConsultations/BlocNouveauDecouverte";
+
 
 
 
@@ -863,7 +865,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 3
             },
             {
-              objet : BlocDecouverte,
+              objet : BlocNouveauDecouverte,
               id : 4
             },
             {
@@ -937,7 +939,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               id : 3
             },
             {
-              objet : BlocDecouverte,
+              objet : BlocNouveauDecouverte,
               id : 4
             },
             {
@@ -1359,6 +1361,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
               objet : BlocContraChoisie,
               id : 4
             }
+            
 
           ]
           
