@@ -103,7 +103,7 @@ function BlocNouveauDecouverte(props) {
     
         let reponse = {
           titre: "Mode de décvouverte de la grossesse : Échographie ; Age gestationnel réel ou estimé (en semaine d’aménorrhée) : ",
-          value: e.target.value,
+          value: e.target.value+", jours : ",
           reponse : 1,
           identifiant : 2
 
@@ -144,6 +144,8 @@ function BlocNouveauDecouverte(props) {
           handleChangeAge(e);
         }}
       ></input>
+      <br></br>
+      Info : Jours à noter à la main sur le résumé de consultation. Section en travaux, veuillez nous excuser.
             </div>
         )
     }
