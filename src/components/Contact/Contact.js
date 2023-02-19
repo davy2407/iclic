@@ -22,7 +22,7 @@ function Contact() {
             Pour toutes demande, n’hésitez pas à nous contacter via contact.ivgclic@gmail.com
             </p>
 
-            <h2>Intégration, développement et graphisme : </h2>
+            <h2>Intégration, développement et graphisme : </h2> 
             <p>
             Mr Bindé Davy : Chargé de mission principal du projet.
             </p>
