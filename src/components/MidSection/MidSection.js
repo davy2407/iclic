@@ -501,7 +501,7 @@ const selectConsultation = (event, idCons, idMaj) => {
   let idConsultation = idCons;
   let idMajMin = idMaj;
   let idAno = event.target.id;
-  if (idConsultation=="1"&&idMajMin=="1"&&idAno=="1") {
+  if (idConsultation=="1"&&idMajMin=="1"&&idAno=="2"||idConsultation=="1"&&idMajMin=="1"&&idAno=="1") {
     /// si patiente majeure non anonyme
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[0].elementsCon;
@@ -515,11 +515,7 @@ const selectConsultation = (event, idCons, idMaj) => {
     setCurrentQuestionPre([objetAAjouter]);
     changeTextePremiereConsMin();
   }
-  else if (idConsultation=="1"&&idMajMin=="1"&&idAno=="2"||idConsultation=="2"&&idMajMin=="1"&&idAno=="2"||idConsultation=="3"&&idMajMin=="1"&&idAno=="2"||idConsultation=="4"&&idMajMin=="1"&&idAno=="2"||idConsultation=="5"&&idMajMin=="1"&&idAno=="2") {
-    let objetAAjouter =  listeQuestionPre[12];
-    setCurrentQuestionPre([objetAAjouter]);
-  }
-  else if (idConsultation=="2"&&idMajMin=="1"&&idAno=="1") {
+  else if (idConsultation=="2"&&idMajMin=="1"&&idAno=="2"||idConsultation=="2"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[2].elementsCon;
     setCurrentElCons(elementAAjouter);
@@ -533,7 +529,7 @@ const selectConsultation = (event, idCons, idMaj) => {
     setCurrentQuestionPre([objetAAjouter]);
     changeTexteDeuxiemeConMin();
   }
-  else if (idConsultation=="3"&&idMajMin=="1"&&idAno=="1") {
+  else if (idConsultation=="3"&&idMajMin=="1"&&idAno=="2"||idConsultation=="3"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[4].elementsCon;
     setCurrentElCons(elementAAjouter);
@@ -548,7 +544,7 @@ const selectConsultation = (event, idCons, idMaj) => {
     changeTextePremierePriseMaj();
 
   }
-  else if (idConsultation=="4"&&idMajMin=="1"&&idAno=="1") {
+  else if (idConsultation=="4"&&idMajMin=="1"&&idAno=="2"||idConsultation=="4"&&idMajMin=="1"&&idAno=="1") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[6].elementsCon;
     setCurrentElCons(elementAAjouter);
@@ -562,7 +558,7 @@ const selectConsultation = (event, idCons, idMaj) => {
     setCurrentQuestionPre([objetAAjouter]);
     changeTexteDeuxiemePriseMaj();
   }
-  else if (idConsultation=="5"&&idMajMin=="1"&&idAno=="1") {
+  else if (idConsultation=="5"&&idMajMin=="1"&&idAno=="1"||idConsultation=="5"&&idMajMin=="1"&&idAno=="2") {
     let objetAAjouter =  listeQuestionPre[11];
     let elementAAjouter = listeElConsultation[8].elementsCon;
     setCurrentElCons(elementAAjouter);
@@ -592,7 +588,6 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
   let objetAAjouter = liste;
   setElementTarif(objetAAjouter);
   setElementBloc(blocs);
-  console.log(blocs);
 }
 
 

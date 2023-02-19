@@ -73,7 +73,7 @@ function DeuxiemePriseMinTarif(props) {
      
       
 
-      <p>
+      {/* <p>
       Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure
        bénéficie des conditions de facturation anonyme aux caisses
         de sécurité sociale, d’ores et déjà applicables,
@@ -86,7 +86,7 @@ function DeuxiemePriseMinTarif(props) {
        le médecin de ville ou la sage-femme utilise une feuille de soins
         papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).
          La facturation électronique est exclue dans ce seul cas de figure.
-      </p>
+      </p> */}
       <br></br>
       <a className="NewDocContainer" rel="noreferrer noopener"  href={FicheConseil} target="_blank">
       <input

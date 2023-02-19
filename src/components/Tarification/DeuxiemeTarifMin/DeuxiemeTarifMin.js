@@ -58,10 +58,10 @@ const [ iconConsen, setIconConsen] = useState(classIcon);
       
       
 
-      <p>
+      {/* <p>
       La jeune femme mineure bénéficie des conditions de facturation anonyme aux caisses de sécurité sociale, (article <a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">D. 132-3</a>  du Code de la sécurité  32 ). 
       Le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).  
-      </p>
+      </p> */}
 
       
 

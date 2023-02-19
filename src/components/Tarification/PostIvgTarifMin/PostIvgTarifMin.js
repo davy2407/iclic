@@ -58,14 +58,14 @@ Si une échographie de contrôle est réalisée au moment de l’examen, il conv
      
       
 
-      <p>
+      {/* <p>
       Par ailleurs, la jeune femme mineure bénéficie des conditions de facturation anonyme aux caisses de sécurité sociale 
       (<a className="Bold" target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la sécurité  32 ).
       </p>
 
       <p>
       Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030). La facturation électronique est exclue dans ce seul cas de figure.
-      </p>
+      </p> */}
  
       <a className="Bold" rel="noreferrer noopener" href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank">
         https://ivg.gouv.fr/IMG/pdf/guide_ivg_2018.pdf

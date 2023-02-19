@@ -88,12 +88,12 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
      
 
 
-      <p>
+      {/* <p>
       Par ailleurs, comme c’est le cas aujourd’hui, la jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses de sécurité sociale (<a target="_blank" rel="noreferrer noopener" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la sécurité). 
       </p>
       <p>
       Les dispositions de la circulaire Cnam-TS 49/2003 du 24 mars 2003 s’appliquent : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030). La facturation électronique est exclue dans ce seul cas de figure.
-      </p>
+      </p> */}
 
      
       
@@ -207,7 +207,7 @@ Pour rappel, cette consultation est prise en charge à 100% avec exonération du
     <p>
     Une consultation dédiée de première consultation de contraception et de prévention des maladies sexuellement transmissibles pour les jeunes filles de 15 à 18 ans. Elle est applicable depuis le 1er novembre 2017 pour les médecins de spécialité médecine générale ou gynécologie. Elle est cotée selon le code CCP avec prise en charge à 100% (46 euros). Elle ne peut pas s’additionner au forfait IVG.
     </p>
-    <a className="Bold" target="_blank" href={FicheHAS}> Fiche de liaison « type » HAS.    
+    <a className="Bold" target="_blank" rel="noreferrer noopener" href={FicheHAS}> Fiche de liaison « type » HAS.    
 </a>
       </div>
     

@@ -92,7 +92,37 @@ La séquence des consultations relatives à l’IVG médicamenteuse à domicile 
                           Il n’est pas recommandé́ d’utiliser la voie vaginale. Voie transmuqueuse orale : les comprimés sont mis en place entre la joue et la gencive et les femmes doivent avaler les fragments résiduels au bout de 30 minutes. 
                           </li>
                       </ul>
-                      </p>   
+                      </p> 
+
+
+                      <h2>Concernant l’anonymat</h2>  
+
+                      <p>
+                      L’anonymat doit désormais être proposé à TOUTES les femmes (mineure, majeure). La prise en charge à 100% par l’AMO ainsi que la pratique du tiers payant obligatoire et l’absence de décompte envoyé à l’assuré garantissent l’anonymat.
+                      </p>
+                      <p>
+                      Il n’est plus nécessaire d’utiliser un NIR anonyme lorsque le NIR réel peut être fiabilisé par un support VITALE.
+                      </p>
+                      <p>
+                      Toutefois, dans le cas où la récupération du NIR réel ne peut être fiabilisé par un support de droit le professionnel de santé doit utiliser :
+                     
+                      <ul>
+                        <li>
+                        NIR fictif 2 55 55 55 + code de caisse + 030
+                        </li>
+                        <li>
+                        Date de naissance réelle ou à défaut 01/01/2014
+                        </li>
+
+                      </ul>
+</p>
+                      <p>
+                      SI dans tous les cas l’anonymat ne peut être assuré et que la patiente le souhaite, il est nécessaire de la rediriger vers un établissement de santé.
+                      </p>
+
+                      <p>
+                      (Insérer ce lien juste en dessous en le renommant) « IVG : anonymat et facturation <a target="_blank" rel="noreferrer noopener" href="https://www.ameli.fr/medecin/exercice-liberal/prescription-prise-charge/prise-charge-situation-type-soin/ivg-medicamenteuse#:~:text=Le%20professionnel%20de%20sant%C3%A9%2C%20d%C3%A8s,facture%20seront%20exclus%20des%20d%C3%A9comptes">https://www.ameli.fr/medecin/exercice-liberal/prescription-prise-charge/prise-charge-situation-type-soin/ivg-medicamenteuse#:~:text=Le%20professionnel%20de%20sant%C3%A9%2C%20d%C3%A8s,facture%20seront%20exclus%20des%20d%C3%A9comptes </a>.
+                      </p>
 
 
 

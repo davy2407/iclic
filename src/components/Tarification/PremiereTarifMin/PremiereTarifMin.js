@@ -123,7 +123,7 @@ function PremiereTarifMin(props) {
       </p>
      
       
-      <p>
+      {/* <p>
       La jeune femme mineure bénéficie des conditions de facturation anonymes aux caisses
        de sécurité sociale
         (<a rel="noreferrer noopener" target="_blank" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006735222&cidTexte=LEGITEXT000006073189&dateTexte=20151016">article D. 132-3</a> du Code de la Sécurité Sociale 32). 
@@ -131,7 +131,7 @@ function PremiereTarifMin(props) {
       <p>
       Circulaire Cnam-TS 49/2003 du 24 mars 2003  : le médecin de ville ou la sage-femme utilise une feuille de soins papier et doit indiquer un NIR spécifique (2 55 55 55 +code caisse +030).
       <br></br>Ne pas utiliser la carte vitale de la patiente mineure !
-      </p>
+      </p> */}
       
       <br></br>
       <a href="https://ivg.gouv.fr/IMG/pdf/ivg_guide_complet.pdf" target="_blank" rel="noreferrer noopener">
