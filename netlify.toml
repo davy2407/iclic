@@ -1,0 +1,22 @@
+
+[context.production]
+  publish = "output/"
+  command = "make publish"
+  environment = { NODE_VERSION = "12.18.4" }
+
+
+[context.deploy-preview.environment]
+  NOT_PRIVATE_ITEM = "not so secret"
+
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+
+
+[context.dev.environment]
+  NODE_ENV = "development"
+
+# Specific branch context: all deploys from
+# this specific branch will inherit these settings.
+[context.staging.environment] # “staging” is a branch name
+  NODE_ENV = "development"
