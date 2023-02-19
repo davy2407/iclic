@@ -588,7 +588,7 @@ const recupElTarif = (liste, blocs={bloc1:[],bloc2:[]}) =>{
   let objetAAjouter = liste;
   setElementTarif(objetAAjouter);
   setElementBloc(blocs);
-}
+} 
 
 
 /////////////////////////////////////
