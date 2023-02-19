@@ -17,6 +17,9 @@
     "react-to-print": "^2.10.3",
     "reactjs-popup": "^2.0.3"
   },
+  "engines" : { 
+    "node" : ">=14.0.0 <17.0.0"
+  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
@@ -42,4 +45,5 @@
   "devDependencies": {
     "env-cmd": "^10.1.0"
   }
+  
 }
