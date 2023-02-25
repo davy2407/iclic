@@ -221,7 +221,7 @@ const afficheSanguin = () => {
       </Form>
 
 
-      <div>{currentOui}</div>
+      <div>{currentOui}</div> 
 
 
       <Button variant="info" className="BouttonRetour" onClick={()=>{
