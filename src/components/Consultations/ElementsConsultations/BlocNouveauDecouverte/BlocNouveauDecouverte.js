@@ -284,7 +284,7 @@ type="image"
 src={logoAfficheAntiD}
 alt="logo information mifépristone"
 />
-<div className="ContainerBulle">{currentInfoAntiD}</div> */}
+<div className="ContainerBulle">{currentInfoAntiD}</div> */} 
 
 
 
