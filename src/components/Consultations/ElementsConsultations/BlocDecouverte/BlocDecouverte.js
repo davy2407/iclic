@@ -20,7 +20,7 @@ function BlocDecouverte(props) {
   const [currentClassBtt, setCurrentClassBtt] = useState(classBouttonBase);
 
   const [ classBaseCard, setClassBaseCArd] =useState("BlocConsultationStyle");
-
+ 
   const [classActifCard,setClassActifCard] =useState("BlocConsultationStyleActiv");
  
   const [currentClassCard, setCurrentClassCard] =useState(classBaseCard);
