@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.21.0",
     "@jridgewell/sourcemap-codec": "^1.4.14",
     "@rollup/plugin-terser": "^0.4.0",
     "@testing-library/jest-dom": "^4.2.4",
