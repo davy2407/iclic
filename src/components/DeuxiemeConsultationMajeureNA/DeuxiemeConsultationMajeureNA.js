@@ -1101,7 +1101,7 @@ Injection d’Immunoglobulines anti-D nécessaire en cas de rhésus négatif et 
       };
 
       const handleChangeGroupe = (e) => {
-        /// recup date frotti
+  
        
         
         
