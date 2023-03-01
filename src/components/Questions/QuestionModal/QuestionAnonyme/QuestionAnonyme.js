@@ -23,7 +23,7 @@ function QuestionAnonyme(props) {
 
   return (
       <div animation={animation} className="QuestionMetierStyle">
-          <h3>La patiente est : </h3>
+          <h3>La patiente est : </h3> 
             <p> 
               <Button variant="danger" id="1" value="Majeure" onClick={(e)=>{
                 props.onFonction.recupId(e);
