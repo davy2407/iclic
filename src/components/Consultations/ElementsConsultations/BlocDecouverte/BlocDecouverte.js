@@ -31,7 +31,7 @@ function BlocDecouverte(props) {
     titre : "Mode de découverte de la grossesse : ",
         value : "",
         reponse : 0
-      });
+      }); 
 
       const [ currentBisRep, setCurrentBisRep] =useState({
         titre : "Mode de découverte de la grossesse : ",
